@@ -8,7 +8,8 @@ Two things come out of this:
     way to draw a netlist - a net joins N pins, not 2
 """
 import json, os, re, sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+# tooling lives in ../tools, inside this repository
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'tools')))
 import sexp
 from route_sch import resolve_symbol, symbol_pins, place_pin
 
@@ -111,7 +112,6 @@ def boxes(path):
 def main():
     here = os.path.dirname(os.path.abspath(__file__))
     proj = os.path.join(here, '..')
-    sys.path.insert(0, os.path.abspath(os.path.join(here, '..', '..')))
     import design
 
     # component -> sheet, and its pin/net map, from the authoritative netlist
