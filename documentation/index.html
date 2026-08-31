@@ -5,6 +5,8 @@
 <meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <link rel="stylesheet" href="style.css">
+<script src="vendor/cytoscape.min.js" defer></script>
+<script src="viewer.js" defer></script>
 </head><body>
 <div class="shell">
 <aside class="side">
@@ -19,6 +21,15 @@
 <p class="lede">A 500-series dynamics module built from ordinary parts &mdash; nine BC549
 transistors and six NE5532 op amps. This site walks through every section of the
 schematic: what it does, how it does it, and why it was built that way.</p>
+<div class="note">
+  <h4>The schematics are interactive</h4>
+  <p>Every sheet on this site is live. Scroll to zoom and drag to pan, click any part to see
+  its value, footprint and every net it touches, and click a net to light up everything else
+  connected to it. The <strong>Connections</strong> tab shows the same sheet as a graph &mdash;
+  parts and nets are both nodes, because a net joins any number of pins, not just two. There is
+  a search box for jumping straight to a designator like <code>R14</code> or a net like
+  <code>VBIAS</code>.</p>
+</div>
 
 <dl class="spec">
   <div><dt>Format</dt><dd>500 series</dd></div>

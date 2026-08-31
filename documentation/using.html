@@ -5,6 +5,8 @@
 <meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <link rel="stylesheet" href="style.css">
+<script src="vendor/cytoscape.min.js" defer></script>
+<script src="viewer.js" defer></script>
 </head><body>
 <div class="shell">
 <aside class="side">
@@ -67,7 +69,9 @@ ever goes near a rack.</p>
   <li><code>UTS Mini Mixing Desk - Compressor.kicad_pro</code> &mdash; open this in KiCad 9. Six sheets.</li>
   <li><code>design.py</code> (in the parent project) &mdash; the authoritative netlist as data.
       The schematic is generated and verified against it.</li>
-  <li><code>documentation/</code> &mdash; this site. Rebuild with <code>python3 _build.py</code>.</li>
+  <li><code>documentation/</code> &mdash; this site. Rebuild the pages with
+      <code>python3 _build.py</code>, and the viewer data with <code>python3 _data.py</code>
+      after any schematic change.</li>
 </ul>
 
 <div class="next"><a href="power.html">&larr; Power &amp; references</a><span></span></div>

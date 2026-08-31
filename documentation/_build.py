@@ -41,6 +41,8 @@ def shell(fname, title, body):
 <meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
 {FONTS}
 <link rel="stylesheet" href="style.css">
+<script src="vendor/cytoscape.min.js" defer></script>
+<script src="viewer.js" defer></script>
 </head><body>
 <div class="shell">
 <aside class="side">
@@ -62,10 +64,28 @@ def shell(fname, title, body):
 
 
 def fig(name, caption, note=""):
-    return f"""<figure>
-  <div class="pane"><img src="img/{name}.svg" alt="{caption}" loading="lazy"></div>
-  <figcaption><span>{caption}</span><a href="img/{name}.svg" target="_blank" rel="noopener">Open full size &rarr;</a></figcaption>
-</figure>{note}"""
+    """Interactive viewer: the real schematic with clickable parts, plus the same sheet
+    as a netlist graph. Sheet data is inlined so it works from file:// too."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(here, 'data', '%s.json' % name)) as f:
+        payload = f.read()
+    return f"""<div class="iv" id="iv-{name}">
+  <div class="iv-bar">
+    <button class="iv-tab on" data-view="schematic">Schematic</button>
+    <button class="iv-tab" data-view="graph">Connections</button>
+    <span class="iv-sp"></span>
+    <input class="iv-find" type="search" placeholder="find R14, VBIAS…" aria-label="Find part or net">
+    <button class="iv-btn iv-zout" title="Zoom out">&minus;</button>
+    <button class="iv-btn iv-zin" title="Zoom in">+</button>
+    <button class="iv-btn iv-zres" title="Fit">Fit</button>
+  </div>
+  <div class="iv-body"></div>
+  <div class="iv-foot">
+    <span>{caption}</span>
+    <a href="img/{name}.svg" target="_blank" rel="noopener">Open the plain schematic &rarr;</a>
+  </div>
+  <script type="application/json">{payload}</script>
+</div>{note}"""
 
 
 def table(headers, rows, cls=None):
@@ -85,6 +105,15 @@ PAGES['index.html'] = ("Overview", """
 <p class="lede">A 500-series dynamics module built from ordinary parts &mdash; nine BC549
 transistors and six NE5532 op amps. This site walks through every section of the
 schematic: what it does, how it does it, and why it was built that way.</p>
+<div class="note">
+  <h4>The schematics are interactive</h4>
+  <p>Every sheet on this site is live. Scroll to zoom and drag to pan, click any part to see
+  its value, footprint and every net it touches, and click a net to light up everything else
+  connected to it. The <strong>Connections</strong> tab shows the same sheet as a graph &mdash;
+  parts and nets are both nodes, because a net joins any number of pins, not just two. There is
+  a search box for jumping straight to a designator like <code>R14</code> or a net like
+  <code>VBIAS</code>.</p>
+</div>
 
 <dl class="spec">
   <div><dt>Format</dt><dd>500 series</dd></div>
@@ -738,7 +767,9 @@ ever goes near a rack.</p>
   <li><code>UTS Mini Mixing Desk - Compressor.kicad_pro</code> &mdash; open this in KiCad 9. Six sheets.</li>
   <li><code>design.py</code> (in the parent project) &mdash; the authoritative netlist as data.
       The schematic is generated and verified against it.</li>
-  <li><code>documentation/</code> &mdash; this site. Rebuild with <code>python3 _build.py</code>.</li>
+  <li><code>documentation/</code> &mdash; this site. Rebuild the pages with
+      <code>python3 _build.py</code>, and the viewer data with <code>python3 _data.py</code>
+      after any schematic change.</li>
 </ul>
 """)
 
