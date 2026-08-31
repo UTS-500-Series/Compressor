@@ -71,6 +71,24 @@ The [documentation](documentation/) covers all of this properly, section by sect
 | Controls | Threshold, Ratio, Attack, Release, Makeup |
 | Switches | Bypass, sidechain key int/ext, sidechain HPF, stereo link |
 
+## Front panel
+
+[`panel/`](panel/) holds the faceplate: a mockup, a dimensioned 1:1 drawing, and a DXF of the
+outline and holes for a panel shop. All three are generated from one definition by
+`panel/make_panel.py`, which runs a clearance check on every build.
+
+Panel is the standard 500-series 1.500″ × 5.250″ × 0.125″ with two countersunk mounting holes
+125.43 mm apart, badged **OPN-500 / CMP-01**.
+
+Two **dual-concentric** knobs carry the paired controls — THRESHOLD over RATIO, ATTACK over
+RELEASE — which is what makes room on a 38 mm panel for two 7-segment LED meters (gain
+reduction and output level), a lit latching BYPASS button, and HPF and KEY toggles flanking
+MAKEUP. LINK is a pull on the MAKEUP knob.
+
+The finish is a bone panel with sage and terracotta silkscreen, flat rather than skeuomorphic
+— printed dot scales round the knobs, a dark inset behind the meters, and deliberately unlike
+the black modules it sits between.
+
 ## Bill of materials
 
 128 components across 51 distinct line items: 62 resistors, 33 capacitors, 9 transistors,
@@ -153,6 +171,12 @@ Both scripts import from `tools/`, so a fresh clone has everything it needs.
 
 - No PCB layout has been attempted. `J1` is a generic `Conn_01x15`, so a real card-edge
   footprint is still needed.
+- The panel is a 2D drawing only — depth clearance between knobs and the PCB has not been
+  checked, and panel hardware is assumed rather than specified.
+- **The panel needs parts and circuitry the schematic does not have yet:** two 7-segment LED
+  meters (14 LEDs) need a comparator ladder or display driver; `RV3`/`RV4` and `RV5`/`RV6` are
+  drawn as dual-concentric pots rather than singles; `SW1` is a latching pushbutton; and `SW4`
+  (LINK) is now a pull switch on `RV2`. `design.py` still has the older discrete arrangement.
 - The switches have no footprints assigned — pick parts to suit the panel.
 - Pin 11 is used as an auxiliary input, which the API 500 specification assigns to a gain-trim
   node. The aux section (U5 and its resistors) is a separable block; omit it and the module is

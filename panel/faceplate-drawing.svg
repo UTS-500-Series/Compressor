@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="86.10mm" height="181.35mm" viewBox="0 0 86.10 181.35">
+<rect width="86.10" height="181.35" fill="#fff"/>
+<g transform="translate(24.00 24.00)">
+<rect width="38.10" height="133.35" rx="1.2" stroke="#111" fill="none" stroke-width="0.35"/>
+<line x1="19.05" y1="-7" x2="19.05" y2="140.35" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="19.05" cy="3.96" r="1.59" stroke="#111" fill="none" stroke-width="0.3"/>
+<circle cx="19.05" cy="3.96" r="2.86" stroke="#111" stroke-width="0.12" fill="none"/>
+<line x1="14.05" y1="3.96" x2="24.05" y2="3.96" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="19.05" cy="129.39" r="1.59" stroke="#111" fill="none" stroke-width="0.3"/>
+<circle cx="19.05" cy="129.39" r="2.86" stroke="#111" stroke-width="0.12" fill="none"/>
+<line x1="14.05" y1="129.39" x2="24.05" y2="129.39" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="19.05" cy="56.00" r="4.75" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="12.80" y1="56.00" x2="25.30" y2="56.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="19.05" y1="49.75" x2="19.05" y2="62.25" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="19.05" cy="79.00" r="4.75" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="12.80" y1="79.00" x2="25.30" y2="79.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="19.05" y1="72.75" x2="19.05" y2="85.25" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="19.05" cy="106.00" r="3.50" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="14.05" y1="106.00" x2="24.05" y2="106.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="19.05" y1="101.00" x2="19.05" y2="111.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="8.50" cy="126.00" r="4.00" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="3.00" y1="126.00" x2="14.00" y2="126.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="8.50" y1="120.50" x2="8.50" y2="131.50" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="5.60" cy="105.00" r="3.00" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="1.10" y1="105.00" x2="10.10" y2="105.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="5.60" y1="100.50" x2="5.60" y2="109.50" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="32.50" cy="105.00" r="3.00" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="28.00" y1="105.00" x2="37.00" y2="105.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="32.50" y1="100.50" x2="32.50" y2="109.50" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="13.60" cy="14.00" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="11.00" y1="14.00" x2="16.20" y2="14.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="13.60" y1="11.40" x2="13.60" y2="16.60" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="13.60" cy="17.50" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="11.00" y1="17.50" x2="16.20" y2="17.50" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="13.60" y1="14.90" x2="13.60" y2="20.10" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="13.60" cy="21.00" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="11.00" y1="21.00" x2="16.20" y2="21.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="13.60" y1="18.40" x2="13.60" y2="23.60" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="13.60" cy="24.50" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="11.00" y1="24.50" x2="16.20" y2="24.50" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="13.60" y1="21.90" x2="13.60" y2="27.10" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="13.60" cy="28.00" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="11.00" y1="28.00" x2="16.20" y2="28.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="13.60" y1="25.40" x2="13.60" y2="30.60" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="13.60" cy="31.50" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="11.00" y1="31.50" x2="16.20" y2="31.50" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="13.60" y1="28.90" x2="13.60" y2="34.10" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="13.60" cy="35.00" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="11.00" y1="35.00" x2="16.20" y2="35.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="13.60" y1="32.40" x2="13.60" y2="37.60" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="24.50" cy="14.00" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="21.90" y1="14.00" x2="27.10" y2="14.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="24.50" y1="11.40" x2="24.50" y2="16.60" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="24.50" cy="17.50" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="21.90" y1="17.50" x2="27.10" y2="17.50" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="24.50" y1="14.90" x2="24.50" y2="20.10" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="24.50" cy="21.00" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="21.90" y1="21.00" x2="27.10" y2="21.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="24.50" y1="18.40" x2="24.50" y2="23.60" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="24.50" cy="24.50" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="21.90" y1="24.50" x2="27.10" y2="24.50" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="24.50" y1="21.90" x2="24.50" y2="27.10" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="24.50" cy="28.00" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="21.90" y1="28.00" x2="27.10" y2="28.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="24.50" y1="25.40" x2="24.50" y2="30.60" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="24.50" cy="31.50" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="21.90" y1="31.50" x2="27.10" y2="31.50" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="24.50" y1="28.90" x2="24.50" y2="34.10" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="24.50" cy="35.00" r="1.10" stroke="#111" fill="none" stroke-width="0.3"/>
+<line x1="21.90" y1="35.00" x2="27.10" y2="35.00" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<line x1="24.50" y1="32.40" x2="24.50" y2="37.60" stroke="#c22" stroke-width="0.12" stroke-dasharray="3 1 0.6 1" fill="none"/>
+<circle cx="19.05" cy="56.00" r="7.50" stroke="#111" stroke-width="0.12" fill="none" stroke-dasharray="1 1"/>
+<text x="28.05" y="55.20" text-anchor="start" font-family="Helvetica,Arial" font-size="2.0" fill="#111">RV3 / RV4</text>
+<text x="28.05" y="57.70" text-anchor="start" font-family="Helvetica,Arial" font-size="1.7" fill="#555">THRESHOLD + RATIO &#216;9.5</text>
+<circle cx="19.05" cy="79.00" r="7.50" stroke="#111" stroke-width="0.12" fill="none" stroke-dasharray="1 1"/>
+<text x="28.05" y="78.20" text-anchor="start" font-family="Helvetica,Arial" font-size="2.0" fill="#111">RV5 / RV6</text>
+<text x="28.05" y="80.70" text-anchor="start" font-family="Helvetica,Arial" font-size="1.7" fill="#555">ATTACK + RELEASE &#216;9.5</text>
+<circle cx="19.05" cy="106.00" r="6.00" stroke="#111" stroke-width="0.12" fill="none" stroke-dasharray="1 1"/>
+<text x="26.55" y="105.20" text-anchor="start" font-family="Helvetica,Arial" font-size="2.0" fill="#111">RV2</text>
+<text x="26.55" y="107.70" text-anchor="start" font-family="Helvetica,Arial" font-size="1.7" fill="#555">MAKEUP &#216;7.0</text>
+<text x="1.10" y="96.20" text-anchor="end" font-family="Helvetica,Arial" font-size="2.0" fill="#111">SW3</text>
+<text x="1.10" y="98.70" text-anchor="end" font-family="Helvetica,Arial" font-size="1.7" fill="#555">HPF &#216;6.0</text>
+<text x="37.00" y="91.20" text-anchor="start" font-family="Helvetica,Arial" font-size="2.0" fill="#111">SW2</text>
+<text x="37.00" y="93.70" text-anchor="start" font-family="Helvetica,Arial" font-size="1.7" fill="#555">KEY &#216;6.0</text>
+<text x="3.00" y="119.20" text-anchor="end" font-family="Helvetica,Arial" font-size="2.0" fill="#111">SW1</text>
+<text x="3.00" y="121.70" text-anchor="end" font-family="Helvetica,Arial" font-size="1.7" fill="#555">BYP &#216;8.0</text>
+<text x="19.05" y="38.60" font-family="Helvetica,Arial" font-size="1.6" fill="#555" text-anchor="middle">2 &#215; 7 holes &#216;2.2, 3.5 pitch</text>
+<text x="13.60" y="11.40" font-family="Helvetica,Arial" font-size="1.7" fill="#555" text-anchor="middle">GR</text>
+<text x="24.50" y="11.40" font-family="Helvetica,Arial" font-size="1.7" fill="#555" text-anchor="middle">LVL</text>
+<line x1="0.00" y1="-7.00" x2="38.10" y2="-7.00" stroke="#111" stroke-width="0.12" fill="none"/>
+<line x1="0.00" y1="0.00" x2="0.00" y2="-7.00" stroke="#111" stroke-width="0.12" fill="none"/>
+<line x1="38.10" y1="0.00" x2="38.10" y2="-7.00" stroke="#111" stroke-width="0.12" fill="none"/>
+<text x="19.05" y="-8.00" font-family="Helvetica,Arial" font-size="2.1" fill="#111" text-anchor="middle">38.10 (1.500")</text>
+<line x1="49.10" y1="0.00" x2="49.10" y2="133.35" stroke="#111" stroke-width="0.12" fill="none"/>
+<line x1="38.10" y1="0.00" x2="49.10" y2="0.00" stroke="#111" stroke-width="0.12" fill="none"/>
+<line x1="38.10" y1="133.35" x2="49.10" y2="133.35" stroke="#111" stroke-width="0.12" fill="none"/>
+<text x="48.10" y="66.67" font-family="Helvetica,Arial" font-size="2.1" fill="#111" transform="rotate(-90 48.10 66.67)" text-anchor="middle">133.35 (5.250")</text>
+<line x1="4.05" y1="3.96" x2="4.05" y2="129.39" stroke="#111" stroke-width="0.12" fill="none"/>
+<line x1="19.05" y1="3.96" x2="4.05" y2="3.96" stroke="#111" stroke-width="0.12" fill="none"/>
+<line x1="19.05" y1="129.39" x2="4.05" y2="129.39" stroke="#111" stroke-width="0.12" fill="none"/>
+<text x="3.05" y="66.67" font-family="Helvetica,Arial" font-size="2.1" fill="#111" transform="rotate(-90 3.05 66.67)" text-anchor="middle">125.43 (4.938")</text>
+<line x1="0.00" y1="142.35" x2="19.05" y2="142.35" stroke="#111" stroke-width="0.12" fill="none"/>
+<line x1="0.00" y1="133.35" x2="0.00" y2="142.35" stroke="#111" stroke-width="0.12" fill="none"/>
+<line x1="19.05" y1="133.35" x2="19.05" y2="142.35" stroke="#111" stroke-width="0.12" fill="none"/>
+<text x="9.53" y="141.35" font-family="Helvetica,Arial" font-size="2.1" fill="#111" text-anchor="middle">19.05</text>
+<text x="0" y="148.35" font-family="Helvetica,Arial" font-size="2.3" fill="#111">OPN-500 / CMP-01 compressor : front panel</text>
+<text x="0" y="151.75" font-family="Helvetica,Arial" font-size="1.8" fill="#555">Material 3.18 mm (0.125&quot;) aluminium. Mounting holes &#216;3.18, c'sink 82&#176; to &#216;5.72. All dimensions mm.</text>
+</g></svg>
