@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The sidechain &middot; UTS Mini Mixing Desk &mdash; Compressor</title>
+<meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="shell">
+<aside class="side">
+  <a class="brand" href="index.html"><b>UTS Mini Mixing Desk</b><span>Compressor module</span></a>
+  <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">Contents</button>
+  <nav><h4>Start here</h4><a href="index.html"><i>01</i><span>Overview</span></a><h4>Signal path</h4><a href="connector.html"><i>02</i><span>500-series interface</span></a><a href="input.html"><i>03</i><span>Balanced input &amp; pad</span></a><a href="vca.html"><i>04</i><span>The gain cell</span></a><a href="output.html"><i>05</i><span>Makeup &amp; output</span></a><h4>Control path</h4><a href="sidechain.html" class="on"><i>06</i><span>The sidechain</span></a><h4>Support</h4><a href="power.html"><i>07</i><span>Power &amp; references</span></a><h4>Practical</h4><a href="using.html"><i>08</i><span>Setting up &amp; using it</span></a></nav>
+</aside>
+<main class="main"><div class="wrap">
+
+<p class="eyebrow">Sheet 5</p>
+<h1>The sidechain</h1>
+<p class="lede">The part that decides how much compression to apply. It measures the output,
+compares it to a threshold, and produces the DC control voltage that drives the gain cell.</p>
+
+<figure>
+  <div class="pane"><img src="img/sidechain.svg" alt="Sheet 5 &mdash; source select, threshold, rectifier, ratio, timing and control buffer" loading="lazy"></div>
+  <figcaption><span>Sheet 5 &mdash; source select, threshold, rectifier, ratio, timing and control buffer</span><a href="img/sidechain.svg" target="_blank" rel="noopener">Open full size &rarr;</a></figcaption>
+</figure>
+
+<h2>The chain, stage by stage</h2>
+<div class="flow">
+  <b class="c">Source select</b><i>&rarr;</i><b class="c">Buffer</b><i>&rarr;</i><b class="c">HPF</b>
+  <i>&rarr;</i><b class="c">Threshold</b><i>&rarr;</i><b class="c">Rectifier</b>
+  <i>&rarr;</i><b class="c">Ratio</b><i>&rarr;</i><b class="c">Timing</b><i>&rarr;</i><b class="c">To gain cell</b>
+</div>
+
+<h3>1. Source select and buffer</h3>
+<p><code>SW2</code> chooses between the module's own output (<code>SIG-VCA</code>) and the
+external key input. <code>U6B</code> buffers whichever you picked so the following controls do
+not load the source.</p>
+
+<h3>2. The sidechain high-pass filter</h3>
+<p><code>C14</code> (220 nF) with <code>R38</code> (10 k&Omega;) makes a high-pass filter at
+about <strong>72 Hz</strong>, which <code>SW3</code> can short out.</p>
+<p>This exists because bass carries most of the energy in music. Without it, every kick drum
+hit pulls the whole mix down and the compressor "pumps" to the beat. Rolling the bass out of
+the <em>detector only</em> &mdash; the audio path is untouched &mdash; makes the compressor
+respond to the overall balance instead of to the low end.</p>
+
+<h3>3. Threshold</h3>
+<p><code>RV3</code> (1 M&Omega;) is wired as a <strong>rheostat</strong>: a variable resistor
+feeding <code>U3A</code>, whose gain is <code>R36 / (R35 + RV3)</code>. Turning it up increases
+the detector's gain, so a quieter signal is enough to start compression &mdash; which is what
+lowering a threshold means.</p>
+<p>Wiring it this way is deliberate. Because gain is inversely proportional to resistance, a
+plain <em>linear</em> pot produces a roughly <em>logarithmic</em> sweep in dB, which is what
+feels natural on the knob. The usable range is about &minus;20 dBu to +14 dBu.</p>
+
+<h3>4. The precision rectifier</h3>
+<p>To measure loudness you need the size of the signal regardless of sign &mdash; its absolute
+value. A plain diode cannot do this at audio levels, because it needs about 0.6 V before it
+conducts at all and anything smaller vanishes.</p>
+<p>The fix is to put the diodes <em>inside</em> an op amp's feedback loop. <code>U3B</code>
+with <code>D5</code> and <code>D6</code> forms a half-wave rectifier whose op amp simply drives
+harder to overcome the diode drop, so the law holds down to millivolts. <code>U4A</code> then
+sums the half-wave result at twice the weight of the original signal, and the arithmetic works
+out to a clean <strong>full-wave</strong> absolute value at <code>RECT</code>.</p>
+<p>Full-wave rather than half-wave matters because it doubles the ripple frequency, which makes
+the ripple easier to smooth away in the next stage without slowing the compressor down.</p>
+
+<h3>5. Ratio</h3>
+<p><code>RV4</code> (100 k&Omega;) is a plain divider on the rectifier output. It sets how much
+control voltage reaches the gain cell for a given amount of signal &mdash; in other words, how
+many dB of gain reduction you get per dB over threshold. That is what "ratio" means.</p>
+
+<h3>6. Attack and release</h3>
+<p>This is where the compressor gets its <em>timing</em>. <code>C15</code> (10 &micro;F) is the
+timing capacitor, and its voltage <em>is</em> the control signal.</p>
+<div class="tw"><table><thead><tr><th class="">Control</th><th class="">Path</th><th class="n">Time constant</th></tr></thead><tbody><tr><td class="">Attack</td><td class=""><code>RV5</code> 4k7 + <code>R46</code> 47 &Omega; + <code>R45</code> 220 &Omega;, through <code>D7</code> into C15</td><td class="n">2.7 ms &ndash; 50 ms</td></tr><tr><td class="">Release</td><td class=""><code>RV6</code> 220 k&Omega; + <code>R47</code> 4k7 discharging C15 to ground</td><td class="n">47 ms &ndash; 2.2 s</td></tr></tbody></table></div>
+<p><code>D7</code> is what separates the two. Charging current can only flow into the capacitor
+through the diode, so the <em>attack</em> path is the diode plus the attack resistor. Discharge
+cannot flow back through the diode, so it has to go through the release resistor instead. One
+diode gives you two independent time constants.</p>
+<p>Short attack catches transients but sounds aggressive; long attack lets the initial hit
+through and sounds punchier. Short release recovers quickly but can pump audibly; long release
+is smoother but can leave the signal held down after a loud passage.</p>
+
+<h3>7. Control buffer</h3>
+<p><code>U4B</code> buffers the timing capacitor. Its job is to read the capacitor's voltage
+without discharging it. <code>R74</code> (220 k&Omega;) in the feedback path is chosen to match
+the release network's resistance, so the op amp's small input bias current produces an equal
+error on both inputs and cancels rather than shifting the resting point.</p>
+
+<div class="note warn">
+  <h4>The one place worth deviating from NE5532</h4>
+  <p>An NE5532's inputs draw around 200 nA. On a 220 k&Omega; timing node that can leave enough
+  offset to hold the compressor in about a decibel of gain reduction at idle. Fitting a
+  <strong>TL072 or OPA2134 for U4 only</strong> &mdash; both pin-compatible &mdash; removes the
+  problem entirely, because FET inputs draw essentially no current.</p>
+</div>
+
+<h2>Stereo link</h2>
+<p><code>SW4</code> connects the detector node to pin 6. With two modules linked, each
+detector sees the <em>average</em> of both channels, so they always apply identical gain
+reduction. Without linking, a loud sound on one side only would pull that side down and shift
+the stereo image sideways.</p>
+<p>Set attack and release the same on both modules when linked.</p>
+
+<div class="next"><a href="output.html">&larr; Makeup &amp; output</a><a href="power.html">Power &amp; references &rarr;</a></div>
+<footer>
+  UTS Mini Mixing Desk &mdash; Compressor &middot; documentation generated from the KiCad project<br>
+  Schematics are exported from the project in this repository. Figures update when you re-run <code>_build.py</code>.<br>
+  Performance figures are calculated from the design, not measured on hardware.
+</footer>
+</div></main>
+</div></body></html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Power &amp; references &middot; UTS Mini Mixing Desk &mdash; Compressor</title>
+<meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="shell">
+<aside class="side">
+  <a class="brand" href="index.html"><b>UTS Mini Mixing Desk</b><span>Compressor module</span></a>
+  <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">Contents</button>
+  <nav><h4>Start here</h4><a href="index.html"><i>01</i><span>Overview</span></a><h4>Signal path</h4><a href="connector.html"><i>02</i><span>500-series interface</span></a><a href="input.html"><i>03</i><span>Balanced input &amp; pad</span></a><a href="vca.html"><i>04</i><span>The gain cell</span></a><a href="output.html"><i>05</i><span>Makeup &amp; output</span></a><h4>Control path</h4><a href="sidechain.html"><i>06</i><span>The sidechain</span></a><h4>Support</h4><a href="power.html" class="on"><i>07</i><span>Power &amp; references</span></a><h4>Practical</h4><a href="using.html"><i>08</i><span>Setting up &amp; using it</span></a></nav>
+</aside>
+<main class="main"><div class="wrap">
+
+<p class="eyebrow">Sheet 6</p>
+<h1>Power and references</h1>
+<p class="lede">Not a signal path &mdash; five small independent circuits plus a block of
+decoupling. Everything else in the module depends on getting these voltages right.</p>
+
+<figure>
+  <div class="pane"><img src="img/power.svg" alt="Sheet 6 &mdash; rail entry, references, bias, meter, grounding and decoupling" loading="lazy"></div>
+  <figcaption><span>Sheet 6 &mdash; rail entry, references, bias, meter, grounding and decoupling</span><a href="img/power.svg" target="_blank" rel="noopener">Open full size &rarr;</a></figcaption>
+</figure>
+
+<h2>Rail entry</h2>
+<p>The &plusmn;16 V rails arrive from the rack and pass through <code>R50</code> and
+<code>R51</code> (10 &Omega; each) into reservoir capacitors <code>C16</code> and
+<code>C17</code> (100 &micro;F). The resistors do two things: with the capacitors they form a
+low-pass filter that keeps rack-borne noise out, and they limit fault current if something goes
+wrong on the card.</p>
+<p><code>D8</code> and <code>D9</code> are reverse-polarity clamps. Both sit
+<strong>cathode-up</strong>, meaning both are reverse-biased and doing nothing in normal
+operation. If a rail ever arrives with the wrong polarity, the corresponding diode conducts and
+clamps it near ground while the 10 &Omega; resistor absorbs the current, instead of that
+polarity reaching every IC on the board.</p>
+
+<h2>The &minus;5.1 V reference</h2>
+<p>The gain cell's current source needs a stable negative reference that is <em>not</em> the
+&minus;16 V rail &mdash; using the rail directly would make the tail current, and therefore the
+gain, follow every wobble on the supply.</p>
+<p><code>R53</code> (1k8) feeds <strong>6.1 mA</strong> from the &minus;16 V rail into
+<code>D10</code>, a 5.1 V zener. The cell draws about 3 mA of that, leaving roughly 3 mA
+through the zener &mdash; comfortably inside its regulating range.
+<code>C19</code> and <code>C20</code> bypass it.</p>
+
+<h2>Cell bias &mdash; VBIAS</h2>
+<p><code>R9</code> (68 k&Omega;) and <code>R10</code> (11 k&Omega;) divide +16 V down to
+<strong>2.23 V</strong>, heavily bypassed by <code>C6</code> and <code>C7</code>.</p>
+<p>This lifts the gain cell's input transistors off ground. Without it, <code>Q3</code>'s
+collector would sit too close to its emitter and the current source would not have enough
+voltage across it to behave like a current source. Raising the whole cell by 2.23 V buys
+<code>Q3</code> about 2 V of headroom at full tail current.</p>
+
+<h2>The steering reference</h2>
+<p>This is the most sensitive network in the module, because it sets the gain cell's resting
+point.</p>
+<div class="tw"><table><thead><tr><th class="r">Net</th><th class="n">Voltage</th><th class="r">Set by</th><th class="">What it does</th></tr></thead><tbody><tr><td class="r"><code>VREF5</code></td><td class="n">5.49 V</td><td class="r">R60 / (R61+R62)</td><td class="">Top of the reference chain</td></tr><tr><td class="r"><code>VREFA</code></td><td class="n">5.19 V</td><td class="r">R60+R61 / R62</td><td class="">Buffered by U6A to become <code>STA</code></td></tr><tr><td class="r"><code>STA</code></td><td class="n">5.19 V</td><td class="r">U6A follower</td><td class="">Fixed reference for the dump transistors</td></tr><tr><td class="r"><code>STB</code></td><td class="n">5.34 V at rest</td><td class="r">R68 / R69 from VREF5 and the control voltage</td><td class="">The controlled side &mdash; moves with compression</td></tr></tbody></table></div>
+<p>At rest <code>STB</code> sits about <strong>150 mV above</strong> <code>STA</code>, which
+holds the cell fully on. As the control voltage goes negative, <code>R68</code>/<code>R69</code>
+drag <code>STB</code> down; when it passes about 120 mV <em>below</em> <code>STA</code> the cell
+is at roughly 40 dB of gain reduction.</p>
+<p>That resting offset is set by <code>R61</code> (1k33) and <code>R62</code> (23k2), which is
+why both are 0.1% parts. If <code>VREFA</code> comes out too high, <code>STB</code> starts below
+<code>STA</code> and the module sits in permanent gain reduction.</p>
+
+<h2>Gain-reduction meter</h2>
+<p><code>R77</code> (3k9) and <code>LED1</code> hang off the control voltage. At rest the
+control line is at 0 V and the LED is dark; at full compression it is near &minus;10 V and the
+LED draws about 2 mA. Brightness tracks gain reduction directly &mdash; crude, but it costs two
+components and tells you instantly whether the compressor is working.</p>
+
+<h2>Grounding</h2>
+<p><code>R48</code> is a <strong>0 &Omega; link</strong> and it is the single most important
+component on this sheet. It is the one and only place where PSU ground and audio ground meet.
+Fit exactly one.</p>
+<p><code>R52</code> (100 &Omega;) and <code>C18</code> (10 nF) connect chassis ground to audio
+ground as a <em>hybrid</em>: the capacitor gives radio frequencies a low-impedance path to the
+chassis for shielding, while the resistor stops mains-frequency current from circulating and
+causing hum.</p>
+
+<h2>Decoupling</h2>
+<p>Every NE5532 gets a 100 nF capacitor on each supply pin, close to the package &mdash; twelve
+in all. Op amps draw current in fast bursts as their outputs move; the capacitors supply that
+locally instead of letting it travel around the board and modulate the rails. This is not
+optional garnish, it is what stops one stage from talking to another through the supply.</p>
+
+<div class="note">
+  <h4>Current budget</h4>
+  <p>About <strong>60 mA per rail</strong> typical, against the 130 mA the 500-series
+  specification allows. Worst-case NE5532s with a hard-driven output land near 110 mA. Building
+  a stereo pair into a small frame? Omitting the aux section gives back roughly 16 mA per rail
+  per module.</p>
+</div>
+
+<div class="next"><a href="sidechain.html">&larr; The sidechain</a><a href="using.html">Setting up &amp; using it &rarr;</a></div>
+<footer>
+  UTS Mini Mixing Desk &mdash; Compressor &middot; documentation generated from the KiCad project<br>
+  Schematics are exported from the project in this repository. Figures update when you re-run <code>_build.py</code>.<br>
+  Performance figures are calculated from the design, not measured on hardware.
+</footer>
+</div></main>
+</div></body></html>

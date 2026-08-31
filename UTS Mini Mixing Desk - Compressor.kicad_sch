@@ -3,17 +3,17 @@
 	(generator "eeschema")
 	(generator_version "9.0")
 	(uuid "fdeae63a-37f5-58fb-b342-cb68d8a6bfbc")
-	(paper "A3")
+	(paper "A4")
 	(title_block
-		(title "Steer 500 Compressor")
+		(title "UTS Mini Mixing Desk - Compressor")
 		(date "2026-08-31")
 		(rev "A")
-		(company "500-series module")
+		(company "UTS Mini Mixing Desk")
 	)
 	(lib_symbols)
-	(text "Steer 500 compressor - one sheet per section"
+	(text "UTS Mini Mixing Desk - Compressor - one sheet per section"
 		(exclude_from_sim no)
-		(at 30 25 0)
+		(at 49.53 49.77 0)
 		(effects
 			(font
 				(size 3 3)
@@ -24,12 +24,13 @@
 		(uuid "dcf624ab-22eb-56e4-9388-899e65f37e81")
 	)
 	(sheet
-		(at 182.4 40)
+		(at 201.93 64.77)
 		(size 44.45 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -39,7 +40,7 @@
 		)
 		(uuid "174e7320-d7b1-5aab-af4c-021d06d87bce")
 		(property "Sheetname" "3 VCA"
-			(at 182.4 39.3 0)
+			(at 201.93 64.0584 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48,7 +49,7 @@
 			)
 		)
 		(property "Sheetfile" "vca.kicad_sch"
-			(at 182.4 66.1 0)
+			(at 201.93 90.7546 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -57,7 +58,7 @@
 			)
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc"
 					(page "4")
 				)
@@ -65,12 +66,13 @@
 		)
 	)
 	(sheet
-		(at 30 90.8)
+		(at 49.53 115.57)
 		(size 44.45 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -80,7 +82,7 @@
 		)
 		(uuid "3c12989f-7a47-57c9-9938-7ba13ccb2516")
 		(property "Sheetname" "4 Output"
-			(at 30 90.1 0)
+			(at 49.53 114.8584 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -89,7 +91,7 @@
 			)
 		)
 		(property "Sheetfile" "output.kicad_sch"
-			(at 30 116.9 0)
+			(at 49.53 141.5546 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -98,7 +100,7 @@
 			)
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc"
 					(page "5")
 				)
@@ -106,12 +108,13 @@
 		)
 	)
 	(sheet
-		(at 106.2 40)
+		(at 125.73 64.77)
 		(size 44.45 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -121,7 +124,7 @@
 		)
 		(uuid "5797578f-278c-54d6-a28d-0cf0ddb33cbf")
 		(property "Sheetname" "2 Input"
-			(at 106.2 39.3 0)
+			(at 125.73 64.0584 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -130,7 +133,7 @@
 			)
 		)
 		(property "Sheetfile" "input.kicad_sch"
-			(at 106.2 66.1 0)
+			(at 125.73 90.7546 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -139,7 +142,7 @@
 			)
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc"
 					(page "3")
 				)
@@ -147,12 +150,13 @@
 		)
 	)
 	(sheet
-		(at 106.2 90.8)
+		(at 125.73 115.57)
 		(size 44.45 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -162,7 +166,7 @@
 		)
 		(uuid "726d8415-a5fc-52c7-823f-9ededf5a8991")
 		(property "Sheetname" "5 Sidechain"
-			(at 106.2 90.1 0)
+			(at 125.73 114.8584 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -171,7 +175,7 @@
 			)
 		)
 		(property "Sheetfile" "sidechain.kicad_sch"
-			(at 106.2 116.9 0)
+			(at 125.73 141.5546 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -180,7 +184,7 @@
 			)
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc"
 					(page "6")
 				)
@@ -188,12 +192,13 @@
 		)
 	)
 	(sheet
-		(at 30 40)
+		(at 49.53 64.77)
 		(size 44.45 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -203,7 +208,7 @@
 		)
 		(uuid "a71beffb-08c5-50af-b047-4c3106cc907a")
 		(property "Sheetname" "1 Connector"
-			(at 30 39.3 0)
+			(at 49.53 64.0584 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -212,7 +217,7 @@
 			)
 		)
 		(property "Sheetfile" "connector.kicad_sch"
-			(at 30 66.1 0)
+			(at 49.53 90.7546 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -221,7 +226,7 @@
 			)
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc"
 					(page "2")
 				)
@@ -229,12 +234,13 @@
 		)
 	)
 	(sheet
-		(at 182.4 90.8)
+		(at 201.93 115.57)
 		(size 44.45 25.4)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -244,7 +250,7 @@
 		)
 		(uuid "c5adaca6-1d0e-5bdd-9154-62aca7332af4")
 		(property "Sheetname" "6 Power"
-			(at 182.4 90.1 0)
+			(at 201.93 114.8584 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -253,7 +259,7 @@
 			)
 		)
 		(property "Sheetfile" "power.kicad_sch"
-			(at 182.4 116.9 0)
+			(at 201.93 141.5546 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -262,7 +268,7 @@
 			)
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc"
 					(page "7")
 				)

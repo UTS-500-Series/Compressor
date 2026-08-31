@@ -5,10 +5,10 @@
 	(uuid "9d486a37-767e-5ee4-b7f3-4fe38f620097")
 	(paper "User" 307.34 304.8)
 	(title_block
-		(title "Steer 500 - 6 Power")
+		(title "UTS Mini Mixing Desk - Compressor")
 		(date "2026-08-31")
 		(rev "A")
-		(company "Steer 500")
+		(company "UTS Mini Mixing Desk")
 	)
 	(lib_symbols
 		(symbol "Amplifier_Operational:NE5532"
@@ -3473,7 +3473,7 @@
 			(uuid "3de022a1-7062-564e-a350-3b30047d01f7")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR007")
 					(unit 1)
@@ -3540,7 +3540,7 @@
 			(uuid "5ba54bea-c171-58d3-9b05-9002c957f20f")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO018")
 					(unit 1)
@@ -3626,7 +3626,7 @@
 			(uuid "9538acc5-75bd-4e9f-a147-1ec7635eb88f")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "U5")
 					(unit 3)
@@ -3693,7 +3693,7 @@
 			(uuid "096fbadb-c32d-5a72-a57f-35781b8ccbb5")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO000")
 					(unit 1)
@@ -3761,7 +3761,7 @@
 			(uuid "b987a80d-71c4-536c-a0c4-f77b13c6060e")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C7")
 					(unit 1)
@@ -3828,7 +3828,7 @@
 			(uuid "1d6356f7-93d6-5907-baad-4e80212026b3")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR018")
 					(unit 1)
@@ -3896,7 +3896,7 @@
 			(uuid "1ae74ffd-ad28-5f5e-aee3-d0b21357c387")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R69")
 					(unit 1)
@@ -3964,7 +3964,7 @@
 			(uuid "bd33b9e1-253b-5139-b5bd-c8e71a22c249")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R50")
 					(unit 1)
@@ -4032,7 +4032,7 @@
 			(uuid "71813268-9ca6-5ceb-807e-b5ae25a67630")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "LED1")
 					(unit 1)
@@ -4099,7 +4099,7 @@
 			(uuid "8e527322-ac51-5de1-abf2-5cb862ca6780")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR009")
 					(unit 1)
@@ -4166,7 +4166,7 @@
 			(uuid "940b3556-3603-5098-ac4a-8d0da5d33fdf")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO025")
 					(unit 1)
@@ -4233,7 +4233,7 @@
 			(uuid "f85fb669-5703-5be4-b767-4a7e808e2aee")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR016")
 					(unit 1)
@@ -4301,7 +4301,7 @@
 			(uuid "df610004-208f-5874-ade7-5e7e6b58cf26")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C28")
 					(unit 1)
@@ -4368,7 +4368,7 @@
 			(uuid "99508964-aa2e-51cf-b88c-05045b490c55")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO009")
 					(unit 1)
@@ -4435,7 +4435,7 @@
 			(uuid "a540a907-1f69-54c9-882b-1bd23ff1eba9")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO010")
 					(unit 1)
@@ -4502,7 +4502,7 @@
 			(uuid "56c086ee-7c7d-54d0-910c-802eec220f94")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#FLG004")
 					(unit 1)
@@ -4569,7 +4569,7 @@
 			(uuid "9c04e68e-a54a-5ab5-bfb0-c301cafc35da")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR010")
 					(unit 1)
@@ -4636,7 +4636,7 @@
 			(uuid "a088beae-bb30-599b-adb0-ac55e132546d")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO026")
 					(unit 1)
@@ -4703,7 +4703,7 @@
 			(uuid "8ebaf7dc-16dc-5490-a52c-512f9442600a")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR005")
 					(unit 1)
@@ -4770,7 +4770,7 @@
 			(uuid "8103c8ed-44e7-5d8c-b0fa-8b1b970310f4")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR020")
 					(unit 1)
@@ -4838,7 +4838,7 @@
 			(uuid "1f621260-085b-5c82-abe9-6cb046499893")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C32")
 					(unit 1)
@@ -4905,7 +4905,7 @@
 			(uuid "94e12755-e3e3-512b-b5ce-4d5089997fad")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR003")
 					(unit 1)
@@ -4972,7 +4972,7 @@
 			(uuid "9c3d4358-a73f-566d-a4d7-0f93582f7e48")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR027")
 					(unit 1)
@@ -5040,7 +5040,7 @@
 			(uuid "0a4a91e5-c933-59a6-8409-055ab6dfab23")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R60")
 					(unit 1)
@@ -5108,7 +5108,7 @@
 			(uuid "6f5e6b25-ba7f-51a6-ac4b-4a7cfc1f2781")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R9")
 					(unit 1)
@@ -5175,7 +5175,7 @@
 			(uuid "f42ffafd-6a49-5a23-80c6-f3d1e143a29a")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO008")
 					(unit 1)
@@ -5242,7 +5242,7 @@
 			(uuid "c2f03840-8676-5580-9969-2415d46def32")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO004")
 					(unit 1)
@@ -5309,7 +5309,7 @@
 			(uuid "0a8383d7-e745-5ae9-aedd-edda1aaf48ea")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO007")
 					(unit 1)
@@ -5376,7 +5376,7 @@
 			(uuid "a9da7c29-5068-5e03-a755-113e2be55704")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR002")
 					(unit 1)
@@ -5443,7 +5443,7 @@
 			(uuid "86a243de-4778-5545-a02b-54beb2527267")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO030")
 					(unit 1)
@@ -5510,7 +5510,7 @@
 			(uuid "889253d8-f195-500f-997d-cd6f1cda5e7e")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR030")
 					(unit 1)
@@ -5578,7 +5578,7 @@
 			(uuid "12dc8cea-78c3-5f1f-9271-8d0ec436da39")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C34")
 					(unit 1)
@@ -5646,7 +5646,7 @@
 			(uuid "d0e62cde-5306-5413-8366-fd23d6f9b14a")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R61")
 					(unit 1)
@@ -5714,7 +5714,7 @@
 			(uuid "2a357bdb-b9cf-5170-b5f9-f46f6846ffac")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C31")
 					(unit 1)
@@ -5782,7 +5782,7 @@
 			(uuid "9dc97e83-2f9a-590a-9775-b26020f9d012")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C18")
 					(unit 1)
@@ -5849,7 +5849,7 @@
 			(uuid "7449702c-b8d0-5239-8fc2-10f90e07cb01")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO019")
 					(unit 1)
@@ -5916,7 +5916,7 @@
 			(uuid "89e59927-5a38-5f6f-b316-a3ae8d015e5f")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR012")
 					(unit 1)
@@ -6002,7 +6002,7 @@
 			(uuid "cac5a478-6074-4f50-8f37-f74b0f7bba3b")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "U6")
 					(unit 1)
@@ -6069,7 +6069,7 @@
 			(uuid "51202d8f-d983-5581-ad6b-2b2f5930f666")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO002")
 					(unit 1)
@@ -6137,7 +6137,7 @@
 			(uuid "d085ba7b-a13e-53b9-a259-9cd35c8031c4")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R52")
 					(unit 1)
@@ -6205,7 +6205,7 @@
 			(uuid "9b89182f-eb24-5e47-8612-95899ef8a98e")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C23")
 					(unit 1)
@@ -6272,7 +6272,7 @@
 			(uuid "c2f0a4a7-ad0a-58ec-a574-06c14e8b7dc0")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR011")
 					(unit 1)
@@ -6358,7 +6358,7 @@
 			(uuid "81760b0d-3d32-462f-a4a0-578083b00087")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "U1")
 					(unit 3)
@@ -6425,7 +6425,7 @@
 			(uuid "fdcb229b-a012-522d-9c04-f5e84f8c31f2")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR024")
 					(unit 1)
@@ -6492,7 +6492,7 @@
 			(uuid "b81bc8f3-5349-5467-94dc-32f629ac3f22")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO012")
 					(unit 1)
@@ -6560,7 +6560,7 @@
 			(uuid "389260c6-86f3-59e9-b7ae-8bd932d5d26a")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R77")
 					(unit 1)
@@ -6628,7 +6628,7 @@
 			(uuid "a2423195-1ef9-5253-bc60-d9bbc08cea67")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C33")
 					(unit 1)
@@ -6696,7 +6696,7 @@
 			(uuid "18266617-1846-5f15-b395-46422e58bde6")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C22")
 					(unit 1)
@@ -6763,7 +6763,7 @@
 			(uuid "fc62a7cf-e7be-57f0-b1af-10b5a420c717")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO011")
 					(unit 1)
@@ -6831,7 +6831,7 @@
 			(uuid "eec1cf25-a5f9-5e54-bcf6-6952b7b924d1")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C19")
 					(unit 1)
@@ -6898,7 +6898,7 @@
 			(uuid "ee479be4-1015-54d1-9635-50843218caff")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO021")
 					(unit 1)
@@ -6965,7 +6965,7 @@
 			(uuid "31366068-a2e1-5ddd-8d3d-c3bce8de6d6b")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO027")
 					(unit 1)
@@ -7032,7 +7032,7 @@
 			(uuid "f02dec24-035d-5f13-963d-fccb4cb8b419")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR014")
 					(unit 1)
@@ -7100,7 +7100,7 @@
 			(uuid "3bc97a01-5c66-59d1-94ed-a8b53cd3cdb6")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R68")
 					(unit 1)
@@ -7167,7 +7167,7 @@
 			(uuid "80cea972-587f-57b1-8649-7769ac0e8425")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR008")
 					(unit 1)
@@ -7234,7 +7234,7 @@
 			(uuid "316e6386-fb84-5841-bb6e-a078ad773b29")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR000")
 					(unit 1)
@@ -7301,7 +7301,7 @@
 			(uuid "20b2af22-2047-5bf6-912e-7057dea025e7")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR031")
 					(unit 1)
@@ -7368,7 +7368,7 @@
 			(uuid "3be50582-c600-5eec-b809-04e14ec31a02")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR034")
 					(unit 1)
@@ -7435,7 +7435,7 @@
 			(uuid "dc0b3b85-f1d7-5c88-8ee5-4ce77f083901")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR033")
 					(unit 1)
@@ -7502,7 +7502,7 @@
 			(uuid "fcfb47c6-2eed-5588-a644-2ad812c496cb")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO005")
 					(unit 1)
@@ -7569,7 +7569,7 @@
 			(uuid "02a88327-e1a2-517e-8747-a0b02a00b628")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR013")
 					(unit 1)
@@ -7636,7 +7636,7 @@
 			(uuid "2dd491ab-1849-5351-866d-d85a100e98d0")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO020")
 					(unit 1)
@@ -7704,7 +7704,7 @@
 			(uuid "156c0778-d924-5283-ba49-8856322e7500")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C26")
 					(unit 1)
@@ -7772,7 +7772,7 @@
 			(uuid "070a3926-99c2-5bae-9b77-e89fcedd66e2")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C20")
 					(unit 1)
@@ -7839,7 +7839,7 @@
 			(uuid "66822682-e649-5c6b-b7b5-ed64edd91d99")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO003")
 					(unit 1)
@@ -7907,7 +7907,7 @@
 			(uuid "ab7bf5ab-3b2b-5176-a520-aab27c3bab01")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C6")
 					(unit 1)
@@ -7975,7 +7975,7 @@
 			(uuid "29c1970c-c400-5b0b-917d-ec82de5dc435")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "D9")
 					(unit 1)
@@ -8042,7 +8042,7 @@
 			(uuid "da1b0ac5-cf57-5097-b7f8-5d011c8b43aa")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO006")
 					(unit 1)
@@ -8109,7 +8109,7 @@
 			(uuid "5af2c646-f998-5821-b72f-ed53b2ad80ad")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#FLG003")
 					(unit 1)
@@ -8177,7 +8177,7 @@
 			(uuid "537f5b21-ca60-5b85-84e0-1ce26b4e17c3")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R48")
 					(unit 1)
@@ -8244,7 +8244,7 @@
 			(uuid "61468d63-df21-51b3-a2d9-ee8bb9d405c3")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO013")
 					(unit 1)
@@ -8311,7 +8311,7 @@
 			(uuid "798a25fd-1308-5df4-b268-f284ef79977d")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR028")
 					(unit 1)
@@ -8378,7 +8378,7 @@
 			(uuid "28809839-27b1-536e-ae44-5255964d4aef")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO022")
 					(unit 1)
@@ -8445,7 +8445,7 @@
 			(uuid "a9cafc63-4a09-5275-8205-04b0dfc40f17")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO016")
 					(unit 1)
@@ -8512,7 +8512,7 @@
 			(uuid "7288142b-e666-5662-8a35-0c3193d5ca5c")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#FLG005")
 					(unit 1)
@@ -8580,7 +8580,7 @@
 			(uuid "0683eecf-37ce-51ee-9a6e-b3ec4f38a5d7")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C17")
 					(unit 1)
@@ -8647,7 +8647,7 @@
 			(uuid "274c4992-0215-503e-826c-2727bb76aacd")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR032")
 					(unit 1)
@@ -8714,7 +8714,7 @@
 			(uuid "4281c0c6-d4c6-5df8-8f6a-877693bf9dcf")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#FLG001")
 					(unit 1)
@@ -8782,7 +8782,7 @@
 			(uuid "bab3da34-f56a-5ef3-a00e-acad3bda17ed")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R53")
 					(unit 1)
@@ -8868,7 +8868,7 @@
 			(uuid "c485a391-5a01-4182-ae20-ed087d1fb6a9")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "U4")
 					(unit 3)
@@ -8935,7 +8935,7 @@
 			(uuid "77ba4750-3b80-5d0d-940f-2c4b593fca9f")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#FLG000")
 					(unit 1)
@@ -9003,7 +9003,7 @@
 			(uuid "6ac2d1f7-9f4b-5c62-8a7a-54a237245cda")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C27")
 					(unit 1)
@@ -9070,7 +9070,7 @@
 			(uuid "f3438d92-ac45-5415-a0c5-08db2dce5055")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO028")
 					(unit 1)
@@ -9137,7 +9137,7 @@
 			(uuid "64d57e71-f2a9-5cae-aff0-4847284ece05")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO014")
 					(unit 1)
@@ -9204,7 +9204,7 @@
 			(uuid "25882419-6950-544b-9470-9a63343976f5")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR029")
 					(unit 1)
@@ -9271,7 +9271,7 @@
 			(uuid "b78a791f-2aa2-5b54-a7c2-6b6c33f1425e")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR023")
 					(unit 1)
@@ -9339,7 +9339,7 @@
 			(uuid "29e03b0a-3717-5256-8b99-a8ca92f4464c")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "D8")
 					(unit 1)
@@ -9406,7 +9406,7 @@
 			(uuid "d6af9364-1f11-5c0e-80b5-75a0443cd529")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR035")
 					(unit 1)
@@ -9473,7 +9473,7 @@
 			(uuid "aec1b0cd-9515-51f3-8d70-72e2db66cd4b")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#FLG002")
 					(unit 1)
@@ -9540,7 +9540,7 @@
 			(uuid "f6a7ecbf-8348-590b-9177-6d194c03752b")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO015")
 					(unit 1)
@@ -9607,7 +9607,7 @@
 			(uuid "317cd5ac-ffc7-5d58-9bdf-8bc97870cc17")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO017")
 					(unit 1)
@@ -9674,7 +9674,7 @@
 			(uuid "772bcb41-e2fd-5ed7-9d90-9f909dce9c72")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR021")
 					(unit 1)
@@ -9760,7 +9760,7 @@
 			(uuid "ea580663-51ca-4b8f-8078-ef09f8456cb4")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "U3")
 					(unit 3)
@@ -9827,7 +9827,7 @@
 			(uuid "f1310433-a891-5a8f-be85-bb9061d165f4")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR019")
 					(unit 1)
@@ -9894,7 +9894,7 @@
 			(uuid "3dfec1f6-64a3-5bff-b792-db774e495440")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR026")
 					(unit 1)
@@ -9962,7 +9962,7 @@
 			(uuid "09aaec8d-3db9-599c-b1ce-1fcb290aa96a")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C21")
 					(unit 1)
@@ -10030,7 +10030,7 @@
 			(uuid "40add234-397c-5436-a727-daaa6d1f8e74")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "D10")
 					(unit 1)
@@ -10097,7 +10097,7 @@
 			(uuid "7fa338b7-30a6-5c2d-863d-50442d82be08")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO024")
 					(unit 1)
@@ -10165,7 +10165,7 @@
 			(uuid "30463113-a9cb-5eaf-ba8b-2609801e1985")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C30")
 					(unit 1)
@@ -10233,7 +10233,7 @@
 			(uuid "bc461c35-8815-51e9-83fb-5fbc42b24ae9")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R51")
 					(unit 1)
@@ -10300,7 +10300,7 @@
 			(uuid "48df8416-ce13-5917-ab26-07e907b58780")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR025")
 					(unit 1)
@@ -10367,7 +10367,7 @@
 			(uuid "7cd9dff5-80be-5f31-b6b6-7b1153333787")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO001")
 					(unit 1)
@@ -10435,7 +10435,7 @@
 			(uuid "308cad12-7586-55ec-a074-92f331f83bd0")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C24")
 					(unit 1)
@@ -10502,7 +10502,7 @@
 			(uuid "5cc040e9-e797-5da7-a320-1948a187eb23")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR001")
 					(unit 1)
@@ -10569,7 +10569,7 @@
 			(uuid "1b169625-3611-5bb6-a5ca-adf5295357c1")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR006")
 					(unit 1)
@@ -10637,7 +10637,7 @@
 			(uuid "3167b9d3-5342-54e1-913f-916ba2e3dba6")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C29")
 					(unit 1)
@@ -10723,7 +10723,7 @@
 			(uuid "8ee79ac7-469c-47bd-94c7-6521260bdeff")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "U6")
 					(unit 3)
@@ -10791,7 +10791,7 @@
 			(uuid "a0309b25-177a-5d65-b755-48f2a48dbbf9")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R10")
 					(unit 1)
@@ -10858,7 +10858,7 @@
 			(uuid "646627e7-ec17-54eb-86fa-7fc42e3750e1")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR022")
 					(unit 1)
@@ -10925,7 +10925,7 @@
 			(uuid "2f5919f9-8dab-5870-b9e0-55250347df56")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO023")
 					(unit 1)
@@ -10992,7 +10992,7 @@
 			(uuid "bf30b44d-a831-5973-b1df-98767fd3540b")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR015")
 					(unit 1)
@@ -11059,7 +11059,7 @@
 			(uuid "ee9aadd6-8219-564f-b772-4a2ac721f658")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR004")
 					(unit 1)
@@ -11127,7 +11127,7 @@
 			(uuid "ad76fb00-8a74-5e17-a342-19a5460ed5f0")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C25")
 					(unit 1)
@@ -11194,7 +11194,7 @@
 			(uuid "5a5ec3a6-7a76-57ba-84a4-bb2637a5b1d5")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO031")
 					(unit 1)
@@ -11262,7 +11262,7 @@
 			(uuid "6e3db1ea-61a7-5862-9d66-5c66f7eaecd7")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "R62")
 					(unit 1)
@@ -11329,7 +11329,7 @@
 			(uuid "6512f7fd-fca7-5a6b-b419-a0b2ad2e0fcb")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPO029")
 					(unit 1)
@@ -11415,7 +11415,7 @@
 			(uuid "7531fa15-f9ab-4e84-bfeb-418426ecff4c")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "U2")
 					(unit 3)
@@ -11482,7 +11482,7 @@
 			(uuid "8f79c487-1f65-5d1a-9587-47746d588995")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR036")
 					(unit 1)
@@ -11550,7 +11550,7 @@
 			(uuid "5a12b7d2-3a08-534a-83c1-d61e9c1bb9c3")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "C16")
 					(unit 1)
@@ -11617,7 +11617,7 @@
 			(uuid "2b33e2cb-feae-5def-a5eb-3d82207593d8")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
 					(reference "#PWRPOR017")
 					(unit 1)

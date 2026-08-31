@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The gain cell &middot; UTS Mini Mixing Desk &mdash; Compressor</title>
+<meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div class="shell">
+<aside class="side">
+  <a class="brand" href="index.html"><b>UTS Mini Mixing Desk</b><span>Compressor module</span></a>
+  <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">Contents</button>
+  <nav><h4>Start here</h4><a href="index.html"><i>01</i><span>Overview</span></a><h4>Signal path</h4><a href="connector.html"><i>02</i><span>500-series interface</span></a><a href="input.html"><i>03</i><span>Balanced input &amp; pad</span></a><a href="vca.html" class="on"><i>04</i><span>The gain cell</span></a><a href="output.html"><i>05</i><span>Makeup &amp; output</span></a><h4>Control path</h4><a href="sidechain.html"><i>06</i><span>The sidechain</span></a><h4>Support</h4><a href="power.html"><i>07</i><span>Power &amp; references</span></a><h4>Practical</h4><a href="using.html"><i>08</i><span>Setting up &amp; using it</span></a></nav>
+</aside>
+<main class="main"><div class="wrap">
+
+<p class="eyebrow">Sheet 3</p>
+<h1>The gain cell</h1>
+<p class="lede">Nine transistors whose only job is to have a gain you can change with a
+voltage. This is the part of a compressor that actually compresses, and the part where the
+design decisions matter most.</p>
+
+<figure>
+  <div class="pane"><img src="img/vca.svg" alt="Sheet 3 &mdash; the steering cell Q1&ndash;Q9 and recovery amplifier U1B" loading="lazy"></div>
+  <figcaption><span>Sheet 3 &mdash; the steering cell Q1&ndash;Q9 and recovery amplifier U1B</span><a href="img/vca.svg" target="_blank" rel="noopener">Open full size &rarr;</a></figcaption>
+</figure>
+
+<h2>The problem</h2>
+<p>You need an amplifier whose gain a control voltage can set, over a wide range, without
+adding much distortion or noise. Commercially you would buy a THAT2180 or an SSM2018 and be
+done. Building one from discrete transistors is harder, and there are two common approaches.</p>
+
+<h3>The simple approach, and why it was rejected</h3>
+<p>The obvious method is a <strong>long-tailed pair</strong>: two matched transistors sharing a
+current source in their emitters. The gain of such a pair depends on how much current flows
+through it, so varying that "tail" current varies the gain. This is how the CA3080 works, and
+how classic pedals like the Ross and the MXR Dyna Comp get their compression.</p>
+<p>It has a flaw that matters at line level. A transistor's internal emitter resistance is
+<em>inversely</em> proportional to its current. Turn the tail current down to reduce gain and
+that resistance goes up, which shrinks the voltage range over which the pair stays linear.
+In other words <strong>the cell distorts worst exactly when it is working hardest</strong>.
+Calculated distortion climbs from about 0.2% at 6 dB of gain reduction to several percent at
+18 dB. Fine for a guitar pedal, poor for a mixing desk.</p>
+
+<h3>The approach used here: current steering</h3>
+<p>Instead of varying the current, keep it <strong>constant</strong> and vary where it
+<em>goes</em>.</p>
+<ol>
+  <li><code>Q3</code> is a current source holding a fixed <strong>~3 mA</strong> tail current,
+      no matter what the control voltage does.</li>
+  <li><code>Q1</code> and <code>Q2</code> are the matched pair that turns the input voltage into
+      a signal current riding on that fixed tail. Because the tail never changes, their linear
+      range never changes either.</li>
+  <li>Above them sit four more transistors, <code>Q6</code>&ndash;<code>Q9</code>, arranged in
+      two pairs. Each pair can send its share of the current either to the <strong>output</strong>
+      load or to the <strong>+16 V rail</strong>, where it is simply thrown away.</li>
+</ol>
+<p>Gain is then just the <em>fraction</em> of the signal current that reaches the output. Send
+all of it and you have full gain; dump 99% of it and you have 40 dB of gain reduction. And
+because the transistors doing the amplifying never change their operating point, the distortion
+stays flat at every gain setting. That is the whole argument for the extra four transistors.</p>
+
+<div class="note good">
+  <h4>The trade in one line</h4>
+  <p>Varying current is simpler and distorts more as it compresses. Steering current costs four
+  extra transistors and distorts the same amount however hard it compresses.</p>
+</div>
+
+<h2>How the steering is controlled</h2>
+<p>The four steering transistors have their bases tied to two nets, <code>STA</code> and
+<code>STB</code>. What matters is only the <strong>difference</strong> between them:</p>
+<div class="tw"><table><thead><tr><th class="n">STB relative to STA</th><th class="">Where the current goes</th><th class="n">Gain</th></tr></thead><tbody><tr><td class="n">+150 mV (resting)</td><td class="">Almost entirely to the output</td><td class="n">Full gain, ~0 dB reduction</td></tr><tr><td class="n">0 mV</td><td class="">Split evenly</td><td class="n">&minus;6 dB</td></tr><tr><td class="n">&minus;60 mV</td><td class="">Mostly dumped to the rail</td><td class="n">&minus;20 dB</td></tr><tr><td class="n">&minus;120 mV</td><td class="">Nearly all dumped</td><td class="n">&minus;40 dB</td></tr></tbody></table></div>
+<p>The entire 40 dB range fits inside about a quarter of a volt. That sensitivity is why the
+control voltage is scaled down heavily by <code>R68</code>/<code>R69</code> before it reaches
+<code>STB</code> &mdash; a 10 V swing on the control line becomes a 270 mV swing here.</p>
+
+<div class="note warn">
+  <h4>Why matched transistors are not optional</h4>
+  <p><code>Q1</code>/<code>Q2</code> must be a matched pair, and <code>Q6</code>&ndash;<code>Q9</code>
+  a matched quad, all glued together so they stay at the same temperature. The steering balance
+  is set by base-emitter voltages that differ by only tens of millivolts &mdash; and a transistor's
+  base-emitter voltage drifts about &minus;2 mV for every &deg;C. If two transistors in the quad
+  sit at different temperatures, the cell's gain drifts with them. Bond them face to face and
+  put heatshrink over the group.</p>
+</div>
+
+<h2>Recovering the signal</h2>
+<p>The steered current becomes a voltage across the collector load resistors <code>R16</code>
+and <code>R17</code>, giving a <strong>differential</strong> signal &mdash; the wanted audio is
+the difference between the two collectors.</p>
+<p><code>Q4</code> and <code>Q5</code> are emitter followers that buffer those collectors so the
+next stage does not load them, and <code>U1B</code> is a difference amplifier with a gain of
+6.67&times; that converts the difference back into a normal single-ended signal.</p>
+<p>Taking the output differentially is what makes gain changes inaudible. When the cell changes
+gain, the DC level at <em>both</em> collectors moves together. That common movement is exactly
+what a difference amplifier rejects &mdash; so the "thump" you would otherwise hear on a fast
+attack largely cancels. How well it cancels depends on <code>R21</code>&ndash;<code>R24</code>
+matching, which is why they are 0.1% parts too.</p>
+
+<h2>The honest limitations</h2>
+<ul>
+  <li><strong>Noise rises with gain reduction.</strong> The dump transistors keep generating
+      noise even when carrying no signal. Expect the noise floor to climb roughly 6 dB by the
+      time you are 20 dB into gain reduction. Every steering-type cell does this, including the
+      commercial ICs.</li>
+  <li><strong>The control law drifts with temperature.</strong> Gain reduction per volt scales
+      with a quantity proportional to absolute temperature, so the dB-per-volt slope moves about
+      0.33% per &deg;C. Over a 20 &deg;C swing a nominal 20 dB of reduction shifts by a few
+      tenths of a dB. If that matters, <code>R68</code> can be a +3300 ppm/&deg;C tempco resistor
+      mounted against the transistor quad.</li>
+</ul>
+
+<div class="next"><a href="input.html">&larr; Balanced input &amp; pad</a><a href="output.html">Makeup &amp; output &rarr;</a></div>
+<footer>
+  UTS Mini Mixing Desk &mdash; Compressor &middot; documentation generated from the KiCad project<br>
+  Schematics are exported from the project in this repository. Figures update when you re-run <code>_build.py</code>.<br>
+  Performance figures are calculated from the design, not measured on hardware.
+</footer>
+</div></main>
+</div></body></html>

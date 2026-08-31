@@ -5,10 +5,10 @@
 	(uuid "c6d4ea7a-5acf-532a-b8fe-bf199e0b0f3b")
 	(paper "User" 200 150)
 	(title_block
-		(title "Steer 500 - 1 Connector")
+		(title "UTS Mini Mixing Desk - Compressor")
 		(date "2026-08-31")
 		(rev "A")
-		(company "Steer 500")
+		(company "UTS Mini Mixing Desk")
 	)
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_01x15"
@@ -1268,7 +1268,7 @@
 			(uuid "d6ef53fc-1d5c-501c-8a1b-be8dbac767e9")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/a71beffb-08c5-50af-b047-4c3106cc907a"
 					(reference "#PWRCO000")
 					(unit 1)
@@ -1335,7 +1335,7 @@
 			(uuid "1c6f06db-6af0-5b1a-92b0-9099b0c4be31")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/a71beffb-08c5-50af-b047-4c3106cc907a"
 					(reference "#PWRCO001")
 					(unit 1)
@@ -1402,7 +1402,7 @@
 			(uuid "0635e682-6d79-50a8-aadf-3c3006095aab")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/a71beffb-08c5-50af-b047-4c3106cc907a"
 					(reference "#PWRCO002")
 					(unit 1)
@@ -1509,7 +1509,7 @@
 			(uuid "d36f05ce-e62f-5f5c-8056-e9450a827ca7")
 		)
 		(instances
-			(project "steer500-sections"
+			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/a71beffb-08c5-50af-b047-4c3106cc907a"
 					(reference "J1")
 					(unit 1)
