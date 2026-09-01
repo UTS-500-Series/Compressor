@@ -19,7 +19,7 @@ from route_sch import KC
 
 def find_root():
     here = os.path.dirname(os.path.abspath(__file__))
-    root = os.path.abspath(os.path.join(here, '..'))
+    root = os.path.abspath(os.path.join(here, '..', 'kicad'))
     for f in sorted(glob.glob(os.path.join(root, '*.kicad_sch'))):
         txt = open(f).read(4000)
         if '(sheet' in txt and 'Sheetfile' in txt:      # the root sheet owns sub-sheets

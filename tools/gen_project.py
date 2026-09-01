@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-gen_project.py - build the Steer 500 schematic as a real hierarchical project:
+gen_project.py - build the compressor schematic as a real hierarchical project:
 one sheet per section, parts placed by role, wires routed, then verified.
 
 Sheets mirror the drawn documentation:
@@ -25,6 +25,10 @@ from route_sch import (sym, pins_of, place_pin, outward, label_angle, Part,
                        net_is_connected, junctions_for, RAILS, GROUNDS, GRID, KC)
 
 NS = uuid.UUID('6ba7b810-9dad-11d1-80b4-00c04fd430c8')
+# FROZEN IDENTIFIER - not a display name. Every uuid in the drawn sheets derives from this
+# prefix. Change it and regenerated uuids stop matching the sheets on disk: sheet-symbol
+# instance paths break and KiCad silently drops the connections. Rename the project freely,
+# never this string.
 def U(s): return str(uuid.uuid5(NS, 'steer500p:' + s))
 ROOT = U('root')
 PROJ = 'UTS Mini Mixing Desk - Compressor'
@@ -38,6 +42,7 @@ SHEETS = [
     ('sidechain', '5 Sidechain',  ['SH4 SIDECHAIN DETECTOR']),
     ('power',     '6 Power',      ['SH5 POWER, REFERENCES AND METER',
                                    'SH5 SUPPLY DECOUPLING']),
+    ('meters',    '7 Meters',     ['SH6 LED METERS']),
 ]
 BLOCK2SHEET = {b: k for k, _, bs in SHEETS for b in bs}
 
@@ -165,8 +170,8 @@ def build_sheet(key, title, parts, kind, sheet_uuid, path_uuid, force_label, fan
     o = ['(kicad_sch', '\t(version 20250114)', '\t(generator "uts-compressor-gen")',
          '\t(generator_version "9.0")', '\t(uuid "%s")' % sheet_uuid,
          '\t(paper "User" %.2f %.2f)' % (max(W, 200), max(H, 150)),
-         '\t(title_block (title %s) (date "%s") (rev "A") (company "Steer 500"))'
-         % (dumps(Q('Steer 500 - ' + title)), datetime.date.today().isoformat())]
+         '\t(title_block (title %s) (date "%s") (rev "A") (company "UTS Mini Mixing Desk"))'
+         % (dumps(Q(PROJ)), datetime.date.today().isoformat())]
     used = {('%s:%s' % (p.lib, p.name)): (p.lib, p.name) for p in parts}
     for _, n, _ in rails: used['power:' + RAILS[n]] = ('power', RAILS[n])
     for _, n, _ in gnds:  used['power:' + GROUNDS[n]] = ('power', GROUNDS[n])
@@ -276,12 +281,12 @@ def build(outdir, force_label=frozenset(), fanout=6):
 
     o = ['(kicad_sch', '\t(version 20250114)', '\t(generator "uts-compressor-gen")',
          '\t(generator_version "9.0")', '\t(uuid "%s")' % ROOT, '\t(paper "A3")',
-         '\t(title_block (title "Steer 500 Compressor") (date "%s") (rev "A")'
+         '\t(title_block (title "UTS Mini Mixing Desk - Compressor") (date "%s") (rev "A")'
          ' (company "500-series module"))' % datetime.date.today().isoformat(),
          '\t(lib_symbols)']
     for i, (key, title, _b) in enumerate(SHEETS):
         sheet_symbol(o, key, title, 30.0 + (i % 3) * 76.2, 40.0 + (i // 3) * 50.8, i + 2)
-    o.append('\t(text "Steer 500 compressor - one sheet per section" (at 30 25 0)'
+    o.append('\t(text "UTS Mini Mixing Desk - Compressor - one sheet per section" (at 30 25 0)'
              ' (effects (font (size 3 3) (bold yes)) (justify left bottom)) (uuid "%s"))'
              % U('roottext'))
     o.append('\t(sheet_instances')
@@ -345,7 +350,8 @@ def check(root):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('-d', '--outdir', default='sections')
+    # NOT 'kicad': this regenerates every sheet and would destroy hand-drawn layout.
+    ap.add_argument('-d', '--outdir', default='regenerated')
     ap.add_argument('--fanout', type=int, default=6)
     ap.add_argument('--passes', type=int, default=6)
     args = ap.parse_args()

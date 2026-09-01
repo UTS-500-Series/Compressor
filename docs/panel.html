@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The front panel &middot; UTS Mini Mixing Desk &mdash; Compressor</title>
+<meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+/* Runs before paint so a stored preference does not flash narrow first. */
+try {
+  if (localStorage.getItem('uts-width') === 'wide')
+    document.documentElement.dataset.width = 'wide';
+} catch (e) {}
+</script>
+<script src="vendor/cytoscape.min.js" defer></script>
+<script src="viewer.js" defer></script>
+</head><body>
+<div class="shell">
+<aside class="side">
+  <a class="brand" href="index.html"><b>UTS Mini Mixing Desk</b><span>Compressor module</span></a>
+  <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">Contents</button>
+  <nav><h4>Start here</h4><a href="index.html"><i>01</i><span>Overview</span></a><h4>Signal path</h4><a href="connector.html"><i>02</i><span>500-series interface</span></a><a href="input.html"><i>03</i><span>Balanced input &amp; pad</span></a><a href="vca.html"><i>04</i><span>The gain cell</span></a><a href="output.html"><i>05</i><span>Makeup &amp; output</span></a><h4>Control path</h4><a href="sidechain.html"><i>06</i><span>The sidechain</span></a><h4>Support</h4><a href="power.html"><i>07</i><span>Power &amp; references</span></a><a href="meters.html"><i>08</i><span>The LED meters</span></a><h4>Practical</h4><a href="panel.html" class="on"><i>09</i><span>The front panel</span></a><a href="using.html"><i>10</i><span>Setting up &amp; using it</span></a></nav>
+  <div class="side-foot">
+    <button class="wbtn" id="wbtn" type="button" aria-pressed="false">
+      <span class="wbtn-ico" aria-hidden="true"></span><span class="wbtn-txt">Wide layout</span>
+    </button>
+  </div>
+</aside>
+<main class="main"><div class="wrap">
+
+<p class="eyebrow">Practical</p>
+<h1>The front panel</h1>
+<p class="lede">Nine functions, two meters and two mounting screws, in a space 38 mm wide.
+Almost every decision on this panel is a consequence of that.</p>
+
+<figure>
+  <div class="pane tall"><img src="img/panel-mockup.svg" alt="Front panel &mdash; toggle layout, anodised finish" loading="lazy"></div>
+  <figcaption><span>Front panel &mdash; toggle layout, anodised finish</span><a href="img/panel-mockup.svg" target="_blank" rel="noopener">Open full size &rarr;</a></figcaption>
+</figure>
+
+<h2>What the panel has to fit</h2>
+<p>A 500-series module is 1.500&Prime; &times; 5.250&Prime; &mdash; <strong>38.10 &times;
+133.35 mm</strong>. Two mounting screws sit on the vertical centreline, 125.43 mm apart, which
+puts them 3.96 mm from each end. They are countersunk, so a screw head occupies a 5.72 mm
+circle in the middle of the panel top and bottom.</p>
+<p>That leaves a usable strip roughly 34 mm wide and 120 mm tall, interrupted at both ends.
+Into it go five knobs, four switch functions, fourteen meter LEDs and the legends for all of
+it. There is no arrangement where everything is comfortable; every layout below trades one
+thing for another.</p>
+
+<h2>The controls</h2>
+<div class="tw"><table><thead><tr><th class="">Control</th><th class="r">Ref</th><th class="">What it does</th><th class="">More</th></tr></thead><tbody><tr><td class="">THRESHOLD</td><td class="r">RV3</td><td class="">How loud before compression starts</td><td class=""><a href="sidechain.html">Sidechain</a></td></tr><tr><td class="">RATIO</td><td class="r">RV4</td><td class="">How much gain reduction per dB over threshold</td><td class=""><a href="sidechain.html">Sidechain</a></td></tr><tr><td class="">ATTACK</td><td class="r">RV5</td><td class="">How fast it clamps down, 2.7&ndash;50 ms</td><td class=""><a href="sidechain.html">Sidechain</a></td></tr><tr><td class="">RELEASE</td><td class="r">RV6</td><td class="">How fast it lets go, 47 ms&ndash;2.2 s</td><td class=""><a href="sidechain.html">Sidechain</a></td></tr><tr><td class="">MAKEUP</td><td class="r">RV2</td><td class="">Level put back after compression, 0 to +21 dB</td><td class=""><a href="output.html">Output</a></td></tr><tr><td class="">BYPASS</td><td class="r">SW1</td><td class="">Hard bypass &mdash; rack straight through</td><td class=""><a href="output.html">Output</a></td></tr><tr><td class="">HPF</td><td class="r">SW3</td><td class="">Defeats the 72 Hz sidechain filter</td><td class=""><a href="sidechain.html">Sidechain</a></td></tr><tr><td class="">KEY</td><td class="r">SW2</td><td class="">Detector listens here, or to the aux input</td><td class=""><a href="sidechain.html">Sidechain</a></td></tr><tr><td class="">LINK</td><td class="r">SW4</td><td class="">Ties this detector to the module beside it</td><td class=""><a href="sidechain.html">Sidechain</a></td></tr></tbody></table></div>
+
+<h2>Reading the meters</h2>
+<p>Two seven-segment bargraphs sit at the top, in a recessed window so they read against the
+panel.</p>
+<ul>
+  <li><strong>GR</strong> fills <em>downward</em> from the top as the compressor clamps. More
+      lit means more gain reduction. Dark means it is not working &mdash; either the threshold
+      is above the signal or nothing is getting through.</li>
+  <li><strong>LVL</strong> fills <em>upward</em> from the bottom, green through amber to red,
+      showing what is leaving the module.</li>
+</ul>
+<div class="note">
+  <h4>The meters have a circuit now</h4>
+  <p>The fourteen LEDs are driven by <a href="meters.html">sheet 7</a>: two LM391x display
+  drivers in dot mode, fed by a peak detector and a level shifter. They add about 29 mA to the
+  +16 V rail, taking the module to roughly 90 mA of the 130 mA the rack allows.</p>
+</div>
+
+<h2>Three layouts</h2>
+<p>The same nine functions, arranged three ways. The generator builds any of them from one
+definition, so choosing is a command-line flag rather than a redraw.</p>
+<div class="tw"><table><thead><tr><th class="r">Layout</th><th class="">Switches</th><th class="n">Holes</th><th class="">The trade</th></tr></thead><tbody><tr><td class="r"><code>pull</code></td><td class="">None &mdash; every switch is a pull on a pot; LINK is an internal jumper</td><td class="n">21</td><td class="">Fewest parts and cheapest to build. Bypass is slow and uncertain, and you cannot bypass without touching the makeup knob.</td></tr><tr><td class="r"><code>toggle</code></td><td class="">Four toggles flanking THRESHOLD and RATIO</td><td class="n">25</td><td class="">Every function is one positive movement, nothing hidden, bypass instant. Most parts of the three.</td></tr><tr><td class="r"><code>concentric</code></td><td class="">Lit BYPASS button and two toggles; LINK on a pull</td><td class="n">22</td><td class="">Dual-concentric knobs free the space, but they are dearer, harder to source, and their inner shafts cannot carry a printed scale.</td></tr></tbody></table></div>
+
+<h3>Why the switches sit where they do</h3>
+<p>On the <code>toggle</code> layout they flank the knob they belong to: <strong>HPF</strong>
+and <strong>KEY</strong> either side of THRESHOLD, because all three are sidechain controls you
+adjust together; <strong>LINK</strong> and <strong>BYPASS</strong> either side of RATIO,
+because both are set once and then left.</p>
+<p>That grouping is the whole argument for this layout. A switch next to the control it
+modifies needs no label to explain the relationship.</p>
+
+<div class="note good">
+  <h4>This is the layout the schematic already matches</h4>
+  <p>The <code>toggle</code> layout uses four discrete switches &mdash; exactly what
+  <code>SW1</code>&ndash;<code>SW4</code> are in <code>design.py</code>. The other two need the
+  schematic changing: <code>pull</code> wants pull-switch pots, and <code>concentric</code>
+  wants dual-concentric pots plus a latching pushbutton.</p>
+</div>
+
+<h2>Small things that took several attempts</h2>
+<ul>
+  <li><strong>ATTACK and RELEASE share a row</strong>, so they get a smaller legend and no
+      printed numerals. Two full scales put their <code>0</code> and <code>10</code> on top of
+      each other in the gap between the knobs.</li>
+  <li><strong>Nothing is printed at 12 o'clock</strong> on a knob scale. On a panel this tight
+      the top of one scale lands in the label of the control above it, every time.</li>
+  <li><strong>The countersinks own the centreline</strong> at both ends. Anything near the top
+      or bottom has to sit off-centre, which is why BYPASS is where it is on the
+      <code>concentric</code> layout.</li>
+</ul>
+
+<h2>The other finish</h2>
+<p>A second, lighter treatment exists: flat graphic rather than skeuomorphic, printed dot
+scales with 0&ndash;10 numerals, thin metal bat toggles. Same holes, same drawing, same DXF
+&mdash; only the artwork differs.</p>
+
+<figure>
+  <div class="pane tall"><img src="img/panel-bone.svg" alt="The same layout in the bone finish" loading="lazy"></div>
+  <figcaption><span>The same layout in the bone finish</span><a href="img/panel-bone.svg" target="_blank" rel="noopener">Open full size &rarr;</a></figcaption>
+</figure>
+
+<h2>Machining</h2>
+<p>The drawing below is 1:1 and dimensioned. A full drill schedule &mdash; every hole with its
+coordinates, diameter and the hardware it suits &mdash; is in <code>panel/README.md</code> in
+the repository, alongside the DXF.</p>
+
+<figure>
+  <div class="pane tall"><img src="img/panel-drawing.svg" alt="1:1 technical drawing with all hole positions" loading="lazy"></div>
+  <figcaption><span>1:1 technical drawing with all hole positions</span><a href="img/panel-drawing.svg" target="_blank" rel="noopener">Open full size &rarr;</a></figcaption>
+</figure>
+
+<div class="note warn">
+  <h4>Before you have one made</h4>
+  <p>Hole sizes assume a 9 mm pot bushing, a mini toggle and 2 mm LEDs. Check them against the
+  parts you actually buy &mdash; bushing diameters vary between manufacturers, and half a
+  millimetre is the difference between a push fit and a rattle. Depth clearance between knobs,
+  switch bodies and the PCB is not modelled at all: this is a 2D drawing.</p>
+</div>
+
+<div class="next"><a href="meters.html">&larr; The LED meters</a><a href="using.html">Setting up &amp; using it &rarr;</a></div>
+<footer>
+  UTS Mini Mixing Desk &mdash; Compressor &middot; documentation generated from the KiCad project<br>
+  Schematics are exported from the project in this repository. Figures update when you re-run <code>_build.py</code>.<br>
+  Performance figures are calculated from the design, not measured on hardware.
+</footer>
+</div></main>
+</div></body></html>

@@ -32,7 +32,7 @@ python3 tools/verify_netlist.py
 
 | Script | What it does |
 |---|---|
-| `gen_project.py` | Regenerates the whole six-sheet project: placement, routing, verification. |
+| `gen_project.py` | Regenerates the whole seven-sheet project: placement, routing, verification. |
 | `route_sch.py` | Single-sheet router, plus the symbol geometry helpers the other tools import. |
 | `place.py` | Placement rules — anchors, slots, and the power-sheet grouping. |
 

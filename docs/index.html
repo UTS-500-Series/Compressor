@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview &middot; UTS Mini Mixing Desk &mdash; Compressor</title>
+<meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+/* Runs before paint so a stored preference does not flash narrow first. */
+try {
+  if (localStorage.getItem('uts-width') === 'wide')
+    document.documentElement.dataset.width = 'wide';
+} catch (e) {}
+</script>
+<script src="vendor/cytoscape.min.js" defer></script>
+<script src="viewer.js" defer></script>
+</head><body>
+<div class="shell">
+<aside class="side">
+  <a class="brand" href="index.html"><b>UTS Mini Mixing Desk</b><span>Compressor module</span></a>
+  <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">Contents</button>
+  <nav><h4>Start here</h4><a href="index.html" class="on"><i>01</i><span>Overview</span></a><h4>Signal path</h4><a href="connector.html"><i>02</i><span>500-series interface</span></a><a href="input.html"><i>03</i><span>Balanced input &amp; pad</span></a><a href="vca.html"><i>04</i><span>The gain cell</span></a><a href="output.html"><i>05</i><span>Makeup &amp; output</span></a><h4>Control path</h4><a href="sidechain.html"><i>06</i><span>The sidechain</span></a><h4>Support</h4><a href="power.html"><i>07</i><span>Power &amp; references</span></a><a href="meters.html"><i>08</i><span>The LED meters</span></a><h4>Practical</h4><a href="panel.html"><i>09</i><span>The front panel</span></a><a href="using.html"><i>10</i><span>Setting up &amp; using it</span></a></nav>
+  <div class="side-foot">
+    <button class="wbtn" id="wbtn" type="button" aria-pressed="false">
+      <span class="wbtn-ico" aria-hidden="true"></span><span class="wbtn-txt">Wide layout</span>
+    </button>
+  </div>
+</aside>
+<main class="main"><div class="wrap">
+
+<p class="eyebrow">Compressor module</p>
+<h1>How this compressor works</h1>
+<p class="lede">A 500-series dynamics module built from ordinary parts &mdash; nine BC549
+transistors, seven NE5532 op amps and a pair of LED bargraph drivers. This site walks through every section of the
+schematic: what it does, how it does it, and why it was built that way.</p>
+<div class="note">
+  <h4>The schematics are interactive</h4>
+  <p>Every sheet on this site is live. Scroll to zoom and drag to pan, click any part to see
+  its value, footprint and every net it touches, and click a net to light up everything else
+  connected to it. The <strong>Connections</strong> tab shows the same sheet as a graph &mdash;
+  parts and nets are both nodes, because a net joins any number of pins, not just two. There is
+  a search box for jumping straight to a designator like <code>R14</code> or a net like
+  <code>VBIAS</code>.</p>
+</div>
+
+<dl class="spec">
+  <div><dt>Format</dt><dd>500 series</dd></div>
+  <div><dt>Supply</dt><dd>&plusmn;16 V</dd></div>
+  <div><dt>Gain reduction</dt><dd>~40 dB max</dd></div>
+  <div><dt>Components</dt><dd>128</dd></div>
+  <div><dt>Nets</dt><dd>83</dd></div>
+  <div><dt>Sheets</dt><dd>6</dd></div>
+</dl>
+
+<h2>What a compressor actually does</h2>
+<p>A compressor makes loud sounds quieter, automatically. You set a <strong>threshold</strong>;
+anything louder gets turned down. The result is a signal with a smaller gap between its
+quietest and loudest parts, which is easier to mix, easier to broadcast, and harder to
+accidentally clip.</p>
+<p>To do that, a compressor needs two things: a way to <em>change its own gain</em> under
+electrical control, and a way to <em>measure how loud the signal is</em> so it knows how much
+to change it by. Those two jobs split this design cleanly in half:</p>
+
+<div class="flow">
+  <b class="a">IN</b><i>&rarr;</i><b class="a">Input receiver</b><i>&rarr;</i><b class="a">Pad</b>
+  <i>&rarr;</i><b class="a">Gain cell</b><i>&rarr;</i><b class="a">Recovery amp</b>
+  <i>&rarr;</i><b class="a">Makeup gain</b><i>&rarr;</i><b class="a">OUT</b>
+</div>
+<div class="flow">
+  <b class="c">Detector</b><i>&larr;</i><b class="c">Rectifier</b><i>&larr;</i><b class="c">Threshold</b>
+  <i>&larr;</i><i>listens to the output</i>
+</div>
+
+<p>The <span class="sig">amber path</span> is audio. The <span class="ctl">teal path</span> is
+control &mdash; it carries a slow DC voltage that represents "how loud is it right now", and
+that voltage is what turns the gain cell down.</p>
+
+<h2>Feedback, not feedforward</h2>
+<p>Notice that the detector listens to the <strong>output</strong>, not the input. That makes
+this a <strong>feedback</strong> compressor, and it is the single decision that gives the
+module its character.</p>
+<p>In a feedforward design the detector measures the input and calculates exactly how much
+gain reduction to apply, so you can dial in a precise ratio like 4:1. In a feedback design the
+detector measures the result and keeps pushing until the output stops getting louder. You
+cannot label the ratio precisely, because it emerges from the loop gain rather than being set
+directly &mdash; but the knee comes out soft and program-dependent on its own, and the circuit
+is far more forgiving of component tolerance. Most classic bus compressors work this way.</p>
+
+<h2>The sections</h2>
+<div class="cards">
+  <a class="card" href="connector.html"><b>500-series interface</b><span>How the module gets audio and power from the rack, and the one pin that is not standard.</span></a>
+  <a class="card" href="input.html"><b>Balanced input &amp; pad</b><span>Turning a balanced line signal into something the gain cell can handle without distorting.</span></a>
+  <a class="card" href="vca.html"><b>The gain cell</b><span>Nine transistors that steer current to set gain. The heart of the module.</span></a>
+  <a class="card" href="output.html"><b>Makeup &amp; output</b><span>Getting the level back and driving the outside world.</span></a>
+  <a class="card" href="sidechain.html"><b>The sidechain</b><span>Measuring loudness and turning it into a control voltage, with attack and release.</span></a>
+  <a class="card" href="power.html"><b>Power &amp; references</b><span>Rails, the &minus;5.1 V reference, and the bias voltages everything else depends on.</span></a>
+  <a class="card" href="panel.html"><b>The front panel</b><span>Nine functions in 38 mm, three ways to arrange them, and why each one is a compromise.</span></a>
+</div>
+
+<div class="note warn">
+  <h4>Read this before building</h4>
+  <p>Nothing here has been built or simulated. Every performance figure on this site is
+  <strong>calculated from the design</strong>, not measured. The netlist has been verified
+  against the schematic automatically, and ERC passes with no errors, but that only proves the
+  drawing is self-consistent &mdash; not that the circuit behaves as predicted.</p>
+</div>
+
+<div class="next"><span></span><a href="connector.html">500-series interface &rarr;</a></div>
+<footer>
+  UTS Mini Mixing Desk &mdash; Compressor &middot; documentation generated from the KiCad project<br>
+  Schematics are exported from the project in this repository. Figures update when you re-run <code>_build.py</code>.<br>
+  Performance figures are calculated from the design, not measured on hardware.
+</footer>
+</div></main>
+</div></body></html>

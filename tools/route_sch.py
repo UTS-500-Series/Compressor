@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-route_sch.py - turn the label-wired Steer 500 schematic into a drawn-wire one.
+route_sch.py - turn the label-wired compressor schematic into a drawn-wire one.
 
 The approach is the one a human drafter uses, not "route everything":
 
@@ -52,9 +52,10 @@ RAILS   = {'+16V': 'VCC', '-16V': 'VEE', '-5V1': 'VEE'}
 GROUNDS = {'AGND': 'GND', 'PGND': 'GNDD', 'CHASSIS': 'GNDA'}
 
 NS = uuid.UUID('6ba7b810-9dad-11d1-80b4-00c04fd430c8')
+# FROZEN IDENTIFIER, as in gen_project.py - see the note there before touching it.
 def U(s): return str(uuid.uuid5(NS, 'steer500r:' + s))
 ROOT = U('root')
-PROJ = 'steer500'
+PROJ = 'UTS Mini Mixing Desk - Compressor'
 
 _sc = {}
 def sym(lib, name):
@@ -440,11 +441,11 @@ def build(out_path, force_label=frozenset(), fanout=6):
     o = []
     o.append('(kicad_sch')
     o.append('\t(version 20250114)')
-    o.append('\t(generator "steer500-router")')
+    o.append('\t(generator "uts-compressor-router")')
     o.append('\t(generator_version "9.0")')
     o.append('\t(uuid "%s")' % ROOT)
     o.append('\t(paper "User" %.2f %.2f)' % ((W + MARGIN) * GRID, (H + MARGIN) * GRID))
-    o.append('\t(title_block (title "Steer 500 Compressor - routed") (date "%s") (rev "A")'
+    o.append('\t(title_block (title "UTS Mini Mixing Desk - Compressor - routed") (date "%s") (rev "A")'
              ' (company "500-series module"))' % datetime.date.today().isoformat())
 
     used = {('%s:%s' % (p.lib, p.name)): (p.lib, p.name) for p in parts}
@@ -582,7 +583,7 @@ def bad_nets(sch):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('-o', '--out', default='steer500-routed.kicad_sch')
+    ap.add_argument('-o', '--out', default='compressor-routed.kicad_sch')
     ap.add_argument('--fanout', type=int, default=6,
                     help='nets with more pins than this stay as labels (default 6)')
     ap.add_argument('--turn', type=int, default=TURN_COST,

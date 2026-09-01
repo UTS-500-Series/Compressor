@@ -1,4 +1,4 @@
-"""Steer 500 compressor - authoritative netlist.
+"""UTS Mini Mixing Desk, Compressor module - authoritative netlist.
 Each entry: (ref, lib, symname, value, footprint, block, {pin: net})
 Op-amp packages appear as three units: A (unit1), B (unit2), P (unit3 = power pins).
 """
@@ -131,6 +131,70 @@ A(('LED1','Device','LED','GR','LED_THT:LED_D3.0mm',B5,{'2':'LED-A','1':'CTRL-B'}
 A(R('R52','100R','CHASSIS','AGND',B5)); A(C('C18','10n','CHASSIS','AGND',B5))
 A(R('R48','0R','PGND','AGND',B5))
 
+# ---------------- Sheet 6 : LED meters ----------------
+# Two 7-segment bargraphs. A discrete comparator ladder would need 14 op-amp sections -
+# seven more NE5532s, ~56 mA - which the 130 mA rack budget cannot carry, so this is the
+# one place the NE5532/BC549 palette is broken. Both drivers run in DOT mode (MODE pin
+# open): exactly one LED is lit per meter, which is what keeps the current affordable.
+# U8 is linear (LM3914) because gain reduction is read off a control voltage; U9 is the
+# 3 dB/step log part (LM3915) because a level meter is read in dB. They are pin-identical.
+B7='SH6 LED METERS'
+FP_LM  = 'Package_DIP:DIP-18_W7.62mm'
+FP_LED2= 'LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop'
+def LM(ref,val,pins):  return (ref,'Driver_LED','LM3914N',val,FP_LM,B7,pins)
+def ML(ref,cath):      return (ref,'Device','LED','meter',FP_LED2,B7,{'2':'+16V','1':cath})
+
+# -- gain-reduction channel: CTRL-B rests at 0 V and goes negative with gain reduction,
+#    so it needs inverting before a meter can read it. RV7 sets full-scale deflection.
+# Gain vs control voltage is a sigmoid (Q6/Q7 are an undegenerated pair), so a meter that
+# steps evenly in volts puts three of its seven segments inside the first 2 dB. R93 subtracts
+# a fixed offset first, which lands the seven steps near 1/2/3/6/9/14/19 dB instead. That
+# leaves U7B sitting at -2.1 V with no compression, so D12 clamps the driver input at -0.7 V.
+A(R('R84','10k','CTRL-B','INV7B',B7));  A(R('R85','10k','NINV7B','AGND',B7))
+A(R('R93','18k','GRREF','INV7B',B7))
+A(POT('RV7','20k','INV7B','GR-SIG','GR-SIG',B7,FP_TRM))
+A(OA('U7',2,{'5':'NINV7B','6':'INV7B','7':'GR-SIG'},B7))
+A(R('R94','10k','GR-SIG','GRIN',B7)); A(D('D12','1N4148','AGND','GRIN',B7))
+
+# -- level channel: peak detector off the makeup output. D11 inside the loop means the
+#    op-amp servos out its own forward drop; R87 limits the charging surge into C35.
+A(POT('RV8','20k','OUT-A','LVLTRM','AGND',B7,FP_TRM))
+A(R('R86','10k','LVLTRM','MTRIN',B7))
+A(OA('U7',1,{'3':'MTRIN','2':'PKDET','1':'U7AO'},B7))
+A(R('R87','1k','U7AO','D11A',B7));      A(D('D11','1N4148','D11A','PKDET',B7))
+A(C('C35','2u2','PKDET','AGND',B7,FP_CF))
+A(R('R88','100k','PKDET','AGND',B7))    # 220 ms decay - meter ballistics, not a detector
+
+# -- U8 gain reduction, LM3914 linear, LEDs on outputs 1-7 so the first segment lights
+#    at the smallest useful gain reduction. Outputs 8-10 are unused.
+A(LM('U8','LM3914',{'3':'+16V','2':'AGND','5':'GRIN','6':'GRREF','7':'GRREF',
+                    '4':'AGND','8':'GRADJ','9':'GR-MODE-NC',
+                    '1':'GRL1','18':'GRL2','17':'GRL3','16':'GRL4','15':'GRL5',
+                    '14':'GRL6','13':'GRL7',
+                    '12':'GR-NC8','11':'GR-NC9','10':'GR-NC10'}))
+A(R('R89','2k7','GRREF','GRADJ',B7));   A(R('R90','8k2','GRADJ','AGND',B7))
+
+# -- U9 output level, LM3915 log, LEDs on outputs 4-10 so the scale reads -18 dB to 0 dB
+#    in 3 dB steps. Outputs 1-3 are unused.
+A(LM('U9','LM3915',{'3':'+16V','2':'AGND','5':'PKDET','6':'LVLREF','7':'LVLREF',
+                    '4':'AGND','8':'LVLADJ','9':'LVL-MODE-NC',
+                    '16':'LVLL1','15':'LVLL2','14':'LVLL3','13':'LVLL4','12':'LVLL5',
+                    '11':'LVLL6','10':'LVLL7',
+                    '1':'LVL-NC1','18':'LVL-NC2','17':'LVL-NC3'}))
+A(R('R91','2k7','LVLREF','LVLADJ',B7)); A(R('R92','8k2','LVLADJ','AGND',B7))
+
+# -- the two LED columns. D20 and D30 are the first segment of each to light; refdes match
+#    the panel drawing in panel/make_panel.py.
+for i in range(7):
+    A(ML('D%d'%(20+i),'GRL%d'%(i+1)))
+    A(ML('D%d'%(30+i),'LVLL%d'%(i+1)))
+
+# -- U7 supply pins and local decoupling. C38 is bulk for the switching LED current.
+A(OA('U7',3,{'8':'+16V','4':'-16V'},B7))
+A(C('C36','100n','+16V','AGND',B7));    A(C('C37','100n','+16V','AGND',B7))
+A(CP('C38','47u','+16V','AGND',B7))
+A(C('C39','100n','+16V','AGND',B7));    A(C('C40','100n','-16V','AGND',B7))
+
 # ---------------- op-amp power units + decoupling ----------------
 B6='SH5 SUPPLY DECOUPLING'
 for u in ['U1','U2','U3','U4','U5','U6']:
@@ -143,4 +207,6 @@ for i,u in enumerate(['U1','U2','U3','U4','U5','U6']):
 for i,(net) in enumerate(['+16V','-16V','AGND','-5V1']):
     A(('#FLG%d'%i,'power','PWR_FLAG','PWR_FLAG','',B6,{'1':net}))
 
-NO_CONNECT = ['P48-NC']
+NO_CONNECT = (['P48-NC', 'GR-MODE-NC', 'LVL-MODE-NC']       # MODE open = dot mode
+              + ['GR-NC8', 'GR-NC9', 'GR-NC10']             # LM3914 outputs 8-10 unused
+              + ['LVL-NC1', 'LVL-NC2', 'LVL-NC3'])          # LM3915 outputs 1-3 unused

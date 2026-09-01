@@ -44,3 +44,9 @@ fp-info-cache
 
 # macOS
 .DS_Store
+
+# Generated reports
+*.rpt
+
+# Scratch output from gen_project.py -d
+/regenerated/

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The LED meters &middot; UTS Mini Mixing Desk &mdash; Compressor</title>
+<meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+/* Runs before paint so a stored preference does not flash narrow first. */
+try {
+  if (localStorage.getItem('uts-width') === 'wide')
+    document.documentElement.dataset.width = 'wide';
+} catch (e) {}
+</script>
+<script src="vendor/cytoscape.min.js" defer></script>
+<script src="viewer.js" defer></script>
+</head><body>
+<div class="shell">
+<aside class="side">
+  <a class="brand" href="index.html"><b>UTS Mini Mixing Desk</b><span>Compressor module</span></a>
+  <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">Contents</button>
+  <nav><h4>Start here</h4><a href="index.html"><i>01</i><span>Overview</span></a><h4>Signal path</h4><a href="connector.html"><i>02</i><span>500-series interface</span></a><a href="input.html"><i>03</i><span>Balanced input &amp; pad</span></a><a href="vca.html"><i>04</i><span>The gain cell</span></a><a href="output.html"><i>05</i><span>Makeup &amp; output</span></a><h4>Control path</h4><a href="sidechain.html"><i>06</i><span>The sidechain</span></a><h4>Support</h4><a href="power.html"><i>07</i><span>Power &amp; references</span></a><a href="meters.html" class="on"><i>08</i><span>The LED meters</span></a><h4>Practical</h4><a href="panel.html"><i>09</i><span>The front panel</span></a><a href="using.html"><i>10</i><span>Setting up &amp; using it</span></a></nav>
+  <div class="side-foot">
+    <button class="wbtn" id="wbtn" type="button" aria-pressed="false">
+      <span class="wbtn-ico" aria-hidden="true"></span><span class="wbtn-txt">Wide layout</span>
+    </button>
+  </div>
+</aside>
+<main class="main"><div class="wrap">
+
+<p class="eyebrow">Sheet 7</p>
+<h1>The LED meters</h1>
+<p class="lede">Two seven-segment bargraphs &mdash; gain reduction and output level &mdash;
+driven by one NE5532 and a pair of display drivers. Both light exactly one LED at a time, which
+is the only reason they fit the power budget at all.</p>
+
+<div class="iv" id="iv-meters">
+  <div class="iv-bar">
+    <button class="iv-tab on" data-view="schematic">Schematic</button>
+    <button class="iv-tab" data-view="graph">Connections</button>
+    <span class="iv-sp"></span>
+    <input class="iv-find" type="search" placeholder="find R14, VBIAS…" aria-label="Find part or net">
+    <button class="iv-btn iv-zout" title="Zoom out">&minus;</button>
+    <button class="iv-btn iv-zin" title="Zoom in">+</button>
+    <button class="iv-btn iv-lay" title="Change graph layout">Flow</button>
+    <button class="iv-btn iv-zres" title="Fit">Fit</button>
+  </div>
+  <div class="iv-body"></div>
+  <div class="iv-key">
+    <span class="iv-trace"></span>
+    <span class="iv-sp"></span>
+    <span class="k sig">audio</span><span class="k ctl">control</span>
+    <span class="k pwr">supply</span><span class="k gnd">ground</span>
+    <span class="k dot">junction</span>
+  </div>
+  <div class="iv-foot">
+    <span>Sheet 7 &mdash; detectors, display drivers and the two LED columns</span>
+    <a href="img/meters.svg" target="_blank" rel="noopener">Open the plain schematic &rarr;</a>
+  </div>
+  <script type="application/json">{"sheet":"meters","w":373.38,"h":205.74,"components":[{"ref":"C35","value":"2u2","fp":"C_Rect_L7.0mm_W2.5mm_P5.00mm","kind":"cap","note":"","box":[110.16,54.28,3.2,10.82],"pins":{"1":"PKDET","2":"AGND"}},{"ref":"C36","value":"100n","fp":"C_Disc_D5.0mm_W2.5mm_P5.00mm","kind":"cap","note":"","box":[98.73,163.5,3.2,10.82],"pins":{"1":"+16V","2":"AGND"}},{"ref":"C37","value":"100n","fp":"C_Disc_D5.0mm_W2.5mm_P5.00mm","kind":"cap","note":"","box":[125.4,163.5,3.2,10.82],"pins":{"1":"+16V","2":"AGND"}},{"ref":"C38","value":"47u","fp":"CP_Radial_D6.3mm_P2.50mm","kind":"cap","note":"","box":[152.07,163.5,3.2,10.82],"pins":{"1":"+16V","2":"AGND"}},{"ref":"C39","value":"100n","fp":"C_Disc_D5.0mm_W2.5mm_P5.00mm","kind":"cap","note":"","box":[178.74,163.5,3.2,10.82],"pins":{"1":"+16V","2":"AGND"}},{"ref":"C40","value":"100n","fp":"C_Disc_D5.0mm_W2.5mm_P5.00mm","kind":"cap","note":"","box":[205.41,163.5,3.2,10.82],"pins":{"1":"-16V","2":"AGND"}},{"ref":"D11","value":"1N4148","fp":"D_DO-35_SOD27_P7.62mm_Horizontal","kind":"dio","note":"","box":[89.84,27.61,3.2,10.82],"pins":{"1":"PKDET","2":"D11A"}},{"ref":"D12","value":"1N4148","fp":"D_DO-35_SOD27_P7.62mm_Horizontal","kind":"dio","note":"","box":[94.92,101.27,10.82,3.2],"pins":{"1":"GRIN","2":"AGND"}},{"ref":"D20","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[308.28,101.27,10.82,3.2],"pins":{"1":"GRL1","2":"+16V"}},{"ref":"D21","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[68.25,134.29,10.82,3.2],"pins":{"1":"GRL2","2":"+16V"}},{"ref":"D22","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[121.59,134.29,10.82,3.2],"pins":{"1":"GRL3","2":"+16V"}},{"ref":"D23","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[174.93,134.29,10.82,3.2],"pins":{"1":"GRL4","2":"+16V"}},{"ref":"D24","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[228.27,134.29,10.82,3.2],"pins":{"1":"GRL5","2":"+16V"}},{"ref":"D25","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[281.61,134.29,10.82,3.2],"pins":{"1":"GRL6","2":"+16V"}},{"ref":"D26","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[334.95,134.29,10.82,3.2],"pins":{"1":"GRL7","2":"+16V"}},{"ref":"D30","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[334.95,101.27,10.82,3.2],"pins":{"1":"LVLL1","2":"+16V"}},{"ref":"D31","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[94.92,134.29,10.82,3.2],"pins":{"1":"LVLL2","2":"+16V"}},{"ref":"D32","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[148.26,134.29,10.82,3.2],"pins":{"1":"LVLL3","2":"+16V"}},{"ref":"D33","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[201.6,134.29,10.82,3.2],"pins":{"1":"LVLL4","2":"+16V"}},{"ref":"D34","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[254.94,134.29,10.82,3.2],"pins":{"1":"LVLL5","2":"+16V"}},{"ref":"D35","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[308.28,134.29,10.82,3.2],"pins":{"1":"LVLL6","2":"+16V"}},{"ref":"D36","value":"meter","fp":"LED_D2.0mm_W4.0mm_H2.8mm_FlatTop","kind":"led","note":"","box":[68.25,167.31,10.82,3.2],"pins":{"1":"LVLL7","2":"+16V"}},{"ref":"R84","value":"10k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[47.93,31.42,10.82,3.2],"pins":{"1":"CTRL-B","2":"INV7B"}},{"ref":"R85","value":"10k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[92.38,49.2,3.2,10.82],"pins":{"1":"NINV7B","2":"AGND"}},{"ref":"R86","value":"10k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[70.79,50.47,10.82,3.2],"pins":{"1":"LVLTRM","2":"MTRIN"}},{"ref":"R87","value":"1k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[152.07,37.77,10.82,3.2],"pins":{"1":"U7AO","2":"D11A"}},{"ref":"R88","value":"100k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[110.16,74.6,3.2,10.82],"pins":{"1":"PKDET","2":"AGND"}},{"ref":"R89","value":"2k7","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[178.74,97.46,3.2,10.82],"pins":{"1":"GRREF","2":"GRADJ"}},{"ref":"R90","value":"8k2","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[205.41,97.46,3.2,10.82],"pins":{"1":"GRADJ","2":"AGND"}},{"ref":"R91","value":"2k7","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[258.75,97.46,3.2,10.82],"pins":{"1":"LVLREF","2":"LVLADJ"}},{"ref":"R92","value":"8k2","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[285.42,97.46,3.2,10.82],"pins":{"1":"LVLADJ","2":"AGND"}},{"ref":"R93","value":"18k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[27.61,33.96,10.82,3.2],"pins":{"1":"GRREF","2":"INV7B"}},{"ref":"R94","value":"10k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[129.21,37.77,10.82,3.2],"pins":{"1":"GR-SIG","2":"GRIN"}},{"ref":"RV7","value":"20k","fp":"Potentiometer_Bourns_3296W_Vertical","kind":"pot","note":"","box":[72.06,97.46,7.01,10.82],"pins":{"1":"INV7B","2":"GR-SIG","3":"GR-SIG"}},{"ref":"RV8","value":"20k","fp":"Potentiometer_Bourns_3296W_Vertical","kind":"pot","note":"","box":[125.4,97.46,7.01,10.82],"pins":{"1":"OUT-A","2":"LVLTRM","3":"AGND"}},{"ref":"U7","value":"NE5532","fp":"DIP-8_W7.62mm","kind":"ic","note":"","box":[64.44,35.23,170.84000000000003,142.9],"pins":{"1":"U7AO","2":"PKDET","3":"MTRIN","4":"-16V","5":"NINV7B","6":"INV7B","7":"GR-SIG","8":"+16V"}},{"ref":"U8","value":"LM3914","fp":"DIP-18_W7.62mm","kind":"dip","note":"","box":[141.91,86.03,23.52,36.22],"pins":{"1":"GRL1","2":"AGND","3":"+16V","4":"AGND","5":"GRIN","6":"GRREF","7":"GRREF","8":"GRADJ","9":"GR-MODE-NC","10":"GR-NC10","11":"GR-NC9","12":"GR-NC8","13":"GRL7","14":"GRL6","15":"GRL5","16":"GRL4","17":"GRL3","18":"GRL2"}},{"ref":"U9","value":"LM3915","fp":"DIP-18_W7.62mm","kind":"dip","note":"","box":[221.92,86.03,23.52,36.22],"pins":{"1":"LVL-NC1","2":"AGND","3":"+16V","4":"AGND","5":"PKDET","6":"LVLREF","7":"LVLREF","8":"LVLADJ","9":"LVL-MODE-NC","10":"LVLL7","11":"LVLL6","12":"LVLL5","13":"LVLL4","14":"LVLL3","15":"LVLL2","16":"LVLL1","17":"LVL-NC3","18":"LVL-NC2"}}],"nets":[{"name":"+16V","cls":"pwr","pins":[["C36","1"],["C37","1"],["C38","1"],["C39","1"],["D20","2"],["D21","2"],["D22","2"],["D23","2"],["D24","2"],["D25","2"],["D26","2"],["D30","2"],["D31","2"],["D32","2"],["D33","2"],["D34","2"],["D35","2"],["D36","2"],["U7","8"],["U8","3"],["U9","3"]],"offsheet":23},{"name":"-16V","cls":"pwr","pins":[["C40","1"],["U7","4"]],"offsheet":16},{"name":"AGND","cls":"gnd","pins":[["C35","2"],["C36","2"],["C37","2"],["C38","2"],["C39","2"],["C40","2"],["D12","2"],["R85","2"],["R88","2"],["R90","2"],["R92","2"],["RV8","3"],["U8","2"],["U8","4"],["U9","2"],["U9","4"]],"offsheet":50},{"name":"CTRL-B","cls":"ctl","pins":[["R84","1"]],"offsheet":4},{"name":"D11A","cls":"sig","pins":[["D11","2"],["R87","2"]],"offsheet":0},{"name":"GR-MODE-NC","cls":"sig","pins":[["U8","9"]],"offsheet":0},{"name":"GR-NC10","cls":"sig","pins":[["U8","10"]],"offsheet":0},{"name":"GR-NC8","cls":"sig","pins":[["U8","12"]],"offsheet":0},{"name":"GR-NC9","cls":"sig","pins":[["U8","11"]],"offsheet":0},{"name":"GR-SIG","cls":"sig","pins":[["R94","1"],["RV7","2"],["RV7","3"],["U7","7"]],"offsheet":0},{"name":"GRADJ","cls":"sig","pins":[["R89","2"],["R90","1"],["U8","8"]],"offsheet":0},{"name":"GRIN","cls":"sig","pins":[["D12","1"],["R94","2"],["U8","5"]],"offsheet":0},{"name":"GRL1","cls":"sig","pins":[["D20","1"],["U8","1"]],"offsheet":0},{"name":"GRL2","cls":"sig","pins":[["D21","1"],["U8","18"]],"offsheet":0},{"name":"GRL3","cls":"sig","pins":[["D22","1"],["U8","17"]],"offsheet":0},{"name":"GRL4","cls":"sig","pins":[["D23","1"],["U8","16"]],"offsheet":0},{"name":"GRL5","cls":"sig","pins":[["D24","1"],["U8","15"]],"offsheet":0},{"name":"GRL6","cls":"sig","pins":[["D25","1"],["U8","14"]],"offsheet":0},{"name":"GRL7","cls":"sig","pins":[["D26","1"],["U8","13"]],"offsheet":0},{"name":"GRREF","cls":"sig","pins":[["R89","1"],["R93","1"],["U8","6"],["U8","7"]],"offsheet":0},{"name":"INV7B","cls":"sig","pins":[["R84","2"],["R93","2"],["RV7","1"],["U7","6"]],"offsheet":0},{"name":"LVL-MODE-NC","cls":"sig","pins":[["U9","9"]],"offsheet":0},{"name":"LVL-NC1","cls":"sig","pins":[["U9","1"]],"offsheet":0},{"name":"LVL-NC2","cls":"sig","pins":[["U9","18"]],"offsheet":0},{"name":"LVL-NC3","cls":"sig","pins":[["U9","17"]],"offsheet":0},{"name":"LVLADJ","cls":"sig","pins":[["R91","2"],["R92","1"],["U9","8"]],"offsheet":0},{"name":"LVLL1","cls":"sig","pins":[["D30","1"],["U9","16"]],"offsheet":0},{"name":"LVLL2","cls":"sig","pins":[["D31","1"],["U9","15"]],"offsheet":0},{"name":"LVLL3","cls":"sig","pins":[["D32","1"],["U9","14"]],"offsheet":0},{"name":"LVLL4","cls":"sig","pins":[["D33","1"],["U9","13"]],"offsheet":0},{"name":"LVLL5","cls":"sig","pins":[["D34","1"],["U9","12"]],"offsheet":0},{"name":"LVLL6","cls":"sig","pins":[["D35","1"],["U9","11"]],"offsheet":0},{"name":"LVLL7","cls":"sig","pins":[["D36","1"],["U9","10"]],"offsheet":0},{"name":"LVLREF","cls":"sig","pins":[["R91","1"],["U9","6"],["U9","7"]],"offsheet":0},{"name":"LVLTRM","cls":"sig","pins":[["R86","1"],["RV8","2"]],"offsheet":0},{"name":"MTRIN","cls":"sig","pins":[["R86","2"],["U7","3"]],"offsheet":0},{"name":"NINV7B","cls":"sig","pins":[["R85","1"],["U7","5"]],"offsheet":0},{"name":"OUT-A","cls":"sig","pins":[["RV8","1"]],"offsheet":6},{"name":"PKDET","cls":"sig","pins":[["C35","1"],["D11","1"],["R88","1"],["U7","2"],["U9","5"]],"offsheet":0},{"name":"U7AO","cls":"sig","pins":[["R87","1"],["U7","1"]],"offsheet":0}]}</script>
+</div>
+
+<h2>Why this sheet uses a driver IC</h2>
+<p>A seven-segment bargraph needs seven comparators, and there are two of them. Building
+fourteen comparators out of NE5532s means seven more packages and roughly <strong>56 mA</strong>
+&mdash; on rails that only have about 70 mA of headroom left. It does not fit.</p>
+<p>So this is the one place the module steps outside its NE5532-and-BC549 palette.
+<code>U8</code> and <code>U9</code> are LM391x display drivers: ten comparators, a reference and
+the LED current sinks in one 18-pin package.</p>
+<p>They are pin-identical but follow different laws, which is the whole reason there are two
+different part numbers. <code>U8</code> is an <strong>LM3914</strong>, whose ten steps are
+evenly spaced in volts. <code>U9</code> is an <strong>LM3915</strong>, whose steps are 3 dB
+apart. Gain reduction is read off a control voltage; output level is read in dB. Fitting them
+the wrong way round gives two meters that both read badly.</p>
+
+<div class="note">
+  <h4>Dot mode, not bar mode</h4>
+  <p>Pin 9 (<code>MODE</code>) is left open on both drivers, which selects dot mode: one LED lit
+  at a time instead of a filled bar. That is a power decision before it is an aesthetic one. In
+  bar mode, seven lit LEDs per meter at 4.6 mA is about <strong>64 mA</strong> of extra draw and
+  the module no longer fits the 130 mA the rack allows. In dot mode the same meters cost
+  <strong>9.2 mA</strong>.</p>
+</div>
+
+<h2>The reference and the LED current</h2>
+<p>Each driver sets its own full-scale voltage and its own LED current from two resistors, and
+both meters use the same pair.</p>
+<div class="tw"><table><thead><tr><th class="r">Set by</th><th class="n">Value</th><th class="n">Result</th><th class="">What it fixes</th></tr></thead><tbody><tr><td class="r"><code>R89</code> / <code>R91</code></td><td class="n">2k7</td><td class="n">4.6 mA</td><td class="">LED current, <em>12.5&nbsp;/&nbsp;R</em> &mdash; every segment the same brightness</td></tr><tr><td class="r"><code>R90</code> / <code>R92</code></td><td class="n">8k2</td><td class="n">5.05 V</td><td class="">Full scale, <em>1.25&nbsp;&times;&nbsp;(1&nbsp;+&nbsp;R90/R89)</em></td></tr></tbody></table></div>
+<p>The LED current is set by the driver, not by a series resistor per LED, so all fourteen
+segments match without sorting parts. <code>RHI</code> ties to <code>REFOUT</code> and
+<code>RLO</code> to ground, so each ladder spans 0 V to 5.05 V.</p>
+
+<h2>Gain reduction &mdash; U8</h2>
+<p>The control voltage <code>CTRL-B</code> rests at 0 V and swings to about &minus;10 V at full
+compression, so it needs inverting before a meter can read it. That much is easy. The problem is
+what happens next.</p>
+<p><code>Q6</code> and <code>Q7</code> in the gain cell are an <strong>undegenerated</strong>
+differential pair, so gain follows control voltage as a sigmoid, not a line. Feed that to a
+meter that steps evenly in volts and the scale bunches horribly:</p>
+<div class="tw"><table><thead><tr><th class="r">Segment</th><th class="n">Even steps in volts</th><th class="n">With the R93 offset</th></tr></thead><tbody><tr><td class="r"><code>D20</code></td><td class="n">0.1 dB</td><td class="n">1 dB</td></tr><tr><td class="r"><code>D21</code></td><td class="n">0.5 dB</td><td class="n">2 dB</td></tr><tr><td class="r"><code>D22</code></td><td class="n">2.0 dB</td><td class="n">3 dB</td></tr><tr><td class="r"><code>D23</code></td><td class="n">6.6 dB</td><td class="n">6 dB</td></tr><tr><td class="r"><code>D24</code></td><td class="n">15.7 dB</td><td class="n">9 dB</td></tr><tr><td class="r"><code>D25</code></td><td class="n">27.5 dB</td><td class="n">14 dB</td></tr><tr><td class="r"><code>D26</code></td><td class="n">40.2 dB</td><td class="n">19 dB</td></tr></tbody></table></div>
+<p>Three of seven segments inside the first 2 dB, then a jump from 6 dB to 40 dB across the last
+three. No trim setting fixes it, because the spacing is wrong, not the span.</p>
+<p><code>R93</code> (18 k&Omega;) solves it by making <code>U7B</code> a <em>summing</em>
+inverting stage: it subtracts a fixed offset taken from <code>U8</code>'s own reference before
+the signal reaches the driver. The seven even voltage steps then land on the useful middle of
+the sigmoid, and the scale comes out close to the classic 1/2/3/6/9/14/19 dB progression.</p>
+<p>The cost is that <code>U7B</code> now sits at about <strong>&minus;2.1 V</strong> with no
+compression happening. <code>R94</code> and <code>D12</code> clamp the driver input at
+&minus;0.7 V so that idle offset never reaches <code>U8</code>. <code>RV7</code> trims the
+slope, which moves the whole scale together.</p>
+
+<h2>Output level &mdash; U9</h2>
+<p>The level meter watches <code>OUT-A</code>, the makeup amplifier's output. That is the last
+point in the signal path that is still a low-impedance op-amp output: metering after
+<code>R28</code> would put the meter's input divider across the module's balanced output and
+unbalance it slightly.</p>
+<p><code>U7A</code> is a precision peak detector. <code>D11</code> sits <em>inside</em> the
+feedback loop, so the op amp servos out the diode's own forward drop and the detector stays
+accurate down to a few millivolts &mdash; a bare diode and capacitor would read about 0.6 V low.
+<code>R87</code> limits the surge into <code>C35</code> as it charges.</p>
+<div class="tw"><table><thead><tr><th class="r">Set by</th><th class="n">Value</th><th class="">Result</th></tr></thead><tbody><tr><td class="r"><code>R87</code> &times; <code>C35</code></td><td class="n">1k &times; 2&micro;2</td><td class="">2.2 ms attack &mdash; fast enough to catch peaks</td></tr><tr><td class="r"><code>R88</code> &times; <code>C35</code></td><td class="n">100k &times; 2&micro;2</td><td class="">220 ms decay &mdash; slow enough to read</td></tr></tbody></table></div>
+<p>From there <code>U9</code>'s 3 dB steps give a seven-segment scale spanning
+<strong>18 dB</strong>. Outputs 4&ndash;10 drive the LEDs, so the top segment is full scale and
+the bottom is 18 dB below it; outputs 1&ndash;3 are unused.</p>
+
+<h2>Setting the two trimmers</h2>
+<p>Neither meter is calibrated by calculation &mdash; both have a trimmer, and both want a
+signal generator and a voltmeter.</p>
+<ul>
+  <li><strong><code>RV8</code>, level.</strong> Feed the module a steady tone at whatever level
+  you want the top LED to mean &mdash; +18 dBu is the usual choice, leaving about 2 dB before
+  <code>U2A</code> clips. Adjust <code>RV8</code> until <code>D36</code> just lights. The scale
+  below it then reads +15, +12, +9, +6, +3 and 0 dBu.</li>
+  <li><strong><code>RV7</code>, gain reduction.</strong> Drive the compressor hard enough to
+  produce a known amount of gain reduction, measured as the difference in output level with the
+  threshold backed off and applied. Adjust <code>RV7</code> until the segment you want lights.
+  Setting it at 19 dB on <code>D26</code> puts the rest of the scale where the table above
+  says.</li>
+</ul>
+
+<h2>What this costs the supply</h2>
+<div class="tw"><table><thead><tr><th class="r">Draw</th><th class="n">+16 V</th><th class="n">&minus;16 V</th></tr></thead><tbody><tr><td class="r"><code>U7</code> NE5532</td><td class="n">8 mA</td><td class="n">8 mA</td></tr><tr><td class="r"><code>U8</code> + <code>U9</code> quiescent</td><td class="n">~12 mA</td><td class="n">&mdash;</td></tr><tr><td class="r">Two lit LEDs at 4.6 mA</td><td class="n">9 mA</td><td class="n">&mdash;</td></tr><tr><td class="r"><strong>Added by this sheet</strong></td><td class="n"><strong>~29 mA</strong></td><td class="n"><strong>8 mA</strong></td></tr><tr><td class="r"><strong>Module total</strong></td><td class="n"><strong>~90 mA</strong></td><td class="n"><strong>~70 mA</strong></td></tr></tbody></table></div>
+<p>Against the 130 mA per rail the 500-series specification allows, that still fits &mdash; but
+the +16 V margin is now about 40 mA rather than 70 mA. The driver quiescent figures are
+datasheet typicals; this is the one number in the project worth measuring on the bench rather
+than trusting.</p>
+
+<div class="note warn">
+  <h4>Still open</h4>
+  <p>Nothing here has been built or simulated. The gain-reduction scale in particular comes from
+  a model of the steering pair, not from measurement &mdash; the shape is right, but expect to
+  move <code>RV7</code> and to redraw the panel legend once a real one exists. <code>LED1</code>
+  on sheet 6 is now superseded by this sheet and has no hole in the panel.</p>
+</div>
+
+<div class="next"><a href="power.html">&larr; Power &amp; references</a><a href="panel.html">The front panel &rarr;</a></div>
+<footer>
+  UTS Mini Mixing Desk &mdash; Compressor &middot; documentation generated from the KiCad project<br>
+  Schematics are exported from the project in this repository. Figures update when you re-run <code>_build.py</code>.<br>
+  Performance figures are calculated from the design, not measured on hardware.
+</footer>
+</div></main>
+</div></body></html>

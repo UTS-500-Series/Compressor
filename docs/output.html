@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Makeup &amp; output &middot; UTS Mini Mixing Desk &mdash; Compressor</title>
+<meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+/* Runs before paint so a stored preference does not flash narrow first. */
+try {
+  if (localStorage.getItem('uts-width') === 'wide')
+    document.documentElement.dataset.width = 'wide';
+} catch (e) {}
+</script>
+<script src="vendor/cytoscape.min.js" defer></script>
+<script src="viewer.js" defer></script>
+</head><body>
+<div class="shell">
+<aside class="side">
+  <a class="brand" href="index.html"><b>UTS Mini Mixing Desk</b><span>Compressor module</span></a>
+  <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">Contents</button>
+  <nav><h4>Start here</h4><a href="index.html"><i>01</i><span>Overview</span></a><h4>Signal path</h4><a href="connector.html"><i>02</i><span>500-series interface</span></a><a href="input.html"><i>03</i><span>Balanced input &amp; pad</span></a><a href="vca.html"><i>04</i><span>The gain cell</span></a><a href="output.html" class="on"><i>05</i><span>Makeup &amp; output</span></a><h4>Control path</h4><a href="sidechain.html"><i>06</i><span>The sidechain</span></a><h4>Support</h4><a href="power.html"><i>07</i><span>Power &amp; references</span></a><a href="meters.html"><i>08</i><span>The LED meters</span></a><h4>Practical</h4><a href="panel.html"><i>09</i><span>The front panel</span></a><a href="using.html"><i>10</i><span>Setting up &amp; using it</span></a></nav>
+  <div class="side-foot">
+    <button class="wbtn" id="wbtn" type="button" aria-pressed="false">
+      <span class="wbtn-ico" aria-hidden="true"></span><span class="wbtn-txt">Wide layout</span>
+    </button>
+  </div>
+</aside>
+<main class="main"><div class="wrap">
+
+<p class="eyebrow">Sheet 4</p>
+<h1>Makeup gain and the output stage</h1>
+<p class="lede">Compression makes things quieter. This section gives you the level back and
+drives it out of the module.</p>
+
+<div class="iv" id="iv-output">
+  <div class="iv-bar">
+    <button class="iv-tab on" data-view="schematic">Schematic</button>
+    <button class="iv-tab" data-view="graph">Connections</button>
+    <span class="iv-sp"></span>
+    <input class="iv-find" type="search" placeholder="find R14, VBIAS…" aria-label="Find part or net">
+    <button class="iv-btn iv-zout" title="Zoom out">&minus;</button>
+    <button class="iv-btn iv-zin" title="Zoom in">+</button>
+    <button class="iv-btn iv-lay" title="Change graph layout">Flow</button>
+    <button class="iv-btn iv-zres" title="Fit">Fit</button>
+  </div>
+  <div class="iv-body"></div>
+  <div class="iv-key">
+    <span class="iv-trace"></span>
+    <span class="iv-sp"></span>
+    <span class="k sig">audio</span><span class="k ctl">control</span>
+    <span class="k pwr">supply</span><span class="k gnd">ground</span>
+    <span class="k dot">junction</span>
+  </div>
+  <div class="iv-foot">
+    <span>Sheet 4 &mdash; makeup gain U2A, output drivers U2A/U2B, bypass, and the aux section</span>
+    <a href="img/output.svg" target="_blank" rel="noopener">Open the plain schematic &rarr;</a>
+  </div>
+  <script type="application/json">{"sheet":"output","w":246.38,"h":170.18,"components":[{"ref":"C13","value":"100p","fp":"C_Disc_D5.0mm_W2.5mm_P5.00mm","kind":"cap","note":"","box":[120.32,36.5,3.2,10.82],"pins":{"1":"INV2B","2":"OUT-B"}},{"ref":"R26","value":"1k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[72.06,88.57,3.2,10.82],"pins":{"1":"INV2A","2":"AGND"}},{"ref":"R28","value":"100R","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[167.31,84.76,10.82,3.2],"pins":{"1":"OUT-A","2":"BYP-A"}},{"ref":"R29","value":"10k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[42.85,51.74,3.2,10.82],"pins":{"1":"OUT-A","2":"INV2B"}},{"ref":"R30","value":"10k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[110.16,47.93,3.2,10.82],"pins":{"1":"INV2B","2":"OUT-B"}},{"ref":"R31","value":"5k1","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[87.3,82.22,3.2,10.82],"pins":{"1":"NINV2B","2":"AGND"}},{"ref":"R32","value":"100R","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[207.95,64.44,10.82,3.2],"pins":{"1":"OUT-B","2":"BYP-B"}},{"ref":"R33","value":"100R","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[201.6,77.14,3.2,10.82],"pins":{"1":"AUXBUF","2":"AUXOUT+"}},{"ref":"R34","value":"100R","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[220.65,27.61,3.2,10.82],"pins":{"1":"AGND","2":"AUXOUT-"}},{"ref":"R80","value":"22k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[27.61,65.71,10.82,3.2],"pins":{"1":"AUXIN-","2":"INV5A"}},{"ref":"R81","value":"22k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[124.13,96.19,10.82,3.2],"pins":{"1":"AUXIN+","2":"NINV5A"}},{"ref":"R82","value":"22k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[144.45,22.53,10.82,3.2],"pins":{"1":"INV5A","2":"KEY"}},{"ref":"R83","value":"22k","fp":"R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal","kind":"res","note":"","box":[140.64,96.19,10.82,3.2],"pins":{"1":"NINV5A","2":"AGND"}},{"ref":"RV2","value":"10k","fp":"Potentiometer_Alps_RK09K_Single_Vertical","kind":"pot","note":"MAKEUP - 0 to +21 dB.","box":[61.9,98.73,7.01,10.82],"pins":{"1":"INV2A","2":"OUT-A","3":"OUT-A"}},{"ref":"SW1","value":"BYPASS","fp":"","kind":"sw","note":"Hard bypass - routes the rack straight through.","box":[188.9,82.22000000000001,38.75999999999999,27.329999999999984],"pins":{"1":"BYP-A","2":"OUT+","3":"IN+","4":"BYP-B","5":"OUT-","6":"IN-"}},{"ref":"U2","value":"NE5532","fp":"DIP-8_W7.62mm","kind":"ic","note":"A: makeup gain. B: output inverter.","box":[64.44,69.52,56.540000000000006,8.280000000000015],"pins":{"1":"OUT-A","2":"INV2A","3":"SIG-VCA","5":"NINV2B","6":"INV2B","7":"OUT-B"}},{"ref":"U5","value":"NE5532","fp":"DIP-8_W7.62mm","kind":"ic","note":"A: aux key receiver. B: aux output buffer.","box":[140.64000000000001,69.52,56.53999999999999,8.280000000000015],"pins":{"1":"KEY","2":"INV5A","3":"NINV5A","5":"OUT-A","6":"AUXBUF","7":"AUXBUF"}}],"nets":[{"name":"AGND","cls":"gnd","pins":[["R26","2"],["R31","2"],["R34","1"],["R83","2"]],"offsheet":62},{"name":"AUXBUF","cls":"sig","pins":[["R33","1"],["U5","6"],["U5","7"]],"offsheet":0},{"name":"AUXIN+","cls":"sig","pins":[["R81","1"]],"offsheet":1},{"name":"AUXIN-","cls":"sig","pins":[["R80","1"]],"offsheet":1},{"name":"AUXOUT+","cls":"sig","pins":[["R33","2"]],"offsheet":1},{"name":"AUXOUT-","cls":"sig","pins":[["R34","2"]],"offsheet":1},{"name":"BYP-A","cls":"sig","pins":[["R28","2"],["SW1","1"]],"offsheet":0},{"name":"BYP-B","cls":"sig","pins":[["R32","2"],["SW1","4"]],"offsheet":0},{"name":"IN+","cls":"sig","pins":[["SW1","3"]],"offsheet":2},{"name":"IN-","cls":"sig","pins":[["SW1","6"]],"offsheet":2},{"name":"INV2A","cls":"sig","pins":[["R26","1"],["RV2","1"],["U2","2"]],"offsheet":0},{"name":"INV2B","cls":"sig","pins":[["C13","1"],["R29","2"],["R30","1"],["U2","6"]],"offsheet":0},{"name":"INV5A","cls":"sig","pins":[["R80","2"],["R82","1"],["U5","2"]],"offsheet":0},{"name":"KEY","cls":"ctl","pins":[["R82","2"],["U5","1"]],"offsheet":1},{"name":"NINV2B","cls":"sig","pins":[["R31","1"],["U2","5"]],"offsheet":0},{"name":"NINV5A","cls":"sig","pins":[["R81","2"],["R83","1"],["U5","3"]],"offsheet":0},{"name":"OUT+","cls":"sig","pins":[["SW1","2"]],"offsheet":1},{"name":"OUT-","cls":"sig","pins":[["SW1","5"]],"offsheet":1},{"name":"OUT-A","cls":"sig","pins":[["R28","1"],["R29","1"],["RV2","2"],["RV2","3"],["U2","1"],["U5","5"]],"offsheet":1},{"name":"OUT-B","cls":"sig","pins":[["C13","2"],["R30","2"],["R32","1"],["U2","7"]],"offsheet":0},{"name":"SIG-VCA","cls":"sig","pins":[["U2","3"]],"offsheet":4}]}</script>
+</div>
+
+<h2>Makeup gain</h2>
+<p>Once the compressor is pulling 10 dB off the peaks, the whole signal is quieter than it was.
+<strong>Makeup gain</strong> puts it back so you can compare compressed and uncompressed at the
+same loudness &mdash; without which every compressor sounds worse simply because it is
+quieter.</p>
+<p><code>U2A</code> is a non-inverting amplifier. <code>R26</code> (1 k&Omega;) sits from its
+inverting input to ground and <code>RV2</code> (10 k&Omega;) forms the feedback, so the gain is
+<code>1 + RV2/R26</code> &mdash; adjustable from <strong>1&times; to 11&times;</strong>, or
+0 to about +21 dB.</p>
+
+<div class="note">
+  <h4>Why the detector taps before this stage</h4>
+  <p>The sidechain listens at <code>SIG-VCA</code>, which is the recovery amplifier's output
+  &mdash; <em>before</em> makeup gain. If it listened after, then turning up makeup would raise
+  the level the detector sees, which would increase gain reduction, which would lower the
+  output... and your threshold setting would change every time you touched the makeup knob.
+  Tapping before makeup keeps the two controls independent.</p>
+</div>
+
+<h2>Driving the output</h2>
+<p>The module has to present a balanced output. It does that with two op amps in antiphase:
+<code>U2A</code> drives the hot pin directly, and <code>U2B</code> is a unity-gain inverter
+(<code>R29</code>/<code>R30</code>, both 10 k&Omega;) that produces the cold pin. The two
+outputs move in opposite directions, which is exactly what a balanced receiver at the other end
+wants to see.</p>
+<p><code>R28</code> and <code>R32</code>, both 100 &Omega;, sit in series with each output.
+They are <strong>build-out resistors</strong>: they isolate the op amp from the capacitance of
+whatever cable you plug in. Without them a long cable can make the op amp oscillate.</p>
+
+<div class="note warn">
+  <h4>Do not ground the cold output</h4>
+  <p>Because both pins are actively driven, shorting pin 4 to ground &mdash; which is what
+  happens if you feed an unbalanced input with the wrong cable &mdash; puts an NE5532 output
+  into 100 &Omega;. It will survive, but it will run hot and distort. If unbalanced destinations
+  are likely, raise <code>R28</code> and <code>R32</code> to 220 &Omega;, or fit an output
+  transformer.</p>
+</div>
+
+<h2>Hard bypass</h2>
+<p><code>SW1</code> is a DPDT switch that transfers output pins 2 and 4 between the module's
+own drivers and the input pins 10 and 8. In bypass, the audio goes straight from the rack's
+input to the rack's output through nothing but a switch contact &mdash; genuinely out of
+circuit, not just "gain set to unity". That is what makes an A/B comparison trustworthy.</p>
+
+<h2>The aux section</h2>
+<p>Drawn as a separable block because it uses chassis-specific pins:</p>
+<ul>
+  <li><strong>Aux in (pins 11, 9)</strong> &rarr; <code>U5A</code>, another difference amplifier,
+      producing the <code>KEY</code> net. This is an <em>external key</em> input: it lets the
+      compressor respond to a different signal than the one it is processing. Ducking a music bed
+      under a voiceover is the classic use.</li>
+  <li><strong>Aux out (pins 3, 7)</strong> &rarr; <code>U5B</code> buffers the main output to
+      give a duplicate feed. It is <em>impedance balanced</em> rather than actively driven:
+      the hot pin carries the signal through 100 &Omega; and the cold pin is 100 &Omega; to
+      ground. A balanced receiver still rejects interference properly, at half the level and
+      half the parts.</li>
+</ul>
+<p>Omit <code>U5</code> and its four resistors and the module becomes fully standards-compliant,
+and gives back about 16 mA per rail.</p>
+
+<div class="next"><a href="vca.html">&larr; The gain cell</a><a href="sidechain.html">The sidechain &rarr;</a></div>
+<footer>
+  UTS Mini Mixing Desk &mdash; Compressor &middot; documentation generated from the KiCad project<br>
+  Schematics are exported from the project in this repository. Figures update when you re-run <code>_build.py</code>.<br>
+  Performance figures are calculated from the design, not measured on hardware.
+</footer>
+</div></main>
+</div></body></html>

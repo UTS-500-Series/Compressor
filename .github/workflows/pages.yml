@@ -1,7 +1,9 @@
-# Publishes sections/documentation/ to GitHub Pages.
+# Publishes docs/ to GitHub Pages.
 #
-# GitHub's simple Pages UI only offers "/" or "/docs" as a source folder, and the
-# documentation lives in "documentation/", so it needs this workflow instead.
+# The site now lives in docs/, which IS one of the folders GitHub's simple Pages UI
+# offers, so this workflow is no longer strictly required - Settings -> Pages ->
+# Source: "Deploy from a branch", branch main, folder /docs would also work.
+# It is kept because it deploys on every push without further configuration.
 #
 # One-time setup: Settings -> Pages -> Build and deployment -> Source: GitHub Actions.
 name: Deploy documentation
@@ -31,6 +33,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: documentation
+          path: docs
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -3,10 +3,11 @@
 A 500-series compressor module for the UTS Mini Mixing Desk. Feedback topology, discrete
 current-steering gain cell, balanced in and out, running on the rack's ±16 V.
 
-Built from ordinary parts: **nine BC549 transistors and six NE5532 op amps**. No VCA chip,
+Built from ordinary parts: **nine BC549 transistors and seven NE5532 op amps**, plus a
+pair of LM391x bargraph drivers for the meters. No VCA chip,
 no transformers, nothing hard to source.
 
-📖 **Documentation: [`documentation/`](documentation/)** — every section explained, with
+📖 **Documentation: [`docs/`](docs/)** — every section explained, with
 interactive schematics you can click through. Once GitHub Pages is enabled, replace this
 line with the published URL.
 
@@ -16,9 +17,9 @@ line with the published URL.
 
 | | |
 |---|---|
-| Schematic | Complete, 6 sheets |
-| Components | 128 |
-| Nets | 83 |
+| Schematic | Complete, 7 sheets |
+| Components | 166 |
+| Nets | 110 |
 | ERC | 0 errors, 0 warnings |
 | PCB layout | Not started |
 | Simulated | No |
@@ -28,9 +29,21 @@ line with the published URL.
 The netlist has been verified and ERC is clean, but that only proves the drawing is
 self-consistent — not that the circuit behaves as predicted.
 
+## Repository layout
+
+```
+kicad/     the KiCad 9 project — .kicad_pro plus one .kicad_sch per sheet
+tools/     design.py (the authoritative netlist) and the generate/route/verify scripts
+panel/     faceplate generator — mockups, a 1:1 drawing and a DXF, from one definition
+docs/      the documentation site, published to GitHub Pages
+```
+
+Everything in `kicad/`, `panel/` and `docs/` is **generated from or checked against**
+`tools/design.py`. That is the one file to treat as source; the rest can be rebuilt.
+
 ## Opening it
 
-Open `UTS Mini Mixing Desk - Compressor.kicad_pro` in **KiCad 9**. The root sheet holds six
+Open `kicad/UTS Mini Mixing Desk - Compressor.kicad_pro` in **KiCad 9**. The root sheet holds seven
 sub-sheets:
 
 | Sheet | What it covers |
@@ -41,6 +54,7 @@ sub-sheets:
 | 4 Output | Makeup gain, output drivers, bypass, aux section |
 | 5 Sidechain | Detector: threshold, rectifier, ratio, attack/release |
 | 6 Power | Rails, references, bias, grounding, decoupling |
+| 7 Meters | Gain-reduction and output-level LED bargraphs |
 
 Only stock KiCad symbol and footprint libraries are used, so there is nothing to install.
 
@@ -55,7 +69,7 @@ when it is compressing hardest. The detector listens to the module's own **outpu
 this a feedback compressor: the ratio emerges from loop gain rather than being dialled in, the
 knee comes out soft on its own, and the circuit is forgiving of component tolerance.
 
-The [documentation](documentation/) covers all of this properly, section by section.
+The [documentation](docs/) covers all of this properly, section by section.
 
 ## Specifications
 
@@ -93,8 +107,9 @@ from one definition — see [`panel/README.md`](panel/README.md).
 
 ## Bill of materials
 
-128 components across 51 distinct line items: 62 resistors, 33 capacitors, 9 transistors,
-6 op amps, 6 potentiometers, 6 diodes, 4 switches, 1 LED, 1 connector.
+166 components across 58 distinct line items: 73 resistors, 39 capacitors, 15 LEDs,
+9 transistors, 8 potentiometers, 8 diodes, 7 op amps, 4 switches, 2 display drivers,
+1 connector.
 
 Four things are not substitutable:
 
@@ -113,7 +128,7 @@ holding about a decibel of gain reduction at idle. Pin compatible, nothing else 
 
 ## Documentation site
 
-`documentation/` is a static site with a page per section. The schematics in it are
+`docs/` is a static site with a page per section. The schematics in it are
 interactive — pan and zoom, click any part for its value, footprint and nets, click a net to
 highlight everything on it, or switch to a graph view of the netlist. There is a search box
 for jumping to a designator or net name.
@@ -121,10 +136,12 @@ for jumping to a designator or net name.
 Publishing to GitHub Pages:
 
 1. **Settings → Pages → Build and deployment → Source: GitHub Actions**
-2. Push to `main`. `.github/workflows/pages.yml` publishes `documentation/`.
+2. Push to `main`. `.github/workflows/pages.yml` publishes `docs/`.
 
-(GitHub's simple Pages UI only offers `/` or `/docs`, which is why the workflow exists.
-Renaming the folder to `docs/` and deploying from a branch works just as well.)
+The folder is called `docs/` because that is one of the two sources GitHub's simple Pages
+UI offers, so **Source: Deploy from a branch → main → /docs** works too, and the workflow
+can be deleted if you prefer that. It is kept because it redeploys on every push with no
+further setup.
 
 ## Tooling
 
@@ -158,13 +175,14 @@ After changing a sheet:
 
 ```bash
 # 1. re-export the sheet images
-kicad-cli sch export svg --no-background-color -o /tmp/svg "UTS Mini Mixing Desk - Compressor.kicad_sch"
-#    copy the six sheets into documentation/img/ as connector.svg, input.svg, vca.svg,
-#    output.svg, sidechain.svg, power.svg
+kicad-cli sch export svg --no-background-color -o /tmp/svg \
+  "kicad/UTS Mini Mixing Desk - Compressor.kicad_sch"
+#    copy the seven sheets into docs/img/ as connector.svg, input.svg, vca.svg,
+#    output.svg, sidechain.svg, power.svg, meters.svg
 
-cd documentation
+cd docs
 python3 _data.py     # component hotspots + netlist graph, read from the .kicad_sch files
-python3 _build.py    # the eight HTML pages
+python3 _build.py    # the ten HTML pages
 ```
 
 Both scripts import from `tools/`, so a fresh clone has everything it needs.
