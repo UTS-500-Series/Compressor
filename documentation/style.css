@@ -10,6 +10,7 @@
   --body:"Source Serif 4",Georgia,serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --sb:270px;
+  --wide-max:1240px;   /* cap on wide mode - unbounded prose is unreadable */
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -205,3 +206,33 @@ footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--rule);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:48%}
 .iv-trace.on{opacity:1}
 @media (prefers-reduced-motion:reduce){.iv-trace{transition:none}}
+
+/* portrait artwork - a 38 x 133 mm panel must not be stretched to the figure width */
+figure .pane.tall{display:flex;justify-content:center;background:var(--sunken);padding:22px 14px}
+figure .pane.tall img{width:auto;min-width:0;max-width:100%;max-height:660px;
+  filter:drop-shadow(0 6px 20px rgba(0,0,0,.35))}
+@media (max-width:900px){figure .pane.tall img{max-height:460px}}
+
+/* ---------- width toggle ---------- */
+:root[data-width="wide"] .wrap{max-width:var(--wide-max)}
+:root[data-width="wide"] figure .pane img{min-width:0}
+/* Wide mode only lifts the reading cap - it must never add padding, or on a narrow
+   window (where the cap was not binding anyway) the toggle makes things worse. */
+
+.side-foot{margin-top:26px;padding-top:16px;border-top:1px solid var(--rule)}
+.wbtn{display:flex;align-items:center;gap:9px;width:100%;cursor:pointer;
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;
+  background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);
+  padding:7px 10px;border-radius:4px;text-align:left}
+.wbtn:hover{border-color:var(--ctl);color:var(--ink)}
+.wbtn[aria-pressed="true"]{background:var(--surface-2);border-color:var(--ctl);color:var(--ink)}
+.wbtn-ico{position:relative;flex:none;width:17px;height:12px;border:1px solid currentColor;
+  border-radius:2px;opacity:.75}
+.wbtn-ico::before,.wbtn-ico::after{content:"";position:absolute;top:2px;bottom:2px;width:2px;
+  background:currentColor;transition:left .13s,right .13s}
+.wbtn-ico::before{left:4px}
+.wbtn-ico::after{right:4px}
+.wbtn[aria-pressed="true"] .wbtn-ico::before{left:1.5px}
+.wbtn[aria-pressed="true"] .wbtn-ico::after{right:1.5px}
+@media (prefers-reduced-motion:reduce){.wbtn-ico::before,.wbtn-ico::after{transition:none}}
+@media (max-width:900px){.side-foot{display:none}}   /* already full width down here */

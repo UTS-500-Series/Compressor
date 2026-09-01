@@ -5,6 +5,13 @@
 <meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
 <link rel="stylesheet" href="style.css">
+<script>
+/* Runs before paint so a stored preference does not flash narrow first. */
+try {
+  if (localStorage.getItem('uts-width') === 'wide')
+    document.documentElement.dataset.width = 'wide';
+} catch (e) {}
+</script>
 <script src="vendor/cytoscape.min.js" defer></script>
 <script src="viewer.js" defer></script>
 </head><body>
@@ -12,7 +19,12 @@
 <aside class="side">
   <a class="brand" href="index.html"><b>UTS Mini Mixing Desk</b><span>Compressor module</span></a>
   <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">Contents</button>
-  <nav><h4>Start here</h4><a href="index.html"><i>01</i><span>Overview</span></a><h4>Signal path</h4><a href="connector.html"><i>02</i><span>500-series interface</span></a><a href="input.html" class="on"><i>03</i><span>Balanced input &amp; pad</span></a><a href="vca.html"><i>04</i><span>The gain cell</span></a><a href="output.html"><i>05</i><span>Makeup &amp; output</span></a><h4>Control path</h4><a href="sidechain.html"><i>06</i><span>The sidechain</span></a><h4>Support</h4><a href="power.html"><i>07</i><span>Power &amp; references</span></a><h4>Practical</h4><a href="using.html"><i>08</i><span>Setting up &amp; using it</span></a></nav>
+  <nav><h4>Start here</h4><a href="index.html"><i>01</i><span>Overview</span></a><h4>Signal path</h4><a href="connector.html"><i>02</i><span>500-series interface</span></a><a href="input.html" class="on"><i>03</i><span>Balanced input &amp; pad</span></a><a href="vca.html"><i>04</i><span>The gain cell</span></a><a href="output.html"><i>05</i><span>Makeup &amp; output</span></a><h4>Control path</h4><a href="sidechain.html"><i>06</i><span>The sidechain</span></a><h4>Support</h4><a href="power.html"><i>07</i><span>Power &amp; references</span></a><h4>Practical</h4><a href="panel.html"><i>08</i><span>The front panel</span></a><a href="using.html"><i>09</i><span>Setting up &amp; using it</span></a></nav>
+  <div class="side-foot">
+    <button class="wbtn" id="wbtn" type="button" aria-pressed="false">
+      <span class="wbtn-ico" aria-hidden="true"></span><span class="wbtn-txt">Wide layout</span>
+    </button>
+  </div>
 </aside>
 <main class="main"><div class="wrap">
 

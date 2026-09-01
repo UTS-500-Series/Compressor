@@ -80,14 +80,16 @@ outline and holes for a panel shop. All three are generated from one definition 
 Panel is the standard 500-series 1.500″ × 5.250″ × 0.125″ with two countersunk mounting holes
 125.43 mm apart, badged **OPN-500 / CMP-01**.
 
-Two **dual-concentric** knobs carry the paired controls — THRESHOLD over RATIO, ATTACK over
-RELEASE — which is what makes room on a 38 mm panel for two 7-segment LED meters (gain
-reduction and output level), a lit latching BYPASS button, and HPF and KEY toggles flanking
-MAKEUP. LINK is a pull on the MAKEUP knob.
+The default layout is five separate knobs with every switch function on a **pull-switch pot** —
+THRESHOLD pulls for the sidechain HPF, RATIO for key int/ext, MAKEUP for bypass — plus two
+7-segment LED meters for gain reduction and output level. LINK is an internal jumper. No
+toggles, no button, 21 holes.
 
-The finish is a bone panel with sage and terracotta silkscreen, flat rather than skeuomorphic
-— printed dot scales round the knobs, a dark inset behind the meters, and deliberately unlike
-the black modules it sits between.
+`make_panel.py` also carries a `toggle` layout (the same five knobs, but with HPF and KEY
+flanking THRESHOLD and LINK and BYPASS flanking RATIO — 25 holes, every function one positive
+movement) and a `concentric` layout (dual-concentric knobs, a lit BYPASS button, HPF/KEY
+toggles), plus a `bone` finish alongside the default dark anodised one. Six combinations, all
+from one definition — see [`panel/README.md`](panel/README.md).
 
 ## Bill of materials
 
@@ -174,9 +176,9 @@ Both scripts import from `tools/`, so a fresh clone has everything it needs.
 - The panel is a 2D drawing only — depth clearance between knobs and the PCB has not been
   checked, and panel hardware is assumed rather than specified.
 - **The panel needs parts and circuitry the schematic does not have yet:** two 7-segment LED
-  meters (14 LEDs) need a comparator ladder or display driver; `RV3`/`RV4` and `RV5`/`RV6` are
-  drawn as dual-concentric pots rather than singles; `SW1` is a latching pushbutton; and `SW4`
-  (LINK) is now a pull switch on `RV2`. `design.py` still has the older discrete arrangement.
+  meters (14 LEDs) need a comparator ladder or display driver, and the default panel layout
+  assumes pull-switch pots rather than the discrete `SW1`–`SW4` in `design.py` (the
+  `concentric` layout additionally needs dual-concentric pots and a latching pushbutton).
 - The switches have no footprints assigned — pick parts to suit the panel.
 - Pin 11 is used as an auxiliary input, which the API 500 specification assigns to a gain-trim
   node. The aux section (U5 and its resistors) is a separable block; omit it and the module is

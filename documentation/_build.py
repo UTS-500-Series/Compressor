@@ -18,7 +18,8 @@ NAV = [
                      ("output.html",    "05", "Makeup &amp; output")]),
     ("Control path", [("sidechain.html", "06", "The sidechain")]),
     ("Support", [("power.html", "07", "Power &amp; references")]),
-    ("Practical", [("using.html", "08", "Setting up &amp; using it")]),
+    ("Practical", [("panel.html", "08", "The front panel"),
+                   ("using.html", "09", "Setting up &amp; using it")]),
 ]
 ORDER = [p for _, g in NAV for p, _, _ in g]
 TITLES = {p: t for _, g in NAV for p, _, t in g}
@@ -41,6 +42,13 @@ def shell(fname, title, body):
 <meta name="description" content="How the UTS Mini Mixing Desk compressor module works, section by section.">
 {FONTS}
 <link rel="stylesheet" href="style.css">
+<script>
+/* Runs before paint so a stored preference does not flash narrow first. */
+try {{
+  if (localStorage.getItem('uts-width') === 'wide')
+    document.documentElement.dataset.width = 'wide';
+}} catch (e) {{}}
+</script>
 <script src="vendor/cytoscape.min.js" defer></script>
 <script src="viewer.js" defer></script>
 </head><body>
@@ -49,6 +57,11 @@ def shell(fname, title, body):
   <a class="brand" href="index.html"><b>UTS Mini Mixing Desk</b><span>Compressor module</span></a>
   <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">Contents</button>
   <nav>{''.join(nav)}</nav>
+  <div class="side-foot">
+    <button class="wbtn" id="wbtn" type="button" aria-pressed="false">
+      <span class="wbtn-ico" aria-hidden="true"></span><span class="wbtn-txt">Wide layout</span>
+    </button>
+  </div>
 </aside>
 <main class="main"><div class="wrap">
 {body}
@@ -94,6 +107,15 @@ def fig(name, caption, note=""):
   </div>
   <script type="application/json">{payload}</script>
 </div>{note}"""
+
+
+def pic(name, caption, note=""):
+    """Static figure. The panel drawings are not schematic sheets, so they get a plain
+    image rather than the interactive viewer."""
+    return f"""<figure>
+  <div class="pane tall"><img src="img/{name}" alt="{caption}" loading="lazy"></div>
+  <figcaption><span>{caption}</span><a href="img/{name}" target="_blank" rel="noopener">Open full size &rarr;</a></figcaption>
+</figure>{note}"""
 
 
 def table(headers, rows, cls=None):
@@ -174,6 +196,7 @@ is far more forgiving of component tolerance. Most classic bus compressors work 
   <a class="card" href="output.html"><b>Makeup &amp; output</b><span>Getting the level back and driving the outside world.</span></a>
   <a class="card" href="sidechain.html"><b>The sidechain</b><span>Measuring loudness and turning it into a control voltage, with attack and release.</span></a>
   <a class="card" href="power.html"><b>Power &amp; references</b><span>Rails, the &minus;5.1 V reference, and the bias voltages everything else depends on.</span></a>
+  <a class="card" href="panel.html"><b>The front panel</b><span>Nine functions in 38 mm, three ways to arrange them, and why each one is a compromise.</span></a>
 </div>
 
 <div class="note warn">
@@ -698,7 +721,121 @@ optional garnish, it is what stops one stage from talking to another through the
 </div>
 """)
 
-# ============================================================ 08 USING
+# ============================================================ 08 PANEL
+PAGES['panel.html'] = ("The front panel", """
+<p class="eyebrow">Practical</p>
+<h1>The front panel</h1>
+<p class="lede">Nine functions, two meters and two mounting screws, in a space 38 mm wide.
+Almost every decision on this panel is a consequence of that.</p>
+
+""" + pic("panel-mockup.svg", "Front panel &mdash; toggle layout, anodised finish") + """
+
+<h2>What the panel has to fit</h2>
+<p>A 500-series module is 1.500&Prime; &times; 5.250&Prime; &mdash; <strong>38.10 &times;
+133.35 mm</strong>. Two mounting screws sit on the vertical centreline, 125.43 mm apart, which
+puts them 3.96 mm from each end. They are countersunk, so a screw head occupies a 5.72 mm
+circle in the middle of the panel top and bottom.</p>
+<p>That leaves a usable strip roughly 34 mm wide and 120 mm tall, interrupted at both ends.
+Into it go five knobs, four switch functions, fourteen meter LEDs and the legends for all of
+it. There is no arrangement where everything is comfortable; every layout below trades one
+thing for another.</p>
+
+<h2>The controls</h2>
+""" + table(
+    ["Control", "Ref", "What it does", "More"],
+    [["THRESHOLD", "RV3", "How loud before compression starts", '<a href="sidechain.html">Sidechain</a>'],
+     ["RATIO", "RV4", "How much gain reduction per dB over threshold", '<a href="sidechain.html">Sidechain</a>'],
+     ["ATTACK", "RV5", "How fast it clamps down, 2.7&ndash;50 ms", '<a href="sidechain.html">Sidechain</a>'],
+     ["RELEASE", "RV6", "How fast it lets go, 47 ms&ndash;2.2 s", '<a href="sidechain.html">Sidechain</a>'],
+     ["MAKEUP", "RV2", "Level put back after compression, 0 to +21 dB", '<a href="output.html">Output</a>'],
+     ["BYPASS", "SW1", "Hard bypass &mdash; rack straight through", '<a href="output.html">Output</a>'],
+     ["HPF", "SW3", "Defeats the 72 Hz sidechain filter", '<a href="sidechain.html">Sidechain</a>'],
+     ["KEY", "SW2", "Detector listens here, or to the aux input", '<a href="sidechain.html">Sidechain</a>'],
+     ["LINK", "SW4", "Ties this detector to the module beside it", '<a href="sidechain.html">Sidechain</a>']],
+    ["", "r", "", ""]) + """
+
+<h2>Reading the meters</h2>
+<p>Two seven-segment bargraphs sit at the top, in a recessed window so they read against the
+panel.</p>
+<ul>
+  <li><strong>GR</strong> fills <em>downward</em> from the top as the compressor clamps. More
+      lit means more gain reduction. Dark means it is not working &mdash; either the threshold
+      is above the signal or nothing is getting through.</li>
+  <li><strong>LVL</strong> fills <em>upward</em> from the bottom, green through amber to red,
+      showing what is leaving the module.</li>
+</ul>
+<div class="note warn">
+  <h4>The meters are not designed yet</h4>
+  <p>Fourteen LEDs need a comparator ladder or a display driver to run them, and none of that
+  is in the schematic. It also has to come out of a supply budget already sitting at about
+  60 mA of the 130 mA the rack allows. Treat the meters as intent, not as a finished circuit.</p>
+</div>
+
+<h2>Three layouts</h2>
+<p>The same nine functions, arranged three ways. The generator builds any of them from one
+definition, so choosing is a command-line flag rather than a redraw.</p>
+""" + table(
+    ["Layout", "Switches", "Holes", "The trade"],
+    [["<code>pull</code>", "None &mdash; every switch is a pull on a pot; LINK is an internal jumper",
+      "21", "Fewest parts and cheapest to build. Bypass is slow and uncertain, and you cannot bypass without touching the makeup knob."],
+     ["<code>toggle</code>", "Four toggles flanking THRESHOLD and RATIO",
+      "25", "Every function is one positive movement, nothing hidden, bypass instant. Most parts of the three."],
+     ["<code>concentric</code>", "Lit BYPASS button and two toggles; LINK on a pull",
+      "22", "Dual-concentric knobs free the space, but they are dearer, harder to source, and their inner shafts cannot carry a printed scale."]],
+    ["r", "", "n", ""]) + """
+
+<h3>Why the switches sit where they do</h3>
+<p>On the <code>toggle</code> layout they flank the knob they belong to: <strong>HPF</strong>
+and <strong>KEY</strong> either side of THRESHOLD, because all three are sidechain controls you
+adjust together; <strong>LINK</strong> and <strong>BYPASS</strong> either side of RATIO,
+because both are set once and then left.</p>
+<p>That grouping is the whole argument for this layout. A switch next to the control it
+modifies needs no label to explain the relationship.</p>
+
+<div class="note good">
+  <h4>This is the layout the schematic already matches</h4>
+  <p>The <code>toggle</code> layout uses four discrete switches &mdash; exactly what
+  <code>SW1</code>&ndash;<code>SW4</code> are in <code>design.py</code>. The other two need the
+  schematic changing: <code>pull</code> wants pull-switch pots, and <code>concentric</code>
+  wants dual-concentric pots plus a latching pushbutton.</p>
+</div>
+
+<h2>Small things that took several attempts</h2>
+<ul>
+  <li><strong>ATTACK and RELEASE share a row</strong>, so they get a smaller legend and no
+      printed numerals. Two full scales put their <code>0</code> and <code>10</code> on top of
+      each other in the gap between the knobs.</li>
+  <li><strong>Nothing is printed at 12 o'clock</strong> on a knob scale. On a panel this tight
+      the top of one scale lands in the label of the control above it, every time.</li>
+  <li><strong>The countersinks own the centreline</strong> at both ends. Anything near the top
+      or bottom has to sit off-centre, which is why BYPASS is where it is on the
+      <code>concentric</code> layout.</li>
+</ul>
+
+<h2>The other finish</h2>
+<p>A second, lighter treatment exists: flat graphic rather than skeuomorphic, printed dot
+scales with 0&ndash;10 numerals, thin metal bat toggles. Same holes, same drawing, same DXF
+&mdash; only the artwork differs.</p>
+
+""" + pic("panel-bone.svg", "The same layout in the bone finish") + """
+
+<h2>Machining</h2>
+<p>The drawing below is 1:1 and dimensioned. A full drill schedule &mdash; every hole with its
+coordinates, diameter and the hardware it suits &mdash; is in <code>panel/README.md</code> in
+the repository, alongside the DXF.</p>
+
+""" + pic("panel-drawing.svg", "1:1 technical drawing with all hole positions") + """
+
+<div class="note warn">
+  <h4>Before you have one made</h4>
+  <p>Hole sizes assume a 9 mm pot bushing, a mini toggle and 2 mm LEDs. Check them against the
+  parts you actually buy &mdash; bushing diameters vary between manufacturers, and half a
+  millimetre is the difference between a push fit and a rattle. Depth clearance between knobs,
+  switch bodies and the PCB is not modelled at all: this is a 2D drawing.</p>
+</div>
+""")
+
+# ============================================================ 09 USING
 PAGES['using.html'] = ("Setting up &amp; using it", """
 <p class="eyebrow">Practical</p>
 <h1>Setting up and using it</h1>
@@ -784,7 +921,16 @@ ever goes near a rack.</p>
 
 # ============================================================ write
 if __name__ == '__main__':
+    import shutil
     here = os.path.dirname(os.path.abspath(__file__))
+    # panel artwork is generated next door; copy it rather than keep a second copy by hand
+    for src, dst in [('faceplate-mockup.svg', 'panel-mockup.svg'),
+                     ('faceplate-mockup-bone.svg', 'panel-bone.svg'),
+                     ('faceplate-drawing.svg', 'panel-drawing.svg')]:
+        s_path = os.path.join(here, '..', 'panel', src)
+        if os.path.exists(s_path):
+            shutil.copyfile(s_path, os.path.join(here, 'img', dst))
+            print('copied', dst)
     for fname in ORDER:
         title, body = PAGES[fname]
         open(os.path.join(here, fname), 'w').write(shell(fname, title, body))

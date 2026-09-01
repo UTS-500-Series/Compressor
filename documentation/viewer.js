@@ -609,6 +609,9 @@
     });
 
     clearSel();
+    window.__ivRefit = (function (prev) {
+      return function () { if (prev) prev(); if (cy) setTimeout(fitReadable, 60); };
+    })(window.__ivRefit);
     root._ivDebug = function () {
       return cy ? {nodes: cy.nodes().length, edges: cy.edges().length,
                    nodeOverlaps: overlaps(cy),
@@ -616,7 +619,30 @@
     };
   }
 
+  /* Width toggle. The stored preference is applied in the page head before paint;
+     this only wires up the control and keeps the two in step. */
+  function wireWidth() {
+    var btn = document.getElementById('wbtn');
+    if (!btn) return;
+    var root = document.documentElement;
+    function paint() {
+      var wide = root.dataset.width === 'wide';
+      btn.setAttribute('aria-pressed', wide ? 'true' : 'false');
+      btn.querySelector('.wbtn-txt').textContent = wide ? 'Narrow layout' : 'Wide layout';
+      btn.title = wide ? 'Back to a reading-width column' : 'Use the full window width';
+      if (window.__ivRefit) window.__ivRefit();
+    }
+    btn.addEventListener('click', function () {
+      var wide = root.dataset.width === 'wide';
+      if (wide) delete root.dataset.width; else root.dataset.width = 'wide';
+      try { localStorage.setItem('uts-width', wide ? 'narrow' : 'wide'); } catch (e) {}
+      paint();
+    });
+    paint();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.iv').forEach(build);
+    wireWidth();
   });
 })();

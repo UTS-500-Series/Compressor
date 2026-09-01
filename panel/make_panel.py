@@ -36,25 +36,67 @@ KNOB_SGL  = 12.0
 # Two dual-concentric pots carry the four controls that pair naturally, which is what
 # buys the room for the meters, the bypass button and two toggles. MAKEUP keeps a pull
 # switch for LINK - it is the one function you set per pair and then leave.
-CONCENTRIC = [
-    # outer label, outer ref, inner label, inner ref, x, y
-    ('THRESHOLD', 'RV3', 'RATIO',   'RV4', CL, 56.0),
-    ('ATTACK',    'RV5', 'RELEASE', 'RV6', CL, 79.0),
-]
-SINGLES = [
-    # ref, label, pull legend, x, y, knob dia, hole dia
-    ('RV2', 'MAKEUP', 'PULL LINK', CL, 106.0, KNOB_SGL, BUSH_POT),
-]
-# BYPASS is a latching button legended on its own face - there is no room for a legend
-# beside it, and the bottom screw owns the centreline down there.
-BUTTONS = [
-    ('SW1', 'BYP', 8.5, 126.0, BUSH_BTN),
-]
-# the two sidechain toggles flank MAKEUP rather than fighting the bottom screw
-TOGGLES = [
-    ('SW3', 'HPF', 5.6,  105.0, BUSH_TOG),
-    ('SW2', 'KEY', 32.5, 105.0, BUSH_TOG),
-]
+# Two layouts, not just two finishes. They differ in what hardware is on the panel, so the
+# hole pattern, the drawing and the DXF all change with them.
+#
+#   pull        five separate knobs; every switch function is a pull on a pot, no toggles
+#               and no button at all. LINK is an internal jumper.
+#   concentric  two dual-concentric knobs free the room for a latching BYPASS button and
+#               HPF / KEY toggles; LINK becomes the pull on MAKEUP.
+LAYOUTS = {
+    'pull': dict(
+        concentric=[],
+        singles=[
+            ('RV3', 'THRESHOLD', 'PULL HPF',    CL,    50.0,  KNOB_SGL, BUSH_POT),
+            ('RV4', 'RATIO',     'PULL KEY',    CL,    70.5,  KNOB_SGL, BUSH_POT),
+            ('RV5', 'ATTACK',    '',            11.5,  91.0,  KNOB_SGL, BUSH_POT),
+            ('RV6', 'RELEASE',   '',            26.6,  91.0,  KNOB_SGL, BUSH_POT),
+            ('RV2', 'MAKEUP',    'PULL BYPASS', CL,   111.0,  KNOB_SGL, BUSH_POT),
+        ],
+        buttons=[], toggles=[], rules=False, window=False),
+    'toggle': dict(
+        concentric=[],
+        singles=[
+            ('RV3', 'THRESHOLD', '', CL,    52.0,  KNOB_SGL, BUSH_POT),
+            ('RV4', 'RATIO',     '', CL,    72.5,  KNOB_SGL, BUSH_POT),
+            ('RV5', 'ATTACK',    '', 11.5,  91.0,  KNOB_SGL, BUSH_POT),
+            ('RV6', 'RELEASE',   '', 26.6,  91.0,  KNOB_SGL, BUSH_POT),
+            ('RV2', 'MAKEUP',    '', CL,   111.0,  KNOB_SGL, BUSH_POT),
+        ],
+        buttons=[],
+        # flanking the two knobs they belong to: the sidechain pair beside THRESHOLD,
+        # the two set-and-forget switches beside RATIO
+        toggles=[
+            ('SW3', 'HPF',    6.0,  52.0,  BUSH_TOG),
+            ('SW2', 'KEY',    32.0, 52.0,  BUSH_TOG),
+            ('SW4', 'LINK',   6.0,  72.5,  BUSH_TOG),
+            ('SW1', 'BYPASS', 32.0, 72.5,  BUSH_TOG),
+        ],
+        rules=False, window=True),
+    'concentric': dict(
+        concentric=[
+            ('THRESHOLD', 'RV3', 'RATIO',   'RV4', CL, 56.0),
+            ('ATTACK',    'RV5', 'RELEASE', 'RV6', CL, 79.0),
+        ],
+        singles=[('RV2', 'MAKEUP', 'PULL LINK', CL, 105.0, KNOB_SGL, BUSH_POT)],
+        buttons=[('SW1', 'BYP', 9.5, 123.0, BUSH_BTN)],
+        toggles=[('SW3', 'HPF', 6.0, 105.0, BUSH_TOG),
+                 ('SW2', 'KEY', 32.0, 105.0, BUSH_TOG)],
+        rules=True, window=True),
+}
+
+
+def use_layout(name):
+    L = LAYOUTS[name]
+    g = globals()
+    g['CONCENTRIC'], g['SINGLES'] = L['concentric'], L['singles']
+    g['BUTTONS'], g['TOGGLES'] = L['buttons'], L['toggles']
+    g['SHOW_RULES'], g['SHOW_WINDOW'] = L['rules'], L['window']
+
+
+CONCENTRIC, SINGLES, BUTTONS, TOGGLES = [], [], [], []
+SHOW_RULES = SHOW_WINDOW = True
+INTERNAL = [('SW4', 'LINK', 'stereo link - internal jumper on the pull layout only')]
 
 METER_PITCH, METER_TOP, METER_N = 3.5, 14.0, 7
 METERS = [('GR', 'D20', 13.6, 'gr'), ('LVL', 'D30', 24.5, 'lvl')]
@@ -210,7 +252,13 @@ DEFS = (
  '</linearGradient></defs>')
 
 
-def mockup():
+def _shares_row(y):
+    """True when another knob sits on the same line, which is what forces the smaller
+    legend and drops the numerals in the gap between them."""
+    return sum(1 for r, l, p, x, yy, kd, hd in SINGLES if abs(yy - y) < 0.01) > 1
+
+
+def mockup_bone():
     o = ['<svg xmlns="http://www.w3.org/2000/svg" width="%.2fmm" height="%.2fmm" '
          'viewBox="0 0 %.2f %.2f">' % (W, H, W, H), DEFS % (BONE_HI, BONE)]
     o.append('<rect width="%.2f" height="%.2f" rx="1.4" fill="url(#pan)"/>' % (W, H))
@@ -221,9 +269,10 @@ def mockup():
     o.append(_label(W - 4.4, 8.4, 'CMP-01', 2.1, MUTED, 0.62, 'end', '600'))
 
     # meters sit in a dark inset - LEDs need something to read against on a light panel
-    wx, wy, ww, wh = 5.0, 11.4, W - 10.0, 31.6
-    o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="1.6" fill="url(#set)"/>'
-             % (wx, wy, ww, wh))
+    if SHOW_WINDOW:
+        wx, wy, ww, wh = 5.0, 11.4, W - 10.0, 31.6
+        o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="1.6" '
+                 'fill="url(#set)"/>' % (wx, wy, ww, wh))
     lit = {'gr': 3, 'lvl': 5}
     for ref, label, x, y, kind, i in meter_leds():
         if kind == 'gr':
@@ -271,10 +320,12 @@ def mockup():
     for ref, label, pull, x, y, kd, hd in SINGLES:
         R = kd / 2
         o += _scale(x, y, R + 3.0)
-        # only the endpoints here: the toggles either side leave no room for a full scale
-        o += _numbers(x, y, R + 5.0, [(0.0, '0'), (1.0, '10')])
+        pair = _shares_row(y)
+        if not pair:
+            o += _numbers(x, y, R + 5.0, [(0.0, '0'), (1.0, '10')])
         o += _flatknob(x, y, R, KNOB, SAGE_LT, 205)
-        o.append(_label(x, y + R + 5.0, label, 2.45, INK, 0.62, 'middle', '600'))
+        o.append(_label(x, y + R + 5.0, label, 2.0 if pair else 2.45, INK,
+                        0.35 if pair else 0.62, 'middle', '600'))
         if pull:
             o.append(_label(x, y + R + 7.4, pull, 1.7, SAGE, 0.5))
 
@@ -316,7 +367,8 @@ def mockup():
         o.append('<path d="%s" fill="none" stroke="%s" stroke-width="0.22" '
                  'stroke-opacity="%.2f"/>'
                  % (_arc(W - 3.2, H - 3.2, rr, 180, 270), SAGE, 0.5 - i * 0.13))
-    o.append(_label(27.0, 125.5, 'REV A', 1.6, MUTED, 0.5, 'middle', '500'))
+    if SHOW_RULES:
+        o.append(_label(27.0, 125.5, 'REV A', 1.6, MUTED, 0.5, 'middle', '500'))
 
     for hy in HOLE_Y:
         o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="%s" fill-opacity="0.28"/>'
@@ -324,6 +376,182 @@ def mockup():
         o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="#1A1D1A"/>' % (CL, hy, HOLE_D / 2))
     o.append('<rect width="%.2f" height="%.2f" rx="1.4" fill="none" stroke="#C7BFAE" '
              'stroke-width="0.4"/>' % (W, H))
+    o.append('</svg>')
+    return '\n'.join(o)
+
+
+# ---------------------------------------------------------------- anodised style
+ANOD = dict(INK='#F2EFE7', ACCENT='#4FB3B6', AMBER='#E5924F',
+            GREEN='#6FCF97', RED='#E05252', MUTED='#8A9296')
+
+ANOD_DEFS = (
+ '<defs>'
+ '<linearGradient id="anod" x1="0" y1="0" x2="1" y2="0">'
+ '<stop offset="0" stop-color="#161a1d"/><stop offset="0.32" stop-color="#252b2f"/>'
+ '<stop offset="0.68" stop-color="#1e2427"/><stop offset="1" stop-color="#12161a"/>'
+ '</linearGradient>'
+ '<linearGradient id="win" x1="0" y1="0" x2="0" y2="1">'
+ '<stop offset="0" stop-color="#0a0d0f"/><stop offset="1" stop-color="#12171a"/>'
+ '</linearGradient>'
+ '<linearGradient id="knobO" x1="0" y1="0" x2="0" y2="1">'
+ '<stop offset="0" stop-color="#4e565b"/><stop offset="0.48" stop-color="#2f3639"/>'
+ '<stop offset="1" stop-color="#1a1e21"/></linearGradient>'
+ '<linearGradient id="knobI" x1="0" y1="0" x2="0" y2="1">'
+ '<stop offset="0" stop-color="#f0ad6d"/><stop offset="0.5" stop-color="#d07f3c"/>'
+ '<stop offset="1" stop-color="#8f5220"/></linearGradient>'
+ '<radialGradient id="btn" cx="0.5" cy="0.35" r="0.7">'
+ '<stop offset="0" stop-color="#5a6368"/><stop offset="1" stop-color="#22282b"/>'
+ '</radialGradient></defs>')
+
+
+def _atxt(x, y, txt, size, col, track=0.28, anchor='middle', op=1.0, weight='normal'):
+    return ('<text x="%.2f" y="%.2f" text-anchor="%s" font-family="Helvetica,Arial" '
+            'font-size="%.2f" font-weight="%s" letter-spacing="%.2f" fill="%s" '
+            'fill-opacity="%.2f">%s</text>'
+            % (x, y, anchor, size, weight, track, col, op, txt))
+
+
+def mockup_anodised():
+    """The dark anodised version: knurled concentric knobs with amber inner caps, a
+    recessed meter window and teal section rules."""
+    C = ANOD
+    o = ['<svg xmlns="http://www.w3.org/2000/svg" width="%.2fmm" height="%.2fmm" '
+         'viewBox="0 0 %.2f %.2f">' % (W, H, W, H), ANOD_DEFS]
+    o.append('<rect width="%.2f" height="%.2f" rx="1.2" fill="url(#anod)"/>' % (W, H))
+    for i in range(int(W * 4)):
+        o.append('<line x1="%.2f" y1="0" x2="%.2f" y2="%.2f" stroke="#fff" '
+                 'stroke-width="0.08" stroke-opacity="%.3f"/>'
+                 % (i / 4, i / 4, H, 0.010 + 0.009 * ((i * 7) % 5) / 5))
+
+    if SHOW_WINDOW:
+        wx, wy, ww, wh = 5.4, 10.6, W - 10.8, 32.4
+        o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="1.4" fill="url(#win)" '
+                 'stroke="#0a0c0e" stroke-width="0.4"/>' % (wx, wy, ww, wh))
+        o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="1.4" fill="none" '
+                 'stroke="%s" stroke-width="0.22" stroke-opacity="0.34"/>'
+                 % (wx + 0.45, wy + 0.45, ww - 0.9, wh - 0.9, C['ACCENT']))
+
+    o.append(_atxt(3.2, 7.9, 'OPN-500', 2.15, C['INK'], 0.32, 'start', 0.66))
+    o.append(_atxt(W - 3.2, 7.9, 'CMP-01', 2.15, C['INK'], 0.32, 'end', 0.66))
+
+    lit = {'gr': 3, 'lvl': 5}
+    for ref, label, x, y, kind, i in meter_leds():
+        if kind == 'gr':
+            base, on = C['AMBER'], i < lit['gr']
+        else:
+            n = METER_N - 1 - i
+            base = C['RED'] if n >= 6 else (C['AMBER'] if n >= 4 else C['GREEN'])
+            on = n < lit['lvl']
+        o.append('<rect x="%.2f" y="%.2f" width="3.6" height="1.7" rx="0.5" fill="#07090a"/>'
+                 % (x - 1.8, y - 0.85))
+        o.append('<rect x="%.2f" y="%.2f" width="3.0" height="1.15" rx="0.35" fill="%s" '
+                 'fill-opacity="%.2f"/>' % (x - 1.5, y - 0.58, base, 1.0 if on else 0.11))
+        if on:
+            o.append('<rect x="%.2f" y="%.2f" width="5.0" height="3.0" rx="1.1" fill="%s" '
+                     'fill-opacity="0.17"/>' % (x - 2.5, y - 1.5, base))
+    for label, base, x, kind in METERS:
+        o.append(_atxt(x, METER_TOP + (METER_N - 1) * METER_PITCH + 4.0, label, 2.0,
+                       C['INK'], 0.3, 'middle', 0.8))
+
+    def rule(y, text):
+        o.append('<line x1="3.2" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" stroke-width="0.25" '
+                 'stroke-opacity="0.30"/>' % (y, W - 3.2, y, C['INK']))
+        o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="3.0" fill="#1e2427"/>'
+                 % (CL - len(text) * 0.72 - 1.2, y - 1.5, len(text) * 1.44 + 2.4))
+        o.append(_atxt(CL, y + 0.6, text, 1.75, C['ACCENT'], 0.5, 'middle', 0.55))
+
+    if SHOW_RULES:
+        rule(46.0, 'DYNAMICS')
+        rule(95.0, 'OUTPUT')
+
+    for ol, orf, il, irf, x, y in CONCENTRIC:
+        R, r = KNOB_OUT / 2, KNOB_IN / 2
+        for i in range(11):                                   # engraved tick scale
+            a = math.radians(135 + i * 27)
+            big = i % 5 == 0
+            o.append('<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" '
+                     'stroke-width="%.2f" stroke-opacity="%.2f"/>'
+                     % (x + (R + 0.9) * math.cos(a), y + (R + 0.9) * math.sin(a),
+                        x + (R + 1.9) * math.cos(a), y + (R + 1.9) * math.sin(a),
+                        C['INK'], 0.32 if big else 0.20, 0.85 if big else 0.48))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="#0c0f11" fill-opacity="0.6"/>'
+                 % (x, y, R + 0.55))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="url(#knobO)" stroke="#101416" '
+                 'stroke-width="0.25"/>' % (x, y, R))
+        for k in range(24):                                   # knurled skirt
+            a = math.radians(k * 15)
+            o.append('<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="#0f1315" '
+                     'stroke-width="0.22" stroke-opacity="0.55"/>'
+                     % (x + (R - 0.2) * math.cos(a), y + (R - 0.2) * math.sin(a),
+                        x + (R - 1.5) * math.cos(a), y + (R - 1.5) * math.sin(a)))
+        a = math.radians(205)
+        o.append('<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" '
+                 'stroke-width="0.8" stroke-linecap="round"/>'
+                 % (x + R * 0.30 * math.cos(a), y + R * 0.30 * math.sin(a),
+                    x + (R - 1.2) * math.cos(a), y + (R - 1.2) * math.sin(a), C['INK']))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="#0b0e10" fill-opacity="0.55"/>'
+                 % (x, y, r + 0.5))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="url(#knobI)" stroke="#5c3417" '
+                 'stroke-width="0.22"/>' % (x, y, r))
+        a = math.radians(335)
+        o.append('<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="#231208" '
+                 'stroke-width="0.7" stroke-linecap="round"/>'
+                 % (x + r * 0.30 * math.cos(a), y + r * 0.30 * math.sin(a),
+                    x + (r - 0.9) * math.cos(a), y + (r - 0.9) * math.sin(a)))
+        o.append(_atxt(x, y + R + 4.3, ol, 2.45, C['INK'], 0.28))
+        o.append(_atxt(x, y + R + 6.9, '&#9679; ' + il, 1.85, C['AMBER'], 0.24, 'middle', 0.85))
+
+    for ref, label, pull, x, y, kd, hd in SINGLES:
+        R = kd / 2
+        for i in range(11):
+            a = math.radians(135 + i * 27)
+            big = i % 5 == 0
+            o.append('<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" '
+                     'stroke-width="%.2f" stroke-opacity="%.2f"/>'
+                     % (x + (R + 0.9) * math.cos(a), y + (R + 0.9) * math.sin(a),
+                        x + (R + 1.9) * math.cos(a), y + (R + 1.9) * math.sin(a),
+                        C['INK'], 0.32 if big else 0.20, 0.85 if big else 0.48))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="#0c0f11" fill-opacity="0.6"/>'
+                 % (x, y, R + 0.5))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="url(#knobO)" stroke="#101416" '
+                 'stroke-width="0.25"/>' % (x, y, R))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="none" stroke="#5c6468" '
+                 'stroke-width="0.2" stroke-opacity="0.65"/>' % (x, y, R - 1.5))
+        a = math.radians(205)
+        o.append('<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" '
+                 'stroke-width="0.75" stroke-linecap="round"/>'
+                 % (x + R * 0.30 * math.cos(a), y + R * 0.30 * math.sin(a),
+                    x + (R - 1.1) * math.cos(a), y + (R - 1.1) * math.sin(a), C['ACCENT']))
+        pair = _shares_row(y)
+        o.append(_atxt(x, y + R + 4.2, label, 2.0 if pair else 2.45, C['INK'],
+                       0.16 if pair else 0.28))
+        if pull:
+            o.append(_atxt(x, y + R + 6.8, pull, 1.7, C['ACCENT'], 0.22, 'middle', 0.62))
+
+    for ref, label, x, y, d in BUTTONS:
+        R = d / 2
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="#0b0e10"/>' % (x, y, R + 1.0))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="none" stroke="%s" '
+                 'stroke-width="0.5" stroke-opacity="0.55"/>' % (x, y, R + 0.6, C['ACCENT']))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="url(#btn)" stroke="#0f1315" '
+                 'stroke-width="0.25"/>' % (x, y, R))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="%s" fill-opacity="0.20"/>'
+                 % (x, y, R - 1.3, C['ACCENT']))
+        o.append(_atxt(x, y + 0.7, label, 1.9, C['INK'], 0.2, 'middle', 0.9, 'bold'))
+
+    for ref, label, x, y, d in TOGGLES:
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="#0b0e10"/>' % (x, y, d / 2 + 0.5))
+        o.append('<rect x="%.2f" y="%.2f" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" '
+                 'stroke="#101416" stroke-width="0.18"/>' % (x - 0.95, y - 3.1))
+        o.append(_atxt(x, y - d / 2 - 2.2, label, 1.95, C['INK'], 0.24))
+
+    if SHOW_RULES:
+        o.append(_atxt(29.5, 122.7, 'REV A', 1.7, C['INK'], 0.3, 'middle', 0.42))
+    for hy in HOLE_Y:
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="#14181a"/>' % (CL, hy, CSINK_D/2))
+        o.append('<circle cx="%.2f" cy="%.2f" r="%.2f" fill="#080a0b"/>' % (CL, hy, HOLE_D/2))
+    o.append('<rect width="%.2f" height="%.2f" rx="1.2" fill="none" stroke="#0b0e10" '
+             'stroke-width="0.5"/>' % (W, H))
     o.append('</svg>')
     return '\n'.join(o)
 
@@ -432,7 +660,20 @@ def dxf():
     return '0\nSECTION\n2\nENTITIES\n' + '\n'.join(e) + '\n0\nENDSEC\n0\nEOF\n'
 
 
+STYLES = {'anodised': mockup_anodised, 'bone': mockup_bone}
+
+
 if __name__ == '__main__':
+    import argparse
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('--layout', choices=sorted(LAYOUTS), default='pull',
+                    help='which hardware arrangement to draw (default: pull)')
+    ap.add_argument('--style', choices=sorted(STYLES), default='anodised',
+                    help='which finish becomes faceplate-mockup.svg (default: anodised)')
+    args = ap.parse_args()
+    use_layout(args.layout)
+
     here = os.path.dirname(os.path.abspath(__file__))
     issues = clearance_report()
     for i in issues:
@@ -442,8 +683,15 @@ if __name__ == '__main__':
               '%d switches, 2 mounting)'
               % (len(all_holes()), len(CONCENTRIC) + len(SINGLES), len(meter_leds()),
                  len(BUTTONS) + len(TOGGLES)))
-    for name, data in [('faceplate-mockup.svg', mockup()),
-                       ('faceplate-drawing.svg', drawing()),
-                       ('faceplate.dxf', dxf())]:
+
+    files = [('faceplate-mockup.svg', STYLES[args.style]()),
+             ('faceplate-drawing.svg', drawing()),
+             ('faceplate.dxf', dxf())]
+    # keep the other finish on disk too, so switching back never means rebuilding it
+    for name, fn in STYLES.items():
+        if name != args.style:
+            files.append(('faceplate-mockup-%s.svg' % name, fn()))
+    for name, data in files:
         open(os.path.join(here, name), 'w').write(data)
-        print('wrote %-24s %6.1f KB' % (name, len(data) / 1024))
+        print('wrote %-30s %6.1f KB' % (name, len(data) / 1024))
+    print('layout: %s   style: %s' % (args.layout, args.style))

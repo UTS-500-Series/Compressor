@@ -67,6 +67,20 @@ returns the live counts from the browser console.
 > wire to trace it through a crossing.
 - **Search** — type a designator (`R14`) or a net (`VBIAS`) to jump to it in either view.
 
+## Wide layout
+
+The sidebar carries a **Wide layout** toggle. Pages sit at a reading width by default; the
+toggle widens them to **1240 px** so schematics, graphs and tables have room. It is a wider cap,
+not an uncapped page — on a large monitor unbounded prose runs to unreadable line lengths.
+Change `--wide-max` at the top of `style.css` to taste. The choice is
+remembered in `localStorage` and applied in the page `<head>` before first paint, so it does
+not flash narrow on load, and the schematic viewer re-fits itself when the column changes width
+underneath it.
+
+It only lifts the cap — it never changes padding. On a narrow window the cap was not binding
+anyway, so adding padding there would make the toggle actively worse. The control hides itself
+below 900 px for the same reason.
+
 The plain SVG is still one click away under each viewer, for printing or for reading at full
 size.
 
@@ -74,7 +88,7 @@ size.
 
 | Path | What it is |
 |---|---|
-| `*.html` | The eight pages. Plain HTML — edit directly if you like. |
+| `*.html` | The nine pages. Plain HTML — edit directly if you like. |
 | `style.css` | All styling, light and dark. |
 | `viewer.js` | The interactive viewer: hotspots, pan/zoom, schematic-style graph. No framework. |
 | `vendor/cytoscape.min.js` | Vendored so the site works offline and does not depend on a CDN. |
@@ -102,6 +116,10 @@ overlay follows your layout wherever you move things. It imports the helpers in
 
 `_build.py` inlines each sheet's JSON into its page, which is why the viewer also works when
 you open the files directly from disk rather than over http.
+
+It also copies the faceplate artwork out of `../panel/` into `img/` on every run, so the front
+panel page always shows whatever layout and finish you last generated. Re-run `_build.py`
+after `make_panel.py` and the site follows.
 
 ## Publishing
 

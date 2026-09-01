@@ -6,17 +6,59 @@ Faceplate mockup and machining data for the compressor module.
 
 | File | What it is |
 |---|---|
-| `faceplate-mockup.svg` | How it looks — anodised finish, knobs, silkscreen. This is the mockup. |
+| `faceplate-mockup.svg` | How it looks — whichever finish you built last. |
+| `faceplate-mockup-bone.svg` | The other finish, written every run so you can compare. |
 | `faceplate-drawing.svg` | 1:1 technical drawing, dimensioned, for checking before you cut. |
 | `faceplate.dxf` | Outline and holes only, for a panel shop or CNC. |
-| `make_panel.py` | Generates all three from one definition. |
+| `make_panel.py` | Generates all of it from one definition. |
 
 Everything comes out of `make_panel.py`, so the picture and the machining data cannot drift
 apart. Change a control position once and re-run:
 
 ```bash
-python3 make_panel.py
+python3 make_panel.py                          # pull layout, anodised (default)
+python3 make_panel.py --layout toggle          # five knobs, four flanking toggles
+python3 make_panel.py --layout concentric      # concentric knobs, button, toggles
+python3 make_panel.py --style bone             # light flat-graphic finish
+python3 make_panel.py --layout toggle --style bone
 ```
+
+## Layouts
+
+The layout changes **what hardware is on the panel**, so the hole pattern, the drawing and the
+DXF all change with it.
+
+**`pull`** *(default)* — five separate knobs. Every switch function is a pull on a pot, so
+there are no toggles and no button at all: THRESHOLD pulls for the sidechain HPF, RATIO for
+key int/ext, MAKEUP for bypass. LINK is an internal jumper. **21 holes.** The simplest panel
+to build and the cheapest to populate, at the cost of a slow, uncertain bypass action.
+
+*A note on the shared row:* ATTACK and RELEASE sit side by side on every layout, so they get a
+smaller legend and no printed numerals — two full scales would print their endpoints on top of
+each other in the gap between the knobs.
+
+**`toggle`** — the same five knobs, but every switch gets its own toggle rather than hiding on
+a pull. They flank the two knobs they belong to: HPF and KEY either side of THRESHOLD, LINK and
+BYPASS either side of RATIO. **25 holes.** Four more holes and four more parts than `pull`, and
+in exchange every function is one positive movement — nothing is hidden, and bypass is instant.
+The most parts of the three layouts, and the easiest to use.
+
+**`concentric`** — two dual-concentric knobs (THRESHOLD/RATIO, ATTACK/RELEASE) free the space
+for a latching illuminated BYPASS button and HPF / KEY toggles; LINK moves to the pull on
+MAKEUP. **22 holes.** Better ergonomics, but concentric pots are dearer, harder to source, and
+their inner shafts cannot carry a printed scale.
+
+## Finishes
+
+**`anodised`** *(default)* — dark panel, knurled knobs, teal accents. Reads as studio hardware.
+The recessed meter window and the DYNAMICS / OUTPUT section rules appear on the concentric
+layout only; the pull layout is plainer because it has no room for them.
+
+**`bone`** — light panel, flat graphic treatment, printed dot scales with 0–10 numerals, thin
+metal bat toggles, sage and terracotta. Closer to a plugin UI than a rack unit.
+
+Every run writes the chosen combination as `faceplate-mockup.svg` and the other finish as
+`faceplate-mockup-<name>.svg`, so comparing costs nothing.
 
 ## Panel dimensions
 
@@ -84,38 +126,10 @@ fills upward, green through amber to red. Fourteen 2 mm LEDs on a 3.5 mm pitch, 
 window. Driving them needs a comparator ladder or a display driver — **that circuitry is not
 in the schematic yet.**
 
-**Finish and design language.** Bone-coloured panel, flat graphic treatment, sage and
-terracotta — closer to a modern plugin UI than to vintage studio hardware, and deliberately
-unlike the black anodised modules it will sit between in the rack.
-
-The specifics:
-
-- **Dot scales with numerals.** Each knob has a printed 270° dot scale reading **0–10**,
-  numbered at the ends and quarters. Nothing is printed at 12 o'clock: on a panel this tight
-  the top of one knob's scale lands in the label of the control above it, every time. MAKEUP
-  gets its endpoints only, since the two toggles flank it.
-- **The inner shafts are unnumbered.** There is nowhere to print a scale for the inner of a
-  concentric pair, so RATIO and RELEASE have none. That is a real cost of concentrics, not an
-  oversight.
-- **0–10, not units.** Threshold and ratio interact in a feedback compressor, so a calibrated
-  dB scale would be a promise the circuit cannot keep. Attack and release *are* predictable
-  (2.7–50 ms and 47 ms–2.2 s, both roughly linear on the pot) if you would rather print those.
-- **Flat knobs.** Solid charcoal discs with a single bright pointer, no knurling and no
-  metallic gradient. Concentric inners are cream with a terracotta pointer, so which ring you
-  have hold of is unmistakable.
-- **A dark inset for the meters.** LEDs need something to read against, and the contrast block
-  gives the panel its structure.
-- **Colour carries meaning.** Sage for anything to do with the sidechain and the signal path,
-  terracotta for anything to do with gain — the same logic as the schematic documentation.
-- **Thin metal bat toggles** on hex bushing nuts for HPF and KEY, not plastic paddles — the
-  one place the panel is allowed to look like hardware rather than software.
-- **One flourish only**: three concentric arcs tucked into the bottom corner. The DYNAMICS and
-  OUTPUT section rules that used to sit between the knobs are gone: the numbered scales need
-  that room, and a legend you read beats a divider you do not.
-
-Everything here is ordinary two-colour silkscreen on anodised or powder-coated aluminium. The
-arc scales are printed graduations, not illuminated — a panel cannot show a value the way a
-plugin can, so the knob pointer against the printed scale does that job.
+**On keeping every round.** The panel went through several iterations and only the most recent
+reached git, so two earlier versions had to be rebuilt from scratch to get them back. Hence
+`--layout` and `--style`: four combinations now regenerate from one definition and none can be
+lost by choosing another. Commit after a round you like.
 
 ## Before you have it made
 
