@@ -7,7 +7,7 @@ Built from ordinary parts: **nine BC549 transistors and seven NE5532 op amps**, 
 pair of LM391x bargraph drivers for the meters. No VCA chip,
 no transformers, nothing hard to source.
 
-📖 **Documentation: [`docs/`](docs/)** — every section explained, with
+📖 **Documentation: [`../docs`](../docs)** (separate repository) — every section explained, with
 interactive schematics you can click through. Once GitHub Pages is enabled, replace this
 line with the published URL.
 
@@ -35,11 +35,13 @@ self-consistent — not that the circuit behaves as predicted.
 kicad/     the KiCad 9 project — .kicad_pro plus one .kicad_sch per sheet
 tools/     design.py (the authoritative netlist) and the generate/route/verify scripts
 panel/     faceplate generator — mockups, a 1:1 drawing and a DXF, from one definition
-docs/      the documentation site, published to GitHub Pages
 ```
 
-Everything in `kicad/`, `panel/` and `docs/` is **generated from or checked against**
+Everything in `kicad/` and `panel/` is **generated from or checked against**
 `tools/design.py`. That is the one file to treat as source; the rest can be rebuilt.
+
+The documentation site lives in its own repository alongside this one, because it covers
+the whole desk rather than this module: [`../docs`](../docs).
 
 ## Opening it
 
@@ -69,7 +71,7 @@ when it is compressing hardest. The detector listens to the module's own **outpu
 this a feedback compressor: the ratio emerges from loop gain rather than being dialled in, the
 knee comes out soft on its own, and the circuit is forgiving of component tolerance.
 
-The [documentation](docs/) covers all of this properly, section by section.
+The [documentation](../docs) covers all of this properly, section by section.
 
 ## Specifications
 
@@ -128,20 +130,16 @@ holding about a decibel of gain reduction at idle. Pin compatible, nothing else 
 
 ## Documentation site
 
-`docs/` is a static site with a page per section. The schematics in it are
-interactive — pan and zoom, click any part for its value, footprint and nets, click a net to
-highlight everything on it, or switch to a graph view of the netlist. There is a search box
-for jumping to a designator or net name.
+The site is a **separate repository**, checked out beside this one as `../docs`. It covers
+every module in the desk — compressor, preamp and equaliser — so it does not belong to any
+one of them. It also owns its own GitHub Pages workflow.
 
-Publishing to GitHub Pages:
+The compressor's pages are interactive: pan and zoom the real schematic, click any part for
+its value, footprint and nets, click a net to highlight everything on it, or switch to a
+graph view of the netlist.
 
-1. **Settings → Pages → Build and deployment → Source: GitHub Actions**
-2. Push to `main`. `.github/workflows/pages.yml` publishes `docs/`.
-
-The folder is called `docs/` because that is one of the two sources GitHub's simple Pages
-UI offers, so **Source: Deploy from a branch → main → /docs** works too, and the workflow
-can be deleted if you prefer that. It is kept because it redeploys on every push with no
-further setup.
+The site commits its generated data, so it builds and publishes without this repository
+present. It only needs this one checked out when the schematic changes — see below.
 
 ## Tooling
 
@@ -171,18 +169,18 @@ and pins involved when something is wrong.
 
 ## Regenerating the documentation
 
-After changing a sheet:
+After changing a sheet, from the **docs** repository beside this one:
 
 ```bash
 # 1. re-export the sheet images
-kicad-cli sch export svg --no-background-color -o /tmp/svg \
+kicad-cli sch export svg --no-background-color --exclude-drawing-sheet -o /tmp/svg \
   "kicad/UTS Mini Mixing Desk - Compressor.kicad_sch"
-#    copy the seven sheets into docs/img/ as connector.svg, input.svg, vca.svg,
-#    output.svg, sidechain.svg, power.svg, meters.svg
+#    copy the seven sheets into ../docs/site/compressor/img/ as connector.svg, input.svg,
+#    vca.svg, output.svg, sidechain.svg, power.svg, meters.svg
 
-cd docs
-python3 _data.py     # component hotspots + netlist graph, read from the .kicad_sch files
-python3 _build.py    # the ten HTML pages
+cd ../docs
+python3 build/_data.py --module compressor   # hotspots + netlist graph, read from kicad/
+python3 build/build_site.py                  # every page, every module
 ```
 
 Both scripts import from `tools/`, so a fresh clone has everything it needs.
