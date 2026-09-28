@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20250114)
+	(version 20260306)
 	(generator "eeschema")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(uuid "fdeae63a-37f5-58fb-b342-cb68d8a6bfbc")
 	(paper "A4")
 	(title_block
@@ -36,11 +36,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "174e7320-d7b1-5aab-af4c-021d06d87bce")
 		(property "Sheetname" "3 VCA"
 			(at 201.93 45.0084 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -50,6 +52,8 @@
 		)
 		(property "Sheetfile" "vca.kicad_sch"
 			(at 201.93 71.7046 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -78,11 +82,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "3c12989f-7a47-57c9-9938-7ba13ccb2516")
 		(property "Sheetname" "4 Output"
 			(at 49.53 95.8084 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -92,6 +98,8 @@
 		)
 		(property "Sheetfile" "output.kicad_sch"
 			(at 49.53 122.5046 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -120,11 +128,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "5797578f-278c-54d6-a28d-0cf0ddb33cbf")
 		(property "Sheetname" "2 Input"
 			(at 125.73 45.0084 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -134,6 +144,8 @@
 		)
 		(property "Sheetfile" "input.kicad_sch"
 			(at 125.73 71.7046 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -162,11 +174,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "726d8415-a5fc-52c7-823f-9ededf5a8991")
 		(property "Sheetname" "5 Sidechain"
 			(at 125.73 95.8084 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -176,6 +190,8 @@
 		)
 		(property "Sheetfile" "sidechain.kicad_sch"
 			(at 125.73 122.5046 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -204,11 +220,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "a71beffb-08c5-50af-b047-4c3106cc907a")
 		(property "Sheetname" "1 Connector"
 			(at 49.53 45.0084 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -218,6 +236,8 @@
 		)
 		(property "Sheetfile" "connector.kicad_sch"
 			(at 49.53 71.7046 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -245,11 +265,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "c0164a91-c3d2-5b1a-8cc9-b3c638b0e13a")
 		(property "Sheetname" "7 Meters"
 			(at 84.61 135.82 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -259,6 +281,8 @@
 		)
 		(property "Sheetfile" "meters.kicad_sch"
 			(at 84.61 162.62 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -287,11 +311,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "c5adaca6-1d0e-5bdd-9154-62aca7332af4")
 		(property "Sheetname" "6 Power"
 			(at 201.93 95.8084 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -301,6 +327,8 @@
 		)
 		(property "Sheetfile" "power.kicad_sch"
 			(at 201.93 122.5046 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
