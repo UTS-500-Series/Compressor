@@ -7,7 +7,7 @@ Built from ordinary parts: **nine BC549 transistors and seven NE5532 op amps**, 
 pair of LM391x bargraph drivers for the meters. No VCA chip,
 no transformers, nothing hard to source.
 
-📖 **Documentation: [`../docs`](../docs)** (separate repository) — every section explained, with
+📖 **Documentation: [`../UTS-500-Series.github.io`](../UTS-500-Series.github.io)** (separate repository) — every section explained, with
 interactive schematics you can click through. Once GitHub Pages is enabled, replace this
 line with the published URL.
 
@@ -41,7 +41,7 @@ Everything in `kicad/` and `panel/` is **generated from or checked against**
 `tools/design.py`. That is the one file to treat as source; the rest can be rebuilt.
 
 The documentation site lives in its own repository alongside this one, because it covers
-the whole desk rather than this module: [`../docs`](../docs).
+the whole desk rather than this module: [`../UTS-500-Series.github.io`](../UTS-500-Series.github.io).
 
 ## Opening it
 
@@ -71,7 +71,7 @@ when it is compressing hardest. The detector listens to the module's own **outpu
 this a feedback compressor: the ratio emerges from loop gain rather than being dialled in, the
 knee comes out soft on its own, and the circuit is forgiving of component tolerance.
 
-The [documentation](../docs) covers all of this properly, section by section.
+The [documentation](../UTS-500-Series.github.io) covers all of this properly, section by section.
 
 ## Specifications
 
@@ -130,7 +130,7 @@ holding about a decibel of gain reduction at idle. Pin compatible, nothing else 
 
 ## Documentation site
 
-The site is a **separate repository**, checked out beside this one as `../docs`. It covers
+The site is a **separate repository**, checked out beside this one as `../UTS-500-Series.github.io`. It covers
 every module in the desk — compressor, preamp and equaliser — so it does not belong to any
 one of them. It also owns its own GitHub Pages workflow.
 
@@ -175,10 +175,10 @@ After changing a sheet, from the **docs** repository beside this one:
 # 1. re-export the sheet images
 kicad-cli sch export svg --no-background-color --exclude-drawing-sheet -o /tmp/svg \
   "kicad/UTS Mini Mixing Desk - Compressor.kicad_sch"
-#    copy the seven sheets into ../docs/site/compressor/img/ as connector.svg, input.svg,
+#    copy the seven sheets into ../UTS-500-Series.github.io/site/compressor/img/ as connector.svg, input.svg,
 #    vca.svg, output.svg, sidechain.svg, power.svg, meters.svg
 
-cd ../docs
+cd ../UTS-500-Series.github.io
 python3 build/_data.py --module compressor   # hotspots + netlist graph, read from kicad/
 python3 build/build_site.py                  # every page, every module
 ```

@@ -153,6 +153,8 @@
 <line x1="37.25" y1="0" x2="37.25" y2="133.35" stroke="#fff" stroke-width="0.08" stroke-opacity="0.015"/>
 <line x1="37.50" y1="0" x2="37.50" y2="133.35" stroke="#fff" stroke-width="0.08" stroke-opacity="0.010"/>
 <line x1="37.75" y1="0" x2="37.75" y2="133.35" stroke="#fff" stroke-width="0.08" stroke-opacity="0.014"/>
+<rect x="5.40" y="10.60" width="27.30" height="32.40" rx="1.4" fill="url(#win)" stroke="#0a0c0e" stroke-width="0.4"/>
+<rect x="5.85" y="11.05" width="26.40" height="31.50" rx="1.4" fill="none" stroke="#4FB3B6" stroke-width="0.22" stroke-opacity="0.34"/>
 <text x="3.20" y="7.90" text-anchor="start" font-family="Helvetica,Arial" font-size="2.15" font-weight="normal" letter-spacing="0.32" fill="#F2EFE7" fill-opacity="0.66">OPN-500</text>
 <text x="34.90" y="7.90" text-anchor="end" font-family="Helvetica,Arial" font-size="2.15" font-weight="normal" letter-spacing="0.32" fill="#F2EFE7" fill-opacity="0.66">CMP-01</text>
 <rect x="11.80" y="13.15" width="3.6" height="1.7" rx="0.5" fill="#07090a"/>
@@ -193,40 +195,38 @@
 <rect x="22.00" y="33.50" width="5.0" height="3.0" rx="1.1" fill="#6FCF97" fill-opacity="0.17"/>
 <text x="13.60" y="39.00" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.00" font-weight="normal" letter-spacing="0.30" fill="#F2EFE7" fill-opacity="0.80">GR</text>
 <text x="24.50" y="39.00" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.00" font-weight="normal" letter-spacing="0.30" fill="#F2EFE7" fill-opacity="0.80">LVL</text>
-<line x1="14.17" y1="54.88" x2="13.46" y2="55.59" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
-<line x1="12.49" y1="52.13" x2="11.54" y2="52.44" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="12.23" y1="48.92" x2="11.25" y2="48.76" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="13.47" y1="45.94" x2="12.66" y2="45.36" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="15.92" y1="43.85" x2="15.46" y2="42.96" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="19.05" y1="43.10" x2="19.05" y2="42.10" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
-<line x1="22.18" y1="43.85" x2="22.64" y2="42.96" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="24.63" y1="45.94" x2="25.44" y2="45.36" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="25.87" y1="48.92" x2="26.85" y2="48.76" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="25.61" y1="52.13" x2="26.56" y2="52.44" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="23.93" y1="54.88" x2="24.64" y2="55.59" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
-<circle cx="19.05" cy="50.00" r="6.50" fill="#0c0f11" fill-opacity="0.6"/>
-<circle cx="19.05" cy="50.00" r="6.00" fill="url(#knobO)" stroke="#101416" stroke-width="0.25"/>
-<circle cx="19.05" cy="50.00" r="4.50" fill="none" stroke="#5c6468" stroke-width="0.2" stroke-opacity="0.65"/>
-<line x1="17.42" y1="49.24" x2="14.61" y2="47.93" stroke="#4FB3B6" stroke-width="0.75" stroke-linecap="round"/>
-<text x="19.05" y="60.20" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.45" font-weight="normal" letter-spacing="0.28" fill="#F2EFE7" fill-opacity="1.00">THRESHOLD</text>
-<text x="19.05" y="62.80" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.70" font-weight="normal" letter-spacing="0.22" fill="#4FB3B6" fill-opacity="0.62">PULL HPF</text>
-<line x1="14.17" y1="75.38" x2="13.46" y2="76.09" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
-<line x1="12.49" y1="72.63" x2="11.54" y2="72.94" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="12.23" y1="69.42" x2="11.25" y2="69.26" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="13.47" y1="66.44" x2="12.66" y2="65.86" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="15.92" y1="64.35" x2="15.46" y2="63.46" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="19.05" y1="63.60" x2="19.05" y2="62.60" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
-<line x1="22.18" y1="64.35" x2="22.64" y2="63.46" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="24.63" y1="66.44" x2="25.44" y2="65.86" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="25.87" y1="69.42" x2="26.85" y2="69.26" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="25.61" y1="72.63" x2="26.56" y2="72.94" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
-<line x1="23.93" y1="75.38" x2="24.64" y2="76.09" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
-<circle cx="19.05" cy="70.50" r="6.50" fill="#0c0f11" fill-opacity="0.6"/>
-<circle cx="19.05" cy="70.50" r="6.00" fill="url(#knobO)" stroke="#101416" stroke-width="0.25"/>
-<circle cx="19.05" cy="70.50" r="4.50" fill="none" stroke="#5c6468" stroke-width="0.2" stroke-opacity="0.65"/>
-<line x1="17.42" y1="69.74" x2="14.61" y2="68.43" stroke="#4FB3B6" stroke-width="0.75" stroke-linecap="round"/>
-<text x="19.05" y="80.70" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.45" font-weight="normal" letter-spacing="0.28" fill="#F2EFE7" fill-opacity="1.00">RATIO</text>
-<text x="19.05" y="83.30" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.70" font-weight="normal" letter-spacing="0.22" fill="#4FB3B6" fill-opacity="0.62">PULL KEY</text>
+<line x1="14.17" y1="56.88" x2="13.46" y2="57.59" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
+<line x1="12.49" y1="54.13" x2="11.54" y2="54.44" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="12.23" y1="50.92" x2="11.25" y2="50.76" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="13.47" y1="47.94" x2="12.66" y2="47.36" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="15.92" y1="45.85" x2="15.46" y2="44.96" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="19.05" y1="45.10" x2="19.05" y2="44.10" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
+<line x1="22.18" y1="45.85" x2="22.64" y2="44.96" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="24.63" y1="47.94" x2="25.44" y2="47.36" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="25.87" y1="50.92" x2="26.85" y2="50.76" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="25.61" y1="54.13" x2="26.56" y2="54.44" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="23.93" y1="56.88" x2="24.64" y2="57.59" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
+<circle cx="19.05" cy="52.00" r="6.50" fill="#0c0f11" fill-opacity="0.6"/>
+<circle cx="19.05" cy="52.00" r="6.00" fill="url(#knobO)" stroke="#101416" stroke-width="0.25"/>
+<circle cx="19.05" cy="52.00" r="4.50" fill="none" stroke="#5c6468" stroke-width="0.2" stroke-opacity="0.65"/>
+<line x1="17.42" y1="51.24" x2="14.61" y2="49.93" stroke="#4FB3B6" stroke-width="0.75" stroke-linecap="round"/>
+<text x="19.05" y="62.20" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.45" font-weight="normal" letter-spacing="0.28" fill="#F2EFE7" fill-opacity="1.00">THRESHOLD</text>
+<line x1="14.17" y1="77.38" x2="13.46" y2="78.09" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
+<line x1="12.49" y1="74.63" x2="11.54" y2="74.94" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="12.23" y1="71.42" x2="11.25" y2="71.26" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="13.47" y1="68.44" x2="12.66" y2="67.86" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="15.92" y1="66.35" x2="15.46" y2="65.46" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="19.05" y1="65.60" x2="19.05" y2="64.60" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
+<line x1="22.18" y1="66.35" x2="22.64" y2="65.46" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="24.63" y1="68.44" x2="25.44" y2="67.86" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="25.87" y1="71.42" x2="26.85" y2="71.26" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="25.61" y1="74.63" x2="26.56" y2="74.94" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
+<line x1="23.93" y1="77.38" x2="24.64" y2="78.09" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
+<circle cx="19.05" cy="72.50" r="6.50" fill="#0c0f11" fill-opacity="0.6"/>
+<circle cx="19.05" cy="72.50" r="6.00" fill="url(#knobO)" stroke="#101416" stroke-width="0.25"/>
+<circle cx="19.05" cy="72.50" r="4.50" fill="none" stroke="#5c6468" stroke-width="0.2" stroke-opacity="0.65"/>
+<line x1="17.42" y1="71.74" x2="14.61" y2="70.43" stroke="#4FB3B6" stroke-width="0.75" stroke-linecap="round"/>
+<text x="19.05" y="82.70" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.45" font-weight="normal" letter-spacing="0.28" fill="#F2EFE7" fill-opacity="1.00">RATIO</text>
 <line x1="6.62" y1="95.88" x2="5.91" y2="96.59" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
 <line x1="4.94" y1="93.13" x2="3.99" y2="93.44" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
 <line x1="4.68" y1="89.92" x2="3.70" y2="89.76" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
@@ -275,7 +275,18 @@
 <circle cx="19.05" cy="111.00" r="4.50" fill="none" stroke="#5c6468" stroke-width="0.2" stroke-opacity="0.65"/>
 <line x1="17.42" y1="110.24" x2="14.61" y2="108.93" stroke="#4FB3B6" stroke-width="0.75" stroke-linecap="round"/>
 <text x="19.05" y="121.20" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.45" font-weight="normal" letter-spacing="0.28" fill="#F2EFE7" fill-opacity="1.00">MAKEUP</text>
-<text x="19.05" y="123.80" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.70" font-weight="normal" letter-spacing="0.22" fill="#4FB3B6" fill-opacity="0.62">PULL BYPASS</text>
+<circle cx="6.00" cy="52.00" r="3.50" fill="#0b0e10"/>
+<rect x="5.05" y="48.90" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
+<text x="6.00" y="46.80" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">HPF</text>
+<circle cx="32.00" cy="52.00" r="3.50" fill="#0b0e10"/>
+<rect x="31.05" y="48.90" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
+<text x="32.00" y="46.80" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">KEY</text>
+<circle cx="6.00" cy="72.50" r="3.50" fill="#0b0e10"/>
+<rect x="5.05" y="69.40" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
+<text x="6.00" y="67.30" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">LINK</text>
+<circle cx="32.00" cy="72.50" r="3.50" fill="#0b0e10"/>
+<rect x="31.05" y="69.40" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
+<text x="32.00" y="67.30" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">BYPASS</text>
 <circle cx="19.05" cy="3.96" r="2.86" fill="#14181a"/>
 <circle cx="19.05" cy="3.96" r="1.59" fill="#080a0b"/>
 <circle cx="19.05" cy="129.39" r="2.86" fill="#14181a"/>
