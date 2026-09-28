@@ -13760,7 +13760,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinSocket_1.00mm:PinSocket_1x02_P1.00mm_Vertical"
 			(at 139.7 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -18343,22 +18343,22 @@
 			(uuid "759a45b0-c172-449d-83ef-37f57782d9ba")
 		)
 		(pin "3"
-			(uuid "1ed2e5ed-5111-4bca-ac72-99e8497c33fc")
+			(uuid "1ed2e5ed-5111-4bca-ac72-99e8497c33fd")
 		)
 		(pin "2"
-			(uuid "77d58c41-1571-4cfd-9226-e871a2493dd9")
+			(uuid "77d58c41-1571-4cfd-9226-e871a2493dda")
 		)
 		(pin "1"
-			(uuid "9a824450-6794-4582-8a11-83839948d796")
+			(uuid "9a824450-6794-4582-8a11-83839948d797")
 		)
 		(pin "5"
-			(uuid "358c0440-d47a-446e-a79d-329839b6396f")
+			(uuid "358c0440-d47a-446e-a79d-329839b63970")
 		)
 		(pin "6"
-			(uuid "5b4762d0-cd9e-4494-a228-90d2c070ca3b")
+			(uuid "5b4762d0-cd9e-4494-a228-90d2c070ca3c")
 		)
 		(pin "7"
-			(uuid "8ee79ac7-469c-47bd-94c7-6521260bdeff")
+			(uuid "8ee79ac7-469c-47bd-94c7-6521260bdf00")
 		)
 		(instances
 			(project "compressor_with_pcb"
@@ -20152,7 +20152,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinSocket_1.00mm:PinSocket_1x02_P1.00mm_Vertical"
 			(at 57.15 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -21603,7 +21603,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinSocket_1.00mm:PinSocket_1x03_P1.00mm_Vertical"
 			(at 21.59 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -24166,7 +24166,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinSocket_1.00mm:PinSocket_1x06_P1.00mm_Vertical"
 			(at 370.84 228.6 0)
 			(hide yes)
 			(show_name no)
@@ -36366,7 +36366,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinSocket_1.00mm:PinSocket_1x06_P1.00mm_Vertical"
 			(at 401.32 214.63 0)
 			(hide yes)
 			(show_name no)
