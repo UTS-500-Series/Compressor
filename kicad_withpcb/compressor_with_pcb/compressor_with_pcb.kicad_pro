@@ -69,7 +69,13 @@
           "thermal_relief_spoke_width": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "filename": "board_design_settings.json",
@@ -142,9 +148,9 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.2,
         "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.025,
+        "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
@@ -157,7 +163,7 @@
         "min_through_hole_diameter": 0.3,
         "min_track_width": 0.2,
         "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.4,
+        "min_via_diameter": 0.6,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -205,7 +211,9 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -232,7 +240,12 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -518,9 +531,8 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.4,
+        "clearance": 0.3,
         "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
@@ -529,9 +541,9 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.5,
+        "track_width": 0.6,
         "tuning_profile": "",
-        "via_diameter": 1.0,
+        "via_diameter": 0.8,
         "via_drill": 0.4,
         "wire_width": 6
       }
@@ -543,64 +555,28 @@
     "netclass_assignments": null,
     "netclass_patterns": [
       {
-        "netclass": "Default",
-        "pattern": "+16V"
+        "netclass": "Power",
+        "pattern": "+16V*"
       },
       {
-        "netclass": "Default",
-        "pattern": "+48V"
+        "netclass": "Power",
+        "pattern": "-16V*"
       },
       {
-        "netclass": "Default",
-        "pattern": "-16V"
+        "netclass": "Power",
+        "pattern": "-5V1"
       },
       {
-        "netclass": "Default",
-        "pattern": "/+IN+4"
+        "netclass": "Power",
+        "pattern": "AGND"
       },
       {
-        "netclass": "Default",
-        "pattern": "/+IN-2"
+        "netclass": "Power",
+        "pattern": "PGND"
       },
       {
-        "netclass": "Default",
-        "pattern": "/+OUT+4"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "/+OUT-2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "/-IN+4"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "/-IN-2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "/-OUT"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "/AGND"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "/CHASSIS"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "/GAIN_ADJ"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "/SC_LINK"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "GND"
+        "netclass": "Power",
+        "pattern": "CHASSIS"
       }
     ]
   },

@@ -4362,7 +4362,7 @@
 		)
 		(uuid "7cee3426-16d7-404b-b8a0-2fba61636477")
 	)
-	(text "Output Chain, Buffer Op=Amps and Signal Balancing"
+	(text "Output Chain, Buffer Op-Amps and Signal Balancing"
 		(exclude_from_sim no)
 		(at 226.06 227.584 0)
 		(effects
@@ -4445,7 +4445,7 @@
 		)
 		(uuid "de133056-68b7-49b4-88ff-8c302ea67b90")
 	)
-	(text "The Gain Cell\nNine Transistors & an Op=Amp to act as a Voltage Controlled Amplifier\n"
+	(text "The Gain Cell\nNine Transistors & an Op-Amp to act as a Voltage Controlled Amplifier\n"
 		(exclude_from_sim no)
 		(at 13.97 20.574 0)
 		(effects
@@ -4728,6 +4728,12 @@
 		(uuid "88381df7-980d-4519-aa4a-85dead96ffe0")
 	)
 	(junction
+		(at 25.4 62.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "88caff01-efc2-4fa7-98f5-8e38d81ccc17")
+	)
+	(junction
 		(at 344.17 127)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4932,8 +4938,20 @@
 		(uuid "fe151199-8f83-4b4c-bae2-c52998e373e6")
 	)
 	(no_connect
+		(at 373.38 143.51)
+		(uuid "0f8c3a2b-d5a7-45c0-bc4f-9a58dc447175")
+	)
+	(no_connect
+		(at 373.38 140.97)
+		(uuid "289f9de8-9a99-4f7d-b1af-32a2c5087b4d")
+	)
+	(no_connect
 		(at 295.91 163.83)
 		(uuid "4bf030b3-081b-4124-9f40-89c8e732fb06")
+	)
+	(no_connect
+		(at 373.38 146.05)
+		(uuid "54fa8c92-a184-4c1d-b6b9-f0e3b837a1f1")
 	)
 	(no_connect
 		(at 316.23 158.75)
@@ -5030,6 +5048,16 @@
 			(type default)
 		)
 		(uuid "04bc29e9-9efa-420d-89d1-5fd0de479ffa")
+	)
+	(wire
+		(pts
+			(xy 25.4 55.88) (xy 25.4 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "04eb2fc6-e6c8-4392-95ba-6c0da76f57c6")
 	)
 	(wire
 		(pts
@@ -8193,6 +8221,16 @@
 	)
 	(wire
 		(pts
+			(xy 25.4 55.88) (xy 39.37 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a36fcf17-10bd-4f06-9c9d-f86ab1fa3c51")
+	)
+	(wire
+		(pts
 			(xy 198.12 151.13) (xy 198.12 162.56)
 		)
 		(stroke
@@ -9403,16 +9441,6 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 55.88) (xy 35.56 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e09d7ea8-68ed-4ff0-a235-da01e88a49b7")
-	)
-	(wire
-		(pts
 			(xy 293.37 130.81) (xy 293.37 128.27)
 		)
 		(stroke
@@ -10055,28 +10083,6 @@
 		(uuid "054fcb84-3fbd-4cdb-a779-c87e83d9b8b5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 16.51 264.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "VBIAS"
-		(shape bidirectional)
-		(at 35.56 55.88 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "07fb90e9-c48c-41fa-a304-e9b4358fee6b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 35.56 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18639,7 +18645,7 @@
 			)
 		)
 		(property "Value" "PGND"
-			(at 369.062 48.26 0)
+			(at 368.046 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
