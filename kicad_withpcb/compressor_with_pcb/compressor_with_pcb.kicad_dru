@@ -1,0 +1,7 @@
+(version 1)
+
+# TO-92 in-line leads are 1.27 mm apart, which leaves 0.22 mm between pads.
+# The Power and Ground classes ask for 0.3 mm, so allow the footprint's own spacing.
+(rule "TO-92 lead pitch"
+	(condition "A.Type == 'Pad' && B.Type == 'Pad' && A.memberOfFootprint('Q*') && B.memberOfFootprint('Q*')")
+	(constraint clearance (min 0.2mm)))
