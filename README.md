@@ -21,7 +21,7 @@ line with the published URL.
 | Components | 166 |
 | Nets | 110 |
 | ERC | 0 errors, 0 warnings |
-| PCB layout | Not started |
+| PCB layout | Main board and front board placed and routed, DRC clean, not yet reviewed by hand |
 | Simulated | No |
 | Built | No |
 
