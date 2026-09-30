@@ -1,0 +1,124 @@
+(footprint "SW_Toggle_Mini_SPDT"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Miniature toggle, SPDT, straight PC pins on 4.7 mm, 6.35 mm bushing. Origin is the bushing centre. Check pin pitch and body size against the part you buy (C&K 7101, NKK M2012, Salecom T80-T)")
+	(tags "toggle switch mini PC pin")
+	(property "Reference" "REF**"
+		(at 0 -7.6 0)
+		(layer "F.SilkS")
+		(uuid "5e1dc7e1-f4d6-4539-ba06-04930e418adf")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SW_Toggle_Mini_SPDT"
+		(at 0 7.6 0)
+		(layer "F.Fab")
+		(uuid "8c0f4ac2-8445-443b-81a4-837754a6ac19")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ef3b6fa8-2e17-4282-b509-523e17e7d627")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d01cdc0d-a8cf-4377-97a8-45e401171434")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -3.56 -6.46)
+		(end 3.56 6.46)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "01ae0474-c2ca-4a11-8615-e3cd06b8506b")
+	)
+	(fp_rect
+		(start -3.45 -6.35)
+		(end 3.45 6.35)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "6ea3299f-b2f7-4b50-b0bf-b542277bcb4f")
+	)
+	(fp_rect
+		(start -3.7 -6.6)
+		(end 3.7 6.6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "b8cca09a-f8ed-4684-ba71-a2b756816166")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 3.18 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "3d7bfe0c-be77-49d3-85ee-82ee8fceeae4")
+	)
+	(pad "1" thru_hole rect
+		(at 0 -4.7)
+		(size 2.2 2.2)
+		(drill 1.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "3c40f6f8-d6b0-4d75-b75c-9988d7360013")
+	)
+	(pad "2" thru_hole oval
+		(at 0 0)
+		(size 2.2 2.2)
+		(drill 1.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "f5ea68b2-efc3-46e1-b5aa-6c8cae3ff5d3")
+	)
+	(pad "3" thru_hole oval
+		(at 0 4.7)
+		(size 2.2 2.2)
+		(drill 1.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "a3a4562c-b63c-490d-b282-711af7863cef")
+	)
+	(embedded_fonts no)
+)

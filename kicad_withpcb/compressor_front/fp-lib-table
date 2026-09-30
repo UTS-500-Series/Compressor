@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "compressor_front")(type "KiCad")(uri "${KIPRJMOD}/compressor_front.pretty")(options "")(descr "Front board parts not in the stock libraries"))
+)
