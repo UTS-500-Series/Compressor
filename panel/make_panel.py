@@ -24,8 +24,8 @@ HOLE_Y     = [(H - HOLE_PITCH) / 2, (H - HOLE_PITCH) / 2 + HOLE_PITCH]
 
 # ---------------------------------------------------------------- hardware
 BUSH_CONC = 9.5      # dual-concentric pot, 3/8" bushing
-BUSH_POT  = 7.0      # 9 mm pot
-BUSH_TOG  = 6.0      # mini toggle
+BUSH_POT  = 7.2      # 9 mm pot, M7 bushing
+BUSH_TOG  = 6.5      # mini toggle, 1/4 inch bushing
 BUSH_BTN  = 8.0      # illuminated latching pushbutton
 LED_HOLE  = 2.2      # 2 mm meter LED
 KNOB_OUT  = 15.0     # concentric outer skirt
@@ -54,23 +54,25 @@ LAYOUTS = {
             ('RV2', 'MAKEUP',    'PULL BYPASS', CL,   111.0,  KNOB_SGL, BUSH_POT),
         ],
         buttons=[], toggles=[], rules=False, window=False),
+    # the layout built on the front board (kicad_withpcb/compressor_front); these
+    # positions are copied from that board, which is the master
     'toggle': dict(
         concentric=[],
         singles=[
             ('RV3', 'THRESHOLD', '', CL,    52.0,  KNOB_SGL, BUSH_POT),
             ('RV4', 'RATIO',     '', CL,    72.5,  KNOB_SGL, BUSH_POT),
-            ('RV5', 'ATTACK',    '', 11.5,  91.0,  KNOB_SGL, BUSH_POT),
-            ('RV6', 'RELEASE',   '', 26.6,  91.0,  KNOB_SGL, BUSH_POT),
+            ('RV5', 'ATTACK',    '', 10.0,  91.0,  KNOB_SGL, BUSH_POT),
+            ('RV6', 'RELEASE',   '', 25.1,  91.0,  KNOB_SGL, BUSH_POT),
             ('RV2', 'MAKEUP',    '', CL,   111.0,  KNOB_SGL, BUSH_POT),
         ],
         buttons=[],
         # flanking the two knobs they belong to: the sidechain pair beside THRESHOLD,
         # the two set-and-forget switches beside RATIO
         toggles=[
-            ('SW3', 'HPF',    6.0,  52.0,  BUSH_TOG),
-            ('SW2', 'KEY',    32.0, 52.0,  BUSH_TOG),
-            ('SW4', 'LINK',   6.0,  72.5,  BUSH_TOG),
-            ('SW1', 'BYPASS', 32.0, 72.5,  BUSH_TOG),
+            ('SW3', 'HPF',    6.9,  52.0,  BUSH_TOG),
+            ('SW2', 'KEY',    31.2, 52.0,  BUSH_TOG),
+            ('SW4', 'LINK',   6.9,  72.5,  BUSH_TOG),
+            ('SW1', 'BYPASS', 31.2, 72.5,  BUSH_TOG),
         ],
         rules=False, window=True),
     'concentric': dict(
@@ -99,7 +101,7 @@ SHOW_RULES = SHOW_WINDOW = True
 INTERNAL = [('SW4', 'LINK', 'stereo link - internal jumper on the pull layout only')]
 
 METER_PITCH, METER_TOP, METER_N = 3.5, 14.0, 7
-METERS = [('GR', 'D20', 13.6, 'gr'), ('LVL', 'D30', 24.5, 'lvl')]
+METERS = [('GR', 'D20', 14.1, 'gr'), ('LVL', 'D30', 24.0, 'lvl')]   # as on the front board
 
 def meter_leds():
     out = []
@@ -667,7 +669,7 @@ if __name__ == '__main__':
     import argparse
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--layout', choices=sorted(LAYOUTS), default='pull',
+    ap.add_argument('--layout', choices=sorted(LAYOUTS), default='toggle',
                     help='which hardware arrangement to draw (default: pull)')
     ap.add_argument('--style', choices=sorted(STYLES), default='anodised',
                     help='which finish becomes faceplate-mockup.svg (default: anodised)')
