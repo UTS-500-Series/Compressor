@@ -16,8 +16,8 @@ Everything comes out of `make_panel.py`, so the picture and the machining data c
 apart. Change a control position once and re-run:
 
 ```bash
-python3 make_panel.py                          # pull layout, anodised (default)
-python3 make_panel.py --layout toggle          # five knobs, four flanking toggles
+python3 make_panel.py                          # toggle layout, anodised (default)
+python3 make_panel.py --layout pull            # five knobs, every switch a pull
 python3 make_panel.py --layout concentric      # concentric knobs, button, toggles
 python3 make_panel.py --style bone             # light flat-graphic finish
 python3 make_panel.py --layout toggle --style bone
@@ -28,7 +28,7 @@ python3 make_panel.py --layout toggle --style bone
 The layout changes **what hardware is on the panel**, so the hole pattern, the drawing and the
 DXF all change with it.
 
-**`pull`** *(default)* — five separate knobs. Every switch function is a pull on a pot, so
+**`pull`** — five separate knobs. Every switch function is a pull on a pot, so
 there are no toggles and no button at all: THRESHOLD pulls for the sidechain HPF, RATIO for
 key int/ext, MAKEUP for bypass. LINK is an internal jumper. **21 holes.** The simplest panel
 to build and the cheapest to populate, at the cost of a slow, uncertain bypass action.
@@ -37,7 +37,7 @@ to build and the cheapest to populate, at the cost of a slow, uncertain bypass a
 smaller legend and no printed numerals — two full scales would print their endpoints on top of
 each other in the gap between the knobs.
 
-**`toggle`** — the same five knobs, but every switch gets its own toggle rather than hiding on
+**`toggle`** *(default, and the one the front board is built for)* — the same five knobs, but every switch gets its own toggle rather than hiding on
 a pull. They flank the two knobs they belong to: HPF and KEY either side of THRESHOLD, LINK and
 BYPASS either side of RATIO. **25 holes.** Four more holes and four more parts than `pull`, and
 in exchange every function is one positive movement — nothing is hidden, and bypass is instant.
@@ -78,20 +78,31 @@ Both mounting holes sit on the vertical centreline at x = 19.05 mm, which puts t
 
 ## Drill schedule
 
+For the `toggle` layout, which is what the front board (`kicad_withpcb/compressor_front`)
+carries. That board is the master: these positions are copied from it, so change the board
+first and then the numbers in `make_panel.py`.
+
 Origin is the **top-left corner** of the panel, x right, y down. All in millimetres.
 
 | Ref | Function | X (mm) | Y (mm) | Hole Ø | Hardware |
 |---|---|---|---|---|---|
-| `RV3` / `RV4` | THRESHOLD (outer) + RATIO (inner) | 19.05 | 56.00 | 9.5 | dual-concentric pot, 3/8″ bushing |
-| `RV5` / `RV6` | ATTACK (outer) + RELEASE (inner) | 19.05 | 79.00 | 9.5 | dual-concentric pot, 3/8″ bushing |
-| `RV2` | MAKEUP + pull link | 19.05 | 105.00 | 7.0 | 9 mm pull-switch pot |
-| `SW1` | BYPASS | 9.50 | 122.00 | 8.0 | latching pushbutton, illuminated |
-| `SW3` | HPF | 6.00 | 105.00 | 6.0 | mini toggle |
-| `SW2` | KEY | 32.00 | 105.00 | 6.0 | mini toggle |
-| `D201`–`D207` | GR meter, 7 seg | 13.60 | 14.0 to 35.0, 3.5 pitch | 2.2 | 2 mm LED |
-| `D301`–`D307` | LVL meter, 7 seg | 24.50 | 14.0 to 35.0, 3.5 pitch | 2.2 | 2 mm LED |
+| `RV3` | THRESHOLD | 19.05 | 52.00 | 7.2 | 9 mm pot (Alps RK09K), M7 bushing |
+| `RV4` | RATIO | 19.05 | 72.50 | 7.2 | 9 mm pot |
+| `RV5` | ATTACK | 10.00 | 91.00 | 7.2 | 9 mm pot |
+| `RV6` | RELEASE | 25.10 | 91.00 | 7.2 | 9 mm pot |
+| `RV2` | MAKEUP | 19.05 | 111.00 | 7.2 | 9 mm pot |
+| `SW3` | HPF | 6.90 | 52.00 | 6.5 | mini toggle, 1/4″ bushing |
+| `SW2` | KEY | 31.20 | 52.00 | 6.5 | mini toggle |
+| `SW4` | LINK | 6.90 | 72.50 | 6.5 | mini toggle |
+| `SW1` | BYPASS | 31.20 | 72.50 | 6.5 | mini toggle, DPDT |
+| `D20`–`D26` | GR meter, 7 seg | 14.10 | 14.0 to 35.0, 3.5 pitch | 2.2 | 2 mm flat-top LED |
+| `D30`–`D36` | LVL meter, 7 seg | 24.00 | 14.0 to 35.0, 3.5 pitch | 2.2 | 2 mm flat-top LED |
 | — | mounting | 19.05 | 3.96 | 3.18 | c'sink 82° to Ø5.72 |
 | — | mounting | 19.05 | 129.39 | 3.18 | c'sink 82° to Ø5.72 |
+
+ATTACK and RELEASE sit 1.5 mm left of symmetric so the ribbon header on the back of the
+front board clears the RELEASE pot. The meter columns are 9.9 mm apart rather than 10.9 so
+the LM3914 and LM3915 fit either side of them.
 
 ## Layout notes
 
