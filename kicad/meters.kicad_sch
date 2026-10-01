@@ -5868,7 +5868,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6fe988b8-c152-4896-a5a4-d1423e4a0c36")
-		(property "Reference" "U12"
+		(property "Reference" "U10"
 			(at 168.148 86.106 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5979,7 +5979,7 @@
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c0164a91-c3d2-5b1a-8cc9-b3c638b0e13a"
-					(reference "U12")
+					(reference "U10")
 					(unit 1)
 				)
 			)
