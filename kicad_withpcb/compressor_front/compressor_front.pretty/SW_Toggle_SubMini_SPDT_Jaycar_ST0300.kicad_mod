@@ -1,0 +1,125 @@
+(footprint "SW_Toggle_SubMini_SPDT_Jaycar_ST0300"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Sub-miniature toggle, SPDT on-on, solder lugs on 2.54 mm, body 8.13 x 5.08 mm, 10-48 UNS bushing. Jaycar ST0300 datasheet. Origin is the bushing centre.")
+	(tags "toggle switch sub-miniature solder lug Jaycar")
+	(property "Reference" "REF**"
+		(at 0 -5.5200000000000005 0)
+		(layer "F.SilkS")
+		(uuid "368c9186-1c41-43d5-9358-22e7bde671a5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SW_Toggle_SubMini_SPDT_Jaycar_ST0300"
+		(at 0 5.5200000000000005 0)
+		(layer "F.Fab")
+		(uuid "e528f754-c360-4e67-8784-023a825da325")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "6215f1ac-36ac-42c4-9ea1-f9566b0176d5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8a99add4-16a5-4e10-9083-396ab6b49bb5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_rect
+		(start -2.67 -4.19)
+		(end 2.67 4.19)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "3fcb82ed-eeda-47e8-84b1-3e4d0483aab2")
+	)
+	(fp_rect
+		(start -2.55 -4.07)
+		(end 2.55 4.07)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "582f7aa8-7197-4c73-962c-23d75605497f")
+	)
+	(fp_rect
+		(start -2.8 -4.32)
+		(end 2.8 4.32)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "b6046d3c-2f08-4144-9891-3bdf2d94db3e")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 2.42 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "43555803-1b50-407d-a5b2-aabe0b46d9e6")
+	)
+	(pad "1" thru_hole roundrect
+		(at 0 -2.54)
+		(size 3 1.9)
+		(drill oval 1.8 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.15)
+		(uuid "92088ef3-16b8-4dca-8da3-8c4d71dd558c")
+	)
+	(pad "2" thru_hole oval
+		(at 0 0)
+		(size 3 1.9)
+		(drill oval 1.8 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "743f4e05-3ef1-4571-9c25-dcfda889ae6c")
+	)
+	(pad "3" thru_hole oval
+		(at 0 2.54)
+		(size 3 1.9)
+		(drill oval 1.8 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "d3e97497-9654-4211-ac16-ffa4766bbf39")
+	)
+	(embedded_fonts no)
+)
