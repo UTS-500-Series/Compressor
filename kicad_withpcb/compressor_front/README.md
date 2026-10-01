@@ -24,6 +24,24 @@ that board and its BOM) so the circuit still reads as one piece.
 - The main board's front edge is set back 24 mm from the panel to clear this board, the
   header and the ribbon plug.
 
+## Joining the boards
+
+The boards are joined only by the ribbon; each one is fixed to the faceplate on its own.
+
+- **Ribbon:** 30-way, 2.54 mm pitch, with an IDC socket crimped on each end. Main board
+  J2 is a shrouded box header; J1 here is a plain pin header, so it isn't keyed. Put the
+  red stripe on pin 1 at both ends (pin 1 is marked on the back silkscreen).
+- **Length:** about 150 mm, folded once between the boards. J2 sits roughly 30 mm behind
+  the panel and about 35 mm higher than J1, and the sideways distance depends on where the
+  main board sits in your rack, so lay the boards out and check before crimping.
+- **Front board to panel:** the nuts on the five pot and four toggle bushings.
+- **Main board to panel:** an L-bracket from the back of the panel to H1 and H2, the two
+  M3 holes by the main board's front edge (82 mm apart). The front edge is 24 mm behind
+  the panel, so the bracket leg along the board needs to reach that far: 25 × 25 mm
+  aluminium angle, or a short angle with standoffs. H2 is plated and tied to CHASSIS
+  (J1 pin 1), so the bracket also grounds the panel as the faceplate guide asks. Mask
+  the anodise where the bracket touches the panel.
+
 ## Coordinates
 
 The panel outline and every hole are drawn on User.Drawings, with the grid origin on the
