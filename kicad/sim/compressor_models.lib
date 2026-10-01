@@ -1,0 +1,108 @@
+* SPICE models for the compressor's simulation (KiCad 10 / ngspice).
+* The schematic's Sim.* fields point here as "sim/compressor_models.lib".
+*
+* Sources:
+*   NE5532      Behavioural model written for this design (see the subcircuit). TI's 1989
+*               macromodel was tried first, but ngspice can't get its current limiter through
+*               the meter's peak detector, so transient runs abort.
+*   BC549C      Philips model (same die as BC550C).
+*   1N4148      onsemi model.  1N4004: generic rectifier model.
+*   BZX79C5V1   Behavioural zener: 5.1 V at 5 mA, ~10 ohm dynamic resistance. Not a vendor model.
+*   LED_GREEN   Vishay TLSV5100 green, used for every LED.
+*   LM3914N     Behavioural stand-in, written for this design, not a vendor model: the 1.25 V
+*               reference between REFOUT and REFADJ, a high-impedance signal input and the
+*               10 k internal divider. The comparators and LED current sinks are not modelled,
+*               so the meter LEDs never light in simulation.
+*   POT, SW_*   Ideal potentiometer and switches, set by parameters (see bench.cir).
+
+.subckt NE5532_DUAL 1 2 3 4 5 6 7 8
+* DIP-8 pinout: 1 OUTA, 2 -INA, 3 +INA, 4 V-, 5 +INB, 6 -INB, 7 OUTB, 8 V+
+XA 3 2 8 4 1 NE5532
+XB 5 6 8 4 7 NE5532
+.ends NE5532_DUAL
+
+.subckt NE5532 inp inn vp vn out
+* Behavioural NE5532 section, written for this design (not a vendor model). It keeps what
+* matters here and converges reliably in ngspice: 100 dB open-loop gain, 10 MHz GBW,
+* 9 V/us slew, 200 nA input bias, inputs clamped by the internal anti-parallel diodes,
+* output swing to about 1.5 V from either rail, +/-38 mA short-circuit limit, 4 mA supply
+* current per section, and output current drawn from the rails.
+RIN inp inn 300k
+IBP inp vn 200n
+IBN inn vn 200n
+DIN1 inp inn DCLAMP
+DIN2 inn inp DCLAMP
+* gain stage: gm 1 mS into 100 Meg || 15.9 pF, slew set by the 143 uA tanh limit
+BGM 0 n1 I = 143u * tanh(1m * V(inp, inn) / 143u)
+RN1 n1 0 100Meg
+CN1 n1 0 15.9p
+* swing limit: clamp n1 to 1.5 V inside the rails
+VCP vp cp DC 0.9
+VCN cn vn DC 0.9
+DCP n1 cp DLIM
+DCN cn n1 DLIM
+* output: 30 ohm, current-limited, current taken from the rail it would really come from
+BOP vp out I = 0.5 * (38m * tanh((V(n1) - V(out)) / (38m * 30)) + sqrt(pow(38m * tanh((V(n1) - V(out)) / (38m * 30)), 2) + 1e-12))
+BON out vn I = 0.5 * (-38m * tanh((V(n1) - V(out)) / (38m * 30)) + sqrt(pow(38m * tanh((V(n1) - V(out)) / (38m * 30)), 2) + 1e-12))
+RQ vp vn 8k
+* output and input capacitance, which also keeps ngspice's timestep sensible
+COUT out 0 100p
+CINP inp 0 3p
+CINN inn 0 3p
+.model DCLAMP D(IS=1e-15 RS=100 CJO=2p)
+.model DLIM D(IS=1e-12 N=1)
+.ends NE5532
+
+.model BC549C NPN(Is=7.049f Xti=3 Eg=1.11 Vaf=23.89 Bf=493.2 Ise=99.2f Ne=1.829 Ikf=.1542
++ Xtb=1.5 Br=2.886 Isc=7.371p Nc=1.508 Ikr=5.426 Rc=1.175 Cjc=5.5p Mjc=.3132 Vjc=.4924 Fc=.5
++ Cje=11.5p Mje=.6558 Vje=.5 Tr=10n Tf=420.3p Itf=1.374 Xtf=39.42 Vtf=10)
+
+.model 1N4148 D(Is=2.52n Rs=.568 N=1.752 Cjo=4p M=.4 Tt=20n Bv=100 Ibv=100n)
+.model 1N4004 D(Is=5.86u N=1.70 Bv=533 Ibv=500n Rs=42.2m Cjo=52.1p Vj=.34 M=.38 Tt=5.04u)
+.model BZX79C5V1 D(Is=1n N=1.2 Rs=10 Bv=5.1 Ibv=5m Nbv=1.5 Cjo=150p)
+.model LED_GREEN D(Is=1.7e-20 N=1.8 Rs=8 Ikf=2m Eg=2.4 Cjo=50p Bv=6 Ibv=10u)
+
+.subckt LM3914N 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
+* 1,10-18 LED outputs; 2 V-; 3 V+; 4 RLO; 5 SIG; 6 RHI; 7 REFOUT; 8 REFADJ; 9 MODE
+* REFOUT sits 1.25 V above REFADJ, its current drawn from the supply (not from REFADJ)
+EREF 7 71 8 2 1
+VREF 71 2 DC 1.25
+RDIV 6 4 10k
+RSIG 5 2 1G
+IQ 3 2 DC 6m
+RL1 1 2 100Meg
+RL10 10 2 100Meg
+RL11 11 2 100Meg
+RL12 12 2 100Meg
+RL13 13 2 100Meg
+RL14 14 2 100Meg
+RL15 15 2 100Meg
+RL16 16 2 100Meg
+RL17 17 2 100Meg
+RL18 18 2 100Meg
+RMODE 9 2 100Meg
+.ends LM3914N
+
+.subckt POT 1 2 3 params: R=10k POS=0.5
+* POS is the wiper position: 0 = at pin 1, 1 = at pin 3. 1 ohm end resistance.
+R1 1 2 {max(R*POS, 1)}
+R2 2 3 {max(R*(1-POS), 1)}
+.ends POT
+
+.subckt SW_SPST 1 2 params: ON=1
+R1 1 2 {ON > 0.5 ? 0.05 : 1e10}
+.ends SW_SPST
+
+.subckt SW_SPDT 1 2 3 params: POS=0
+* pin 2 is the common; POS=0 joins it to pin 1, POS=1 to pin 3
+R1 2 1 {POS < 0.5 ? 0.05 : 1e10}
+R3 2 3 {POS < 0.5 ? 1e10 : 0.05}
+.ends SW_SPDT
+
+.subckt SW_DPDT 1 2 3 4 5 6 params: POS=0
+* commons are pins 2 and 5; POS=0 joins them to 1 and 4, POS=1 to 3 and 6
+R1 2 1 {POS < 0.5 ? 0.05 : 1e10}
+R3 2 3 {POS < 0.5 ? 1e10 : 0.05}
+R4 5 4 {POS < 0.5 ? 0.05 : 1e10}
+R6 5 6 {POS < 0.5 ? 1e10 : 0.05}
+.ends SW_DPDT

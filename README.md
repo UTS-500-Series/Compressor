@@ -22,12 +22,14 @@ The site's source is a separate repository, [UTS-500-Series.github.io](https://g
 | Nets | 110 |
 | ERC | 0 errors, 0 warnings |
 | PCB layout | Main board and front board placed and routed, DRC clean, tracks not yet tidied by hand |
-| Simulated | No |
+| Simulated | Yes, in ngspice from the `kicad/` sheets. See [kicad/sim](kicad/sim/README.md) |
 | Built | No |
 
 **Every performance figure in the documentation is calculated from the design, not measured.**
 The netlist has been verified and ERC is clean, but that only proves the drawing is
-self-consistent — not that the circuit behaves as predicted.
+self-consistent — not that the circuit behaves as predicted. The [simulation](kicad/sim/README.md)
+checks the behaviour with models of the real parts, and found a few places where it differs
+from the documentation.
 
 ## Repository layout
 
