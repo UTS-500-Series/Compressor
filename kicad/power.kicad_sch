@@ -4641,7 +4641,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "09ba44ad-a771-4fc9-8fc0-7c68f0c9606b")
-		(property "Reference" "U11"
+		(property "Reference" "U7"
 			(at 224.79 149.606 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4722,7 +4722,7 @@
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
-					(reference "U11")
+					(reference "U7")
 					(unit 3)
 				)
 			)
@@ -11318,7 +11318,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "be934a2e-b1e5-48bd-8b6d-3e9339580b15")
-		(property "Reference" "U10"
+		(property "Reference" "U4"
 			(at 148.59 149.606 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11399,7 +11399,7 @@
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/c5adaca6-1d0e-5bdd-9154-62aca7332af4"
-					(reference "U10")
+					(reference "U4")
 					(unit 3)
 				)
 			)
