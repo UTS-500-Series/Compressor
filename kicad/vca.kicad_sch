@@ -1203,1000 +1203,820 @@
 			(embedded_fonts no)
 		)
 	)
-	(junction
-		(at 121.92 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2f6762b4-5512-4434-afb3-1f635738179c")
+	(text "The Gain Cell\nNine Transistors & an Op-Amp to act as a Voltage Controlled Amplifier\n"
+		(exclude_from_sim no)
+		(at 41.91 38.354 0)
+		(effects
+			(font
+				(size 2.2 2.2)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "561eef24-4480-4563-ac3f-32f3b4a9acdb")
 	)
 	(junction
-		(at 128.27 118.11)
+		(at 111.76 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "364abf1b-6883-5d0a-9a25-dab56b3cb305")
+		(uuid "1796d650-0290-44a2-924f-f08b288402bc")
 	)
 	(junction
-		(at 215.9 123.19)
+		(at 64.77 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "4bd03cc5-e26a-5a38-a2ab-aa6ec4901606")
+		(uuid "28428fce-b6d1-4b11-b18f-3b69ddf98cdc")
 	)
 	(junction
-		(at 99.06 72.39)
+		(at 90.17 62.23)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "4ea5f14a-ddaa-4d99-8982-8f125e2b74f6")
+		(uuid "2e8f798e-0384-473f-99fb-faaaa1eed133")
 	)
 	(junction
-		(at 90.17 116.84)
+		(at 113.03 74.93)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5c9e8f00-5ead-5d4b-ad47-47c27607353c")
+		(uuid "4ab1d08a-a6f1-4c14-b87a-6d88fce21736")
 	)
 	(junction
-		(at 167.64 54.61)
+		(at 53.34 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5d2fe77f-3cee-442e-a1f5-38f156d81b7e")
+		(uuid "4af59327-6b93-4c83-9f82-3955e5b96429")
 	)
 	(junction
-		(at 72.39 39.37)
+		(at 124.46 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "752906eb-60f0-5f80-8da5-d398b65da804")
+		(uuid "4d959c45-3e7e-46aa-aef2-3676a501699a")
 	)
 	(junction
-		(at 104.14 97.79)
+		(at 90.17 86.36)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "809f2ce8-235a-48ac-8f9c-73260e8ae3fe")
+		(uuid "62886b70-b72d-489d-b45a-63cc8c11a96a")
 	)
 	(junction
-		(at 44.45 64.77)
+		(at 91.44 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "90a13ab3-a783-411e-9cf6-9b8294d87090")
+		(uuid "7b7e94ac-7a52-424e-926e-47baef5b8025")
 	)
 	(junction
-		(at 144.78 54.61)
+		(at 151.13 62.23)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c5bb8de0-8305-43f8-96a7-a05a29bb1efb")
+		(uuid "88310fc6-83df-4162-9675-acc63a960654")
 	)
 	(junction
-		(at 177.8 123.19)
+		(at 105.41 62.23)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ef4d2c33-361d-56ae-a2b0-f9c56b920ae5")
+		(uuid "acb93fa8-74ca-46df-bcc3-219408a07f14")
 	)
 	(junction
-		(at 128.27 82.55)
+		(at 130.81 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f8d4f3f0-9253-563f-a47e-213d94d57f63")
+		(uuid "b1934bac-2c56-4b25-9c1a-ad81238a25e0")
 	)
-	(wire
-		(pts
-			(xy 69.85 82.55) (xy 113.03 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01fb7084-2a07-5ad7-934c-e6d016a5dd0b")
-	)
-	(wire
-		(pts
-			(xy 55.88 72.39) (xy 68.58 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0556df00-b4c0-4dd9-aaef-c79069c63239")
-	)
-	(wire
-		(pts
-			(xy 167.64 54.61) (xy 166.37 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0e243ab7-2ec5-441f-ae28-dd8291c6a221")
-	)
-	(wire
-		(pts
-			(xy 96.52 109.22) (xy 93.98 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0fa19fda-9f75-522d-9ca4-ab9082bcb2d6")
-	)
-	(wire
-		(pts
-			(xy 99.06 72.39) (xy 99.06 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "10a060e9-be18-4830-9e1c-50cac597d8c0")
-	)
-	(wire
-		(pts
-			(xy 124.46 106.68) (xy 124.46 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "11407d24-07e0-56f4-95a5-900d0ba3f984")
-	)
-	(wire
-		(pts
-			(xy 90.17 123.19) (xy 90.17 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "14decf98-3798-474b-870c-4ad493c9ed1f")
-	)
-	(wire
-		(pts
-			(xy 207.01 123.19) (xy 207.01 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "15692ed8-d95e-5867-b676-0ec9d3923f58")
-	)
-	(wire
-		(pts
-			(xy 215.9 123.19) (xy 215.9 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1695ed5c-d95b-521c-823b-17b86847d7c2")
-	)
-	(wire
-		(pts
-			(xy 72.39 39.37) (xy 72.39 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "17175ca1-60fe-5919-bab1-216248b83dc5")
-	)
-	(wire
-		(pts
-			(xy 128.27 118.11) (xy 128.27 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "211ae394-40cd-578f-a39a-b7237a05942b")
-	)
-	(wire
-		(pts
-			(xy 215.9 149.86) (xy 215.9 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "253080c4-646f-4933-bf53-4cdfab2bc7ff")
-	)
-	(wire
-		(pts
-			(xy 90.17 133.35) (xy 90.17 135.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "27e8749a-7c72-54c5-964b-ddc345ee1613")
-	)
-	(wire
-		(pts
-			(xy 121.92 82.55) (xy 128.27 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2afbb349-f38f-432c-b6ba-bcdc21c57dc3")
-	)
-	(wire
-		(pts
-			(xy 161.29 46.99) (xy 161.29 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2ea2c97c-f79b-5d26-968e-3d53c32b8f00")
-	)
-	(wire
-		(pts
-			(xy 215.9 104.14) (xy 215.9 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "303d3ffd-5043-5988-a1df-46361c41d8bc")
-	)
-	(wire
-		(pts
-			(xy 68.58 39.37) (xy 72.39 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "30fca817-cb9f-437f-9dff-24dc089dbd3c")
-	)
-	(wire
-		(pts
-			(xy 72.39 30.48) (xy 93.98 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3284fcde-d002-5bf9-a78f-5c38ee2e99eb")
+	(junction
+		(at 132.08 62.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d4f2a716-44d3-4c3e-8559-fbc0b1083905")
 	)
-	(wire
-		(pts
-			(xy 90.17 116.84) (xy 104.14 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "32bff09d-3be2-5740-9570-89e92067724c")
+	(junction
+		(at 78.74 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "efca6454-0783-479f-ab09-73a287d9a4f9")
 	)
-	(wire
-		(pts
-			(xy 99.06 59.69) (xy 99.06 62.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "353834d5-f334-5584-b220-5c562d06df5f")
+	(junction
+		(at 132.08 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f3c79897-e86f-4ae1-8357-cfd77d24eee2")
 	)
-	(wire
-		(pts
-			(xy 177.8 133.35) (xy 177.8 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "38bb2669-f3a3-4325-a0e7-a5a728acd5ba")
+	(junction
+		(at 151.13 72.39)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f60317d3-c254-4891-8c2f-d62e25acceef")
 	)
 	(wire
 		(pts
-			(xy 41.91 60.96) (xy 44.45 60.96)
+			(xy 92.71 62.23) (xy 90.17 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "38f80ca1-0c84-5c49-851e-b76f5eeb6e98")
+		(uuid "078a1a1e-fcfe-45fd-a99d-673b53f41349")
 	)
 	(wire
 		(pts
-			(xy 55.88 54.61) (xy 55.88 59.69)
+			(xy 102.87 62.23) (xy 105.41 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3e553823-5b5a-4c33-b05b-0c17e95939da")
+		(uuid "08b941ad-2f6e-48c7-9af9-1946233ba9fc")
 	)
 	(wire
 		(pts
-			(xy 101.6 50.8) (xy 101.6 59.69)
+			(xy 78.74 73.66) (xy 78.74 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3fdfd172-6bee-592d-860a-19e0bc5a9253")
+		(uuid "0974aee6-ef92-4ae8-a5d0-91bf87cb1631")
 	)
 	(wire
 		(pts
-			(xy 85.09 38.1) (xy 101.6 38.1)
+			(xy 115.57 69.85) (xy 113.03 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "49074d66-0f18-4607-91e2-138d887fc81e")
+		(uuid "0d63bddf-b6e8-4e4d-adb5-470882065975")
 	)
 	(wire
 		(pts
-			(xy 205.74 109.22) (xy 208.28 109.22)
+			(xy 82.55 54.61) (xy 77.47 54.61)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4da4eb53-0262-50e9-9a77-580b3691b1dc")
+		(uuid "101d2482-7cc2-4b76-9aef-da3d3f40a10f")
 	)
 	(wire
 		(pts
-			(xy 85.09 38.1) (xy 85.09 116.84)
+			(xy 83.82 111.76) (xy 91.44 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4ded0bef-d053-5b97-866c-a11f15e6fae5")
+		(uuid "153c4bea-8b4e-4173-961e-4ea95d8a98c1")
 	)
 	(wire
 		(pts
-			(xy 72.39 45.72) (xy 93.98 45.72)
+			(xy 53.34 73.66) (xy 53.34 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4fbaab65-a051-5eba-9477-a87a992da186")
+		(uuid "15c4f287-824b-419a-9f37-25b5c3ca3dcb")
 	)
 	(wire
 		(pts
-			(xy 34.29 60.96) (xy 31.75 60.96)
+			(xy 138.43 57.15) (xy 132.08 57.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "50a392af-3f9d-5bbc-9ec8-6689ea9e47f6")
+		(uuid "16c7dfbe-ba90-4f7c-8fbe-33ed5091cf46")
 	)
 	(wire
 		(pts
-			(xy 121.92 111.76) (xy 127 111.76)
+			(xy 78.74 119.38) (xy 78.74 121.92)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5130bb51-799a-5c7b-9fb0-d506fcd2ecb7")
+		(uuid "16e5671b-85dc-44cd-acc4-7c2c56b0cf93")
 	)
 	(wire
 		(pts
-			(xy 76.2 72.39) (xy 99.06 72.39)
+			(xy 133.35 74.93) (xy 130.81 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "51d35f8a-7127-44b3-ad06-6ff5e0165bce")
+		(uuid "17a03786-5662-4bef-973e-7736eb6c21a8")
 	)
 	(wire
 		(pts
-			(xy 118.11 72.39) (xy 118.11 68.58)
+			(xy 124.46 92.71) (xy 124.46 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "53a5f8b8-64c8-4f40-a509-a82a9ffcbafa")
+		(uuid "1a81a21c-4bce-474e-bdfa-7594f49a35e6")
 	)
 	(wire
 		(pts
-			(xy 101.6 30.48) (xy 109.22 30.48)
+			(xy 123.19 74.93) (xy 125.73 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "53e56ff7-3232-547d-a58c-b298fcff2f1a")
+		(uuid "28cf2630-f0dc-459c-8277-687349ee89ff")
 	)
 	(wire
 		(pts
-			(xy 170.18 54.61) (xy 167.64 54.61)
+			(xy 74.93 73.66) (xy 78.74 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "544f1a78-9152-4562-b8e0-504984115ba6")
+		(uuid "2938b5b2-3cce-4026-a1db-a3ebf5948174")
 	)
 	(wire
 		(pts
-			(xy 207.01 123.19) (xy 215.9 123.19)
+			(xy 78.74 69.85) (xy 78.74 66.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "54de785a-9d29-56ca-bc57-b7ff7d9ffa10")
+		(uuid "2a59e3a4-5e82-44a4-9629-c96fa9f54ae4")
 	)
 	(wire
 		(pts
-			(xy 129.54 88.9) (xy 128.27 88.9)
+			(xy 132.08 57.15) (xy 132.08 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "59095a05-a09d-431c-8758-c34ccde95d34")
+		(uuid "2a739164-4fd7-42db-9a37-6b223170f7a4")
 	)
 	(wire
 		(pts
-			(xy 177.8 104.14) (xy 177.8 101.6)
+			(xy 130.81 106.68) (xy 130.81 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5aa774f8-f814-5e1a-a46b-90041c781ab0")
+		(uuid "2c14d6b2-1877-4bad-a552-09a1b47230c7")
 	)
 	(wire
 		(pts
-			(xy 44.45 64.77) (xy 48.26 64.77)
+			(xy 130.81 85.09) (xy 130.81 82.55)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5da496dc-0fc3-427c-b9a3-9db74d16f9eb")
+		(uuid "2d3a98ae-89ba-432b-af64-1c67e8cc1286")
 	)
 	(wire
 		(pts
-			(xy 177.8 54.61) (xy 180.34 54.61)
+			(xy 133.35 69.85) (xy 132.08 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "61c0b4ac-ec6c-5f1f-9d57-4645a2076fdd")
+		(uuid "34f48b06-d164-4836-8c70-e119700ebee9")
 	)
 	(wire
 		(pts
-			(xy 124.46 106.68) (xy 127 106.68)
+			(xy 90.17 59.69) (xy 90.17 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "62e9a4b7-c9de-5b58-83f1-d301c53cd9d6")
+		(uuid "3973fc79-239f-4502-8b86-c51923f75aa4")
 	)
 	(wire
 		(pts
-			(xy 55.88 54.61) (xy 144.78 54.61)
+			(xy 130.81 82.55) (xy 124.46 82.55)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "686b11d8-b490-55c1-a1e1-43e382c1f3ec")
+		(uuid "3a3821ab-cd7c-46b9-aaa8-57d7e46bba67")
 	)
 	(wire
 		(pts
-			(xy 72.39 30.48) (xy 72.39 39.37)
+			(xy 90.17 83.82) (xy 90.17 86.36)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6948de24-caaf-5abb-bf41-743d2b39da32")
+		(uuid "3dd1c1e3-e940-49e4-9929-f1cd72c67e4d")
 	)
 	(wire
 		(pts
-			(xy 59.69 39.37) (xy 60.96 39.37)
+			(xy 111.76 111.76) (xy 107.95 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6a234f38-ee75-4fc4-b119-47da8f8bb6c1")
+		(uuid "520c2816-38e9-44c3-ae47-d8c0f7b7bb53")
 	)
 	(wire
 		(pts
-			(xy 44.45 64.77) (xy 44.45 60.96)
+			(xy 130.81 104.14) (xy 124.46 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "71f88d59-a45f-40c7-825b-300234eb67ba")
+		(uuid "547d141d-8bac-4963-bbc4-d49c62198329")
 	)
 	(wire
 		(pts
-			(xy 205.74 97.79) (xy 205.74 109.22)
+			(xy 105.41 67.31) (xy 105.41 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7272b13e-f12f-5b23-a435-79c7f1ea578f")
+		(uuid "576ae1cd-b9d1-42fc-be5a-7dc5e6cc3be1")
 	)
 	(wire
 		(pts
-			(xy 109.22 39.37) (xy 113.03 39.37)
+			(xy 90.17 99.06) (xy 85.09 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "73f0f670-c945-5677-addc-cf7b98524941")
+		(uuid "5c94d1d8-18a9-409c-a4f9-6adb3b4578d5")
 	)
 	(wire
 		(pts
-			(xy 167.64 109.22) (xy 170.18 109.22)
+			(xy 71.12 99.06) (xy 71.12 106.68)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "774abed3-0617-5982-b28b-770c20099820")
+		(uuid "5d4af111-96b7-4524-8991-2f9185eef5b5")
 	)
 	(wire
 		(pts
-			(xy 85.09 116.84) (xy 90.17 116.84)
+			(xy 102.87 119.38) (xy 102.87 121.92)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "779fbc5e-56aa-4977-ab04-2025bbffb368")
+		(uuid "64bc2d48-22ca-4cb4-87d0-6149fe7b1187")
 	)
 	(wire
 		(pts
-			(xy 137.16 45.72) (xy 134.62 45.72)
+			(xy 78.74 69.85) (xy 82.55 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7827f209-94fb-5196-803a-bdc055ac4adb")
+		(uuid "656e2d0d-1c5a-4513-aec3-ea68cbd83053")
 	)
 	(wire
 		(pts
-			(xy 144.78 40.64) (xy 144.78 38.1)
+			(xy 132.08 62.23) (xy 132.08 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7dd5c89c-cf31-5e4e-bf6d-673ed2bb07e6")
+		(uuid "696276c1-f3e2-4991-b7c5-efcfaf6a7236")
 	)
 	(wire
 		(pts
-			(xy 104.14 96.52) (xy 104.14 97.79)
+			(xy 124.46 101.6) (xy 124.46 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7fb9f406-bd2a-555b-bc5a-b61128cb80e0")
+		(uuid "6fc8964a-61c0-4279-b26d-59b600900819")
 	)
 	(wire
 		(pts
-			(xy 128.27 82.55) (xy 130.81 82.55)
+			(xy 113.03 74.93) (xy 115.57 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "890c8972-22aa-5db9-a537-7e95e02b00c9")
+		(uuid "71500cfe-8c4b-4b1c-9bd9-8b132ca8d64c")
 	)
 	(wire
 		(pts
-			(xy 165.1 123.19) (xy 177.8 123.19)
+			(xy 113.03 69.85) (xy 113.03 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "899d73a6-5269-518c-a0f8-ceb749159505")
+		(uuid "7165c1d7-9acb-4e25-81c0-c3790e946c34")
 	)
 	(wire
 		(pts
-			(xy 177.8 123.19) (xy 177.8 125.73)
+			(xy 64.77 80.01) (xy 67.31 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8d9b166a-538c-51ce-8263-a691bfd1d21d")
+		(uuid "74a23aba-e56a-4425-9a8b-c87d2403aaec")
 	)
 	(wire
 		(pts
-			(xy 33.02 68.58) (xy 29.21 68.58)
+			(xy 90.17 86.36) (xy 99.06 86.36)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8dc143a5-3db0-5291-9288-0e8627af3fbe")
+		(uuid "755f4239-6e5a-44ee-bd7f-a06cfc6658bc")
 	)
 	(wire
 		(pts
-			(xy 124.46 118.11) (xy 128.27 118.11)
+			(xy 124.46 116.84) (xy 124.46 119.38)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8f020e9d-56a3-5d9c-908e-6f0fb763ee86")
+		(uuid "790750f3-7386-4c54-96ce-e081a237f4f8")
 	)
 	(wire
 		(pts
-			(xy 121.92 82.55) (xy 121.92 111.76)
+			(xy 132.08 62.23) (xy 138.43 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8f7ea446-3b29-580d-b064-fb3389b02a0a")
+		(uuid "792241ef-af99-4a86-b0e0-1bf7400c1f1c")
 	)
 	(wire
 		(pts
-			(xy 97.79 128.27) (xy 100.33 128.27)
+			(xy 90.17 62.23) (xy 90.17 64.77)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "92e7eb52-a167-56ca-8105-f4347189f216")
+		(uuid "7ae5e4c0-b6dd-4b0f-bb4c-6bc852f331b4")
 	)
 	(wire
 		(pts
-			(xy 69.85 82.55) (xy 69.85 143.51)
+			(xy 76.2 66.04) (xy 78.74 66.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "936e1980-3d33-5296-9f36-c04ecd61fcec")
+		(uuid "7e1e0100-1035-431a-a991-9c08d0549b81")
 	)
 	(wire
 		(pts
-			(xy 44.45 68.58) (xy 44.45 64.77)
+			(xy 71.12 106.68) (xy 91.44 106.68)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "95d4892a-3251-4e46-a27e-98d54bd20047")
+		(uuid "879fb490-0325-411a-9e95-baeae621556a")
 	)
 	(wire
 		(pts
-			(xy 101.6 38.1) (xy 101.6 40.64)
+			(xy 110.49 74.93) (xy 113.03 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "95dc7934-5deb-5172-866c-df77a7298b6c")
+		(uuid "891aad95-fb2b-4b80-a36d-06a3fa0f06c3")
 	)
 	(wire
 		(pts
-			(xy 137.16 118.11) (xy 137.16 120.65)
+			(xy 80.01 85.09) (xy 80.01 91.44)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "98fcd062-d2fd-5677-bcf5-51522e8899fb")
+		(uuid "8c419af9-4853-413e-b69e-d46eb0be801e")
 	)
 	(wire
 		(pts
-			(xy 207.01 133.35) (xy 207.01 135.89)
+			(xy 146.05 57.15) (xy 151.13 57.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9cbee9e1-0e8b-5a52-ae77-24ac912a8adc")
+		(uuid "8d85f903-5a3e-4bf7-b98e-079c6b59f964")
 	)
 	(wire
 		(pts
-			(xy 137.16 88.9) (xy 140.97 88.9)
+			(xy 90.17 93.98) (xy 90.17 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9ccb662a-9fa8-541a-8e70-be78ef50ed6c")
+		(uuid "92d5eb59-5576-46de-a2a4-429c9b61e1c1")
 	)
 	(wire
 		(pts
-			(xy 138.43 82.55) (xy 140.97 82.55)
+			(xy 132.08 69.85) (xy 130.81 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9ec290af-afc1-59d8-a5c6-04304227f279")
+		(uuid "9362d9e4-7fae-4c2e-a689-d43613c3e68b")
 	)
 	(wire
 		(pts
-			(xy 104.14 97.79) (xy 205.74 97.79)
+			(xy 53.34 73.66) (xy 67.31 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a54a7e58-57bf-51ad-bf1c-6f14842634f9")
+		(uuid "9b517a8e-00e7-407b-a47c-424ebd5692f4")
 	)
 	(wire
 		(pts
-			(xy 99.06 72.39) (xy 118.11 72.39)
+			(xy 146.05 62.23) (xy 151.13 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a7d64e41-e7f0-4913-82c7-e74381762150")
+		(uuid "a2a26682-2c23-48fa-8ce4-ca3fb47543a3")
 	)
 	(wire
 		(pts
-			(xy 165.1 133.35) (xy 165.1 135.89)
+			(xy 124.46 104.14) (xy 124.46 106.68)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a94c8c40-4cb3-53f2-b942-459c7bf6b92f")
+		(uuid "a8e9c142-157c-4f7e-a140-764fbe8c1b58")
 	)
 	(wire
 		(pts
-			(xy 215.9 114.3) (xy 215.9 123.19)
+			(xy 60.96 80.01) (xy 64.77 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a97b883a-6639-5285-878b-b6b4f6ee74a9")
+		(uuid "a90c28b5-92d7-442b-ba1e-717847d13e23")
 	)
 	(wire
 		(pts
-			(xy 137.16 128.27) (xy 137.16 130.81)
+			(xy 52.07 80.01) (xy 53.34 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ac90704d-de10-54f4-8735-c4fbbfdb7d24")
+		(uuid "ab9c6bd5-bccf-4e8a-b5c8-0e20557a7b09")
 	)
 	(wire
 		(pts
-			(xy 104.14 88.9) (xy 104.14 86.36)
+			(xy 130.81 92.71) (xy 130.81 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b62315f8-f425-5a4d-ae7a-5c4b579fab01")
+		(uuid "b34bee51-b982-4068-ac51-2b9b1b49a9ea")
 	)
 	(wire
 		(pts
-			(xy 123.19 76.2) (xy 123.19 78.74)
+			(xy 68.58 66.04) (xy 66.04 66.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b6802813-11c2-59da-9b6a-cfe161dec0b6")
+		(uuid "b38be131-40d3-4a18-856b-73e6f51e14d8")
 	)
 	(wire
 		(pts
-			(xy 55.88 69.85) (xy 55.88 72.39)
+			(xy 90.17 76.2) (xy 90.17 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bb2d09e8-cf22-4e57-adcf-e35211a29e62")
+		(uuid "b40f19e0-47a8-4953-96a5-08c41aea0384")
 	)
 	(wire
 		(pts
-			(xy 128.27 149.86) (xy 215.9 149.86)
+			(xy 130.81 74.93) (xy 130.81 82.55)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bd2229a2-a998-43c1-9a25-6672b58d6678")
+		(uuid "b9ecf1c8-f594-4367-9e59-73ba74e2ff08")
 	)
 	(wire
 		(pts
-			(xy 40.64 68.58) (xy 44.45 68.58)
+			(xy 64.77 85.09) (xy 64.77 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c86b569f-ec5e-4b19-a4b8-b20c165b382e")
+		(uuid "bf8132a5-a9b5-4ec8-9e88-6e2398c10162")
 	)
 	(wire
 		(pts
-			(xy 69.85 143.51) (xy 177.8 143.51)
+			(xy 91.44 111.76) (xy 97.79 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c933028e-6288-5288-823d-08256c8a25a2")
+		(uuid "c131d559-bbf6-4e84-9487-04143433ce3e")
 	)
 	(wire
 		(pts
-			(xy 99.06 59.69) (xy 101.6 59.69)
+			(xy 111.76 107.95) (xy 111.76 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ca856425-3f3d-5769-9bea-2cabcacd593b")
+		(uuid "c1550936-1445-451e-ae58-cdaf23daefa0")
 	)
 	(wire
 		(pts
-			(xy 120.65 82.55) (xy 121.92 82.55)
+			(xy 130.81 114.3) (xy 130.81 116.84)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "cadc38f1-3db9-5107-9456-36fbad33e64e")
+		(uuid "c1d435bd-a183-4766-bec3-a2e603acdddd")
 	)
 	(wire
 		(pts
-			(xy 142.24 109.22) (xy 143.51 109.22)
+			(xy 64.77 85.09) (xy 80.01 85.09)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d0306df6-c700-58c8-905e-fb75ffd5fe00")
+		(uuid "c2ed1f80-9c3a-4044-97bd-fa96c3b6577a")
 	)
 	(wire
 		(pts
-			(xy 167.64 54.61) (xy 167.64 109.22)
+			(xy 124.46 82.55) (xy 124.46 85.09)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d54108d1-4377-4450-bc77-c50279956829")
+		(uuid "c78e7a56-095c-432a-ac9f-b15e5909fac1")
 	)
 	(wire
 		(pts
-			(xy 104.14 114.3) (xy 104.14 116.84)
+			(xy 151.13 57.15) (xy 151.13 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d9de2db0-22e9-5151-b7d9-efcd785a4532")
+		(uuid "c9051ab1-b278-4ac1-8957-55832735b0eb")
 	)
 	(wire
 		(pts
-			(xy 177.8 114.3) (xy 177.8 123.19)
+			(xy 71.12 99.06) (xy 74.93 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dc9acb9f-5879-5283-9010-13aba0e9267b")
+		(uuid "c9407f52-3ed2-49c5-bd3b-5f37cde6cd25")
 	)
 	(wire
 		(pts
-			(xy 128.27 88.9) (xy 128.27 82.55)
+			(xy 91.44 106.68) (xy 91.44 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "df4d0215-a508-49e9-bfb5-8ffdbac00d98")
+		(uuid "cabe4e7a-9062-4596-b820-946c402456c6")
 	)
 	(wire
 		(pts
-			(xy 120.65 39.37) (xy 123.19 39.37)
+			(xy 105.41 62.23) (xy 109.22 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e0d81284-e3aa-5625-9b43-f5d10e279888")
+		(uuid "d7bf302c-8a27-41f5-9e5b-94922ec36e58")
 	)
 	(wire
 		(pts
-			(xy 144.78 54.61) (xy 156.21 54.61)
+			(xy 73.66 111.76) (xy 71.12 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e6f423b7-0234-545e-97dc-2728a5f27b46")
+		(uuid "e1cb0bcf-92e1-445d-a87d-ea0467eb0a0a")
 	)
 	(wire
 		(pts
-			(xy 104.14 97.79) (xy 104.14 104.14)
+			(xy 111.76 111.76) (xy 116.84 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e9d96550-c561-4c26-8c5c-e81cc5268078")
+		(uuid "e6cc228a-12ec-49d7-9e9d-493d62e4d7cc")
 	)
 	(wire
 		(pts
-			(xy 128.27 129.54) (xy 128.27 149.86)
+			(xy 151.13 62.23) (xy 151.13 72.39)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "eebf7241-f0f8-4f07-9352-6e139851aa5c")
+		(uuid "ebc1ee9c-e14e-4879-88f0-19712d0610e9")
 	)
 	(wire
 		(pts
-			(xy 144.78 50.8) (xy 144.78 54.61)
+			(xy 111.76 100.33) (xy 111.76 97.79)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f3a24b33-db1a-5583-ae32-f041c8d07b3a")
+		(uuid "ef9f0587-c932-46df-a824-b07522fc7827")
 	)
 	(wire
 		(pts
-			(xy 109.22 30.48) (xy 109.22 39.37)
+			(xy 148.59 72.39) (xy 153.67 72.39)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f99c7890-b216-540f-bed6-832fc816cefe")
+		(uuid "f6f48f2a-258f-4112-845e-8f68ba7829a6")
 	)
 	(wire
 		(pts
-			(xy 128.27 118.11) (xy 137.16 118.11)
+			(xy 97.79 53.34) (xy 97.79 54.61)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fd2d5b21-1795-460a-b0d6-0b3dcb792c27")
+		(uuid "fbdb5254-5192-47e4-81da-afb3e707efb2")
 	)
 	(wire
 		(pts
-			(xy 165.1 123.19) (xy 165.1 125.73)
+			(xy 100.33 74.93) (xy 96.52 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ffbe0f9c-5aa3-5a73-b63d-98d83fce3473")
+		(uuid "fd4366ea-07f0-48e7-8012-3fdfbe73841e")
 	)
 	(global_label "STA"
 		(shape bidirectional)
-		(at 134.62 45.72 180)
+		(at 78.74 121.92 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "066f08a7-4e01-52d4-81ee-f8445c4f51bc")
+		(uuid "067c5c28-3b6b-40ca-98cb-cffe2808eb81")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 134.62 45.72 0)
+			(at 78.74 121.92 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2207,18 +2027,18 @@
 			)
 		)
 	)
-	(global_label "SIG-VCA"
+	(global_label "STA"
 		(shape bidirectional)
-		(at 140.97 88.9 0)
+		(at 77.47 54.61 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "2d7ae961-3a2e-58b6-876e-84b07f40903c")
+		(uuid "22e8b58d-aaea-4da7-83a5-6e65e8e470ab")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 140.97 88.9 90)
+			(at 77.47 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2231,104 +2051,16 @@
 	)
 	(global_label "VBIAS"
 		(shape bidirectional)
-		(at 29.21 68.58 180)
+		(at 52.07 80.01 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "30dcfc0a-e57b-5f62-805b-87e44d9eb73c")
+		(uuid "5540e197-1ad6-4ed3-9b0c-a6214dceb2a6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 29.21 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "SIG-VCA"
-		(shape bidirectional)
-		(at 143.51 109.22 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "3a88a08d-51cc-5a46-a89e-b44f69b927dc")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 143.51 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "STB"
-		(shape bidirectional)
-		(at 161.29 44.45 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "512bf9bc-8552-54d3-afdc-ac7b604e6824")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 161.29 44.45 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "STA"
-		(shape bidirectional)
-		(at 100.33 128.27 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "64d92790-06c0-52d2-83a8-c51e8044aa68")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 100.33 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "SIG-VCA"
-		(shape bidirectional)
-		(at 140.97 82.55 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "7e355aec-3ae3-5926-9198-2e4b50397cd7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 140.97 82.55 90)
+			(at 52.07 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2341,16 +2073,38 @@
 	)
 	(global_label "PAD"
 		(shape bidirectional)
-		(at 31.75 60.96 180)
+		(at 66.04 66.04 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "930f2e90-d9f6-583c-bb0e-f1440ccbd11f")
+		(uuid "87be030c-623a-449d-b479-7007309dae90")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 31.75 60.96 0)
+			(at 66.04 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(global_label "SIG-VCA"
+		(shape bidirectional)
+		(at 153.67 72.39 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "95825a71-3f0c-4637-9086-779670871842")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 153.67 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2363,16 +2117,16 @@
 	)
 	(global_label "STB"
 		(shape bidirectional)
-		(at 93.98 109.22 180)
+		(at 102.87 121.92 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "bb1864f3-69ec-5110-91b3-8066763fbf2f")
+		(uuid "e5353d69-d062-43f0-a3a0-6c13bf168fa0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 93.98 109.22 0)
+			(at 102.87 121.92 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2383,18 +2137,18 @@
 			)
 		)
 	)
-	(global_label "VBIAS"
+	(global_label "STB"
 		(shape bidirectional)
-		(at 59.69 39.37 180)
+		(at 97.79 53.34 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "e0587fd1-52cc-5421-835c-77717cec6cab")
+		(uuid "f7da04ee-683d-4302-bdde-813f4b16f4ae")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 59.69 39.37 0)
+			(at 97.79 53.34 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2405,577 +2159,49 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:GND")
-		(at 137.16 130.81 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "028fd259-5305-5d11-b488-f711e76a0a73")
-		(property "Reference" "#PWRVC004"
-			(at 140.97 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "AGND"
-			(at 140.97 132.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 137.16 130.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 137.16 130.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 137.16 130.81 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6a9f30f0-def7-5c6f-a197-83d2d834c31c")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVC004")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 134.62 82.55 90)
-		(unit 1)
-		(body_style 1)
+	(rule_area
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(in_pos_files yes)
 		(dnp no)
-		(uuid "07b78de6-d285-57fc-8e1e-888035873fd6")
-		(property "Reference" "R23"
-			(at 133.35 78.74 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
+		(polyline
+			(pts
+				(xy 40.64 132.08) (xy 40.64 43.18) (xy 167.64 43.18) (xy 167.64 132.08)
 			)
-		)
-		(property "Value" "22k"
-			(at 136.52 78.74 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
+			(stroke
+				(width 0)
+				(type dash)
+				(color 255 119 0 1)
 			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 134.62 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+			(fill
+				(type none)
 			)
-		)
-		(property "Datasheet" ""
-			(at 134.62 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 134.62 82.55 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "feddb604-bf31-54f9-9a40-fc650d9c5ffc")
-		)
-		(pin "2"
-			(uuid "e426297c-ea85-59c6-bb5d-b2ccd3559ff8")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R23")
-					(unit 1)
-				)
-			)
+			(uuid "bad4f5af-8fd5-4405-838e-9347c34ce0e7")
 		)
 	)
-	(symbol
-		(lib_id "Device:R")
-		(at 99.06 66.04 0)
-		(unit 1)
-		(body_style 1)
+	(rule_area
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(in_pos_files yes)
 		(dnp no)
-		(uuid "0bca9e8e-c177-5d57-a417-ae2835dd8c04")
-		(property "Reference" "R15"
-			(at 102.87 64.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
+		(polyline
+			(pts
+				(xy 40.64 43.18) (xy 40.64 30.48) (xy 167.64 30.48) (xy 167.64 43.18)
 			)
-		)
-		(property "Value" "220R"
-			(at 102.87 67.94 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
+			(stroke
+				(width 0)
+				(type dash)
+				(color 255 119 0 1)
 			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 99.06 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+			(fill
+				(type none)
 			)
-		)
-		(property "Datasheet" ""
-			(at 99.06 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 99.06 66.04 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "342354aa-17ac-54eb-8237-3376cc0b9873")
-		)
-		(pin "2"
-			(uuid "6772fe9f-7088-5847-836c-9a53e9b1fa4c")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_BJT:BC549")
-		(at 101.6 109.22 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1218599a-5922-5a66-8024-92026af9872b")
-		(property "Reference" "Q9"
-			(at 105.41 107.95 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BC549C"
-			(at 105.41 111.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 101.6 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 101.6 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 101.6 109.22 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e79bd641-9d54-5d74-acaf-4f96aa4f4a75")
-		)
-		(pin "2"
-			(uuid "5b680c9c-e623-5dc7-8017-95b06f6dbe4a")
-		)
-		(pin "3"
-			(uuid "b926ebb8-7657-5d23-9183-035311d9ed54")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "Q9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_BJT:BC549")
-		(at 92.71 128.27 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1b8e104c-9c18-539f-a15a-fda37fbec33c")
-		(property "Reference" "Q8"
-			(at 88.9 129.54 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BC549C"
-			(at 88.9 126.37 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 92.71 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 92.71 128.27 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "cdfa2878-5582-5431-874d-a8c192fd8d66")
-		)
-		(pin "2"
-			(uuid "a8444025-df55-5244-aab0-f829b88dd8d2")
-		)
-		(pin "3"
-			(uuid "e14c0441-8208-55e9-bc9a-48d4a5100a2d")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "Q8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_BJT:BC549")
-		(at 161.29 52.07 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1f581a09-17b6-5310-b0f0-96c9a975e9f7")
-		(property "Reference" "Q7"
-			(at 162.56 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BC549C"
-			(at 159.39 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 161.29 52.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 161.29 52.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 161.29 52.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "91d8bc21-f8f9-5f8c-ad7d-dd58bbd8af0e")
-		)
-		(pin "2"
-			(uuid "b526d813-4903-52b1-bb51-363502c6919f")
-		)
-		(pin "3"
-			(uuid "6f62d6a2-2a8b-529d-9107-1db6242479cc")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "Q7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 132.08 68.58 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "270c6af5-9124-5538-b951-a2bdf2414646")
-		(property "Reference" "R18"
-			(at 130.81 64.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1k5"
-			(at 133.98 64.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 132.08 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 132.08 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 132.08 68.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c5010fba-a845-52f9-96da-fa0dd6f35547")
-		)
-		(pin "2"
-			(uuid "0e2e2ea6-a526-5eca-b1d8-1013e50f34a3")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R18")
-					(unit 1)
-				)
-			)
+			(uuid "c472b105-2c25-4487-8a23-7ae9e1cb2f9e")
 		)
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 116.84 39.37 90)
+		(at 78.74 80.01 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2983,9 +2209,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "3051f2ac-c512-5408-83c0-6c5aae81b7fc")
+		(uuid "05e28959-3f8d-458d-bd74-32e174205997")
 		(property "Reference" "C8"
-			(at 111.76 36.19 0)
+			(at 82.804 78.74 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2996,7 +2222,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 111.76 43.82 0)
+			(at 83.82 81.28 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3007,7 +2233,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
-			(at 116.84 39.37 0)
+			(at 78.74 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3018,7 +2244,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 116.84 39.37 0)
+			(at 78.74 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3029,7 +2255,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 116.84 39.37 0)
+			(at 78.74 80.01 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3039,10 +2265,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "60841592-52f8-5532-9b8f-aef12deee4d7")
+			(uuid "4ccbb67a-3423-48c8-a01c-774555b98b13")
 		)
 		(pin "2"
-			(uuid "19d686e5-7c29-5ce9-b561-617a862bf852")
+			(uuid "e005146d-b88f-4d49-afd4-c0832d0671f2")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
@@ -3054,174 +2280,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_BJT:BC549")
-		(at 213.36 109.22 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "30fa3b4e-e184-50f7-84ee-b2db4492e7d7")
-		(property "Reference" "Q5"
-			(at 217.17 107.95 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BC549C"
-			(at 217.17 111.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 213.36 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 213.36 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 213.36 109.22 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "73f8de81-3f6a-51c8-9cfd-b9d0c3b499cd")
-		)
-		(pin "2"
-			(uuid "8753b92a-a0b2-593d-ada1-8db65ca65354")
-		)
-		(pin "3"
-			(uuid "0de7b569-ff91-5b1d-a965-bca998139708")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "Q5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_BJT:BC549")
-		(at 123.19 71.12 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "32a2978f-9dd6-5962-a3c9-0be6897fb543")
-		(property "Reference" "Q3"
-			(at 121.92 67.31 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BC549C"
-			(at 125.09 67.31 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 123.19 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 123.19 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 123.19 71.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5dbe896c-b616-5845-a9b8-c437a0659019")
-		)
-		(pin "2"
-			(uuid "9af140d5-ed5e-5693-8ffb-27144d7b95a8")
-		)
-		(pin "3"
-			(uuid "17048d54-808b-5b4a-b532-70dcab3f8d8e")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "Q3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
-		(at 104.14 92.71 0)
+		(at 130.81 110.49 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3229,650 +2289,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "391eb788-b6ac-587b-aaaf-86fdab31c00e")
-		(property "Reference" "R17"
-			(at 107.95 91.44 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "4k7"
-			(at 107.95 94.61 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 104.14 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 104.14 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 104.14 92.71 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7a7f190b-32e4-54fc-a742-cc1bdcefb6d3")
-		)
-		(pin "2"
-			(uuid "2269bfea-303d-52c5-86d5-f78bceb825e3")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 133.35 88.9 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3e19d183-8b2a-5f5b-9d21-45a731e667bb")
-		(property "Reference" "C11"
-			(at 130.556 93.726 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100p"
-			(at 136.144 94.488 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
-			(at 133.35 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 133.35 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 133.35 88.9 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8b84c6c7-f3ef-5682-8776-c88e59cb2e4b")
-		)
-		(pin "2"
-			(uuid "96cbbb5a-9668-549c-a01e-4000bf1fa77a")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "C11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_BJT:BC549")
-		(at 142.24 45.72 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "436a1f0d-ef89-5233-a063-21ee6df50032")
-		(property "Reference" "Q6"
-			(at 146.05 44.45 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BC549C"
-			(at 146.05 47.62 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 142.24 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 142.24 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 142.24 45.72 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "694db214-3673-5820-af3c-11b5e9813ea7")
-		)
-		(pin "2"
-			(uuid "e486f34e-07cf-5a03-ba97-5e4c170e0bde")
-		)
-		(pin "3"
-			(uuid "c9b51856-8d79-5c6e-958c-0611b4d91331")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "Q6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 36.83 68.58 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "441a7bfb-a156-5659-8db7-d54748d85f9b")
-		(property "Reference" "R11"
-			(at 41.91 71.76 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 41.91 64.13 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 36.83 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 36.83 68.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 36.83 68.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "83673de8-b2b2-5b63-a38e-de61b0795f19")
-		)
-		(pin "2"
-			(uuid "a4308f6e-8d0b-503e-adf3-8ee108e6b99a")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 123.19 78.74 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "497487df-5aa6-5ff9-8375-cbb9e56233b3")
-		(property "Reference" "#PWRVC001"
-			(at 126.37 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "AGND"
-			(at 118.74 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 123.19 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 123.19 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 123.19 78.74 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5a9f14a0-82e8-5fc4-b425-3fb99e40e184")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVC001")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 64.77 39.37 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "4f8e51db-23c6-56a7-aabe-e8a697ac476a")
-		(property "Reference" "R12"
-			(at 69.85 42.55 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 69.85 34.92 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 64.77 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 64.77 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 64.77 39.37 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4aa650c5-610b-5b79-87d9-0c9c887da3cf")
-		)
-		(pin "2"
-			(uuid "1e7f0393-4b26-592a-9971-8903063cda4d")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 177.8 129.54 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "530f51cd-bc21-5fa8-a7e5-7d2d314e2617")
-		(property "Reference" "C9"
-			(at 181.61 128.27 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "2u2"
-			(at 181.61 131.44 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
-			(at 177.8 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 177.8 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 177.8 129.54 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "bc9dd451-bbd7-55c5-8667-fa20550547ae")
-		)
-		(pin "2"
-			(uuid "49c12cea-91ca-579f-99aa-8573c8facc6b")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "C9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 123.19 39.37 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5653de71-9f0c-5b78-9307-f4494698f86d")
-		(property "Reference" "#PWRVC000"
-			(at 128.27 42.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "AGND"
-			(at 128.27 34.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 123.19 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 123.19 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 123.19 39.37 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a6822cf1-c820-530a-af66-fe7cee19feaa")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVC000")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 207.01 129.54 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "581bb0b7-a919-5114-9483-828a714f596e")
+		(uuid "08bf2c1f-02e9-46c6-ba30-366bd6e8beb9")
 		(property "Reference" "R20"
-			(at 210.82 128.27 0)
+			(at 129.54 117.348 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3883,7 +2302,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 210.82 131.44 0)
+			(at 132.08 117.348 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3894,7 +2313,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 207.01 129.54 0)
+			(at 130.81 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3905,7 +2324,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 207.01 129.54 0)
+			(at 130.81 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3916,7 +2335,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 207.01 129.54 0)
+			(at 130.81 110.49 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3926,10 +2345,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "d2eb7022-3079-5051-ba92-33a80b21224b")
+			(uuid "2e891b65-c8b8-4628-aea5-41d81e46806e")
 		)
 		(pin "2"
-			(uuid "7568c73a-a3f8-5692-9469-f05007433bb1")
+			(uuid "db710f60-ef17-4182-b48c-06189cba2bd0")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
@@ -3941,167 +2360,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:VCC")
-		(at 177.8 101.6 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "64253c7e-f9ae-5ac1-b435-e00ee8b66f5f")
-		(property "Reference" "#PWRVCR005"
-			(at 181.61 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+16V"
-			(at 181.61 103.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 177.8 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 177.8 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 177.8 101.6 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d9d426eb-9bd6-5a88-9ce3-53b4810196a8")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVCR005")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 128.27 125.73 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "6670f7cb-5a1f-579d-ae6c-ed2942efbcdc")
-		(property "Reference" "R22"
-			(at 125.09 130.81 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "3k3"
-			(at 132.72 130.81 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 128.27 125.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 128.27 125.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 128.27 125.73 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ad8bc937-fe83-564d-9ecd-28b6a439f15a")
-		)
-		(pin "2"
-			(uuid "10cd6946-7851-5f47-83a9-f9969e658b95")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R22")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 207.01 135.89 0)
+		(at 130.81 116.84 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4109,9 +2369,9 @@
 		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "6cd776f1-c3e5-50e2-9f7a-d9fa8498b2f2")
-		(property "Reference" "#PWRVC003"
-			(at 210.82 134.62 0)
+		(uuid "0ae72626-fe5c-4fd0-a3e8-9326ca95971b")
+		(property "Reference" "#PWRVC05"
+			(at 134.62 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4123,7 +2383,7 @@
 			)
 		)
 		(property "Value" "AGND"
-			(at 210.82 137.79 0)
+			(at 134.62 118.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4135,7 +2395,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 207.01 135.89 0)
+			(at 130.81 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4146,7 +2406,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 207.01 135.89 0)
+			(at 130.81 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4157,7 +2417,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 207.01 135.89 0)
+			(at 130.81 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4167,30 +2427,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "a507e1c3-0db5-5a83-b93c-1b68cf4fed12")
+			(uuid "a798db1e-5c99-47be-a28e-a210c62686c5")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVC003")
+					(reference "#PWRVC05")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 137.16 124.46 0)
+		(lib_id "power:GND")
+		(at 104.14 93.98 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "7572660b-6133-5f9c-9aa6-8585488f3758")
-		(property "Reference" "R24"
-			(at 140.97 123.19 0)
+		(uuid "12f8b528-b787-4812-bd7e-fab12b157f64")
+		(property "Reference" "#PWRVC02"
+			(at 107.32 88.9 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4200,8 +2461,86 @@
 				(justify left)
 			)
 		)
-		(property "Value" "22k"
-			(at 140.97 126.36 0)
+		(property "Value" "AGND"
+			(at 99.69 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 93.98 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "30b7632d-5967-4bc5-8dd1-1bec87afe020")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "#PWRVC02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 90.17 90.17 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "186b1e74-1d5b-4272-9857-98caa8c75faf")
+		(property "Reference" "R15"
+			(at 87.884 88.138 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "220R"
+			(at 92.456 87.63 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4212,7 +2551,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 137.16 124.46 0)
+			(at 90.17 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4223,7 +2562,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 137.16 124.46 0)
+			(at 90.17 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4234,7 +2573,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 137.16 124.46 0)
+			(at 90.17 90.17 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4244,337 +2583,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "f4a415f7-c23c-59e2-bdd8-cb88faa8607e")
+			(uuid "cf58cc71-ea93-4769-9249-f7d1f8ca3591")
 		)
 		(pin "2"
-			(uuid "11aee463-50ce-57fd-82f2-958c32d72621")
+			(uuid "a02a2e23-8708-4e9b-9c8b-c7fb85cde539")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R24")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VCC")
-		(at 215.9 101.6 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "77344453-00f8-5fad-97f2-65d1d585348b")
-		(property "Reference" "#PWRVCR006"
-			(at 219.71 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+16V"
-			(at 219.71 103.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 215.9 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 215.9 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 215.9 101.6 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fb6c758c-5343-54b4-bd21-109124e7635c")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVCR006")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 38.1 60.96 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "77f9951f-32ba-5830-a281-a931f69627bc")
-		(property "Reference" "C5"
-			(at 33.02 57.78 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10u"
-			(at 33.02 65.41 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
-			(at 38.1 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 38.1 60.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 38.1 60.96 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "37f232d6-0c7b-53bb-901c-82be87a226eb")
-		)
-		(pin "2"
-			(uuid "de802c9f-621d-59bc-a830-5292bde27ac6")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "C5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 215.9 130.81 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7e44ffbd-a3fa-559b-aaec-e93b2f02ab08")
-		(property "Reference" "C10"
-			(at 219.71 129.54 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "2u2"
-			(at 219.71 132.71 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
-			(at 215.9 130.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 215.9 130.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 215.9 130.81 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "16cf98bb-8362-53d7-82d4-e8207147dec4")
-		)
-		(pin "2"
-			(uuid "5e1d66c9-031e-5445-9b29-24c46d32d1b5")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "C10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Transistor_BJT:BC549")
-		(at 175.26 109.22 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "812d8e04-0911-5aa3-96f9-5c24e7d2b837")
-		(property "Reference" "Q4"
-			(at 179.07 107.95 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BC549C"
-			(at 179.07 111.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 175.26 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 175.26 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 175.26 109.22 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "73876209-b10b-52ce-a90f-3658cc1a1d14")
-		)
-		(pin "2"
-			(uuid "a69ea6ec-dd24-5de6-8930-666f75a7a397")
-		)
-		(pin "3"
-			(uuid "179107ad-12e7-516e-a699-530d9811e423")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "Q4")
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -4582,7 +2599,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 165.1 129.54 0)
+		(at 119.38 74.93 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4590,9 +2607,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8ab2396a-5bbe-5798-b4ef-15467bb8d411")
+		(uuid "1f0e006e-9209-4aa7-9fc2-8f6e292034f2")
 		(property "Reference" "R19"
-			(at 168.91 128.27 0)
+			(at 126.238 76.2 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4603,7 +2620,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 168.91 131.44 0)
+			(at 125.984 73.406 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4614,7 +2631,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 165.1 129.54 0)
+			(at 119.38 74.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4625,7 +2642,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 165.1 129.54 0)
+			(at 119.38 74.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4636,7 +2653,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 165.1 129.54 0)
+			(at 119.38 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4646,10 +2663,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "7bbdfaff-e5d8-511a-a270-90d19c34524f")
+			(uuid "a63c511a-2f48-48a6-b1fb-93f97aaa6a3c")
 		)
 		(pin "2"
-			(uuid "8421d11f-8f71-5d3b-b612-cf3d03dfefa0")
+			(uuid "ecfa6ec2-702f-49f0-b883-80803381bda7")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
@@ -4662,7 +2679,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 116.84 82.55 90)
+		(at 124.46 88.9 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4670,9 +2687,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8b2bd882-51ec-5289-93cb-5075142d642e")
-		(property "Reference" "R21"
-			(at 111.76 79.37 0)
+		(uuid "20b69994-49b3-4593-9054-32e2d6fcef63")
+		(property "Reference" "R22"
+			(at 123.444 91.694 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4683,7 +2700,7 @@
 			)
 		)
 		(property "Value" "3k3"
-			(at 111.76 87 0)
+			(at 125.73 91.694 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4694,7 +2711,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 116.84 82.55 0)
+			(at 124.46 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4705,7 +2722,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 116.84 82.55 0)
+			(at 124.46 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4716,7 +2733,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 116.84 82.55 0)
+			(at 124.46 88.9 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4726,23 +2743,23 @@
 			)
 		)
 		(pin "1"
-			(uuid "4f9f7931-ff60-59ae-9f00-cf6a96cba740")
+			(uuid "38cfe8b9-4c17-4ce4-8eaa-291f0bdf647d")
 		)
 		(pin "2"
-			(uuid "62e61762-a374-5899-87f1-665d8ef72d0f")
+			(uuid "a5035318-1f33-4a3f-b2e6-a3b3e2740c92")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R21")
+					(reference "R22")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:VCC")
-		(at 144.78 38.1 0)
+		(lib_id "power:GND")
+		(at 82.55 80.01 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4750,9 +2767,9 @@
 		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "9b36259f-bd61-5b39-aaa9-ac09e4810d78")
-		(property "Reference" "#PWRVCR001"
-			(at 148.59 36.83 0)
+		(uuid "2c03578e-9d51-411e-b683-41d194f089df")
+		(property "Reference" "#PWRVC01"
+			(at 87.63 83.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4763,8 +2780,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "+16V"
-			(at 148.59 40 0)
+		(property "Value" "AGND"
+			(at 87.63 75.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4776,7 +2793,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 144.78 38.1 0)
+			(at 82.55 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4787,7 +2804,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 144.78 38.1 0)
+			(at 82.55 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4798,7 +2815,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 144.78 38.1 0)
+			(at 82.55 80.01 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4808,20 +2825,20 @@
 			)
 		)
 		(pin "1"
-			(uuid "f8c66b43-e81e-55c3-8295-fc116a49f97d")
+			(uuid "04619ce0-a667-409c-ad69-11ce1cfe8978")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVCR001")
+					(reference "#PWRVC01")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Transistor_BJT:BC549")
-		(at 53.34 64.77 0)
+		(lib_id "Device:R")
+		(at 142.24 57.15 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4829,9 +2846,169 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "a8a5173c-a8de-551f-aa14-8e606dd69838")
+		(uuid "3950a493-8534-4920-9ebd-1c89ad92f0eb")
+		(property "Reference" "R23"
+			(at 148.844 55.372 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22k"
+			(at 148.844 58.674 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 142.24 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 142.24 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 142.24 57.15 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "82115a09-6451-4b07-96ef-a227afa47cce")
+		)
+		(pin "2"
+			(uuid "9cbc3d83-a848-4ceb-be1c-d99b970a13d3")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "R23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 90.17 80.01 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "39de19a7-4701-4b74-8d75-c44a9bcdbb2e")
+		(property "Reference" "R14"
+			(at 87.884 78.232 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "220R"
+			(at 92.71 77.47 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 90.17 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 90.17 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 90.17 80.01 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d27f8e88-ef26-4129-8da6-1c13dae4bc62")
+		)
+		(pin "2"
+			(uuid "25d6e262-954a-436d-8ccf-a244aea2b95f")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "R14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:BC549")
+		(at 87.63 69.85 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3d4b34f5-08b6-47aa-9ff9-61ac519c8721")
 		(property "Reference" "Q1"
-			(at 57.15 63.5 0)
+			(at 82.804 71.374 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4842,7 +3019,7 @@
 			)
 		)
 		(property "Value" "BC549C"
-			(at 57.15 66.67 0)
+			(at 91.44 67.056 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4853,7 +3030,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 53.34 64.77 0)
+			(at 87.63 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4864,7 +3041,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 53.34 64.77 0)
+			(at 87.63 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4875,7 +3052,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 53.34 64.77 0)
+			(at 87.63 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4885,13 +3062,13 @@
 			)
 		)
 		(pin "1"
-			(uuid "f8f2dd87-d24c-5c65-9c51-9b230318286d")
+			(uuid "d33e23cf-72f1-4b99-8111-c57cfe59b75d")
 		)
 		(pin "2"
-			(uuid "8beb483e-f717-5599-ac3a-3d65bcbb5ffa")
+			(uuid "3b46a4cc-cb68-407d-ab4a-9bf907c93505")
 		)
 		(pin "3"
-			(uuid "254f8c56-a91f-5d24-b73b-dc40a79deab9")
+			(uuid "91bc88e0-809d-4cec-9513-3e9189dc1a5d")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
@@ -4903,8 +3080,422 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 130.81 88.9 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "41890278-707c-4c5d-bc3d-6f1287bbfb6b")
+		(property "Reference" "R24"
+			(at 129.54 95.758 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22k"
+			(at 132.08 95.504 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 130.81 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 130.81 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 130.81 88.9 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b7dd9899-8fb9-4821-bb81-dd9ada147f76")
+		)
+		(pin "2"
+			(uuid "a769be4e-b365-4347-8254-cb384300aa53")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "R24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:BC549")
+		(at 97.79 59.69 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "43cfded6-77c1-4dfa-99c6-74248d6f60eb")
+		(property "Reference" "Q7"
+			(at 100.076 57.658 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BC549C"
+			(at 102.616 60.96 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+			(at 97.79 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 97.79 59.69 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d770f455-af7d-4541-9168-cd72ac4efa01")
+		)
+		(pin "2"
+			(uuid "dedb72b3-84ac-4c3d-8c13-d7f958f185a3")
+		)
+		(pin "3"
+			(uuid "4b01adbd-2302-4c45-9f8e-f2d2d97d70a1")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "Q7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:BC549")
+		(at 102.87 114.3 270)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "45e558f7-3b34-4c2c-ab78-d8d1d55e9db5")
+		(property "Reference" "Q9"
+			(at 95.25 110.49 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BC549C"
+			(at 92.456 115.316 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+			(at 102.87 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 102.87 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 102.87 114.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "77245a95-dd61-4a6f-b79a-a7eed8863093")
+		)
+		(pin "2"
+			(uuid "5b4e5ba3-7e6c-4ea8-b2ef-c82a7f69b4f4")
+		)
+		(pin "3"
+			(uuid "eed6f6c6-c60f-4799-b9b6-2749afdbb653")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "Q9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:BC549")
+		(at 121.92 111.76 0)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "55e431a7-2330-41a8-8d63-da69af101965")
+		(property "Reference" "Q5"
+			(at 117.094 113.284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BC549C"
+			(at 115.824 117.856 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+			(at 121.92 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 121.92 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 121.92 111.76 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "95e820f9-b747-4288-8595-4bf7d8681cf1")
+		)
+		(pin "2"
+			(uuid "ca1f1e46-f759-4758-9c46-6df85cf739fc")
+		)
+		(pin "3"
+			(uuid "833c55f0-2aef-4140-82a6-1b7dabfb3635")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "Q5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:BC549")
+		(at 78.74 114.3 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "578c6ecd-f3b6-47bc-9422-a1994399df19")
+		(property "Reference" "Q8"
+			(at 73.914 110.744 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BC549C"
+			(at 75.438 115.824 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+			(at 78.74 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 78.74 114.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8825442e-fdeb-4dc5-87bb-6e53b525bde4")
+		)
+		(pin "2"
+			(uuid "93bfa867-3efa-47b4-8fef-01bbcb1c15bf")
+		)
+		(pin "3"
+			(uuid "92d56941-1240-4bd8-a7db-995944c80373")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "Q8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:VCC")
-		(at 180.34 54.61 270)
+		(at 71.12 111.76 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4912,9 +3503,9 @@
 		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "bb8ecd01-8f01-56d0-aaae-77ed07d7bf22")
-		(property "Reference" "#PWRVCR003"
-			(at 181.61 58.42 0)
+		(uuid "5809abc3-2bcd-44c5-beba-e6a3805d57dd")
+		(property "Reference" "#PWRVCR02"
+			(at 69.85 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4926,7 +3517,7 @@
 			)
 		)
 		(property "Value" "+16V"
-			(at 178.44 58.42 0)
+			(at 73.02 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4938,7 +3529,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 180.34 54.61 0)
+			(at 71.12 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4949,7 +3540,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 180.34 54.61 0)
+			(at 71.12 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4960,7 +3551,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 180.34 54.61 0)
+			(at 71.12 111.76 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4970,20 +3561,100 @@
 			)
 		)
 		(pin "1"
-			(uuid "a0f70620-a530-5c76-97f2-9a55fc7ac515")
+			(uuid "676a1421-a702-4583-8570-e07b0f138bbb")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVCR003")
+					(reference "#PWRVCR02")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:VEE")
-		(at 135.89 68.58 270)
+		(lib_id "Device:C")
+		(at 142.24 62.23 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "584a5b94-253e-459e-926e-85f6b512db9c")
+		(property "Reference" "C11"
+			(at 147.574 60.96 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100p"
+			(at 148.59 63.754 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+			(at 142.24 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 142.24 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 142.24 62.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "027b9b14-890c-4cf8-958c-deb69febebd1")
+		)
+		(pin "2"
+			(uuid "2235e37a-3b2d-43fa-832a-5c371dfe4dd1")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 116.84 62.23 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4991,9 +3662,406 @@
 		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "c5c064d3-df3e-5372-b9e2-4a0e3bb0751c")
-		(property "Reference" "#PWRVCR000"
-			(at 134.62 64.77 0)
+		(uuid "5e18311e-afcc-49b9-9c42-858a06c7620d")
+		(property "Reference" "#PWRVCR03"
+			(at 118.11 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 114.94 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 116.84 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 116.84 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 116.84 62.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6b7473fa-86cd-4e28-9dbd-6bb4b9b91f65")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "#PWRVCR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 71.12 80.01 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6126c246-6156-48ef-b6ff-ec40055fb3f2")
+		(property "Reference" "R13"
+			(at 72.898 77.724 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "220R"
+			(at 73.66 82.55 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 71.12 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 71.12 80.01 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "29219413-649d-41cd-9dc4-5a1094e4b6de")
+		)
+		(pin "2"
+			(uuid "61e112c7-1d62-454d-b8d7-7dde4fb11c99")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "R13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 111.76 97.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "682417ee-7a51-409e-939a-9423e2135431")
+		(property "Reference" "#PWRVCR04"
+			(at 115.57 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 115.57 99.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 111.76 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 111.76 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 111.76 97.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5af6d9fb-f036-44b7-93cc-aa5289763c65")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "#PWRVCR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 125.73 74.93 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6913f636-a62a-4b40-b53d-60f482d3700a")
+		(property "Reference" "#PWRVC03"
+			(at 124.46 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "AGND"
+			(at 127.63 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 125.73 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 125.73 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 125.73 74.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ca7e95e2-cbbd-432d-9e45-af2ed9237cad")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "#PWRVC03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 113.03 86.36 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "71c2fc37-4321-41c6-852d-8237a2c2bbdc")
+		(property "Reference" "R18"
+			(at 114.808 84.074 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1k5"
+			(at 114.808 88.646 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 113.03 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 113.03 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 113.03 86.36 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "31abc2cb-04b4-434b-a95c-a0680f37a839")
+		)
+		(pin "2"
+			(uuid "2e29fed7-faee-4f09-b012-dfa259014067")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "R18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VEE")
+		(at 116.84 86.36 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "74e118c9-c9e1-4611-9458-84e860488f75")
+		(property "Reference" "#PWRVCR06"
+			(at 115.57 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5005,7 +4073,7 @@
 			)
 		)
 		(property "Value" "-5V1"
-			(at 137.79 64.77 0)
+			(at 118.74 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5017,7 +4085,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 135.89 68.58 0)
+			(at 116.84 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5028,7 +4096,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 135.89 68.58 0)
+			(at 116.84 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5039,7 +4107,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 135.89 68.58 0)
+			(at 116.84 86.36 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5049,20 +4117,100 @@
 			)
 		)
 		(pin "1"
-			(uuid "e280a438-b75e-57da-87d9-159c87311721")
+			(uuid "f8b7c57a-1ba8-4585-9d5c-21ed28c8efc4")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVCR000")
+					(reference "#PWRVCR06")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Transistor_BJT:BC549")
-		(at 99.06 45.72 0)
+		(lib_id "power:VCC")
+		(at 124.46 119.38 0)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7ed4d01a-6672-49dc-87c5-7d74fce790c8")
+		(property "Reference" "#PWRVCR07"
+			(at 128.27 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 128.27 117.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 124.46 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 124.46 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 124.46 119.38 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b4ee3ec9-dff4-41c1-bed0-e77e26fb463e")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "#PWRVCR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 113.03 62.23 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5070,9 +4218,89 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "cc3ffa08-9f9a-52f0-9847-4aa856b693d7")
-		(property "Reference" "Q2"
-			(at 102.87 44.45 0)
+		(uuid "840274bd-5dfe-41c1-aef8-4ab579413f03")
+		(property "Reference" "R16"
+			(at 110.998 60.198 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4k7"
+			(at 111.252 64.516 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 113.03 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 113.03 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 113.03 62.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6d2981a3-b742-4984-a846-219e027db39f")
+		)
+		(pin "2"
+			(uuid "67102d01-6253-4554-a612-c3d59de7497c")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "R16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:BC549")
+		(at 87.63 54.61 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "881cbd16-b39b-40c8-a587-e9fe4f23f8de")
+		(property "Reference" "Q6"
+			(at 84.582 51.054 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5083,7 +4311,7 @@
 			)
 		)
 		(property "Value" "BC549C"
-			(at 102.87 47.62 0)
+			(at 78.232 55.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5094,7 +4322,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
-			(at 99.06 45.72 0)
+			(at 87.63 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5105,7 +4333,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 99.06 45.72 0)
+			(at 87.63 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5116,7 +4344,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 99.06 45.72 0)
+			(at 87.63 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5126,18 +4354,97 @@
 			)
 		)
 		(pin "1"
-			(uuid "dc9919ed-f355-597a-8a98-c815e548e39e")
+			(uuid "b10b0ce2-d0d7-4175-9d8e-27e138a6a914")
 		)
 		(pin "2"
-			(uuid "1f037d31-5caa-522f-b1bc-d5b68659bfbd")
+			(uuid "56ee203f-7c6f-47a9-9c8e-6d41ef2b6856")
 		)
 		(pin "3"
-			(uuid "91b85b88-2d32-51a1-a031-38e067bd0a08")
+			(uuid "5d885293-0a3d-40c7-98b2-d7490f8a3ad6")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "Q2")
+					(reference "Q6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 130.81 95.25 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "88bd9dc7-96b8-40aa-8dab-672b31348f1a")
+		(property "Reference" "#PWRVC04"
+			(at 134.62 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "AGND"
+			(at 134.62 97.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 130.81 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 130.81 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 130.81 95.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a85d2279-8a29-4c5d-98fe-abbceb5abd65")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "#PWRVC04")
 					(unit 1)
 				)
 			)
@@ -5145,7 +4452,8 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:NE5532")
-		(at 134.62 109.22 0)
+		(at 140.97 72.39 0)
+		(mirror x)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5153,9 +4461,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "cd96842b-3992-5a33-976a-fa7799889ab5")
-		(property "Reference" "U1"
-			(at 128.27 96.52 0)
+		(uuid "8fa46cc4-06b0-47b5-bbd8-3ba21347f022")
+		(property "Reference" "U4"
+			(at 140.716 68.072 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5166,7 +4474,7 @@
 			)
 		)
 		(property "Value" "NE5532"
-			(at 128.27 99.06 0)
+			(at 140.716 76.708 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5176,8 +4484,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
-			(at 134.62 109.22 0)
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm_Socket"
+			(at 140.97 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5188,7 +4496,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 134.62 109.22 0)
+			(at 140.97 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5199,7 +4507,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 134.62 109.22 0)
+			(at 140.97 72.39 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5209,13 +4517,13 @@
 			)
 		)
 		(pin "5"
-			(uuid "2f29963c-2063-54b4-9b65-48e8fc44358e")
+			(uuid "ce8edbf6-9021-46c5-ba59-493deef9b2e1")
 		)
 		(pin "6"
-			(uuid "54d09f11-e0fc-523a-93b6-79d0c1fa1a7a")
+			(uuid "0b408be0-f29f-4787-a097-f14becf9144d")
 		)
 		(pin "7"
-			(uuid "aca523f8-c46c-59b2-9010-846123847c76")
+			(uuid "70670780-0826-47d1-9085-84a457d5cfa6")
 		)
 		(pin "3"
 			(uuid "d20ae28a-adb9-4cd1-8baf-9061e86d98a5")
@@ -5235,15 +4543,15 @@
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "U1")
+					(reference "U4")
 					(unit 2)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 173.99 54.61 270)
+		(lib_id "Device:C")
+		(at 119.38 69.85 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5251,9 +4559,736 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "d0e94244-4ca4-56dc-9dca-5920ab09f1c0")
-		(property "Reference" "R16"
-			(at 175.26 58.42 0)
+		(uuid "9061cdb9-cce5-4170-b891-c360e59f2af7")
+		(property "Reference" "C9"
+			(at 123.444 71.12 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2u2"
+			(at 124.46 68.58 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+			(at 119.38 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 119.38 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f84f0d94-bc6b-4bea-85ee-44ad00b5021a")
+		)
+		(pin "2"
+			(uuid "bc638762-e090-487c-8877-a7bc31f44e75")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 57.15 80.01 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ad9671f1-2781-4e1e-b0ac-43942555aeb4")
+		(property "Reference" "R12"
+			(at 59.944 78.486 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 60.198 81.28 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 57.15 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 57.15 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 57.15 80.01 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fd1a83f8-821b-478d-bfb2-c1d78f00061f")
+		)
+		(pin "2"
+			(uuid "7f89cef9-5c14-4ebe-80d6-6d3ca90fc560")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "R12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 127 69.85 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b0e9bd48-72f7-4961-827d-c380d95d0a12")
+		(property "Reference" "R21"
+			(at 129.032 67.564 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "3k3"
+			(at 128.778 72.136 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 127 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 127 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b73fdcdf-eb85-4ad7-a622-9b87b63fdfa3")
+		)
+		(pin "2"
+			(uuid "a5f433a0-fecd-4de9-b852-b005bf4b44cc")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 96.52 74.93 90)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b3915ea6-90de-4e0d-bad7-4f272923857b")
+		(property "Reference" "#PWRVCR05"
+			(at 95.25 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 98.42 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 96.52 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 96.52 74.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "75e3097d-816c-4797-a745-064e4f01baf0")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "#PWRVCR05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 72.39 66.04 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ca7a048e-78a1-4665-b55d-a540df361c20")
+		(property "Reference" "C5"
+			(at 76.708 64.516 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10u"
+			(at 77.47 67.31 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+			(at 72.39 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 72.39 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 72.39 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "00040fa2-cd95-4e07-9541-d8b381ee0792")
+		)
+		(pin "2"
+			(uuid "6578b56c-6931-4997-a5d3-17681b40ad76")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 71.12 73.66 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d187c633-a044-4c18-aadb-4dac85764dc5")
+		(property "Reference" "R11"
+			(at 74.168 72.39 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 73.914 75.184 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 71.12 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 71.12 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "455c9466-e0b5-46cc-ac36-78401b277b5a")
+		)
+		(pin "2"
+			(uuid "e29916a3-e0cb-42d1-8278-f856581e3b80")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "R11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 90.17 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "dd4c4333-4f69-4b8a-bb4f-f29b86d2851c")
+		(property "Reference" "#PWRVCR01"
+			(at 93.98 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 93.98 51.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 90.17 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 90.17 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 90.17 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f8cfed64-3ba6-48e0-a02b-b370f9723e9a")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "#PWRVCR01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:BC549")
+		(at 105.41 72.39 90)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e43b24ff-316b-474b-a483-de22848b698e")
+		(property "Reference" "Q4"
+			(at 110.236 70.612 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BC549C"
+			(at 102.87 76.2 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+			(at 105.41 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 105.41 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 105.41 72.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d0d34e85-2e11-4d19-bca4-31b12c0044ff")
+		)
+		(pin "2"
+			(uuid "de2517f4-6576-4ae6-b229-4efdca26432f")
+		)
+		(pin "3"
+			(uuid "380a36e2-10bd-46c3-a639-eb7b2466bc64")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "Q4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:BC549")
+		(at 80.01 96.52 90)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e8a8eef4-05b3-4ef8-b59b-34fdf99a6d89")
+		(property "Reference" "Q2"
+			(at 75.184 100.076 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BC549C"
+			(at 88.9 94.234 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+			(at 80.01 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 80.01 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 80.01 96.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8229aa79-864c-403b-addb-20e6ef70d15e")
+		)
+		(pin "2"
+			(uuid "21210c3e-b825-4940-bea8-8b9202fb1163")
+		)
+		(pin "3"
+			(uuid "a81e4efb-a4cc-4662-ab58-fd93aaceb60d")
+		)
+		(instances
+			(project "UTS Mini Mixing Desk - Compressor"
+				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
+					(reference "Q2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 111.76 104.14 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "eb5198c9-43b0-4bb9-859b-f37388fff7bb")
+		(property "Reference" "R17"
+			(at 110.49 101.092 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5264,7 +5299,7 @@
 			)
 		)
 		(property "Value" "4k7"
-			(at 172.09 58.42 0)
+			(at 113.284 100.838 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5275,7 +5310,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 173.99 54.61 0)
+			(at 111.76 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5286,7 +5321,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 173.99 54.61 0)
+			(at 111.76 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5297,7 +5332,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 173.99 54.61 0)
+			(at 111.76 104.14 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5307,102 +5342,23 @@
 			)
 		)
 		(pin "1"
-			(uuid "2e66ea0a-c79b-5ddb-9a77-427bbbb6716c")
+			(uuid "d1676138-31bc-4cc1-b450-3d22ed5bb311")
 		)
 		(pin "2"
-			(uuid "e711a926-3904-58b7-a180-fbae79d82f1d")
+			(uuid "cef7b7a2-cea2-4fc2-9b18-0afeae0bb00b")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R16")
+					(reference "R17")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:VCC")
-		(at 104.14 86.36 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d0eaf727-61ee-586d-aa2e-31e594d2fedb")
-		(property "Reference" "#PWRVCR004"
-			(at 107.95 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+16V"
-			(at 107.95 88.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 104.14 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 104.14 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 104.14 86.36 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ad711a2e-cb18-5551-ad40-098728019188")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVCR004")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 97.79 30.48 90)
+		(lib_id "Transistor_BJT:BC549")
+		(at 104.14 88.9 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5410,9 +5366,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "d4efcb06-d3d1-5956-9df7-14292a80a290")
-		(property "Reference" "R13"
-			(at 92.71 27.3 0)
+		(uuid "f4d64251-a052-49f0-a0c0-602df9dc0d7e")
+		(property "Reference" "Q3"
+			(at 100.584 87.63 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5422,8 +5378,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "220R"
-			(at 92.71 34.93 0)
+		(property "Value" "BC549C"
+			(at 112.268 91.948 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5433,8 +5389,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 97.79 30.48 0)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Inline"
+			(at 104.14 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5445,7 +5401,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 97.79 30.48 0)
+			(at 104.14 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5456,7 +5412,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 97.79 30.48 0)
+			(at 104.14 88.9 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5466,23 +5422,26 @@
 			)
 		)
 		(pin "1"
-			(uuid "6e4732a5-394d-5b02-8b04-c6a83e0da2ec")
+			(uuid "eff9d607-a9bd-4fb8-aaf1-2f34cfd28d79")
 		)
 		(pin "2"
-			(uuid "84a19757-abf3-5ffa-892c-06c7b841fa98")
+			(uuid "4ed4a0a2-647b-4fdd-b55e-5597d37cde96")
+		)
+		(pin "3"
+			(uuid "e6d099f6-762e-49fe-8089-1610eed89bd6")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R13")
+					(reference "Q3")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 72.39 72.39 90)
+		(lib_id "Device:C")
+		(at 124.46 97.79 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5490,9 +5449,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "f7305bc6-c24e-507e-97b3-4c9b492c28eb")
-		(property "Reference" "R14"
-			(at 71.12 68.58 0)
+		(uuid "fe609210-5912-4acd-b047-b7e8a1575d66")
+		(property "Reference" "C10"
+			(at 123.19 103.124 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5502,8 +5461,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "220R"
-			(at 74.29 68.58 0)
+		(property "Value" "2u2"
+			(at 125.984 103.124 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5513,8 +5472,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
-			(at 72.39 72.39 0)
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+			(at 124.46 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5525,7 +5484,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 72.39 72.39 0)
+			(at 124.46 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5536,7 +5495,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 72.39 72.39 0)
+			(at 124.46 97.79 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5546,173 +5505,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "6566b75f-022c-5387-9add-51ef83630b75")
+			(uuid "ffd1e7c8-91e4-4cfc-b879-f13f9da29adb")
 		)
 		(pin "2"
-			(uuid "82945bdf-495d-5980-8aeb-52f41a6db236")
+			(uuid "6131a271-fd57-44f1-907c-2cb08f839870")
 		)
 		(instances
 			(project "UTS Mini Mixing Desk - Compressor"
 				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "R14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 165.1 135.89 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "fa869a96-ceb4-57e2-bf4f-7eaca5e933d3")
-		(property "Reference" "#PWRVC002"
-			(at 168.91 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "AGND"
-			(at 168.91 137.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 165.1 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 165.1 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 165.1 135.89 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b3e38a30-2b3f-5bdb-9840-c2efb605c9f2")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVC002")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VCC")
-		(at 90.17 135.89 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "ff4ff816-62aa-52b9-b105-fd111b4e5720")
-		(property "Reference" "#PWRVCR002"
-			(at 86.36 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+16V"
-			(at 86.36 133.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 90.17 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 90.17 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 90.17 135.89 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "feb4a6ce-4df1-504a-9348-9298c24c75b2")
-		)
-		(instances
-			(project "UTS Mini Mixing Desk - Compressor"
-				(path "/fdeae63a-37f5-58fb-b342-cb68d8a6bfbc/174e7320-d7b1-5aab-af4c-021d06d87bce"
-					(reference "#PWRVCR002")
+					(reference "C10")
 					(unit 1)
 				)
 			)
