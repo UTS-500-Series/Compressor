@@ -91,14 +91,18 @@ Origin is the **top-left corner** of the panel, x right, y down. All in millimet
 | `RV5` | ATTACK | 10.00 | 91.00 | 7.2 | 9 mm pot |
 | `RV6` | RELEASE | 25.10 | 91.00 | 7.2 | 9 mm pot |
 | `RV2` | MAKEUP | 19.05 | 111.00 | 7.2 | 9 mm pot |
-| `SW3` | HPF | 6.90 | 52.00 | 6.5 | mini toggle, 1/4″ bushing |
-| `SW2` | KEY | 31.20 | 52.00 | 6.5 | mini toggle |
-| `SW4` | LINK | 6.90 | 72.50 | 6.5 | mini toggle |
-| `SW1` | BYPASS | 31.20 | 72.50 | 6.5 | mini toggle, DPDT |
+| `SW3` | HPF | 6.90 | 52.00 | 5.2 | sub-miniature toggle, SPDT (Jaycar ST0300) |
+| `SW2` | KEY | 31.20 | 52.00 | 5.2 | sub-miniature toggle, SPDT (Jaycar ST0300) |
+| `SW4` | LINK | 6.90 | 72.50 | 5.2 | sub-miniature toggle, SPDT (Jaycar ST0300) |
+| `SW1` | BYPASS | 31.20 | 72.50 | 5.2 | sub-miniature toggle, DPDT (Jaycar ST0310) |
 | `D20`–`D26` | GR meter, 7 seg | 14.10 | 14.0 to 35.0, 3.5 pitch | 2.2 | 2 mm flat-top LED |
 | `D30`–`D36` | LVL meter, 7 seg | 24.00 | 14.0 to 35.0, 3.5 pitch | 2.2 | 2 mm flat-top LED |
 | — | mounting | 19.05 | 3.96 | 3.18 | c'sink 82° to Ø5.72 |
 | — | mounting | 19.05 | 129.39 | 3.18 | c'sink 82° to Ø5.72 |
+
+The toggles' 10-48 bushing is only 4.06 mm long, which leaves under 1 mm of thread for the
+nut through a 3.18 mm panel. Either thin the panel to about 2 mm around those four holes
+(a counterbore from the back), or use a 1.6 to 2 mm panel.
 
 ATTACK and RELEASE sit 1.5 mm left of symmetric so the ribbon header on the back of the
 front board clears the RELEASE pot. The meter columns are 9.9 mm apart rather than 10.9 so
