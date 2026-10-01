@@ -246,6 +246,17 @@
 			(uuid "a25d5c01-ae19-4034-a18f-e3950e96d8e4")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/SW_Toggle_SubMini_DPDT_Jaycar_ST0310.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
 		(layer "F.Cu")
@@ -1678,7 +1689,7 @@
 			)
 		)
 	)
-	(footprint "Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical"
+	(footprint "compressor_front:Potentiometer_Alps_RK09K_Single_Vertical"
 		(layer "F.Cu")
 		(uuid "38c17352-cc5c-48be-a76f-1aa65d600536")
 		(at 116.55 120 90)
@@ -1975,15 +1986,15 @@
 			(uuid "8de3ea9a-099f-49fb-9e5f-9b2c7c68446b")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Potentiometer_THT.3dshapes/Potentiometer_Alps_RK09K_Single_Vertical.step"
+		(model "${KIPRJMOD}/3dmodels/RK09K1130-20.STEP"
 			(offset
-				(xyz 0 0 0)
+				(xyz 7.5 -2.5 6)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz 0 0 90)
 			)
 		)
 	)
@@ -2979,7 +2990,7 @@
 			)
 		)
 	)
-	(footprint "Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical"
+	(footprint "compressor_front:Potentiometer_Alps_RK09K_Single_Vertical"
 		(layer "F.Cu")
 		(uuid "48639378-652a-4d89-85cc-40fb7c6c4b79")
 		(at 122.6 138.5 90)
@@ -3276,19 +3287,19 @@
 			(uuid "9c436ba6-50c2-49e9-bb97-62a862f3cc6a")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Potentiometer_THT.3dshapes/Potentiometer_Alps_RK09K_Single_Vertical.step"
+		(model "${KIPRJMOD}/3dmodels/RK09K1130-20.STEP"
 			(offset
-				(xyz 0 0 0)
+				(xyz 7.5 -2.5 6)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz 0 0 90)
 			)
 		)
 	)
-	(footprint "Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical"
+	(footprint "compressor_front:Potentiometer_Alps_RK09K_Single_Vertical"
 		(layer "F.Cu")
 		(uuid "4aa775f1-72d4-4179-8957-46752ecb23f2")
 		(at 116.55 99.5 90)
@@ -3585,15 +3596,15 @@
 			(uuid "ee043527-ff97-4064-98c7-4eb52bbc4bbe")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Potentiometer_THT.3dshapes/Potentiometer_Alps_RK09K_Single_Vertical.step"
+		(model "${KIPRJMOD}/3dmodels/RK09K1130-20.STEP"
 			(offset
-				(xyz 0 0 0)
+				(xyz 7.5 -2.5 6)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz 0 0 90)
 			)
 		)
 	)
@@ -5908,7 +5919,7 @@
 			)
 		)
 	)
-	(footprint "Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical"
+	(footprint "compressor_front:Potentiometer_Alps_RK09K_Single_Vertical"
 		(layer "F.Cu")
 		(uuid "9e7bf7ab-515e-4918-b940-7a0fbef1ed3c")
 		(at 107.5 138.5 90)
@@ -6205,15 +6216,15 @@
 			(uuid "9887a152-bcfb-484c-84a5-0f92d1ef1093")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Potentiometer_THT.3dshapes/Potentiometer_Alps_RK09K_Single_Vertical.step"
+		(model "${KIPRJMOD}/3dmodels/RK09K1130-20.STEP"
 			(offset
-				(xyz 0 0 0)
+				(xyz 7.5 -2.5 6)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz 0 0 90)
 			)
 		)
 	)
@@ -6959,6 +6970,17 @@
 			(uuid "35836133-5c87-4383-bf30-67591489ad85")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/SW_Toggle_SubMini_SPDT_Jaycar_ST0300.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "compressor_front:SW_Toggle_SubMini_SPDT_Jaycar_ST0300"
 		(layer "F.Cu")
@@ -7089,8 +7111,19 @@
 			(uuid "b5a6f9cc-f624-4ac4-8ee4-45e30a734c53")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/SW_Toggle_SubMini_SPDT_Jaycar_ST0300.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
-	(footprint "Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical"
+	(footprint "compressor_front:Potentiometer_Alps_RK09K_Single_Vertical"
 		(layer "F.Cu")
 		(uuid "e489bf5d-c5b9-47c7-a9a3-1189a09079e5")
 		(at 116.55 158.5 90)
@@ -7387,15 +7420,15 @@
 			(uuid "c7807413-aed1-4372-8179-b569c543881f")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Potentiometer_THT.3dshapes/Potentiometer_Alps_RK09K_Single_Vertical.step"
+		(model "${KIPRJMOD}/3dmodels/RK09K1130-20.STEP"
 			(offset
-				(xyz 0 0 0)
+				(xyz 7.5 -2.5 6)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz 0 0 90)
 			)
 		)
 	)
@@ -7528,6 +7561,17 @@
 			(uuid "cc0431f6-9cfe-4efc-adc7-7bb30139c9d6")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3dmodels/SW_Toggle_SubMini_SPDT_Jaycar_ST0300.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_2x15_P2.54mm_Vertical"
 		(layer "B.Cu")

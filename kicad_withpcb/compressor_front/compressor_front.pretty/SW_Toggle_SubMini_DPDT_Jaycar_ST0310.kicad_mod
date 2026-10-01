@@ -146,4 +146,15 @@
 		(uuid "7f98752b-2dd3-4ec1-8f8e-6e84ad2724a2")
 	)
 	(embedded_fonts no)
+	(model "${KIPRJMOD}/3dmodels/SW_Toggle_SubMini_DPDT_Jaycar_ST0310.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 )

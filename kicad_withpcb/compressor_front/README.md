@@ -30,6 +30,19 @@ The panel outline and every hole are drawn on User.Drawings, with the grid origi
 panel's top-left corner. The board editor's coordinates read the same as the panel
 drawing, and `panel/make_panel.py` takes its hole positions from this board.
 
+## 3D models
+
+Every part has a 3D model, so the 3D viewer and a STEP export (for the Fusion 360 assembly)
+show both boards complete.
+
+- Most come from KiCad's own library.
+- The pots use Alps' official RK09K1130 model. It's the maker's file, so it isn't kept in
+  git: run `sh tools/get_3d_models.sh` once to fetch it into `3dmodels/`. The pots use a
+  project copy of the stock RK09K footprint that points at it.
+- The toggles use simple models built to the Jaycar datasheet by
+  `tools/make_toggle_models.py` (case, bushing, lever and lugs).
+- The main board's edge fingers are copper, not a part, so J1 there has no model.
+
 ## Check before ordering
 
 - **The SPDT footprint follows the ST0300 datasheet** (lugs on 2.54 mm, slotted holes for the
