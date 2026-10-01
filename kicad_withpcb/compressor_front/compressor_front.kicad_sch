@@ -5407,7 +5407,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical"
+		(property "Footprint" "compressor_front:Potentiometer_Alps_RK09K_Single_Vertical"
 			(at 270.51 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -7475,7 +7475,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical"
+		(property "Footprint" "compressor_front:Potentiometer_Alps_RK09K_Single_Vertical"
 			(at 190.5 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -7923,7 +7923,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical"
+		(property "Footprint" "compressor_front:Potentiometer_Alps_RK09K_Single_Vertical"
 			(at 110.49 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -8076,7 +8076,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical"
+		(property "Footprint" "compressor_front:Potentiometer_Alps_RK09K_Single_Vertical"
 			(at 229.87 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -8229,7 +8229,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Potentiometer_THT:Potentiometer_Alps_RK09K_Single_Vertical"
+		(property "Footprint" "compressor_front:Potentiometer_Alps_RK09K_Single_Vertical"
 			(at 149.86 49.53 0)
 			(hide yes)
 			(show_name no)

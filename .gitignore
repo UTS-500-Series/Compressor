@@ -50,3 +50,6 @@ fp-info-cache
 
 # Scratch output from gen_project.py -d
 /regenerated/
+
+# Vendor 3D models, fetched by tools/get_3d_models.sh
+kicad_withpcb/compressor_front/3dmodels/RK09K1130-20.STEP
