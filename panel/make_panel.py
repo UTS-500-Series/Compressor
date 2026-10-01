@@ -25,7 +25,7 @@ HOLE_Y     = [(H - HOLE_PITCH) / 2, (H - HOLE_PITCH) / 2 + HOLE_PITCH]
 # ---------------------------------------------------------------- hardware
 BUSH_CONC = 9.5      # dual-concentric pot, 3/8" bushing
 BUSH_POT  = 7.2      # 9 mm pot, M7 bushing
-BUSH_TOG  = 6.5      # mini toggle, 1/4 inch bushing
+BUSH_TOG  = 5.2      # sub-miniature toggle, 10-48 UNS bushing (Jaycar ST0300 / ST0310)
 BUSH_BTN  = 8.0      # illuminated latching pushbutton
 LED_HOLE  = 2.2      # 2 mm meter LED
 KNOB_OUT  = 15.0     # concentric outer skirt
