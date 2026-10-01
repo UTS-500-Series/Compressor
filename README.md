@@ -7,9 +7,9 @@ Built from ordinary parts: **nine BC549 transistors and seven NE5532 op amps**, 
 pair of LM391x bargraph drivers for the meters. No VCA chip,
 no transformers, nothing hard to source.
 
-📖 **Documentation: [`../UTS-500-Series.github.io`](../UTS-500-Series.github.io)** (separate repository) — every section explained, with
-interactive schematics you can click through. Once GitHub Pages is enabled, replace this
-line with the published URL.
+📖 **Documentation: [uts-500-series.github.io/compressor](https://uts-500-series.github.io/compressor/)** — every section explained, with
+interactive schematics you can click through, plus the routed boards and their design files.
+The site's source is a separate repository, [UTS-500-Series.github.io](https://github.com/UTS-500-Series/UTS-500-Series.github.io).
 
 ---
 
@@ -21,7 +21,7 @@ line with the published URL.
 | Components | 166 |
 | Nets | 110 |
 | ERC | 0 errors, 0 warnings |
-| PCB layout | Main board and front board placed and routed, DRC clean, not yet reviewed by hand |
+| PCB layout | Main board and front board placed and routed, DRC clean, tracks not yet tidied by hand |
 | Simulated | No |
 | Built | No |
 
@@ -32,20 +32,38 @@ self-consistent — not that the circuit behaves as predicted.
 ## Repository layout
 
 ```
-kicad/     the KiCad 9 project — .kicad_pro plus one .kicad_sch per sheet
-tools/     design.py (the authoritative netlist) and the generate/route/verify scripts
-panel/     faceplate generator — mockups, a 1:1 drawing and a DXF, from one definition
+kicad_withpcb/compressor_with_pcb/   the main board: flat schematic + routed PCB (KiCad 10)
+kicad_withpcb/compressor_front/      the front board behind the panel: schematic + routed PCB
+kicad/                               the original seven-sheet schematic (KiCad 9), used by the site
+tools/                               design.py (the reference netlist) and the check/build scripts
+panel/                               faceplate generator — mockups, a 1:1 drawing and a DXF
 ```
 
-Everything in `kicad/` and `panel/` is **generated from or checked against**
-`tools/design.py`. That is the one file to treat as source; the rest can be rebuilt.
+**The boards are built from `kicad_withpcb/`.** The flat schematic there drives the main
+board's PCB, and the front board has its own schematic joined to it by a 30-way ribbon.
+`tools/design.py` is the reference netlist. Compare the flat schematic against it after any
+wiring edit: KiCad's DRC parity check only compares the PCB with the flat schematic, so it
+can't see a wiring mistake in the schematic itself.
 
-The documentation site lives in its own repository alongside this one, because it covers
-the whole desk rather than this module: [`../UTS-500-Series.github.io`](../UTS-500-Series.github.io).
+The seven-sheet `kicad/` project is the original drawing of the same circuit. It has no PCB,
+but the documentation site's interactive schematics are built from it. The site lives in its
+own repository, [UTS-500-Series.github.io](https://github.com/UTS-500-Series/UTS-500-Series.github.io),
+because it covers the whole desk rather than this module.
 
 ## Opening it
 
-Open `kicad/UTS Mini Mixing Desk - Compressor.kicad_pro` in **KiCad 9**. The root sheet holds seven
+The boards need **KiCad 10**:
+
+- `kicad_withpcb/compressor_with_pcb/compressor_with_pcb.kicad_pro`: the main board, the
+  500-series card (152.35 × 105 mm) with the edge connector.
+- `kicad_withpcb/compressor_front/compressor_front.kicad_pro`: the 35 × 110 mm front board
+  with the pots, toggles and meters. Its [README](kicad_withpcb/compressor_front/README.md)
+  covers how it mounts, the ribbon, the bracket and what to check before ordering.
+
+Run `sh tools/get_3d_models.sh` once after cloning. It fetches Alps' RK09K pot model, which
+isn't kept in git, so the 3D viewer and STEP export show the pots.
+
+The original schematic is `kicad/UTS Mini Mixing Desk - Compressor.kicad_pro` (**KiCad 9**). Its root sheet holds seven
 sub-sheets:
 
 | Sheet | What it covers |
@@ -96,20 +114,31 @@ outline and holes for a panel shop. All three are generated from one definition 
 Panel is the standard 500-series 1.500″ × 5.250″ × 0.125″ with two countersunk mounting holes
 125.43 mm apart, badged **OPN-500 / CMP-01**.
 
-The default layout is five separate knobs with every switch function on a **pull-switch pot** —
-THRESHOLD pulls for the sidechain HPF, RATIO for key int/ext, MAKEUP for bypass — plus two
-7-segment LED meters for gain reduction and output level. LINK is an internal jumper. No
-toggles, no button, 21 holes.
+The default layout, and the one the front board is built for, is **`toggle`**: five single
+Alps RK09K pots (THRESHOLD, RATIO, ATTACK, RELEASE, MAKEUP), four sub-miniature toggles
+(HPF and KEY either side of THRESHOLD, LINK and BYPASS either side of RATIO), and two
+7-LED meters for gain reduction and output level. That's 25 holes, and `make_panel.py`
+takes their positions from the front board. The toggles are Jaycar ST0300 (SPDT) for HPF,
+KEY and LINK and ST0310 (DPDT) for BYPASS, in 5.2 mm holes.
 
-`make_panel.py` also carries a `toggle` layout (the same five knobs, but with HPF and KEY
-flanking THRESHOLD and LINK and BYPASS flanking RATIO — 25 holes, every function one positive
-movement) and a `concentric` layout (dual-concentric knobs, a lit BYPASS button, HPF/KEY
-toggles), plus a `bone` finish alongside the default dark anodised one. Six combinations, all
-from one definition — see [`panel/README.md`](panel/README.md).
+The toggle bushing is only 4.06 mm long, which leaves under 1 mm of thread for the nut
+through a 3.18 mm panel. Either thin the panel to about 2 mm around those four holes or use
+a thinner panel.
+
+`make_panel.py` also keeps a `pull` layout (every switch on a pull-switch pot) and a
+`concentric` layout (dual-concentric knobs and a lit BYPASS button), plus a `bone` finish
+alongside the default dark anodised one. The boards are only drawn for `toggle`. See
+[`panel/README.md`](panel/README.md).
 
 ## Bill of materials
 
-166 components across 58 distinct line items: 73 resistors, 39 capacitors, 15 LEDs,
+`tools/bom_order.py` writes an order list from `design.py`. It doesn't yet know about the
+layout-stage hardware: the Jaycar toggles (it still lists generic switches), the 30-way
+ribbon with its two headers and IDC sockets, the panel bracket and M3 screws, and the DIP-8
+sockets for U1–U7. The LM3914/LM3915 meter drivers are soldered straight in, because
+sockets would overlap the meter LEDs.
+
+The circuit itself is 166 components across 58 distinct line items: 73 resistors, 39 capacitors, 15 LEDs,
 9 transistors, 8 potentiometers, 8 diodes, 7 op amps, 4 switches, 2 display drivers,
 1 connector.
 
@@ -187,15 +216,15 @@ Both scripts import from `tools/`, so a fresh clone has everything it needs.
 
 ## Known gaps
 
-- No PCB layout has been attempted. `J1` is a generic `Conn_01x15`, so a real card-edge
-  footprint is still needed.
-- The panel is a 2D drawing only — depth clearance between knobs and the PCB has not been
-  checked, and panel hardware is assumed rather than specified.
-- **The panel needs parts and circuitry the schematic does not have yet:** two 7-segment LED
-  meters (14 LEDs) need a comparator ladder or display driver, and the default panel layout
-  assumes pull-switch pots rather than the discrete `SW1`–`SW4` in `design.py` (the
-  `concentric` layout additionally needs dual-concentric pots and a latching pushbutton).
-- The switches have no footprints assigned — pick parts to suit the panel.
+- **The tracks came from an autorouter and want a hand tidy before ordering:** route IN± and
+  OUT± as pairs, pull the long bottom-layer runs off the ground pour, and tighten the timing
+  node around C15 and U4.
+- **Measure an ST0310 before ordering boards.** Jaycar publishes no drawing for it, so the DPDT
+  footprint assumes 2.54 mm lugs with the rows 4.7 mm apart.
+- **Check the mechanics in a real rack:** the pots' height against the front board's 8.7 mm
+  setback (a nut behind the panel may make up the difference), the panel thickness at the
+  toggles, and the ribbon length (about 150 mm is an estimate).
+- **The BOM script lags the board** (see above).
 - Pin 11 is used as an auxiliary input, which the API 500 specification assigns to a gain-trim
   node. The aux section (U5 and its resistors) is a separable block; omit it and the module is
   fully standards-compliant.
