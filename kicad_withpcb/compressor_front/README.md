@@ -36,7 +36,7 @@ The boards are joined only by the ribbon; each one is fixed to the faceplate on 
   main board sits in your rack, so lay the boards out and check before crimping.
 - **Front board to panel:** the nuts on the five pot and four toggle bushings.
 - **Main board to panel:** an L-bracket from the back of the panel to H1 and H2, the two
-  M3 holes by the main board's front edge (82 mm apart). The front edge is 24 mm behind
+  M3 holes by the main board's front edge (85 mm apart). The front edge is 24 mm behind
   the panel, so the bracket leg along the board needs to reach that far: 25 × 25 mm
   aluminium angle, or a short angle with standoffs. H2 is plated and tied to CHASSIS
   (J1 pin 1), so the bracket also grounds the panel as the faceplate guide asks. Mask
