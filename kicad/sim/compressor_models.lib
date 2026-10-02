@@ -83,10 +83,11 @@ RL18 18 2 100Meg
 RMODE 9 2 100Meg
 .ends LM3914N
 
-.subckt POT 1 2 3 params: R=10k POS=0.5
+.subckt POT 1 2 3 params: R=10k POS=0.5 TAPER=0
 * POS is the wiper position: 0 = at pin 1, 1 = at pin 3. 1 ohm end resistance.
-R1 1 2 {max(R*POS, 1)}
-R2 2 3 {max(R*(1-POS), 1)}
+* TAPER=1 is an audio (A) taper: the pin 1 to wiper resistance is 10% of R at half travel.
+R1 1 2 {max(R * (TAPER > 0.5 ? (pwr(81, POS) - 1) / 80 : POS), 1)}
+R2 2 3 {max(R * (1 - (TAPER > 0.5 ? (pwr(81, POS) - 1) / 80 : POS)), 1)}
 .ends POT
 
 .subckt SW_SPST 1 2 params: ON=1

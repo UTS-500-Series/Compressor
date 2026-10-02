@@ -47,9 +47,11 @@ def fields(lib_id, ref, value):
         return [('Sim.Library', LIB), ('Sim.Name', name), ('Sim.Device', 'D'),
                 ('Sim.Pins', '1=K 2=A')]
     if lib_id == 'Device:R_Potentiometer':
+        # a trailing A in the value ("250kA") is an audio (log) taper
+        taper = ' TAPER=1' if value.endswith('A') else ''
         return [('Sim.Library', LIB), ('Sim.Name', 'POT'), ('Sim.Device', 'SUBCKT'),
                 ('Sim.Pins', SEQ(3)),
-                ('Sim.Params', 'R=%s POS={%s}' % (ohms(value), POT_PARAM[ref]))]
+                ('Sim.Params', 'R=%s POS={%s}%s' % (ohms(value.rstrip('A')), POT_PARAM[ref], taper))]
     if ref in SWITCH:
         name, params = SWITCH[ref]
         return [('Sim.Library', LIB), ('Sim.Name', name), ('Sim.Device', 'SUBCKT'),

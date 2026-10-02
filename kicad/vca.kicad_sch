@@ -2699,7 +2699,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "3k3"
+		(property "Value" "6k8"
 			(at 125.73 91.694 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4879,7 +4879,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2u2"
+		(property "Value" "4u7"
 			(at 124.46 68.58 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5039,7 +5039,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "3k3"
+		(property "Value" "6k8"
 			(at 128.778 72.136 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5901,7 +5901,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2u2"
+		(property "Value" "4u7"
 			(at 125.984 103.124 90)
 			(show_name no)
 			(do_not_autoplace no)

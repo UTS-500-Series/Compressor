@@ -3494,7 +3494,7 @@
 				)
 			)
 		)
-		(property "Value" "4k7"
+		(property "Value" "12k"
 			(at 257.048 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3713,7 +3713,7 @@
 				)
 			)
 		)
-		(property "Value" "220R"
+		(property "Value" "680R"
 			(at 177.8 125.476 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4388,7 +4388,7 @@
 				)
 			)
 		)
-		(property "Value" "20k"
+		(property "Value" "2k4"
 			(at 187.96 65.786 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4588,7 +4588,7 @@
 				)
 			)
 		)
-		(property "Value" "47R"
+		(property "Value" "150R"
 			(at 213.106 119.126 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4666,7 +4666,7 @@
 				)
 			)
 		)
-		(property "Value" "220k"
+		(property "Value" "1M"
 			(at 184.404 90.17 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5038,7 +5038,7 @@
 				)
 			)
 		)
-		(property "Value" "1M"
+		(property "Value" "250kA"
 			(at 175.006 60.452 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5124,7 +5124,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=1e+06 POS={THRESHOLD}"
+		(property "Sim.Params" "R=250000 POS={THRESHOLD} TAPER=1"
 			(at 172.72 63.5 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5254,7 +5254,7 @@
 				)
 			)
 		)
-		(property "Value" "4k7"
+		(property "Value" "20k"
 			(at 201.422 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5340,7 +5340,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=4700 POS={ATTACK}"
+		(property "Sim.Params" "R=20000 POS={ATTACK}"
 			(at 196.85 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6063,7 +6063,7 @@
 				)
 			)
 		)
-		(property "Value" "220k"
+		(property "Value" "1M"
 			(at 243.84 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6149,7 +6149,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=220000 POS={RELEASE}"
+		(property "Sim.Params" "R=1e+06 POS={RELEASE}"
 			(at 238.76 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6741,7 +6741,7 @@
 				)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "200k"
 			(at 211.074 68.58 90)
 			(show_name no)
 			(do_not_autoplace no)

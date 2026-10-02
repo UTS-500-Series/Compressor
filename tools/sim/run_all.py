@@ -47,8 +47,8 @@ def ac_response():
 
 # ---------------------------------------------------------------- compression curves
 L0, L1, RAMP_T = -24.0, 24.0, 8.0
-CURVES = [dict(THRESHOLD=t, RATIO=0) for t in (0, 0.1, 0.25, 0.5)] + \
-         [dict(THRESHOLD=0, RATIO=r) for r in (0.25, 0.5)] + [dict(THRESHOLD=0, RATIO=0, RELEASE=0)]
+CURVES = [dict(THRESHOLD=t, RATIO=0) for t in (0, 0.25, 0.5, 0.75, 1)] + \
+         [dict(THRESHOLD=0.25, RATIO=0.5), dict(THRESHOLD=0, RATIO=0, RELEASE=0)]
 
 
 def ramp(p):
@@ -67,17 +67,18 @@ def ramp(p):
 
 
 # ---------------------------------------------------------------- attack and release
-LO, HI, T1, T2 = 0, 16, 0.1, 0.6
+LO, HI, T1, T2, BURST_THRESHOLD = -10, 20, 0.1, 0.6, 0.5
 BURSTS = [('fastest attack', dict(ATTACK=0, RELEASE=0.5), 1.0),
           ('slowest attack', dict(ATTACK=1, RELEASE=0.5), 1.0),
           ('fastest release', dict(ATTACK=0.5, RELEASE=0), 1.2),
-          ('slowest release', dict(ATTACK=0.5, RELEASE=1), 6.0)]
+          ('slowest release', dict(ATTACK=0.5, RELEASE=1), 8.0)]
 
 
 def burst(case):
-    """0 dBu, then +16 dBu from 0.1 s to 0.6 s, then 0 dBu again; gain measured per cycle."""
+    """-10 dBu, then +20 dBu from 0.1 s to 0.6 s, then -10 dBu again, with the threshold at
+    half travel (about 0 dBu); gain measured per cycle."""
     name, p, tend = case
-    p = dict(p, THRESHOLD=0, RATIO=0, LEVEL_DBU=-300)
+    p = dict(p, THRESHOLD=BURST_THRESHOLD, RATIO=0, LEVEL_DBU=-300)
     env = '(time > %g && time < %g ? %g : %g)' % (T1, T2, S.peak(HI), S.peak(LO))
     c = run(p, 'tran 10u %g 0 20u' % tend, S.tone(env))
     t = c['t']
@@ -89,7 +90,7 @@ def burst(case):
 
 def times(b):
     """Attack: time from the step until 63% of the final reduction. Release: time from the
-    step down until 63% of the reduction has gone. Reduction is relative to the 0 dBu gain
+    step down until 63% of the reduction has gone. Reduction is relative to the gain
     before the burst."""
     t, g = np.array(b['t']), np.array(b['gain'])
     g0 = np.mean(g[(t > 0.05) & (t < 0.095)])
@@ -109,7 +110,7 @@ THD_CASES = [('no compression, +4 dBu', dict(LEVEL_DBU=4, THRESHOLD=1, RATIO=1))
              ('makeup full, +4 dBu', dict(LEVEL_DBU=4, THRESHOLD=1, RATIO=1, MAKEUP=1))] + \
             [('no compression, %+d dBu' % l, dict(LEVEL_DBU=l, THRESHOLD=1, RATIO=1)) for l in (16, 20, 22, 24)] + \
             [('compressing, threshold %g, %+d dBu' % (th, l), dict(TYPICAL, LEVEL_DBU=l, THRESHOLD=th, RATIO=0))
-             for th, l in ((0.1, 8), (0, 8), (0, 16))]
+             for th, l in ((0.25, 8), (0, 8), (0, 16))]
 
 
 def distortion(case):
@@ -161,11 +162,11 @@ def plots(res):
         g0 = np.mean(g[(t > 0.05) & (t < 0.095)])
         ax = axs[0] if 'attack' in b['name'] else axs[1]
         ax.plot(t, g - g0, color=colours[[0, 2, 4, 5][i]], lw=1.4, label=b['name'])
-    axs[0].set_xlim(0.05, 0.7); axs[1].set_xlim(0.05, 6)
+    axs[0].set_xlim(0.05, 0.7); axs[1].set_xlim(0.05, 8)
     axs[0].set_ylabel('Gain change (dB)')
     for ax in axs:
         ax.set_xlabel('Time (s)'); ax.legend(frameon=False, fontsize=7.5)
-    axs[0].set_title('0 dBu, +16 dBu burst 0.1 to 0.6 s, 0 dBu', loc='left')
+    axs[0].set_title('%+d dBu, %+d dBu burst 0.1 to 0.6 s, %+d dBu' % (LO, HI, LO), loc='left')
     fig.tight_layout(); fig.savefig(os.path.join(OUT, 'attack_release.png'), dpi=150); plt.close(fig)
 
 
