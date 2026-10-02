@@ -109,7 +109,7 @@ A(C('C15','10u','CTRL','AGND',B4,FP_CF))
 A(POT('RV6','500k','CTRL','RELO','RELO',B4))
 A(R('R47','15k','RELO','AGND',B4))
 A(OA('U4',2,{'5':'CTRL','6':'INV4B','7':'CTRL-B'},B4))
-A(R('R74','1M','INV4B','CTRL-B',B4))
+A(R('R74','220k','INV4B','CTRL-B',B4))
 
 # ---------------- Sheet 5 : power, references, meter ----------------
 B5='SH5 POWER, REFERENCES AND METER'

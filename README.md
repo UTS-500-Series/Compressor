@@ -230,7 +230,8 @@ Both scripts import from `tools/`, so a fresh clone has everything it needs.
 - Pin 11 is used as an auxiliary input, which the API 500 specification assigns to a gain-trim
   node. The aux section (U5 and its resistors) is a separable block; omit it and the module is
   fully standards-compliant.
-- Nothing has been SPICE'd. Loop stability at fast attack with high ratio is unverified.
+- Simulated in ngspice only (see [kicad/sim](kicad/sim/README.md)): no instability at the
+  fastest attack and hardest ratio there, but the op amp model is behavioural, so check on the bench.
 
 ## Licence
 

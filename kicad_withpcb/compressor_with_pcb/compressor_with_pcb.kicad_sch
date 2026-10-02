@@ -21780,7 +21780,7 @@
 				)
 			)
 		)
-		(property "Value" "1M"
+		(property "Value" "220k"
 			(at 81.534 152.4 90)
 			(show_name no)
 			(do_not_autoplace no)
