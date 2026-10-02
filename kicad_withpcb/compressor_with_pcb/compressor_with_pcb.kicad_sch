@@ -23948,7 +23948,7 @@
 				)
 			)
 		)
-		(property "Value" "680R"
+		(property "Value" "220R"
 			(at 74.93 187.706 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25076,7 +25076,7 @@
 				)
 			)
 		)
-		(property "Value" "12k"
+		(property "Value" "15k"
 			(at 154.178 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25234,7 +25234,7 @@
 				)
 			)
 		)
-		(property "Value" "150R"
+		(property "Value" "47R"
 			(at 110.236 181.356 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31545,7 +31545,7 @@
 				)
 			)
 		)
-		(property "Value" "20k"
+		(property "Value" "10k"
 			(at 98.552 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)

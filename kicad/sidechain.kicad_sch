@@ -3494,7 +3494,7 @@
 				)
 			)
 		)
-		(property "Value" "12k"
+		(property "Value" "15k"
 			(at 257.048 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3713,7 +3713,7 @@
 				)
 			)
 		)
-		(property "Value" "680R"
+		(property "Value" "220R"
 			(at 177.8 125.476 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4588,7 +4588,7 @@
 				)
 			)
 		)
-		(property "Value" "150R"
+		(property "Value" "47R"
 			(at 213.106 119.126 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5254,7 +5254,7 @@
 				)
 			)
 		)
-		(property "Value" "20k"
+		(property "Value" "10k"
 			(at 201.422 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5340,7 +5340,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=20000 POS={ATTACK}"
+		(property "Sim.Params" "R=10000 POS={ATTACK}"
 			(at 196.85 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)

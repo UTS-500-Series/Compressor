@@ -4495,7 +4495,7 @@
 				)
 			)
 		)
-		(property "Value" "150R"
+		(property "Value" "47R"
 			(at 5.08 2.37 0)
 			(layer "F.Fab")
 			(uuid "0c66eed2-7f0c-4f0e-a051-fd9634c47cd3")
@@ -14995,7 +14995,7 @@
 				)
 			)
 		)
-		(property "Value" "12k"
+		(property "Value" "15k"
 			(at 5.08 2.37 0)
 			(layer "F.Fab")
 			(uuid "3caa2b99-6958-4c9c-aaf3-a48d32bd6be4")
@@ -16708,7 +16708,7 @@
 				)
 			)
 		)
-		(property "Value" "680R"
+		(property "Value" "220R"
 			(at 5.08 2.37 270)
 			(layer "F.Fab")
 			(uuid "04783db6-4274-4df9-b9ca-ad78244e39b1")
