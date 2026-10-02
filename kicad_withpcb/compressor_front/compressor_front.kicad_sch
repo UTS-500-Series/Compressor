@@ -5397,7 +5397,7 @@
 				)
 			)
 		)
-		(property "Value" "500k"
+		(property "Value" "100k"
 			(at 275.59 50.8 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8219,7 +8219,7 @@
 				)
 			)
 		)
-		(property "Value" "250kA"
+		(property "Value" "100kA"
 			(at 152.146 46.482 90)
 			(show_name no)
 			(do_not_autoplace no)

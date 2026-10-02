@@ -3007,7 +3007,7 @@
 				)
 			)
 		)
-		(property "Value" "500k"
+		(property "Value" "100k"
 			(at 6.05 10.15 90)
 			(layer "F.Fab")
 			(uuid "9d845aa5-3c47-418e-b663-f19ad44de7b5")
@@ -3316,7 +3316,7 @@
 				)
 			)
 		)
-		(property "Value" "250kA"
+		(property "Value" "100kA"
 			(at 6.05 10.15 90)
 			(layer "F.Fab")
 			(uuid "dea421ad-0ab4-4b8c-bd3d-735f0a209274")

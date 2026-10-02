@@ -4011,7 +4011,7 @@
 				)
 			)
 		)
-		(property "Value" "220n"
+		(property "Value" "2u2"
 			(at 156.21 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4309,7 +4309,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "1k"
 			(at 167.386 74.168 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4388,7 +4388,7 @@
 				)
 			)
 		)
-		(property "Value" "2k4"
+		(property "Value" "1k"
 			(at 187.96 65.786 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5038,7 +5038,7 @@
 				)
 			)
 		)
-		(property "Value" "250kA"
+		(property "Value" "100kA"
 			(at 175.006 60.452 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5124,7 +5124,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=250000 POS={THRESHOLD} TAPER=1"
+		(property "Sim.Params" "R=100000 POS={THRESHOLD} TAPER=1"
 			(at 172.72 63.5 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6063,7 +6063,7 @@
 				)
 			)
 		)
-		(property "Value" "500k"
+		(property "Value" "100k"
 			(at 243.84 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6149,7 +6149,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=500000 POS={RELEASE}"
+		(property "Sim.Params" "R=100000 POS={RELEASE}"
 			(at 238.76 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6741,7 +6741,7 @@
 				)
 			)
 		)
-		(property "Value" "200k"
+		(property "Value" "82k"
 			(at 211.074 68.58 90)
 			(show_name no)
 			(do_not_autoplace no)

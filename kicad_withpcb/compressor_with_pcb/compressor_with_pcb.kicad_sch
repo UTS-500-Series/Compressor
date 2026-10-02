@@ -15230,7 +15230,7 @@
 				)
 			)
 		)
-		(property "Value" "500k"
+		(property "Value" "100k"
 			(at 140.97 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20166,7 +20166,7 @@
 				)
 			)
 		)
-		(property "Value" "2k4"
+		(property "Value" "1k"
 			(at 85.09 128.016 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27667,7 +27667,7 @@
 				)
 			)
 		)
-		(property "Value" "200k"
+		(property "Value" "82k"
 			(at 108.204 130.81 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30097,7 +30097,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "1k"
 			(at 64.516 136.398 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31944,7 +31944,7 @@
 				)
 			)
 		)
-		(property "Value" "250kA"
+		(property "Value" "100kA"
 			(at 72.136 122.682 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -37175,7 +37175,7 @@
 				)
 			)
 		)
-		(property "Value" "220n"
+		(property "Value" "2u2"
 			(at 53.34 129.54 90)
 			(show_name no)
 			(do_not_autoplace no)
