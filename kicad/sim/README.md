@@ -105,14 +105,14 @@ moved, so the board layouts keep their routing.
 | Gain at 1 kHz, balanced in to out | +5.8 dB | −0.1 dB | 0 dB |
 | RV1 trim range | +4.9 to +6.8 dB | +0.9 to −1.0 dB | covers 0 dB |
 | −3 dB points | 22 Hz, 60 kHz | 5.6 Hz, 60 kHz | 20 Hz to 20 kHz |
-| Threshold (1 dB of reduction) | −9 to above +20 dBu | −20 to +20 dBu | −20 to +14 dBu |
-| Threshold at RV3 0, ¼, ½, ¾, 1 | −9, +14, above +20 by ½ | −20, −10, 0, +10, +20 | an even spread |
-| Most reduction (+22 dBu in) | 22 dB | 35 dB | about 40 dB |
+| Threshold (1 dB of reduction) | −9 to above +20 dBu | −21 to +19 dBu | −20 to +14 dBu |
+| Threshold at RV3 0, ¼, ½, ¾, 1 | −9, +14, above +20 by ½ | −21, −10, 0, +10, +19 | an even spread |
+| Most reduction (+22 dBu in) | 22 dB | 36 dB | about 40 dB |
 | Attack, fastest to slowest | 1 to 14 ms | 2 to 34 ms | 2.7 to 50 ms |
 | Release, fastest to slowest | 20 ms to 0.44 s | 50 ms to 1.8 s | 47 ms to 2.2 s |
 | Resting steer, VREF5 | 94 mV, 3.60 V | 151 mV, 5.77 V | 150 mV, 5.49 V |
 | CTRL-B at most reduction | −4.5 V | −8.0 V | −10 V |
-| Supply at rest, +16 / −16 V | 72 / 61 mA | 72 / 61 mA | about 60 mA |
+| Supply at rest, +16 / −16 V | 72 / 61 mA | 72 / 62 mA | about 60 mA |
 
 Distortion stays low while it compresses, which is the whole point of the steering cell:
 
@@ -120,18 +120,21 @@ Distortion stays low while it compresses, which is the whole point of the steeri
 |---|---|---|---|
 | +4 dBu in, not compressing | +3.9 dBu | 0 | 0.008% |
 | +4 dBu in, makeup at full | +24.7 dBu | 0 | 0.010% |
-| +8 dBu in, threshold at ¼ | −5.7 dBu | 13.6 dB | 0.020% |
-| +8 dBu in, threshold lowest | −15.0 dBu | 22.9 dB | 0.032% |
-| +16 dBu in, threshold lowest | −14.2 dBu | 30.1 dB | 0.038% |
-| +16 / +20 / +22 dBu in, not compressing | | 0 | 0.033% / 0.057% / 0.078% |
-| +24 dBu in, not compressing | | 0 | 6.1%, the input stage clipping |
+| +8 dBu in, threshold at ¼ | −5.9 dBu | 13.7 dB | 0.026% |
+| +8 dBu in, threshold lowest | −15.4 dBu | 23.3 dB | 0.052% |
+| +16 dBu in, threshold lowest | −14.6 dBu | 30.5 dB | 0.060% |
+| +16 / +20 / +22 dBu in, not compressing | | 0 | 0.033% / 0.057% / 0.079% |
+| +24 dBu in, not compressing | | 0 | 6.2%, the input stage clipping |
 
 The op amp model has no distortion of its own below clipping, so these figures are the gain
 cell's. Real NE5532s add a little.
 
+The compressing figures rose from 0.02–0.04% to 0.03–0.06% with the sidechain changes (R35,
+R38, C14), which let more detector ripple through at the lowest thresholds. Still well under 0.1%.
+
 ### What still misses
 
-1. **Most gain reduction is 35 dB, not 40 dB.** The input stage clips at about +23 dBu on
+1. **Most gain reduction is 36 dB, not 40 dB.** The input stage clips at about +23 dBu on
    ±16 V, so 40 dB would need a threshold near −30 dBu. Better to restate the target.
 2. **The slowest attack is 34 ms and the slowest release 1.8 s**, against 50 ms and 2.2 s.
    The next stock pot values overshoot the other way (RV6 at 1M simulated 3.4 s), so these
@@ -142,7 +145,7 @@ cell's. Real NE5532s add a little.
    above the threshold, steeper (6:1 to 11:1) by 20 dB over.
 5. **CTRL-B reaches −8.0 V at the most reduction, not −10 V.** Set the gain-reduction meter's
    RV7 against a measured CTRL-B.
-6. **Supply current is about 72 / 61 mA at rest** (README says about 60 mA). That includes
+6. **Supply current is about 72 / 62 mA at rest** (README says about 60 mA). That includes
    6 mA for each LM3914 but not the lit meter LEDs, which add several mA each.
 7. **C22 (fixed).** C22 filters the reference for STA only. When CTRL-B pulled the shared
    reference node down, STA lagged STB by about 60 ms, so the gain kept falling after the
