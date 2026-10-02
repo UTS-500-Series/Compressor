@@ -5397,7 +5397,7 @@
 				)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "500k"
 			(at 275.59 50.8 90)
 			(show_name no)
 			(do_not_autoplace no)

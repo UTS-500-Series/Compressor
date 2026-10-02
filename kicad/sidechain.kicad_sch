@@ -6063,7 +6063,7 @@
 				)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "500k"
 			(at 243.84 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6149,7 +6149,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=100000 POS={RELEASE}"
+		(property "Sim.Params" "R=500000 POS={RELEASE}"
 			(at 238.76 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)

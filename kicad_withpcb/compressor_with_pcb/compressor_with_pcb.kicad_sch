@@ -15230,7 +15230,7 @@
 				)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "500k"
 			(at 140.97 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
