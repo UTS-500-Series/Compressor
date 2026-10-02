@@ -1166,7 +1166,7 @@
 				)
 			)
 		)
-		(property "Value" "3k3"
+		(property "Value" "6k8"
 			(at 5.08 2.37 270)
 			(layer "F.Fab")
 			(uuid "09867669-7c36-46e1-acd3-18f76d093d34")
@@ -1972,7 +1972,7 @@
 				)
 			)
 		)
-		(property "Value" "47k"
+		(property "Value" "24k"
 			(at 5.08 2.37 90)
 			(layer "F.Fab")
 			(uuid "71fb4d40-b972-4c5d-84e3-c48debcdf4c0")
@@ -4495,7 +4495,7 @@
 				)
 			)
 		)
-		(property "Value" "47R"
+		(property "Value" "150R"
 			(at 5.08 2.37 0)
 			(layer "F.Fab")
 			(uuid "0c66eed2-7f0c-4f0e-a051-fd9634c47cd3")
@@ -7036,7 +7036,7 @@
 				)
 			)
 		)
-		(property "Value" "20k"
+		(property "Value" "2k4"
 			(at 5.08 2.37 90)
 			(layer "F.Fab")
 			(uuid "f10dcd94-a47e-4f9e-89bc-2e9c5ff5b5f8")
@@ -11965,7 +11965,7 @@
 				)
 			)
 		)
-		(property "Value" "3k3"
+		(property "Value" "6k8"
 			(at 5.08 2.37 0)
 			(layer "F.Fab")
 			(uuid "db223381-1400-47d0-81c6-94c3aa597e96")
@@ -14995,7 +14995,7 @@
 				)
 			)
 		)
-		(property "Value" "4k7"
+		(property "Value" "12k"
 			(at 5.08 2.37 0)
 			(layer "F.Fab")
 			(uuid "3caa2b99-6958-4c9c-aaf3-a48d32bd6be4")
@@ -16708,7 +16708,7 @@
 				)
 			)
 		)
-		(property "Value" "220R"
+		(property "Value" "680R"
 			(at 5.08 2.37 270)
 			(layer "F.Fab")
 			(uuid "04783db6-4274-4df9-b9ca-ad78244e39b1")
@@ -20509,7 +20509,7 @@
 				)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "200k"
 			(at 5.08 2.37 90)
 			(layer "F.Fab")
 			(uuid "f7c521ea-153f-4d3e-9ab5-aa82d0341445")
@@ -23814,7 +23814,7 @@
 				)
 			)
 		)
-		(property "Value" "220k"
+		(property "Value" "1M"
 			(at 5.08 2.37 90)
 			(layer "F.Fab")
 			(uuid "9998b7aa-8f79-4db8-aa04-19192c4aa8cc")
@@ -27524,7 +27524,7 @@
 				)
 			)
 		)
-		(property "Value" "2u2"
+		(property "Value" "4u7"
 			(at 2.5 2.5 270)
 			(layer "F.Fab")
 			(uuid "354014e1-74ad-4b0a-a09c-d97318b8a03c")
@@ -31542,7 +31542,7 @@
 				)
 			)
 		)
-		(property "Value" "2u2"
+		(property "Value" "4u7"
 			(at 2.5 2.5 90)
 			(layer "F.Fab")
 			(uuid "5dfc06bb-0d49-4880-b3a4-f1bb9ccf2fc8")

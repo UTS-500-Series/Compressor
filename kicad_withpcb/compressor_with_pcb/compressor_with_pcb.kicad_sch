@@ -15230,7 +15230,7 @@
 				)
 			)
 		)
-		(property "Value" "220k"
+		(property "Value" "1M"
 			(at 140.97 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20166,7 +20166,7 @@
 				)
 			)
 		)
-		(property "Value" "20k"
+		(property "Value" "2k4"
 			(at 85.09 128.016 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21780,7 +21780,7 @@
 				)
 			)
 		)
-		(property "Value" "220k"
+		(property "Value" "1M"
 			(at 81.534 152.4 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23869,7 +23869,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2u2"
+		(property "Value" "4u7"
 			(at 96.52 50.8 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23948,7 +23948,7 @@
 				)
 			)
 		)
-		(property "Value" "220R"
+		(property "Value" "680R"
 			(at 74.93 187.706 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25076,7 +25076,7 @@
 				)
 			)
 		)
-		(property "Value" "4k7"
+		(property "Value" "12k"
 			(at 154.178 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25234,7 +25234,7 @@
 				)
 			)
 		)
-		(property "Value" "47R"
+		(property "Value" "150R"
 			(at 110.236 181.356 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26268,7 +26268,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "3k3"
+		(property "Value" "6k8"
 			(at 97.79 73.914 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27667,7 +27667,7 @@
 				)
 			)
 		)
-		(property "Value" "100k"
+		(property "Value" "200k"
 			(at 108.204 130.81 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28141,7 +28141,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "2u2"
+		(property "Value" "4u7"
 			(at 98.044 85.344 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30017,7 +30017,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "3k3"
+		(property "Value" "6k8"
 			(at 100.838 54.356 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31545,7 +31545,7 @@
 				)
 			)
 		)
-		(property "Value" "4k7"
+		(property "Value" "20k"
 			(at 98.552 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31944,7 +31944,7 @@
 				)
 			)
 		)
-		(property "Value" "1M"
+		(property "Value" "250kA"
 			(at 72.136 122.682 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33990,7 +33990,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47k"
+		(property "Value" "24k"
 			(at 30.48 220.218 90)
 			(show_name no)
 			(do_not_autoplace no)
