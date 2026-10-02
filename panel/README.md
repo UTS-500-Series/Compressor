@@ -86,23 +86,31 @@ Origin is the **top-left corner** of the panel, x right, y down. All in millimet
 
 | Ref | Function | X (mm) | Y (mm) | Hole Ø | Hardware |
 |---|---|---|---|---|---|
-| `RV3` | THRESHOLD | 19.05 | 52.00 | 7.2 | 9 mm pot (Alps RK09K), M7 bushing |
+| `RV3` | THRESHOLD | 19.05 | 52.00 | 7.2 | 9 mm pot (Altronics R19xx or Alps RK09K), M7 bushing |
 | `RV4` | RATIO | 19.05 | 72.50 | 7.2 | 9 mm pot |
 | `RV5` | ATTACK | 10.00 | 91.00 | 7.2 | 9 mm pot |
 | `RV6` | RELEASE | 25.10 | 91.00 | 7.2 | 9 mm pot |
 | `RV2` | MAKEUP | 19.05 | 111.00 | 7.2 | 9 mm pot |
-| `SW3` | HPF | 6.90 | 52.00 | 5.2 | sub-miniature toggle, SPDT (Jaycar ST0300) |
-| `SW2` | KEY | 31.20 | 52.00 | 5.2 | sub-miniature toggle, SPDT (Jaycar ST0300) |
-| `SW4` | LINK | 6.90 | 72.50 | 5.2 | sub-miniature toggle, SPDT (Jaycar ST0300) |
-| `SW1` | BYPASS | 31.20 | 72.50 | 5.2 | sub-miniature toggle, DPDT (Jaycar ST0310) |
+| `SW3` | HPF | 7.15 | 52.00 | 6.5 | mini toggle, SPDT, 1/4-40 bushing (Salecom S1315) |
+| `SW2` | KEY | 30.95 | 52.00 | 6.5 | mini toggle, SPDT (Salecom S1315) |
+| `SW4` | LINK | 7.15 | 72.50 | 6.5 | mini toggle, SPDT (Salecom S1315) |
+| `SW1` | BYPASS | 30.95 | 72.50 | 6.5 | mini toggle, DPDT (Salecom S1350) |
 | `D20`–`D26` | GR meter, 7 seg | 14.10 | 14.0 to 35.0, 3.5 pitch | 2.2 | 2 mm flat-top LED |
 | `D30`–`D36` | LVL meter, 7 seg | 24.00 | 14.0 to 35.0, 3.5 pitch | 2.2 | 2 mm flat-top LED |
 | — | mounting | 19.05 | 3.96 | 3.18 | c'sink 82° to Ø5.72 |
 | — | mounting | 19.05 | 129.39 | 3.18 | c'sink 82° to Ø5.72 |
 
-The toggles' 10-48 bushing is only 4.06 mm long, which leaves under 1 mm of thread for the
-nut through a 3.18 mm panel. Either thin the panel to about 2 mm around those four holes
-(a counterbore from the back), or use a 1.6 to 2 mm panel.
+The front board sits about 10.6 mm behind the panel, set by the 9 mm pots' body height
+(the toggles stand 10.4 mm). The toggles' 8.9 mm bushing leaves about 5.5 mm of thread in
+front of a 3.18 mm panel, plenty for the washer and nut. The pots' 5 mm bushing leaves
+under 2 mm, so thin the panel to about 2 mm around the five pot holes (a counterbore from
+the back), or use a 1.6 to 2 mm panel. The toggles come with a tabbed locking washer; drill
+a small hole for its tab if you want it, or flatten the tab.
+
+The toggles sit 0.25 mm in from where the old sub-miniature ones were, so the S1350's
+11.4 mm body stays on the 35 mm front board. In the `toggle` layout `make_panel.py` also
+checks the switch and pot bodies behind the panel: each stays on the front board and at
+least 0.5 mm from its neighbours. The tightest pair is BYPASS and RATIO, 1.3 mm apart.
 
 ATTACK and RELEASE sit 1.5 mm left of symmetric so the ribbon header on the back of the
 front board clears the RELEASE pot. The meter columns are 9.9 mm apart rather than 10.9 so
@@ -152,7 +160,8 @@ lost by choosing another. Commit after a round you like.
   and a 3 mm LED bezel. Check them against the parts you actually buy — bushing diameters
   vary between manufacturers and a 0.5 mm error is the difference between a push fit and a
   rattle.
-- **Depth clearance is not modelled.** This is a 2D drawing. Confirm that knobs, switch bodies
-  and the LED clear the PCB and the neighbouring module before committing.
+- **Depth is not modelled.** The body footprints behind the panel are checked (toggle layout),
+  but heights are not. Confirm that knobs, switch bodies and the LEDs clear the PCB and the
+  neighbouring module before committing.
 - **The countersink is on the front face**, so the screw sits flush with the panel.
 - Silkscreen colours in the mockup are indicative. Ask your finisher what they can hold.

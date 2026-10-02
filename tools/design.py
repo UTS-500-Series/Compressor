@@ -5,6 +5,10 @@ Op-amp packages appear as three units: A (unit1), B (unit2), P (unit3 = power pi
 FP_R   = 'Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal'
 FP_CC  = 'Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm'
 FP_CF  = 'Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm'
+# Real film parts (element14, Oct 2026): TDK B32562H1106K000 10u, B32562H1475K000 4u7, KEMET MMK5225K63J06L4BULK 2u2
+FP_F10 = 'Capacitor_THT:C_Rect_L16.5mm_W11.8mm_P15.00mm_MKT'
+FP_F47 = 'Capacitor_THT:C_Rect_L16.5mm_W7.3mm_P15.00mm_MKT'
+FP_F22 = 'Capacitor_THT:C_Rect_L7.2mm_W7.2mm_P5.00mm_FKS2_FKP2_MKS2_MKP2'
 FP_CE  = 'Capacitor_THT:CP_Radial_D6.3mm_P2.50mm'
 FP_D   = 'Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal'
 FP_D4  = 'Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal'
@@ -48,19 +52,19 @@ A(R('R8','75R','PAD','AGND',B1))
 
 # ---------------- Sheet 2 : steering VCA + recovery ----------------
 B2='SH2 STEERING VCA AND RECOVERY AMP'
-A(C('C5','10u','PAD','Q1B',B2,FP_CF)); A(R('R11','10k','Q1B','VBIAS',B2))
+A(C('C5','10u','PAD','Q1B',B2,FP_F10)); A(R('R11','10k','Q1B','VBIAS',B2))
 A(Q('Q1','EA','Q1B','Q1E',B2));        A(R('R14','220R','Q1E','TAIL',B2))
 A(Q('Q2','EB','Q2B','Q2E',B2));        A(R('R15','220R','Q2E','TAIL',B2))
 A(R('R12','10k','Q2B','VBIAS',B2));    A(R('R13','220R','Q2B','C8A',B2))
-A(C('C8','10u','C8A','AGND',B2,FP_CF))
+A(C('C8','10u','C8A','AGND',B2,FP_F10))
 A(Q('Q3','TAIL','AGND','Q3E',B2));     A(R('R18','1k5','Q3E','-5V1',B2))
 A(Q('Q6','+16V','STA','EA',B2));       A(Q('Q7','CP','STB','EA',B2))
 A(Q('Q8','+16V','STA','EB',B2));       A(Q('Q9','CN','STB','EB',B2))
 A(R('R16','4k7','+16V','CP',B2));      A(R('R17','4k7','+16V','CN',B2))
 A(Q('Q4','+16V','CP','E1',B2));        A(Q('Q5','+16V','CN','E2',B2))
 A(R('R19','10k','E1','AGND',B2));      A(R('R20','10k','E2','AGND',B2))
-A(C('C9','2u2','E1','C9B',B2,FP_CF));  A(R('R21','3k3','C9B','INV1B',B2))
-A(C('C10','2u2','E2','C10B',B2,FP_CF));A(R('R22','3k3','C10B','NINV1B',B2))
+A(C('C9','4u7','E1','C9B',B2,FP_F47));  A(R('R21','6k8','C9B','INV1B',B2))
+A(C('C10','4u7','E2','C10B',B2,FP_F47));A(R('R22','6k8','C10B','NINV1B',B2))
 A(R('R23','22k','INV1B','SIG-VCA',B2));A(C('C11','100p','INV1B','SIG-VCA',B2))
 A(R('R24','22k','NINV1B','AGND',B2))
 A(OA('U1',2,{'5':'NINV1B','6':'INV1B','7':'SIG-VCA'},B2))
@@ -86,11 +90,11 @@ A(R('R33','100R','AUXBUF','AUXOUT+',B3)); A(R('R34','100R','AGND','AUXOUT-',B3))
 B4='SH4 SIDECHAIN DETECTOR'
 A(('SW2','Switch','SW_SPDT','INT/EXT','',B4,{'2':'SCSEL','1':'SIG-VCA','3':'KEY'},1))
 A(OA('U6',2,{'5':'SCSEL','6':'SCBUF','7':'SCBUF'},B4))
-A(C('C14','220n','SCBUF','SCF',B4,FP_CF))
+A(C('C14','2u2','SCBUF','SCF',B4,FP_F22))
 A(('SW3','Switch','SW_SPST','HPF DEFEAT','',B4,{'1':'SCBUF','2':'SCF'},1))
-A(R('R38','10k','SCF','AGND',B4))
-A(POT('RV3','1M','SCF','RV3O','RV3O',B4))
-A(R('R35','20k','RV3O','INV3A',B4));   A(R('R36','100k','INV3A','SC-AMP',B4))
+A(R('R38','1k','SCF','AGND',B4))
+A(POT('RV3','100kA','SCF','RV3O','RV3O',B4))
+A(R('R35','1k','RV3O','INV3A',B4));   A(R('R36','82k','INV3A','SC-AMP',B4))
 A(R('R37','47k','NINV3A','AGND',B4))
 A(OA('U3',1,{'3':'NINV3A','2':'INV3A','1':'SC-AMP'},B4))
 A(R('R39','10k','SC-AMP','S1',B4));    A(R('R41','10k','NINV3B','AGND',B4))
@@ -103,11 +107,11 @@ A(OA('U4',1,{'3':'NINV4A','2':'S2','1':'RECT'},B4))
 A(POT('RV4','100k','RECT','RATW','AGND',B4))
 A(R('R45','220R','RATW','LINKN',B4))
 A(('SW4','Switch','SW_SPST','LINK','',B4,{'1':'LINKN','2':'LINK'},1))
-A(POT('RV5','4k7','LINKN','ATKO','ATKO',B4))
+A(POT('RV5','10k','LINKN','ATKO','ATKO',B4))
 A(R('R46','47R','ATKO','D7K',B4));     A(D('D7','1N4148','CTRL','D7K',B4))
-A(C('C15','10u','CTRL','AGND',B4,FP_CF))
-A(POT('RV6','220k','CTRL','RELO','RELO',B4))
-A(R('R47','4k7','RELO','AGND',B4))
+A(C('C15','10u','CTRL','AGND',B4,FP_F10))
+A(POT('RV6','1M','CTRL','RELO','RELO',B4))
+A(R('R47','15k','RELO','AGND',B4))
 A(OA('U4',2,{'5':'CTRL','6':'INV4B','7':'CTRL-B'},B4))
 A(R('R74','220k','INV4B','CTRL-B',B4))
 
@@ -121,9 +125,9 @@ A(R('R53','1k8','-16V','-5V1',B5));    A(Z('D10','BZX79-C5V1','-5V1','AGND',B5))
 A(CP('C19','47u','AGND','-5V1',B5));   A(C('C20','100n','-5V1','AGND',B5))
 A(R('R9','68k','+16V','VBIAS',B5));    A(R('R10','11k','VBIAS','AGND',B5))
 A(CP('C6','100u','VBIAS','AGND',B5));  A(C('C7','100n','VBIAS','AGND',B5))
-A(R('R60','47k','+16V','VREF5',B5));   A(R('R61','1k33','VREF5','VREFA',B5))
+A(R('R60','24k','+16V','VREF5',B5));   A(R('R61','1k33','VREF5','VREFA',B5))
 A(R('R62','23k2','VREFA','AGND',B5))
-A(CP('C21','47u','VREF5','AGND',B5));  A(CP('C22','47u','VREFA','AGND',B5))
+A(CP('C21','47u','VREF5','AGND',B5));  A(CP('C22','4u7','VREFA','AGND',B5))
 A(R('R68','1k','VREF5','STB',B5));     A(R('R69','36k','STB','CTRL-B',B5))
 A(OA('U6',1,{'3':'VREFA','2':'STA','1':'STA'},B5))
 A(R('R77','3k9','AGND','LED-A',B5))
@@ -162,7 +166,7 @@ A(POT('RV8','20k','OUT-A','LVLTRM','AGND',B7,FP_TRM))
 A(R('R86','10k','LVLTRM','MTRIN',B7))
 A(OA('U7',1,{'3':'MTRIN','2':'PKDET','1':'U7AO'},B7))
 A(R('R87','1k','U7AO','D11A',B7));      A(D('D11','1N4148','D11A','PKDET',B7))
-A(C('C35','2u2','PKDET','AGND',B7,FP_CF))
+A(C('C35','2u2','PKDET','AGND',B7,FP_F22))
 A(R('R88','100k','PKDET','AGND',B7))    # 220 ms decay - meter ballistics, not a detector
 
 # -- U8 gain reduction, LM3914 linear, LEDs on outputs 1-7 so the first segment lights

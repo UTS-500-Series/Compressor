@@ -18,6 +18,9 @@ export KICAD_SYMBOL_DIR=/path/to/kicad/symbols
 | `verify_netlist.py` | Exports the netlist with `kicad-cli` and diffs it against `design.py`, net by net and pin by pin. **Run this after any significant edit.** |
 | `sexp.py` | KiCad s-expression parser and symbol-library resolver. Imported by the others. |
 | `design.py` | The netlist as data — the source of truth everything is checked against. |
+| `bom_altronics.py` | Writes `bom/altronics.csv`, the Altronics order list for both boards, from the `kicad_withpcb` schematics. Prices and stock are what the site showed on the date in the script. |
+| `bom_order.py` | The older DigiKey order list, from `design.py`. |
+| `make_toggle_models.py` | Writes the STEP models for the Salecom toggles on the front board. |
 
 ```bash
 python3 tools/verify_netlist.py

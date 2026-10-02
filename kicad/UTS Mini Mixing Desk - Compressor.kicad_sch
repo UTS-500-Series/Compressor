@@ -11,6 +11,17 @@
 		(company "UTS Mini Mixing Desk")
 	)
 	(lib_symbols)
+	(text ".param LEVEL_DBU=4 FREQ=1k\n.param THRESHOLD=0.5 RATIO=1 ATTACK=0.5 RELEASE=0.5 MAKEUP=0\n.param TRIM=0.5 GRTRIM=0.5 LVLTRIM=0.5\n.param BYPASS=0 KEY=0 HPF_DEFEAT=0 LINK=0\n* Test bench (Inspect > Simulator): see sim/README.md. Knobs run 0 to 1.\n* Rack supply and ground. AGND is SPICE ground 0.\nVGND AGND 0 0\nVPOS +16V-IN 0 16\nVNEG -16V-IN 0 -16\nRPGND PGND 0 0.01\n* Balanced source, 50R per leg, LEVEL_DBU differential\n.param VPK={0.7746*sqrt(2)*pwr(10,LEVEL_DBU/20)}\nVINP SRC+ 0 DC 0 AC 0.5 SIN(0 {VPK/2} {FREQ})\nVINN SRC- 0 DC 0 AC 0.5 180 SIN(0 {-VPK/2} {FREQ})\nRSP SRC+ IN+ 50\nRSN SRC- IN- 50\n* 20k balanced load; aux inputs and link bus open\nRLP OUT+ 0 10k\nRLN OUT- 0 10k\nRAUXP AUXIN+ 0 1G\nRAUXN AUXIN- 0 1G\nRLINK LINK 0 1G\nEOUT OUT_DIFF 0 OUT+ OUT- 1\nROUT OUT_DIFF 0 1G\n* Solver: the 1G shunt on every node stops ngspice stalling while it compresses hard\n.options method=gear rshunt=1e9"
+		(exclude_from_sim no)
+		(at 140.97 142.24 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "6a1f3c2e-5b7d-4e0a-9c41-2f8d7e6b1a90")
+	)
 	(text "UTS Mini Mixing Desk - Compressor - one sheet per section"
 		(exclude_from_sim no)
 		(at 49.53 30.72 0)

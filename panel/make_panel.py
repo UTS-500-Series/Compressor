@@ -25,7 +25,7 @@ HOLE_Y     = [(H - HOLE_PITCH) / 2, (H - HOLE_PITCH) / 2 + HOLE_PITCH]
 # ---------------------------------------------------------------- hardware
 BUSH_CONC = 9.5      # dual-concentric pot, 3/8" bushing
 BUSH_POT  = 7.2      # 9 mm pot, M7 bushing
-BUSH_TOG  = 5.2      # sub-miniature toggle, 10-48 UNS bushing (Jaycar ST0300 / ST0310)
+BUSH_TOG  = 6.5      # mini toggle, 1/4-40 bushing (Salecom S1315 / S1332 / S1350, Altronics)
 BUSH_BTN  = 8.0      # illuminated latching pushbutton
 LED_HOLE  = 2.2      # 2 mm meter LED
 KNOB_OUT  = 15.0     # concentric outer skirt
@@ -69,12 +69,12 @@ LAYOUTS = {
         # flanking the two knobs they belong to: the sidechain pair beside THRESHOLD,
         # the two set-and-forget switches beside RATIO
         toggles=[
-            ('SW3', 'HPF',    6.9,  52.0,  BUSH_TOG),
-            ('SW2', 'KEY',    31.2, 52.0,  BUSH_TOG),
-            ('SW4', 'LINK',   6.9,  72.5,  BUSH_TOG),
-            ('SW1', 'BYPASS', 31.2, 72.5,  BUSH_TOG),
+            ('SW3', 'HPF',    7.15, 52.0,  BUSH_TOG),
+            ('SW2', 'KEY',    30.95, 52.0, BUSH_TOG),
+            ('SW4', 'LINK',   7.15, 72.5,  BUSH_TOG),
+            ('SW1', 'BYPASS', 30.95, 72.5, BUSH_TOG),
         ],
-        rules=False, window=True),
+        rules=False, window=True, board=True),
     'concentric': dict(
         concentric=[
             ('THRESHOLD', 'RV3', 'RATIO',   'RV4', CL, 56.0),
@@ -94,10 +94,35 @@ def use_layout(name):
     g['CONCENTRIC'], g['SINGLES'] = L['concentric'], L['singles']
     g['BUTTONS'], g['TOGGLES'] = L['buttons'], L['toggles']
     g['SHOW_RULES'], g['SHOW_WINDOW'] = L['rules'], L['window']
+    g['ON_BOARD'] = L.get('board', False)
 
 
 CONCENTRIC, SINGLES, BUTTONS, TOGGLES = [], [], [], []
 SHOW_RULES = SHOW_WINDOW = True
+ON_BOARD = False
+
+# ---------------------------------------------------------------- behind the panel
+# Footprints of the bodies on the front board, for the toggle layout only (the one the
+# board is drawn for). Toggles are centred on the bushing; the 9 mm pot body is 9.8 wide
+# and 12 tall with the shaft 5.5 mm below its top edge (Altronics R19xx drawing).
+FRONT_BOARD = (1.55, 12.0, 36.55, 122.0)          # x0, y0, x1, y1 in panel coordinates
+TOG_BODY    = {'SW1': (11.4, 12.7)}               # S1350 DPDT; the rest are S1315 SPDT
+TOG_BODY_SPDT = (6.9, 12.7)
+POT_BODY    = (9.8, 12.0, 5.5)                    # width, height, shaft below top edge
+BODY_GAP    = 0.5                                 # air between neighbouring bodies
+EDGE_SLACK  = 0.2                                 # a body may overhang the board this much
+
+
+def bodies():
+    """(ref, x0, y0, x1, y1) of every switch and pot body behind the panel."""
+    out = []
+    for r, l, x, y, d in TOGGLES:
+        w, h = TOG_BODY.get(r, TOG_BODY_SPDT)
+        out.append((r, x - w / 2, y - h / 2, x + w / 2, y + h / 2))
+    w, h, top = POT_BODY
+    for r, l, p, x, y, kd, hd in SINGLES:
+        out.append((r, x - w / 2, y - top, x + w / 2, y - top + h))
+    return out
 INTERNAL = [('SW4', 'LINK', 'stereo link - internal jumper on the pull layout only')]
 
 METER_PITCH, METER_TOP, METER_N = 3.5, 14.0, 7
@@ -168,6 +193,20 @@ def clearance_report():
             if dist < r + CSINK_D / 2 + 0.5:
                 issues.append('a control at (%.1f, %.1f) fouls the mounting hole at y=%.2f'
                               % (x, y, hy))
+    if ON_BOARD:
+        bx0, by0, bx1, by1 = FRONT_BOARD
+        bs = bodies()
+        for r, x0, y0, x1, y1 in bs:
+            if (x0 < bx0 - EDGE_SLACK or x1 > bx1 + EDGE_SLACK or
+                    y0 < by0 - EDGE_SLACK or y1 > by1 + EDGE_SLACK):
+                issues.append('%s body hangs off the front board' % r)
+        for i, a in enumerate(bs):
+            for b in bs[i + 1:]:
+                gx = max(a[1], b[1]) - min(a[3], b[3])
+                gy = max(a[2], b[2]) - min(a[4], b[4])
+                if max(gx, gy) < BODY_GAP:
+                    issues.append('%s and %s bodies only %.2f mm apart behind the panel, '
+                                  'need %.1f' % (a[0], b[0], max(gx, gy), BODY_GAP))
     vs = visuals()
     for i, a in enumerate(vs):
         for b in vs[i + 1:]:
