@@ -15230,7 +15230,7 @@
 				)
 			)
 		)
-		(property "Value" "500k"
+		(property "Value" "1M"
 			(at 140.97 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20018,7 +20018,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Rect_L16.5mm_W11.8mm_P15.00mm_MKT"
 			(at 50.8 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -23880,7 +23880,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Rect_L16.5mm_W7.3mm_P15.00mm_MKT"
 			(at 91.44 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -27599,7 +27599,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Rect_L16.5mm_W11.8mm_P15.00mm_MKT"
 			(at 44.45 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -28152,7 +28152,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Rect_L16.5mm_W7.3mm_P15.00mm_MKT"
 			(at 96.52 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -30347,7 +30347,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W7.2mm_P5.00mm_FKS2_FKP2_MKS2_MKP2"
 			(at 340.36 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -31081,7 +31081,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Rect_L16.5mm_W11.8mm_P15.00mm_MKT"
 			(at 128.27 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -31545,7 +31545,7 @@
 				)
 			)
 		)
-		(property "Value" "4k7"
+		(property "Value" "10k"
 			(at 98.552 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -37185,7 +37185,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W7.2mm_P5.00mm_FKS2_FKP2_MKS2_MKP2"
 			(at 57.15 128.27 0)
 			(hide yes)
 			(show_name no)

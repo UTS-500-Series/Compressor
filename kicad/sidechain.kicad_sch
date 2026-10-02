@@ -4021,7 +4021,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W7.2mm_P5.00mm_FKS2_FKP2_MKS2_MKP2"
 			(at 160.02 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -5254,7 +5254,7 @@
 				)
 			)
 		)
-		(property "Value" "4k7"
+		(property "Value" "10k"
 			(at 201.422 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5340,7 +5340,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=4700 POS={ATTACK}"
+		(property "Sim.Params" "R=10000 POS={ATTACK}"
 			(at 196.85 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5861,7 +5861,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+		(property "Footprint" "Capacitor_THT:C_Rect_L16.5mm_W11.8mm_P15.00mm_MKT"
 			(at 231.14 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -6063,7 +6063,7 @@
 				)
 			)
 		)
-		(property "Value" "500k"
+		(property "Value" "1M"
 			(at 243.84 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6149,7 +6149,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=500000 POS={RELEASE}"
+		(property "Sim.Params" "R=1e+06 POS={RELEASE}"
 			(at 238.76 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)

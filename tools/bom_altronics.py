@@ -84,6 +84,7 @@ CAT = {
  'R1946': ('10k lin 18T spline 9mm single vertical PCB pot', 1, [(1, 4.55), (10, 4.10), (20, 3.60)], 'IN / IN'),
  'R1948': ('100k lin 18T spline 9mm single vertical PCB pot', 1, [(1, 4.55), (10, 4.10), (20, 3.60)], 'IN / IN'),
  'R1960': ('100k log 18T spline 9mm single vertical PCB pot', 1, [(1, 4.55), (10, 4.10), (20, 3.60)], 'IN / IN'),
+ 'R1950': ('1M lin 18T spline 9mm single vertical PCB pot', 1, [(1, 4.55), (10, 4.10), (20, 3.60)], 'IN / IN'),
  'R2378A': ('2k 3296W top adjust 25 turn trimpot', 1, [(1, 3.15), (10, 2.60), (25, 2.00)], 'IN / IN'),
  'R2384A': ('20k 3296W top adjust 25 turn trimpot', 1, [(1, 3.15), (10, 2.60), (25, 2.00)], 'IN / IN'),
  'S1350': ('Salecom DPDT PCB mount mini toggle', 1, [(1, 4.60), (10, 4.15), (40, 3.70)], 'IN / IN'),
@@ -105,11 +106,17 @@ RES = {'10R': 'R7510', '47R': 'R7526', '75R': 'R7531', '100R': 'R7534', '220R': 
        '100k': 'R7606', '220k': 'R7614'}
 
 # Parts that need more than the catalogue line: (code or None, note, alternative supplier)
-FILM = ('Altronics film stops at 1.0uF (R3037B MKT) at 5 mm pitch; their 2.2uF film is a '
-        '27 mm greencap. Film at 2.2-10uF does not fit the 5 mm x 2.5 mm outline drawn on '
-        'the main board: KEMET R60 4.7uF 63V (element14 2446290, $5.14 inc GST, 144 in '
-        'stock on %s) is 18 x 8.5 x 14.5 mm on 15 mm pitch. The main board footprints '
-        'need redrawing before any film part will fit.' % CHECKED)
+FILM = ('Altronics film stops at 1.0uF (R3037B MKT) at 5 mm pitch, and its 2.2uF film is a '
+        '27 mm greencap. The main board is drawn for the element14 part named here.')
+# element14 film parts the main board footprints are drawn for (checked 2026-10-03, prices inc GST)
+FILM_ALT = {
+ '10u': 'element14 3518951: TDK B32562H1106K000, 10uF 63V PET, 15 mm pitch, 16.5 x 11.8 x 13 mm. '
+        '$8.86 each, 538 in stock (UK, 3-5 days)',
+ '4u7': 'element14 4457285: TDK B32562H1475K000, 4.7uF 100V PET, 15 mm pitch, 16.5 x 7.3 x 10.6 mm. '
+        '$5.23 each (min 5), 880 in stock (UK, 3-5 days)',
+ '2u2': 'element14 2429330: KEMET MMK5225K63J06L4BULK, 2.2uF 63V PET, 5 mm pitch, 7.2 x 7.2 x 13 mm. '
+        '$1.19 each (min 10), 884 in stock, not being restocked',
+}
 SPECIAL = {
  'R48':  (None, 'Wire link: the 0R is the PGND to AGND star link. Nothing to order.', ''),
  'R61':  (None, '1k33 0.1%. Altronics stocks E24 1% only (nearest is 1k3, R7561). Sets the '
@@ -118,14 +125,7 @@ SPECIAL = {
           'RN55D series (not checked)'),
  'R62':  (None, '23k2 0.1%, see R61. No Altronics equivalent.',
           'element14 / DigiKey: 23k2 0.1% 25 ppm axial metal film (not checked)'),
- 'C15':  (None, 'Timing capacitor, must be film. ' + FILM, 'element14 / DigiKey (see note)'),
- 'RV5':  (None, 'ATTACK 4k7 lin. Altronics 9 mm pots come in 10k, 100k and 1M only. '
-               'Stocked fallback: R1946 10k lin, which roughly doubles the slowest attack.',
-          'Alps RK09K1130 5k (B5K) lin from element14 / DigiKey (not checked)'),
- 'RV6':  (None, 'RELEASE 500k lin, Bourns PTV09 as chosen. Not at Altronics. Stocked '
-               'fallback: R1950 1M lin, which about doubles the slowest release (~3.6 s).',
-          'Bourns PTV09A 500k (B504) from element14 / DigiKey; check its pins and bushing '
-          'against the RK09K footprint (not checked)'),
+ 'C15':  (None, 'Timing capacitor, must be film (low leakage). ' + FILM, FILM_ALT['10u']),
  'U10':  (None, 'LM3915 (log). Not at Altronics, Jaycar or element14 (searched %s); '
                'DigiKey lists it obsolete. The LM3914 is linear, not a drop-in.' % CHECKED,
           'Rochester Electronics (authorised for obsolete TI parts) or a trusted '
@@ -166,7 +166,7 @@ def choose(ref, val, fp):
     if ref in SPECIAL:
         return SPECIAL[ref]
     if ref in FILM_REFS:
-        return (None, '%s film. ' % val + FILM, 'element14 / DigiKey (see note)')
+        return (None, '%s film. ' % val + FILM, FILM_ALT[val])
     if ref.startswith('R') and not ref.startswith('RV'):
         note = ''
         if ref in MATCHED:
@@ -227,7 +227,7 @@ def choose(ref, val, fp):
             return ('Z2670', 'Low stock: order early or call the store.', '')
     if ref.startswith('RV'):
         code = {'2k': 'R2378A', '20k': 'R2384A', '10k': 'R1946', '100kA': 'R1960',
-                '100k': 'R1948'}.get(val)
+                '100k': 'R1948', '1M': 'R1950'}.get(val)
         if code and code.startswith('R19'):
             return (code, '9 mm vertical, 18T spline. Same pins and lugs as the RK09K '
                           'footprint (lugs 8.6 mm apart, pins 7.0 mm behind them); body '

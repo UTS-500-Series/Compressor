@@ -146,9 +146,12 @@ LM3914/LM3915 meter drivers are soldered straight in, because sockets would over
 meter LEDs.
 
 Altronics doesn't stock everything. The script lists those lines with another supplier:
-the 2.2–10 µF film capacitors (none fit the 5 mm × 2.5 mm outline on the main board, from
-anyone), R61/R62 at 0.1%, the 4k7 and 500k 9 mm pots (RV5, RV6), the LM3915, and 2 mm
-LEDs (3 mm flangeless ones are stocked but need bigger panel holes).
+the 2.2–10 µF film capacitors, R61/R62 at 0.1%, the LM3915, and 2 mm LEDs (3 mm flangeless
+ones are stocked but need bigger panel holes). The film capacitors come from element14, and
+the main board is drawn for those exact parts: TDK B32562H1106K000 (10 µF, C5, C8, C15) and
+B32562H1475K000 (4.7 µF, C9, C10), both 15 mm pitch, and KEMET MMK5225K63J06L4BULK
+(2.2 µF, C14, C35) on 5 mm. RV5 (ATTACK) is 10k and RV6 (RELEASE) 1M, Altronics' nearest
+9 mm values.
 `tools/bom_order.py` is the older DigiKey list, built from `design.py`.
 
 The circuit itself is 166 components across 58 distinct line items: 73 resistors, 39 capacitors, 15 LEDs,
@@ -240,8 +243,13 @@ Both scripts import from `tools/`, so a fresh clone has everything it needs.
   panel (the pots' body height; the toggles stand 10.4 mm), the panel thickness at the pots,
   the ribbon length (about 150 mm is an estimate), and that the ribbon plug on J1 still
   clears the main board's front edge, 24 mm back.
-- **The main board's film capacitors don't fit any real part** (C5, C8, C9, C10, C14, C15,
-  C35 are drawn 5 mm × 2.5 mm): redraw those footprints for the film parts you buy.
+- **The main board was re-placed and re-routed by script to fit the full-size film
+  capacitors.** The film caps went in near their old spots, 56 resistors, small caps and
+  diodes moved or swapped places to make room (transistors, ICs, connectors and trimmers
+  stayed put), and the whole board was re-routed with Freerouting. Total wire length came
+  out about the same as before and DRC is clean, but it was not laid out by hand: tidy it,
+  and keep the timing node (C15, U4) and the recovery-amp inputs (C9, C10, R21, R22, U1)
+  short.
 - Pin 11 is used as an auxiliary input, which the API 500 specification assigns to a gain-trim
   node. The aux section (U5 and its resistors) is a separable block; omit it and the module is
   fully standards-compliant.

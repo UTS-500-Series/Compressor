@@ -2838,7 +2838,7 @@
 				)
 			)
 		)
-		(property "Value" "500k"
+		(property "Value" "1M"
 			(at 6.05 10.15 90)
 			(layer "F.Fab")
 			(uuid "9d845aa5-3c47-418e-b663-f19ad44de7b5")
@@ -6218,7 +6218,7 @@
 				)
 			)
 		)
-		(property "Value" "4k7"
+		(property "Value" "10k"
 			(at 6.05 10.15 90)
 			(layer "F.Fab")
 			(uuid "a09cc668-0fc9-423c-80d5-5d4648827644")
