@@ -32,7 +32,7 @@ and run again.
 |---|---|---|---|
 | `LEVEL_DBU` | source | input level in dBu, differential | |
 | `FREQ` | source | tone frequency in Hz | |
-| `THRESHOLD` | RV3 | 0 Ω: lowest threshold, about −20 dBu | 250 kΩ (audio taper): about +20 dBu |
+| `THRESHOLD` | RV3 | 0 Ω: lowest threshold, about −20 dBu | 100 kΩ (audio taper): about +20 dBu |
 | `RATIO` | RV4 | wiper at the rectifier: hardest | wiper at ground: no compression |
 | `ATTACK` | RV5 | 0 Ω: fastest | 4k7: slowest |
 | `RELEASE` | RV6 | 0 Ω: fastest | 500 k: slowest |
@@ -58,7 +58,7 @@ All in `compressor_models.lib`, which says where each one comes from:
 - **LM3914N** (both meter drivers): a stand-in for the reference and input only. The LEDs
   never light in simulation.
 - **Pots and switches**: ideal, set by the parameters above. A pot whose value ends in A
-  (RV3, 250kA) has an audio taper: 10% of its resistance at half travel.
+  (RV3, 100kA) has an audio taper: 10% of its resistance at half travel.
 
 `tools/add_sim_models.py` writes the `Sim.*` fields onto the sheets. Run it again if the
 sheets are regenerated, or if you add a part that needs a model. The `.options rshunt=1e9`
@@ -84,20 +84,21 @@ half travel unless it says otherwise. `results/results.json` has every number.
 **It works as a compressor, and now meets most of its design targets.** The first simulation
 (1 October, values as they were on `main`) found the module had 6 dB of gain, an early bass
 roll-off, a threshold that did all its work in the first quarter of RV3, and attack and release
-much faster than the RC values suggest. Eleven part values changed to fix that; no connections
+much faster than the RC values suggest. Thirteen part values changed to fix that; no connections
 moved, so the board layouts keep their routing.
 
 | Part | Was | Now | Why |
 |---|---|---|---|
 | R21, R22 | 3k3 | 6k8 | Halves the recovery amp's gain: the module is unity and BYPASS matches |
 | C9, C10 | 2u2 | 4u7 | With the larger R21/R22, the bass corner drops from 22 Hz to about 5 Hz |
-| R36 | 100k | 200k | Doubles the detector gain, so the sidechain sees the same level as before |
-| RV3 | 1M linear | 250kA | Spreads the threshold evenly over the knob |
-| R35 | 20k | 2k4 | Sets the lowest threshold at −20 dBu |
+| R36 | 100k | 82k | With R35 and RV3, sets the detector gain range |
+| RV3 | 1M linear | 100kA | Spreads the threshold evenly over the knob; RK09K stops at 100k |
+| R35 | 20k | 1k | Sets the lowest threshold at −20 dBu |
+| R38, C14 | 10k, 220n | 1k, 2u2 | Holds the sidechain high-pass between 80 and 160 Hz over the threshold knob; with R38 at 10k the small R35 pushed it to 400 Hz at low thresholds |
 | R60 | 47k | 24k | Restores the 150 mV resting steer (VREF5 now 5.77 V, close to the 5.49 V on the power page) |
 | C22 | 47u | 4u7 | Stops the steering overshooting by up to 20 dB on a fast attack (below) |
 | R47 | 4k7 | 15k | Fastest release near 47 ms; the release pot loads the detector less |
-| RV6 | 220k | 500k | Slowest release towards 2.2 s |
+| RV6 | 220k | 500k | Slowest release towards 2.2 s. RK09K stops at 100k (0.4 s), so this one is a different 9 mm pot |
 
 | | Before | Now | Target |
 |---|---|---|---|
@@ -158,5 +159,8 @@ cell's. Real NE5532s add a little.
   for the RK09K, THRESHOLD and RATIO turn the opposite way to the panel guide: clockwise would
   raise the threshold and soften the ratio. Swapping their outer pins fixes it, and RV3 then
   needs a reverse-log (C) taper. MAKEUP, ATTACK and RELEASE turn the expected way.
-- **Parts.** That the RK09K comes in 250k A, 10k and 1M, and that a 4.7 µF film capacitor fits
-  C9 and C10's 5 mm footprint.
+- **Parts.** RV6 needs a 500k 9 mm pot with an M7 bushing; Alpha's 9 mm vertical pots come in
+  B500K with an M7 × 0.75 bushing, but check their pins against the RK09K footprint. Bourns'
+  PTV09A-6 has an M9 bushing, which would need a bigger panel hole. C9/C10 (4.7 µF), C14 (2.2 µF)
+  and C15 (10 µF) are film parts drawn on a 7 × 2.5 mm, 5 mm-pitch outline; real ones at those
+  values are thicker, so check the space around them.
