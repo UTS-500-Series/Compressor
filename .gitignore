@@ -57,3 +57,6 @@ kicad_withpcb/compressor_front/3dmodels/RK09K1130-20.STEP
 # Simulation runs from tools/sim
 /build/
 __pycache__/
+
+# The Altronics order list is kept in git
+!bom/*.csv
