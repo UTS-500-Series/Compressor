@@ -5560,7 +5560,7 @@
 				)
 			)
 		)
-		(property "Footprint" "compressor_front:SW_Toggle_SubMini_SPDT_Jaycar_ST0300"
+		(property "Footprint" "compressor_front:SW_Toggle_Mini_SPDT_Salecom_S1315"
 			(at 277.622 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -6807,7 +6807,7 @@
 				)
 			)
 		)
-		(property "Footprint" "compressor_front:SW_Toggle_SubMini_SPDT_Jaycar_ST0300"
+		(property "Footprint" "compressor_front:SW_Toggle_Mini_SPDT_Salecom_S1315"
 			(at 229.87 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -7319,7 +7319,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "compressor_front:SW_Toggle_SubMini_SPDT_Jaycar_ST0300"
+		(property "Footprint" "compressor_front:SW_Toggle_Mini_SPDT_Salecom_S1315"
 			(at 190.5 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -7631,7 +7631,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "compressor_front:SW_Toggle_SubMini_DPDT_Jaycar_ST0310"
+		(property "Footprint" "compressor_front:SW_Toggle_Mini_DPDT_Salecom_S1350"
 			(at 110.49 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -10144,7 +10144,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "compressor_front:SW_Toggle_SubMini_DPDT_Jaycar_ST0310"
+		(property "Footprint" "compressor_front:SW_Toggle_Mini_DPDT_Salecom_S1350"
 			(at 149.86 95.25 0)
 			(hide yes)
 			(show_name no)

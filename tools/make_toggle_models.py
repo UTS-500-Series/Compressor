@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""STEP models for the Jaycar ST0300 (SPDT) and ST0310 (DPDT) sub-miniature toggles.
+"""STEP models for the Salecom mini toggles sold by Altronics: S1315 / S1332 (SPDT) and
+S1350 (DPDT).
 
-Jaycar publishes no 3D models, so these are simple solids built to the ST0300 datasheet:
-an 8.13 x 5.08 x 8.64 mm case (9.4 mm wide for the DPDT, which has no published drawing),
-a 10-48 UNS bushing 4.06 mm long, a 2.54 mm lever and 0.76 x 1.52 mm solder lugs. Good
-enough for clearances and the Fusion 360 assembly, not a replacement for the real part.
+Salecom publishes no 3D models, so these are simple solids built to the drawings on the
+Altronics product pages: a 6.9 x 12.7 mm case (11.4 x 12.7 mm for the DPDT) standing
+10.4 mm off the board, a 6.2 mm (1/4-40) bushing 8.9 mm long, a 2.9 mm lever 10.4 mm long
+and 0.76 mm PCB pins on a 4.70 mm pitch, 2.4 mm long, in rows 4.83 mm apart on the DPDT.
+Good enough for clearances and the Fusion 360 assembly, not a replacement for the real part.
 
 The origin is the bushing centre on the board surface, matching the footprints in
 kicad_withpcb/compressor_front/compressor_front.pretty.
@@ -103,23 +105,24 @@ def write(path, name, parts):
     open(path, 'w').write(head + '\n'.join(s.lines) + '\nENDSEC;\nEND-ISO-10303-21;\n')
 
 CASE, STEEL, NICKEL, CHROME, TIN = (0.55, 0.08, 0.08), (0.62, 0.63, 0.65), (0.78, 0.78, 0.74), (0.85, 0.86, 0.88), (0.80, 0.80, 0.78)
-H_CASE, H_BUSH, BUSH_R, LEVER_R, LEVER_L = 8.64, 4.06, 4.83 / 2, 2.54 / 2, 9.40
-LUG_W, LUG_T, LUG_L = 1.52, 0.76, 2.80
+H_CASE, H_BUSH, BUSH_R, LEVER_R, LEVER_L = 10.4, 8.9, 6.2 / 2, 2.9 / 2, 10.4
+CASE_L, PITCH = 12.7, 4.70
+PIN_W, PIN_T, PIN_L = 1.0, 0.76, 2.4
 
-def toggle(width, lug_cols):
-    hw = width / 2
-    parts = [('case', box(-hw, -4.065, hw, 4.065, 0.0, H_CASE - 0.6), CASE),
-             ('frame', box(-hw - 0.1, -4.165, hw + 0.1, 4.165, H_CASE - 0.6, H_CASE), STEEL),
+def toggle(width, pin_cols):
+    hw, hl = width / 2, CASE_L / 2
+    parts = [('case', box(-hw, -hl, hw, hl, 0.0, H_CASE - 1.2), CASE),
+             ('frame', box(-hw - 0.1, -hl - 0.1, hw + 0.1, hl + 0.1, H_CASE - 1.2, H_CASE), STEEL),
              ('bushing', cyl(0, 0, BUSH_R, H_CASE, H_CASE + H_BUSH), NICKEL),
              ('lever', cyl(0, 0, LEVER_R, H_CASE + H_BUSH, H_CASE + H_BUSH + LEVER_L, 16), CHROME)]
-    for x in lug_cols:
-        for y in (-2.54, 0.0, 2.54):
-            parts.append(('lug', box(x - LUG_W / 2, y - LUG_T / 2, x + LUG_W / 2, y + LUG_T / 2, -LUG_L, 0.0), TIN))
+    for x in pin_cols:
+        for y in (-PITCH, 0.0, PITCH):
+            parts.append(('pin', box(x - PIN_T / 2, y - PIN_W / 2, x + PIN_T / 2, y + PIN_W / 2, -PIN_L, 0.0), TIN))
     return parts
 
 if __name__ == '__main__':
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'kicad_withpcb', 'compressor_front', '3dmodels')
     os.makedirs(out, exist_ok=True)
-    write(os.path.join(out, 'SW_Toggle_SubMini_SPDT_Jaycar_ST0300.step'), 'SW_Toggle_SubMini_SPDT_Jaycar_ST0300', toggle(5.08, [0.0]))
-    write(os.path.join(out, 'SW_Toggle_SubMini_DPDT_Jaycar_ST0310.step'), 'SW_Toggle_SubMini_DPDT_Jaycar_ST0310', toggle(9.40, [-2.35, 2.35]))
+    write(os.path.join(out, 'SW_Toggle_Mini_SPDT_Salecom_S1315.step'), 'SW_Toggle_Mini_SPDT_Salecom_S1315', toggle(6.9, [0.0]))
+    write(os.path.join(out, 'SW_Toggle_Mini_DPDT_Salecom_S1350.step'), 'SW_Toggle_Mini_DPDT_Salecom_S1350', toggle(11.4, [-4.83 / 2, 4.83 / 2]))
     print('wrote', out)

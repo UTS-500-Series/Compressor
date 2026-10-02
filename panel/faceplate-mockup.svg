@@ -275,18 +275,18 @@
 <circle cx="19.05" cy="111.00" r="4.50" fill="none" stroke="#5c6468" stroke-width="0.2" stroke-opacity="0.65"/>
 <line x1="17.42" y1="110.24" x2="14.61" y2="108.93" stroke="#4FB3B6" stroke-width="0.75" stroke-linecap="round"/>
 <text x="19.05" y="121.20" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.45" font-weight="normal" letter-spacing="0.28" fill="#F2EFE7" fill-opacity="1.00">MAKEUP</text>
-<circle cx="6.90" cy="52.00" r="3.10" fill="#0b0e10"/>
-<rect x="5.95" y="48.90" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
-<text x="6.90" y="47.20" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">HPF</text>
-<circle cx="31.20" cy="52.00" r="3.10" fill="#0b0e10"/>
-<rect x="30.25" y="48.90" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
-<text x="31.20" y="47.20" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">KEY</text>
-<circle cx="6.90" cy="72.50" r="3.10" fill="#0b0e10"/>
-<rect x="5.95" y="69.40" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
-<text x="6.90" y="67.70" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">LINK</text>
-<circle cx="31.20" cy="72.50" r="3.10" fill="#0b0e10"/>
-<rect x="30.25" y="69.40" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
-<text x="31.20" y="67.70" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">BYPASS</text>
+<circle cx="7.15" cy="52.00" r="3.75" fill="#0b0e10"/>
+<rect x="6.20" y="48.90" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
+<text x="7.15" y="46.55" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">HPF</text>
+<circle cx="30.95" cy="52.00" r="3.75" fill="#0b0e10"/>
+<rect x="30.00" y="48.90" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
+<text x="30.95" y="46.55" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">KEY</text>
+<circle cx="7.15" cy="72.50" r="3.75" fill="#0b0e10"/>
+<rect x="6.20" y="69.40" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
+<text x="7.15" y="67.05" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">LINK</text>
+<circle cx="30.95" cy="72.50" r="3.75" fill="#0b0e10"/>
+<rect x="30.00" y="69.40" width="1.9" height="4.3" rx="0.9" fill="url(#knobO)" stroke="#101416" stroke-width="0.18"/>
+<text x="30.95" y="67.05" text-anchor="middle" font-family="Helvetica,Arial" font-size="1.95" font-weight="normal" letter-spacing="0.24" fill="#F2EFE7" fill-opacity="1.00">BYPASS</text>
 <circle cx="19.05" cy="3.96" r="2.86" fill="#14181a"/>
 <circle cx="19.05" cy="3.96" r="1.59" fill="#080a0b"/>
 <circle cx="19.05" cy="129.39" r="2.86" fill="#14181a"/>
