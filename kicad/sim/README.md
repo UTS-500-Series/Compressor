@@ -130,7 +130,7 @@ The op amp model has no distortion of its own below clipping, so these figures a
 cell's. Real NE5532s add a little.
 
 The compressing figures rose from 0.02–0.04% to 0.03–0.06% with the sidechain changes (R35,
-R38, C14), which let more detector ripple through at the lowest thresholds. Still well under 0.1%.
+R38, C14), most likely from more detector ripple at the lowest thresholds. Still well under 0.1%.
 
 ### What still misses
 
