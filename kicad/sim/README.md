@@ -94,7 +94,7 @@ moved, so the board layouts keep their routing.
 | R36 | 100k | 200k | Doubles the detector gain, so the sidechain sees the same level as before |
 | RV3 | 1M linear | 250kA | Spreads the threshold evenly over the knob |
 | R35 | 20k | 2k4 | Sets the lowest threshold at −20 dBu |
-| R60 | 47k | 24k | Restores the 150 mV resting steer and the 5.49 V reference |
+| R60 | 47k | 24k | Restores the 150 mV resting steer (VREF5 now 5.77 V, close to the 5.49 V on the power page) |
 | C22 | 47u | 4u7 | Stops the steering overshooting by up to 20 dB on a fast attack (below) |
 | R47 | 4k7 | 15k | Fastest release near 47 ms; the release pot loads the detector less |
 | RV6 | 220k | 500k | Slowest release towards 2.2 s |
@@ -105,11 +105,11 @@ moved, so the board layouts keep their routing.
 | RV1 trim range | +4.9 to +6.8 dB | +0.9 to −1.0 dB | covers 0 dB |
 | −3 dB points | 22 Hz, 60 kHz | 5.6 Hz, 60 kHz | 20 Hz to 20 kHz |
 | Threshold (1 dB of reduction) | −9 to above +20 dBu | −20 to +20 dBu | −20 to +14 dBu |
-| Threshold at RV3 0, ¼, ½, ¾, 1 | −9, +14, above +20 by ½ | −20, −9, +1, +10, +20 | an even spread |
+| Threshold at RV3 0, ¼, ½, ¾, 1 | −9, +14, above +20 by ½ | −20, −10, 0, +10, +20 | an even spread |
 | Most reduction (+22 dBu in) | 22 dB | 35 dB | about 40 dB |
-| Attack, fastest to slowest | 1 to 14 ms | 2 to 35 ms | 2.7 to 50 ms |
-| Release, fastest to slowest | 20 ms to 0.44 s | 48 ms to 1.7 s | 47 ms to 2.2 s |
-| Resting steer, VREF5 | 94 mV, 3.60 V | 157 mV, 5.49 V | 150 mV, 5.49 V |
+| Attack, fastest to slowest | 1 to 14 ms | 2 to 34 ms | 2.7 to 50 ms |
+| Release, fastest to slowest | 20 ms to 0.44 s | 50 ms to 1.8 s | 47 ms to 2.2 s |
+| Resting steer, VREF5 | 94 mV, 3.60 V | 151 mV, 5.77 V | 150 mV, 5.49 V |
 | CTRL-B at most reduction | −4.5 V | −8.0 V | −10 V |
 | Supply at rest, +16 / −16 V | 72 / 61 mA | 72 / 61 mA | about 60 mA |
 
@@ -119,9 +119,9 @@ Distortion stays low while it compresses, which is the whole point of the steeri
 |---|---|---|---|
 | +4 dBu in, not compressing | +3.9 dBu | 0 | 0.008% |
 | +4 dBu in, makeup at full | +24.7 dBu | 0 | 0.010% |
-| +8 dBu in, threshold at ¼ | −5.5 dBu | 13.4 dB | 0.021% |
-| +8 dBu in, threshold lowest | −14.9 dBu | 22.8 dB | 0.032% |
-| +16 dBu in, threshold lowest | −14.1 dBu | 30.0 dB | 0.039% |
+| +8 dBu in, threshold at ¼ | −5.7 dBu | 13.6 dB | 0.020% |
+| +8 dBu in, threshold lowest | −15.0 dBu | 22.9 dB | 0.032% |
+| +16 dBu in, threshold lowest | −14.2 dBu | 30.1 dB | 0.038% |
 | +16 / +20 / +22 dBu in, not compressing | | 0 | 0.033% / 0.057% / 0.078% |
 | +24 dBu in, not compressing | | 0 | 6.1%, the input stage clipping |
 
@@ -132,7 +132,7 @@ cell's. Real NE5532s add a little.
 
 1. **Most gain reduction is 35 dB, not 40 dB.** The input stage clips at about +23 dBu on
    ±16 V, so 40 dB would need a threshold near −30 dBu. Better to restate the target.
-2. **The slowest attack is 35 ms and the slowest release 1.7 s**, against 50 ms and 2.2 s.
+2. **The slowest attack is 34 ms and the slowest release 1.8 s**, against 50 ms and 2.2 s.
    The next stock pot values overshoot the other way (RV6 at 1M simulated 3.4 s), so these
    were left as the closest fit.
 3. **Times depend on level.** They are the time to 63% of the change in gain for a −10 to
