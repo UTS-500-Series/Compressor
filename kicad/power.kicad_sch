@@ -12839,7 +12839,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47u"
+		(property "Value" "4u7"
 			(at 92.964 112.268 90)
 			(show_name no)
 			(do_not_autoplace no)

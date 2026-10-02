@@ -15230,7 +15230,7 @@
 				)
 			)
 		)
-		(property "Value" "1M"
+		(property "Value" "500k"
 			(at 140.97 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26520,7 +26520,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47u"
+		(property "Value" "4u7"
 			(at 58.674 222.758 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31545,7 +31545,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "4k7"
 			(at 98.552 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)

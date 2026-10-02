@@ -5254,7 +5254,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "4k7"
 			(at 201.422 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5340,7 +5340,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=10000 POS={ATTACK}"
+		(property "Sim.Params" "R=4700 POS={ATTACK}"
 			(at 196.85 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6063,7 +6063,7 @@
 				)
 			)
 		)
-		(property "Value" "1M"
+		(property "Value" "500k"
 			(at 243.84 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6149,7 +6149,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=1e+06 POS={RELEASE}"
+		(property "Sim.Params" "R=500000 POS={RELEASE}"
 			(at 238.76 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)
