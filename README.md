@@ -98,12 +98,12 @@ The [documentation](../UTS-500-Series.github.io) covers all of this properly, se
 | | |
 |---|---|
 | Format | 500 series, 15-pin EDAC card edge |
-| Supply | ±16 V from the rack, ~60 mA per rail typical |
+| Supply | ±16 V from the rack, 72 / 62 mA at rest (simulated) |
 | Input | Balanced, 44 kΩ differential, +4 dBu nominal |
 | Output | Balanced, 100 Ω build-out per leg |
-| Gain reduction | ~40 dB maximum |
-| Attack | 2.7 – 50 ms |
-| Release | 47 ms – 2.2 s |
+| Gain reduction | 36 dB maximum (simulated) |
+| Attack | 2 – 71 ms (simulated) |
+| Release | 49 ms – 3.5 s (simulated) |
 | Controls | Threshold, Ratio, Attack, Release, Makeup |
 | Switches | Bypass, sidechain key int/ext, sidechain HPF, stereo link |
 
