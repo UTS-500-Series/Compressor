@@ -43,7 +43,9 @@ and run again.
 | `HPF_DEFEAT`, `LINK` | SW3, SW4 | sidechain HPF in, link open | HPF shorted out, link closed |
 
 Pot positions are where the wiper sits between pin 1 (0) and pin 3 (1), so they are not
-necessarily the knob's clockwise direction. See the note on pot direction in the results.
+necessarily the knob's clockwise direction. RATIO is the exception: RV4 is wired with its
+outer pins swapped, so its model reads `POS={1-RATIO}` and `RATIO` keeps the meaning in the
+table. See the note on pot direction in the results.
 
 ## The models
 
@@ -194,9 +196,10 @@ to LED 7 (about 17 to 21 dB) and falls back over the release.
 
 ### To check by hand before ordering
 
-- **Pot direction.** On the usual convention pin 3 is the clockwise end of a pot. If that holds
-  for the RK09K, THRESHOLD and RATIO turn the opposite way to the panel guide: clockwise would
-  raise the threshold and soften the ratio. Swapping their outer pins fixes it, and RV3 then
-  needs a reverse-log (C) taper. MAKEUP, ATTACK and RELEASE turn the expected way.
+- **Pot direction.** On the usual convention pin 3 is the clockwise end of a pot. RV4's
+  outer pins are swapped on the sheets and the front board, so if that holds for the RK09K,
+  RATIO turns clockwise for a harder ratio. THRESHOLD is still wired the other way from the
+  site's guide: clockwise raises the threshold. Swapping RV3 too would need a reverse-log (C)
+  taper. MAKEUP, ATTACK and RELEASE turn the expected way.
 - **Parts.** `bom/altronics.csv` lists every part, with the film capacitors and the 0.1%
   R61/R62 from element14.

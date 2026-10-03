@@ -21,7 +21,7 @@ The site's source is a separate repository, [UTS-500-Series.github.io](https://g
 | Components | 166 |
 | Nets | 110 |
 | ERC | 0 errors, 0 warnings |
-| PCB layout | Main board and front board placed and routed, DRC clean, tracks not yet tidied by hand |
+| PCB layout | Main board and front board placed and routed, DRC clean. Main board re-routed with paired audio lines and an unbroken ground pour; front board still as autorouted |
 | Simulated | Yes, in ngspice from the `kicad/` sheets. See [kicad/sim](kicad/sim/README.md) |
 | Built | No |
 
@@ -182,6 +182,24 @@ One recommended deviation: fit a **TL072 or OPA2134 for U4** instead of an NE553
 sit on the timing capacitor, and the NE5532's ~200 nA bias current can leave the compressor
 holding about a decibel of gain reduction at idle. Pin compatible, nothing else changes.
 
+## Ordering the boards
+
+Each board's fab files are in its `Gerbs/` folder, zipped ready to upload:
+`kicad_withpcb/compressor_with_pcb/Gerbs/compressor_with_pcb-gerbers.zip` (main board,
+128.4 × 105.05 mm including the edge-connector tab) and
+`kicad_withpcb/compressor_front/Gerbs/compressor_front-gerbers.zip` (front board, 35 × 110 mm).
+Both are 2-layer, 1.6 mm FR-4, 1 oz copper, through-hole only (no paste layers). Smallest
+track 0.2 mm, clearance 0.2 mm, drill 0.4 mm, so any standard fab process takes them.
+
+The main board's edge fingers plug into the rack, so ask for gold fingers with a 30–45° bevel
+if the fab offers it. Plain HASL works for a prototype but wears with repeated insertion.
+
+**Re-plot after every board change**, so the zips never lag the board:
+
+```bash
+sh tools/plot_fab.sh                 # both boards, needs KiCad 10's kicad-cli
+```
+
 ## Documentation site
 
 The site is a **separate repository**, checked out beside this one as `../UTS-500-Series.github.io`. It covers
@@ -203,6 +221,7 @@ library only, no packages to install. KiCad's paths are found automatically; ove
 
 ```bash
 python3 tools/verify_netlist.py      # check the schematic against design.py
+sh tools/plot_fab.sh                 # plot Gerbers + drill files for both boards
 ```
 
 `tools/gen_project.py` and `tools/route_sch.py` **regenerate the schematic from scratch and
@@ -241,9 +260,14 @@ Both scripts import from `tools/`, so a fresh clone has everything it needs.
 
 ## Known gaps
 
-- **The tracks came from an autorouter and want a hand tidy before ordering:** route IN± and
-  OUT± as pairs, pull the long bottom-layer runs off the ground pour, and tighten the timing
-  node around C15 and U4.
+- **The main board was re-routed by script, not by hand, so look it over in KiCad before
+  ordering.** IN± and OUT± now run as pairs 0.6 mm apart on the top layer, with one via each
+  on IN− and OUT− beside the edge fingers. Nearly everything else moved to the top so the AGND
+  pour on the bottom is one piece (it was seven, one of them cut off near the fingers). The cost
+  is more vias: 155, up from 37. The timing node (C15, U4, D7, J2) is 44 mm, about as short as
+  the placement allows; shortening it further means moving C15.
+- **The front board's tracks are still as the autorouter left them**, with its ground pour in
+  12 pieces. It carries the bypass switch's IN± and OUT± runs, so tidy those if anything.
 - **Check one toggle and one pot against their footprints before ordering boards.** The
   Salecom footprints follow the drawings on Altronics' product pages; Altronics doesn't
   dimension where the 9 mm pot's shaft sits relative to its lugs, so confirm it lines up
@@ -255,10 +279,9 @@ Both scripts import from `tools/`, so a fresh clone has everything it needs.
 - **The main board was re-placed and re-routed by script to fit the full-size film
   capacitors.** The film caps went in near their old spots, 56 resistors, small caps and
   diodes moved or swapped places to make room (transistors, ICs, connectors and trimmers
-  stayed put), and the whole board was re-routed with Freerouting. Total wire length came
-  out about the same as before and DRC is clean, but it was not laid out by hand: tidy it,
-  and keep the timing node (C15, U4) and the recovery-amp inputs (C9, C10, R21, R22, U1)
-  short.
+  stayed put), and the whole board was re-routed by script (see the item above). Keep the
+  timing node (C15, U4) and the recovery-amp inputs (C9, C10, R21, R22, U1) short if you
+  move anything.
 - Pin 11 is used as an auxiliary input, which the API 500 specification assigns to a gain-trim
   node. The aux section (U5 and its resistors) is a separable block; omit it and the module is
   fully standards-compliant.

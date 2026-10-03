@@ -17,6 +17,9 @@ LIB = 'sim/compressor_models.lib'
 # pot reference -> the .param that sets its wiper position (0 = pin 1 end, 1 = pin 3 end)
 POT_PARAM = {'RV1': 'TRIM', 'RV2': 'MAKEUP', 'RV3': 'THRESHOLD', 'RV4': 'RATIO',
              'RV5': 'ATTACK', 'RV6': 'RELEASE', 'RV7': 'GRTRIM', 'RV8': 'LVLTRIM'}
+# RV4 is wired with its outer pins swapped so clockwise means a harder ratio; this keeps
+# RATIO=0 as the hardest setting in the bench and the sim scripts.
+POT_REVERSED = {'RV4'}
 SWITCH = {'SW1': ('SW_DPDT', 'POS={BYPASS}'), 'SW2': ('SW_SPDT', 'POS={KEY}'),
           'SW3': ('SW_SPST', 'ON={HPF_DEFEAT}'), 'SW4': ('SW_SPST', 'ON={LINK}')}
 SEQ = lambda n: ' '.join('%d=%d' % (i, i) for i in range(1, n + 1))
@@ -51,7 +54,9 @@ def fields(lib_id, ref, value):
         taper = ' TAPER=1' if value.endswith('A') else ''
         return [('Sim.Library', LIB), ('Sim.Name', 'POT'), ('Sim.Device', 'SUBCKT'),
                 ('Sim.Pins', SEQ(3)),
-                ('Sim.Params', 'R=%s POS={%s}%s' % (ohms(value.rstrip('A')), POT_PARAM[ref], taper))]
+                ('Sim.Params', 'R=%s POS={%s%s}%s' % (ohms(value.rstrip('A')),
+                                                      '1-' if ref in POT_REVERSED else '',
+                                                      POT_PARAM[ref], taper))]
     if ref in SWITCH:
         name, params = SWITCH[ref]
         return [('Sim.Library', LIB), ('Sim.Name', name), ('Sim.Device', 'SUBCKT'),

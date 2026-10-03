@@ -4151,6 +4151,7 @@
 	(symbol
 		(lib_id "Device:R_Potentiometer")
 		(at 166.37 123.19 0)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4258,7 +4259,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "R=100000 POS={RATIO}"
+		(property "Sim.Params" "R=100000 POS={1-RATIO}"
 			(at 166.37 123.19 0)
 			(show_name no)
 			(do_not_autoplace no)
