@@ -6001,18 +6001,6 @@
 		(uuid "4bf030b3-081b-4124-9f40-89c8e732fb06")
 	)
 	(no_connect
-		(at 316.23 158.75)
-		(uuid "719612b7-8da7-42ac-91dd-0992d3b1e9b9")
-	)
-	(no_connect
-		(at 316.23 163.83)
-		(uuid "bd510704-8127-46d0-a3ac-b9ec19dbd500")
-	)
-	(no_connect
-		(at 316.23 161.29)
-		(uuid "f245e0e7-dd5d-4adf-a832-d2c43ccc2991")
-	)
-	(no_connect
 		(at 353.06 163.83)
 		(uuid "f68626c2-cc53-4b4b-a88e-1a536ac68015")
 	)
@@ -17057,7 +17045,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 281.94 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -20327,7 +20315,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "8k2"
+		(property "Value" "4k7"
 			(at 345.44 170.434 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20338,7 +20326,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 344.17 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -40492,7 +40480,7 @@
 		)
 		(uuid "c5f78da6-5bb7-4e02-9a50-498e55d54a8a")
 	)
-	(label "LVL7"
+	(label "LVL10"
 		(at 375.92 163.83 0)
 		(fields_autoplaced yes)
 		(effects
@@ -40513,7 +40501,7 @@
 		)
 		(uuid "ae4308d2-d31f-466f-a622-0757f1d8dcc3")
 	)
-	(label "LVL7"
+	(label "LVL9"
 		(at 375.92 161.29 0)
 		(fields_autoplaced yes)
 		(effects
@@ -40534,7 +40522,7 @@
 		)
 		(uuid "8cdd489b-fbc2-4e8e-ad3f-60b4cd9480ed")
 	)
-	(label "LVL7"
+	(label "LVL8"
 		(at 375.92 158.75 0)
 		(fields_autoplaced yes)
 		(effects
@@ -40691,6 +40679,1209 @@
 			(justify left bottom)
 		)
 		(uuid "57436380-6433-4783-ad89-56bec93353d8")
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 336.55 223.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9679242f-5714-4f88-9b9b-9d97c4c93512")
+		(property "Reference" "D27"
+			(at 340.36 222.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 340.36 225.42 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 336.55 223.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 336.55 223.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 336.55 223.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "8bdcc796-5c8c-4725-94bf-c10f29bfd397")
+		)
+		(pin "1"
+			(uuid "31882ccd-437c-423d-a074-dd0bfe0fa0e6")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "D27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 342.9 223.52 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e445777a-ec49-4283-9cde-34ef5b220460")
+		(property "Reference" "#PWRMER023"
+			(at 347.98 226.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 347.98 219.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 342.9 223.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 342.9 223.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 342.9 223.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e9b9034f-6a48-41d7-afb0-06afaf84d690")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "#PWRMTR201")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 340.36 223.52) (xy 342.9 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da5f7303-5168-4745-b129-d78f675a068b")
+	)
+	(wire
+		(pts
+			(xy 332.74 223.52) (xy 330.2 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da837832-a43e-4c44-a4da-274af9b596a5")
+	)
+	(label "GRL8"
+		(at 330.2 223.52 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6a7aa6ae-46b9-4ddb-91ed-5a165aff2b2c")
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 336.55 229.87 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cc54817d-566d-44fd-b314-e62a8a26c0e1")
+		(property "Reference" "D28"
+			(at 340.36 228.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 340.36 231.77 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 336.55 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 336.55 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 336.55 229.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "bf13c783-0486-4f1a-b9b2-788a735a90b6")
+		)
+		(pin "1"
+			(uuid "a3da3841-6cb2-4ef8-a19a-807eb0c6bcf0")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "D28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 342.9 229.87 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8f39e8bd-38d2-4c3e-a20f-97cbbdaaf3fd")
+		(property "Reference" "#PWRMER023"
+			(at 347.98 233.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 347.98 225.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 342.9 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 342.9 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 342.9 229.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "16dd0b3b-a224-41f5-bdf2-718040a342e0")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "#PWRMTR202")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 340.36 229.87) (xy 342.9 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc5eb4fa-be03-4c3f-8949-d890e8434add")
+	)
+	(wire
+		(pts
+			(xy 332.74 229.87) (xy 330.2 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0cbd5491-02d7-480f-a15e-fc0b3ffb047f")
+	)
+	(label "GRL9"
+		(at 330.2 229.87 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "93715e11-9717-4aa1-8910-cc55812183ee")
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 336.55 236.22 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "efdd7d23-0bef-4984-baf9-01c959d636a5")
+		(property "Reference" "D29"
+			(at 340.36 234.95 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 340.36 238.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 336.55 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 336.55 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 336.55 236.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "cc84beef-d525-4060-8e4a-3eb941c788fe")
+		)
+		(pin "1"
+			(uuid "551a06f1-7424-4398-b750-fbe448d323ea")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "D29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 342.9 236.22 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b858c069-69e7-484f-a73f-4cdccee14d40")
+		(property "Reference" "#PWRMER023"
+			(at 347.98 239.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 347.98 231.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 342.9 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 342.9 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 342.9 236.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1b28d569-5fc3-4b52-9b7e-f91147dc761e")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "#PWRMTR203")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 340.36 236.22) (xy 342.9 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "736fa4e0-0983-4150-a29c-150a50a39465")
+	)
+	(wire
+		(pts
+			(xy 332.74 236.22) (xy 330.2 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01556d4c-49ad-4430-ab3b-fa9e49920a47")
+	)
+	(label "GRL10"
+		(at 330.2 236.22 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4525457a-e827-401a-8586-23ae900abf33")
+	)
+	(wire
+		(pts
+			(xy 316.23 158.75) (xy 318.77 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4679d241-cad6-42c4-b3de-53396092a4e7")
+	)
+	(label "GRL8"
+		(at 318.77 158.75 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "932367af-ccc8-49d1-a5db-ee01a9e8c547")
+	)
+	(wire
+		(pts
+			(xy 316.23 161.29) (xy 318.77 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "afc6b1c9-35f7-472f-a131-32f6bde508e6")
+	)
+	(label "GRL9"
+		(at 318.77 161.29 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a6046be1-81fb-4ffc-842b-a729ead5a6b5")
+	)
+	(wire
+		(pts
+			(xy 316.23 163.83) (xy 318.77 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5141e1f3-d029-425e-8b0f-339bcad6af5b")
+	)
+	(label "GRL10"
+		(at 318.77 163.83 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "60d7e8d2-b78e-44ec-ac3f-d0e1b411fcc5")
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 393.7 223.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0dcd2413-f7d0-4637-8559-c6268e72ab7b")
+		(property "Reference" "D37"
+			(at 397.51 222.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 397.51 225.42 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 393.7 223.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 393.7 223.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 393.7 223.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "224deca3-144e-41f0-9f3c-c4d388b44ea9")
+		)
+		(pin "1"
+			(uuid "192f22ed-55de-4342-bdf3-21ddd27d0d80")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "D37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 400.05 223.52 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a6d0f5fa-f70f-41d0-83f5-fb46a9cf05b5")
+		(property "Reference" "#PWRMER015"
+			(at 405.13 226.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 405.13 219.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 400.05 223.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 400.05 223.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 400.05 223.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b914f49c-f5f6-4f61-9dd1-2fccdd45388f")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "#PWRMTR204")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 397.51 223.52) (xy 400.05 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de6ddcf6-68a4-4e6f-a342-9568b726c8dc")
+	)
+	(wire
+		(pts
+			(xy 389.89 223.52) (xy 387.35 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae1afaa7-d0cd-4e97-86bc-f36e07136f9a")
+	)
+	(label "LVL8"
+		(at 387.35 223.52 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0c9f0c3c-ede1-41fd-8429-e092ac49f9c2")
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 393.7 229.87 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a3c77c1c-5813-4708-95cd-500ea965dd96")
+		(property "Reference" "D38"
+			(at 397.51 228.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 397.51 231.77 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 393.7 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 393.7 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 393.7 229.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "53dff946-b7b7-4707-a7ce-cbd485e8cab4")
+		)
+		(pin "1"
+			(uuid "704d61bb-ce01-48a0-b508-f781970dcf6e")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "D38")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 400.05 229.87 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3edd603b-de8d-4c00-a331-5574be46fd97")
+		(property "Reference" "#PWRMER015"
+			(at 405.13 233.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 405.13 225.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 400.05 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 400.05 229.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 400.05 229.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b2faa9a0-9ee6-4311-a2d1-55af20c5e303")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "#PWRMTR205")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 397.51 229.87) (xy 400.05 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1766ac5f-fd6d-4e90-ae43-cee22b664607")
+	)
+	(wire
+		(pts
+			(xy 389.89 229.87) (xy 387.35 229.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cabd9eb8-593c-4e67-9e70-8b292732dc63")
+	)
+	(label "LVL9"
+		(at 387.35 229.87 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b4165e1c-8e1c-4059-8056-c746cb59fcd8")
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 393.7 236.22 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cd3ae245-6e64-46c8-9426-f0a2d92e9a6c")
+		(property "Reference" "D39"
+			(at 397.51 234.95 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 397.51 238.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 393.7 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 393.7 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 393.7 236.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "da97a9d6-07a4-47d9-8e30-1456954d4f77")
+		)
+		(pin "1"
+			(uuid "e589b199-54ea-4487-b299-68bd84c06055")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "D39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 400.05 236.22 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "71cd89ef-954a-4b58-8859-9d719dcbbc54")
+		(property "Reference" "#PWRMER015"
+			(at 405.13 239.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+16V"
+			(at 405.13 231.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 400.05 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 400.05 236.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 400.05 236.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6af9ef55-e7cb-4955-a891-91bcfb3fdd9f")
+		)
+		(instances
+			(project "compressor_with_pcb"
+				(path "/0cbb3bbb-8297-40d4-b3a9-e92b3d8d375c"
+					(reference "#PWRMTR206")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 397.51 236.22) (xy 400.05 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d50400b-b3a9-4119-a381-d1cb3fc63d1b")
+	)
+	(wire
+		(pts
+			(xy 389.89 236.22) (xy 387.35 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b85f191-5bf2-4b24-b2c9-40ba071adfa2")
+	)
+	(label "LVL10"
+		(at 387.35 236.22 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a0501bb4-a8e5-4b23-bc05-8c6680ca8a12")
 	)
 	(sheet_instances
 		(path "/"

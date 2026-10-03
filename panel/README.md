@@ -30,7 +30,7 @@ DXF all change with it.
 
 **`pull`** — five separate knobs. Every switch function is a pull on a pot, so
 there are no toggles and no button at all: THRESHOLD pulls for the sidechain HPF, RATIO for
-key int/ext, MAKEUP for bypass. LINK is an internal jumper. **21 holes.** The simplest panel
+key int/ext, MAKEUP for bypass. LINK is an internal jumper. **27 holes.** The simplest panel
 to build and the cheapest to populate, at the cost of a slow, uncertain bypass action.
 
 *A note on the shared row:* ATTACK and RELEASE sit side by side on every layout, so they get a
@@ -39,13 +39,13 @@ each other in the gap between the knobs.
 
 **`toggle`** *(default, and the one the front board is built for)* — the same five knobs, but every switch gets its own toggle rather than hiding on
 a pull. They flank the two knobs they belong to: HPF and KEY either side of THRESHOLD, LINK and
-BYPASS either side of RATIO. **25 holes.** Four more holes and four more parts than `pull`, and
+BYPASS either side of RATIO. **31 holes.** Four more holes and four more parts than `pull`, and
 in exchange every function is one positive movement — nothing is hidden, and bypass is instant.
 The most parts of the three layouts, and the easiest to use.
 
 **`concentric`** — two dual-concentric knobs (THRESHOLD/RATIO, ATTACK/RELEASE) free the space
 for a latching illuminated BYPASS button and HPF / KEY toggles; LINK moves to the pull on
-MAKEUP. **22 holes.** Better ergonomics, but concentric pots are dearer, harder to source, and
+MAKEUP. **28 holes.** Better ergonomics, but concentric pots are dearer, harder to source, and
 their inner shafts cannot carry a printed scale.
 
 ## Finishes
@@ -95,8 +95,8 @@ Origin is the **top-left corner** of the panel, x right, y down. All in millimet
 | `SW2` | KEY | 30.95 | 52.00 | 6.5 | mini toggle, SPDT (Salecom S1315) |
 | `SW4` | LINK | 7.15 | 72.50 | 6.5 | mini toggle, SPDT (Salecom S1315) |
 | `SW1` | BYPASS | 30.95 | 72.50 | 6.5 | mini toggle, DPDT (Salecom S1350) |
-| `D20`–`D26` | GR meter, 7 seg | 14.10 | 14.0 to 35.0, 3.5 pitch | 2.2 | 2 mm flat-top LED |
-| `D30`–`D36` | LVL meter, 7 seg | 24.00 | 14.0 to 35.0, 3.5 pitch | 2.2 | 2 mm flat-top LED |
+| `D20`–`D29` | GR meter, 10 seg (D20 at the top) | 14.10 | 14.0 to 41.0, 3.0 pitch | 2.2 | 2 mm flat-top LED |
+| `D30`–`D39` | LVL meter, 10 seg (D39 at the top) | 24.00 | 14.0 to 41.0, 3.0 pitch | 2.2 | 2 mm flat-top LED |
 | — | mounting | 19.05 | 3.96 | 3.18 | c'sink 82° to Ø5.72 |
 | — | mounting | 19.05 | 129.39 | 3.18 | c'sink 82° to Ø5.72 |
 
@@ -144,10 +144,11 @@ is what a real panel does anyway. It is illuminated, so bypass state is visible 
 **`LINK` is a pull on MAKEUP.** It is set once per stereo pair and then left, which makes it
 the right function to hide behind a pull rather than give a switch to.
 
-**Two 7-segment meters.** `GR` fills downward from the top as the compressor clamps; `LVL`
-fills upward, green through amber to red. Fourteen 2 mm LEDs on a 3.5 mm pitch, in a recessed
-window. Driving them needs a comparator ladder or a display driver — **that circuitry is not
-in the schematic yet.**
+**Two 10-segment meters.** `GR` fills downward from the top as the compressor clamps; `LVL`
+fills upward, green through amber to red. Twenty 2 mm LEDs on a 3.0 mm pitch, in a recessed
+window, driven by two LM3914s in dot mode (one LED lit at a time; the mockups show a bar to
+make the scale readable). The 3.0 mm pitch leaves 0.8 mm of metal between the 2.2 mm holes,
+which `make_panel.py` allows for the meter holes only; everything else keeps 1.0 mm.
 
 **On keeping every round.** The panel went through several iterations and only the most recent
 reached git, so two earlier versions had to be rebuilt from scratch to get them back. Hence

@@ -125,14 +125,17 @@ def bodies():
     return out
 INTERNAL = [('SW4', 'LINK', 'stereo link - internal jumper on the pull layout only')]
 
-METER_PITCH, METER_TOP, METER_N = 3.5, 14.0, 7
-METERS = [('GR', 'D20', 14.1, 'gr'), ('LVL', 'D30', 24.0, 'lvl')]   # as on the front board
+METER_PITCH, METER_TOP, METER_N = 3.0, 14.0, 10
+METER_BOTTOM = METER_TOP + (METER_N - 1) * METER_PITCH
+METER_WEB = 0.8     # metal left between two meter holes; every other pair keeps 1.0 mm
+# as on the front board: GR has output 1 (D20) at the top, LVL has output 10 (D39) at the top
+METERS = [('GR', 20, +1, 14.1, 'gr'), ('LVL', 39, -1, 24.0, 'lvl')]
 
 def meter_leds():
     out = []
-    for label, base, x, kind in METERS:
+    for label, first, step, x, kind in METERS:
         for i in range(METER_N):
-            out.append(('%s%d' % (base, i + 1), label, x,
+            out.append(('D%d' % (first + step * i), label, x,
                         METER_TOP + i * METER_PITCH, kind, i))
     return out
 
@@ -183,7 +186,9 @@ def clearance_report():
     for i, a in enumerate(holes):
         for b in holes[i + 1:]:
             dist = math.hypot(a[1] - b[1], a[2] - b[2])
-            need = a[3] / 2 + b[3] / 2 + 1.0
+            meters = {r for r, *_ in meter_leds()}
+            web = METER_WEB if a[0] in meters and b[0] in meters else 1.0
+            need = a[3] / 2 + b[3] / 2 + web
             if dist < need:
                 issues.append('%s and %s only %.2f mm apart, need %.2f'
                               % (a[0], b[0], dist, need))
@@ -311,16 +316,17 @@ def mockup_bone():
 
     # meters sit in a dark inset - LEDs need something to read against on a light panel
     if SHOW_WINDOW:
-        wx, wy, ww, wh = 5.0, 11.4, W - 10.0, 31.6
+        wx, wy, ww = 9.6, 9.4, W - 19.2                # narrow, so the HPF/KEY legends stay outside
+        wh = METER_BOTTOM + 2.6 - wy             # ends above the THRESHOLD scale
         o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="1.6" '
                  'fill="url(#set)"/>' % (wx, wy, ww, wh))
-    lit = {'gr': 3, 'lvl': 5}
+    lit = {'gr': 4, 'lvl': 7}
     for ref, label, x, y, kind, i in meter_leds():
         if kind == 'gr':
             base, on = TERRA, i < lit['gr']
         else:
             n = METER_N - 1 - i
-            base = TERRA if n >= 6 else ('#D9A85C' if n >= 4 else SAGE)
+            base = TERRA if n >= 8 else ('#D9A85C' if n >= 5 else SAGE)
             on = n < lit['lvl']
         o.append('<rect x="%.2f" y="%.2f" width="3.4" height="1.5" rx="0.75" fill="%s" '
                  'fill-opacity="%.2f"/>'
@@ -328,8 +334,8 @@ def mockup_bone():
         if on:
             o.append('<rect x="%.2f" y="%.2f" width="5.0" height="3.1" rx="1.4" fill="%s" '
                      'fill-opacity="0.18"/>' % (x - 2.5, y - 1.55, base))
-    for label, base, x, kind in METERS:
-        o.append(_label(x, METER_TOP + (METER_N - 1) * METER_PITCH + 3.9, label,
+    for label, first, step, x, kind in METERS:
+        o.append(_label(x, METER_TOP - 2.2, label,
                         1.85, '#9AA29B', 0.7))
 
     def rule(y, text):
@@ -465,7 +471,8 @@ def mockup_anodised():
                  % (i / 4, i / 4, H, 0.010 + 0.009 * ((i * 7) % 5) / 5))
 
     if SHOW_WINDOW:
-        wx, wy, ww, wh = 5.4, 10.6, W - 10.8, 32.4
+        wx, wy, ww = 5.4, 10.6, W - 10.8
+        wh = METER_BOTTOM + 4.6 - wy
         o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="1.4" fill="url(#win)" '
                  'stroke="#0a0c0e" stroke-width="0.4"/>' % (wx, wy, ww, wh))
         o.append('<rect x="%.2f" y="%.2f" width="%.2f" height="%.2f" rx="1.4" fill="none" '
@@ -475,13 +482,13 @@ def mockup_anodised():
     o.append(_atxt(3.2, 7.9, 'OPN-500', 2.15, C['INK'], 0.32, 'start', 0.66))
     o.append(_atxt(W - 3.2, 7.9, 'CMP-01', 2.15, C['INK'], 0.32, 'end', 0.66))
 
-    lit = {'gr': 3, 'lvl': 5}
+    lit = {'gr': 4, 'lvl': 7}
     for ref, label, x, y, kind, i in meter_leds():
         if kind == 'gr':
             base, on = C['AMBER'], i < lit['gr']
         else:
             n = METER_N - 1 - i
-            base = C['RED'] if n >= 6 else (C['AMBER'] if n >= 4 else C['GREEN'])
+            base = C['RED'] if n >= 8 else (C['AMBER'] if n >= 5 else C['GREEN'])
             on = n < lit['lvl']
         o.append('<rect x="%.2f" y="%.2f" width="3.6" height="1.7" rx="0.5" fill="#07090a"/>'
                  % (x - 1.8, y - 0.85))
@@ -490,8 +497,8 @@ def mockup_anodised():
         if on:
             o.append('<rect x="%.2f" y="%.2f" width="5.0" height="3.0" rx="1.1" fill="%s" '
                      'fill-opacity="0.17"/>' % (x - 2.5, y - 1.5, base))
-    for label, base, x, kind in METERS:
-        o.append(_atxt(x, METER_TOP + (METER_N - 1) * METER_PITCH + 4.0, label, 2.0,
+    for label, first, step, x, kind in METERS:
+        o.append(_atxt(x, METER_BOTTOM + 3.5, label, 2.0,
                        C['INK'], 0.3, 'middle', 0.8))
 
     def rule(y, text):
@@ -653,9 +660,9 @@ def drawing():
         callout(x, y, d / 2, ref, '%s &#216;%.1f' % (label, d), dy=-6.0, force=True)
     o.append('<text x="%.2f" y="%.2f" font-family="Helvetica,Arial" font-size="1.6" '
              'fill="#555" text-anchor="middle">2 &#215; %d holes &#216;%.1f, %.1f pitch</text>'
-             % (CL, METER_TOP + (METER_N - 1) * METER_PITCH + 3.6, METER_N, LED_HOLE,
+             % (CL, METER_BOTTOM + 3.6, METER_N, LED_HOLE,
                 METER_PITCH))
-    for label, base, x, kind in METERS:
+    for label, first, step, x, kind in METERS:
         o.append('<text x="%.2f" y="%.2f" font-family="Helvetica,Arial" font-size="1.7" '
                  'fill="#555" text-anchor="middle">%s</text>' % (x, METER_TOP - 2.6, label))
 

@@ -192,14 +192,15 @@ def choose(ref, val, fp):
             return ('R4748', 'C22, electrolytic in the design.', '')
     if ref.startswith('D') and ref[1:].isdigit():
         n = int(ref[1:])
-        if 20 <= n <= 36:
-            # GR column all amber; LVL green, green, green, green, amber, amber, red upward
-            colour = 'Z0733' if n < 30 else ('Z0730' if n == 36 else
-                                             'Z0733' if n in (34, 35) else 'Z0731')
-            return (colour, 'Meter LED. Altronics has no 2 mm round LEDs; 3 mm flangeless '
-                            'fit the footprint at 3.5 mm pitch but need the panel holes '
-                            'opened from 2.2 to 3.1 mm. No amber: yellow stands in.',
-                    'Keep 2 mm: 2 mm round flat-top LEDs from element14 / DigiKey')
+        if 20 <= n <= 39:
+            colour = ('amber' if n < 30 else 'green' if n < 35 else 'amber' if n < 38 else 'red')
+            return (None, 'Meter LED, 2 mm round flat-top, %s. The ten-LED meters sit on a '
+                          '3.0 mm pitch, too tight for Altronics\' 3 mm flangeless LEDs (they '
+                          'fitted the old seven-LED meters at 3.5 mm), and Altronics has no '
+                          '2 mm LEDs.' % colour,
+                    '2 mm round flat-top LEDs (4.0 x 2.8 mm base, 2.54 mm leads) from element14 '
+                    '/ DigiKey: GR D20-D29 amber; LVL D30-D34 green, D35-D37 amber, D38-D39 red '
+                    '(not checked)')
         if val == '1N4148':
             return ('Z0101', '', '')
         if val == '1N4004':

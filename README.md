@@ -118,8 +118,8 @@ Panel is the standard 500-series 1.500″ × 5.250″ × 0.125″ with two count
 
 The default layout, and the one the front board is built for, is **`toggle`**: five single
 9 mm pots (THRESHOLD, RATIO, ATTACK, RELEASE, MAKEUP), four mini toggles (HPF and KEY
-either side of THRESHOLD, LINK and BYPASS either side of RATIO), and two 7-LED meters for
-gain reduction and output level. That's 25 holes, and `make_panel.py` takes their
+either side of THRESHOLD, LINK and BYPASS either side of RATIO), and two 10-LED meters for
+gain reduction and output level. That's 31 holes, and `make_panel.py` takes their
 positions from the front board. The toggles are Salecom mini toggles from Altronics:
 S1350 (DPDT) for BYPASS and S1315 (SPDT) for KEY, HPF and LINK, in 6.5 mm holes for their
 1/4-40 bushings. The S1332 (SPDT centre-off) fits the same footprint if a three-position
@@ -146,8 +146,8 @@ two LM3914 meter drivers are soldered straight in, because sockets would overlap
 meter LEDs.
 
 Altronics doesn't stock everything. The script lists those lines with another supplier:
-the 2.2–10 µF film capacitors, R61/R62 at 0.1%, and 2 mm LEDs (3 mm flangeless
-ones are stocked but need bigger panel holes). The film capacitors come from element14, and
+the 2.2–10 µF film capacitors, R61/R62 at 0.1%, and the twenty 2 mm meter LEDs (Altronics'
+3 mm flangeless LEDs don't fit the meters' 3.0 mm pitch). The film capacitors come from element14, and
 the main board is drawn for those exact parts: TDK B32562H1106K000 (10 µF, C5, C8, C15) and
 B32562H1475K000 (4.7 µF, C9, C10), both 15 mm pitch, and KEMET MMK5225K63J06L4BULK
 (2.2 µF, C14, C35) on 5 mm. RV5 (ATTACK) is 10k and RV6 (RELEASE) 1M, Altronics' nearest
@@ -162,7 +162,7 @@ finest steps near clipping. Joining outputs 8–10 keeps the top LED lit on an o
 mode the meter would otherwise go dark.
 `tools/bom_order.py` is the older DigiKey list, built from `design.py`.
 
-The circuit itself is 166 components across 58 distinct line items: 73 resistors, 39 capacitors, 15 LEDs,
+The circuit itself is 172 components across 58 distinct line items: 73 resistors, 39 capacitors, 21 LEDs,
 9 transistors, 8 potentiometers, 8 diodes, 7 op amps, 4 switches, 2 display drivers,
 1 connector.
 
