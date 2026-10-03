@@ -8,8 +8,9 @@ so it fits the front board as drawn.
 
 | File | What it is |
 |---|---|
-| `faceplate-multicolor.3mf` | Panel and legend in one file, as one object with two parts, for a two-colour print. |
-| `faceplate-fit-test-multicolor.3mf` | The same for the fit test. |
+| `faceplate-multicolor.3mf` | Panel and legend as one object with two parts, for a two-colour print in Bambu Studio or OrcaSlicer. |
+| `faceplate-multicolor-prusaslicer.3mf` | The same for PrusaSlicer, which keeps its part table in a different file. |
+| `faceplate-fit-test-multicolor.3mf`, `-prusaslicer.3mf` | The same pair for the fit test. |
 | `faceplate.stl` | The faceplate, already flipped face down for printing. |
 | `faceplate-legend.stl` | The engraved legend and pot ticks as their own body, for a second colour. |
 | `faceplate-fit-test.stl` | A 27 mm strip across THRESHOLD, HPF, KEY and the bottom of both meters. |
@@ -17,7 +18,7 @@ so it fits the front board as drawn.
 | `faceplate.scad` | The model. Every print setting is a parameter at the top. |
 | `panel_data.scad` | Hole positions and legend text, written by `make_panel.py`. Don't edit it. |
 | `build.sh` | Re-runs `make_panel.py`, exports all four STLs (a few minutes) and builds the 3MFs. |
-| `make_3mf.py` | Combines each panel and legend STL into a 3MF. |
+| `make_3mf.py` | Combines each panel and legend STL into the two 3MFs. |
 
 ## What's different from the metal panel
 
@@ -49,15 +50,15 @@ so it fits the front board as drawn.
    PLA slowly gives way under a tightened nut.
 3. **Settings:** 0.4 mm nozzle, 0.2 mm layers, 4 walls, 100% infill, no supports. Print it as
    exported, face down. A textured PEI sheet gives the front a nice finish.
-4. **Two colours (optional):** open `faceplate-multicolor.3mf`. It loads as one object with two
-   parts already lined up: the panel on filament 1 and the legend on filament 2. Pick a dark
-   filament for 1 and a light one for 2. Both colours share the first two layers, so it
-   needs a multicolour unit (AMS, MMU) or a second nozzle, but it only swaps on those two
-   layers. The part table is in PrusaSlicer's format, which Bambu Studio
-   and OrcaSlicer also read. If your slicer opens it as a single part, import the two STLs
-   together as one object with two parts instead (in PrusaSlicer, right-click the panel,
-   Add part, Load). With one colour, print `faceplate.stl` and fill the engraving afterwards
-   with paint or a white wax crayon rubbed in and wiped off.
+4. **Two colours (optional):** in Bambu Studio or OrcaSlicer, import `faceplate-multicolor.3mf`
+   (File, Import, or Cmd/Ctrl+I); in PrusaSlicer use `faceplate-multicolor-prusaslicer.3mf`.
+   It loads as one object with two parts already lined up: the panel on filament 1 and the
+   legend on filament 2. Pick a dark filament for 1 and a light one for 2. The file carries no
+   print settings, so opening it as a project in Bambu Studio says it is loading geometry
+   only; that's expected. Both colours share the first two layers, so it needs a multicolour
+   unit (AMS, MMU) or a second nozzle, but it only swaps on those two layers.
+   With one colour, print `faceplate.stl` and fill the engraving afterwards with paint or a
+   white wax crayon rubbed in and wiped off.
 
 ## Fitting it
 
