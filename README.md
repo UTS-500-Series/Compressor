@@ -154,12 +154,13 @@ B32562H1475K000 (4.7 µF, C9, C10), both 15 mm pitch, and KEMET MMK5225K63J06L4B
 9 mm values.
 
 The output-level meter was an LM3915, whose ten steps are 3 dB apart. Nobody stocks it any
-more, so U10 is now an LM3914 like the gain-reduction meter, with its LEDs moved from
-outputs 4–10 to outputs 1–7 and outputs 8–10 joined to the top LED. No parts were added.
-The LM3914's steps are even in volts, so with the top LED set at +18 dBu (RV8) the seven
-LEDs light at about +1, +7, +10.6, +13, +15, +16.7 and +18 dBu: still a 17 dB span, with the
-finest steps near clipping. Joining outputs 8–10 keeps the top LED lit on an over; in dot
-mode the meter would otherwise go dark.
+more, so U10 is now an LM3914 like the gain-reduction meter, and both meters have ten LEDs on
+a 3.0 mm pitch (they had seven on 3.5 mm). R92 is 4k7, so RV8 can set the top level LED at
++18 dBu. The LM3914's steps are even in volts, so the level LEDs light at about −2, +4, +7.5,
++10, +12, +13.6, +15, +16, +17 and +18 dBu: a 20 dB span with the finest steps near
+clipping. With RV7 set for a 30 dB top LED, the gain-reduction LEDs light at about 2, 3, 5,
+7, 10, 13, 17, 21, 26 and 30 dB. Both scales are simulated: see
+[kicad/sim/README.md](kicad/sim/README.md#the-meters).
 `tools/bom_order.py` is the older DigiKey list, built from `design.py`.
 
 The circuit itself is 172 components across 58 distinct line items: 73 resistors, 39 capacitors, 21 LEDs,
