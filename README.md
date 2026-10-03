@@ -21,7 +21,7 @@ The site's source is a separate repository, [UTS-500-Series.github.io](https://g
 | Components | 166 |
 | Nets | 110 |
 | ERC | 0 errors, 0 warnings |
-| PCB layout | Main board and front board placed and routed, DRC clean, tracks not yet tidied by hand |
+| PCB layout | Main board and front board placed and routed, DRC clean. Main board re-routed with paired audio lines and an unbroken ground pour; front board still as autorouted |
 | Simulated | Yes, in ngspice from the `kicad/` sheets. See [kicad/sim](kicad/sim/README.md) |
 | Built | No |
 
@@ -260,9 +260,14 @@ Both scripts import from `tools/`, so a fresh clone has everything it needs.
 
 ## Known gaps
 
-- **The tracks came from an autorouter and want a hand tidy before ordering:** route IN± and
-  OUT± as pairs, pull the long bottom-layer runs off the ground pour, and tighten the timing
-  node around C15 and U4.
+- **The main board was re-routed by script, not by hand, so look it over in KiCad before
+  ordering.** IN± and OUT± now run as pairs 0.6 mm apart on the top layer, with one via each
+  on IN− and OUT− beside the edge fingers. Nearly everything else moved to the top so the AGND
+  pour on the bottom is one piece (it was seven, one of them cut off near the fingers). The cost
+  is more vias: 155, up from 37. The timing node (C15, U4, D7, J2) is 44 mm, about as short as
+  the placement allows; shortening it further means moving C15.
+- **The front board's tracks are still as the autorouter left them**, with its ground pour in
+  12 pieces. It carries the bypass switch's IN± and OUT± runs, so tidy those if anything.
 - **Check one toggle and one pot against their footprints before ordering boards.** The
   Salecom footprints follow the drawings on Altronics' product pages; Altronics doesn't
   dimension where the 9 mm pot's shaft sits relative to its lugs, so confirm it lines up
@@ -274,10 +279,9 @@ Both scripts import from `tools/`, so a fresh clone has everything it needs.
 - **The main board was re-placed and re-routed by script to fit the full-size film
   capacitors.** The film caps went in near their old spots, 56 resistors, small caps and
   diodes moved or swapped places to make room (transistors, ICs, connectors and trimmers
-  stayed put), and the whole board was re-routed with Freerouting. Total wire length came
-  out about the same as before and DRC is clean, but it was not laid out by hand: tidy it,
-  and keep the timing node (C15, U4) and the recovery-amp inputs (C9, C10, R21, R22, U1)
-  short.
+  stayed put), and the whole board was re-routed by script (see the item above). Keep the
+  timing node (C15, U4) and the recovery-amp inputs (C9, C10, R21, R22, U1) short if you
+  move anything.
 - Pin 11 is used as an auxiliary input, which the API 500 specification assigns to a gain-trim
   node. The aux section (U5 and its resistors) is a separable block; omit it and the module is
   fully standards-compliant.
