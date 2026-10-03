@@ -11,6 +11,7 @@ Faceplate mockup and machining data for the compressor module.
 | `faceplate-drawing.svg` | 1:1 technical drawing, dimensioned, for checking before you cut. |
 | `faceplate.dxf` | Outline and holes only, for a panel shop or CNC. |
 | `make_panel.py` | Generates all of it from one definition. |
+| [`print/`](print/README.md) | A 3D-printable version: STLs, the OpenSCAD model and print settings. |
 
 Everything comes out of `make_panel.py`, so the picture and the machining data cannot drift
 apart. Change a control position once and re-run:

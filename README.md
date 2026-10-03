@@ -134,6 +134,10 @@ the nut, so thin the panel to about 2 mm around the five pot holes, or use a thi
 alongside the default dark anodised one. The boards are only drawn for `toggle`. See
 [`panel/README.md`](panel/README.md).
 
+No laser cutter or CNC? [`panel/print/`](panel/print/README.md) has a 3D-printable faceplate
+(STL and OpenSCAD) with the same holes, pot wells for the short pot bushings, an engraved
+legend that can print in a second colour, and a fit-test strip to print first.
+
 ## Bill of materials
 
 **[`bom/altronics.csv`](bom/altronics.csv)** is the order list for both boards from Altronics,

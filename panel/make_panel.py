@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Front panel for the OPN-500 / CMP-01 compressor.
 
-Emits three files from one definition, so the mockup and the machining data cannot drift:
+Emits four files from one definition, so the mockup and the machining data cannot drift:
 
     faceplate-mockup.svg    how it looks - finish, knobs, silkscreen, lit meters
     faceplate-drawing.svg   1:1 technical drawing, dimensioned
     faceplate.dxf           outline and holes only, for a panel shop or CNC
+    print/panel_data.scad   holes and legend for the 3D-printed panel (print/faceplate.scad)
 
 Geometry is the API 500 mechanical spec: 1.500 x 5.250 x 0.125 inch, two 0.125 inch
 mounting holes on the vertical centreline 4.938 inch apart, countersunk 82 degrees.
@@ -708,6 +709,46 @@ def dxf():
     return '0\nSECTION\n2\nENTITIES\n' + '\n'.join(e) + '\n0\nENDSEC\n0\nEOF\n'
 
 
+# ---------------------------------------------------------------- 3D print data
+def legends():
+    """(text, x, y, size, anchor) of the printed panel's engraved legend: the anodised
+    mockup's wording and positions. y is the baseline, size the SVG font size."""
+    t = [('OPN-500', 3.2, 7.9, 2.15, 'start'), ('CMP-01', W - 3.2, 7.9, 2.15, 'end')]
+    t += [(label, x, METER_BOTTOM + 3.5, 2.0, 'middle') for label, f, s, x, k in METERS]
+    for ol, orf, il, irf, x, y in CONCENTRIC:
+        t.append((ol, x, y + KNOB_OUT / 2 + 4.3, 2.45, 'middle'))
+        t.append((il, x, y + KNOB_OUT / 2 + 6.9, 1.85, 'middle'))
+    for ref, label, pull, x, y, kd, hd in SINGLES:
+        t.append((label, x, y + kd / 2 + 4.2, 2.0 if _shares_row(y) else 2.45, 'middle'))
+        if pull:
+            t.append((pull, x, y + kd / 2 + 6.8, 1.7, 'middle'))
+    t += [(label, x, y - d / 2 - 2.2, 1.95, 'middle') for ref, label, x, y, d in TOGGLES]
+    t += [(label, x, y + 0.7, 1.9, 'middle') for ref, label, x, y, d in BUTTONS]
+    return t
+
+
+def scad():
+    """Hole and legend data for print/faceplate.scad, in panel coordinates."""
+    def rows(name, items):
+        body = ',\n'.join('    [%s]' % ', '.join(
+            '"%s"' % v if isinstance(v, str) else '%.3f' % v for v in it) for it in items)
+        return '%s = [\n%s\n];\n' % (name, body)
+    return ''.join([
+        '// Written by make_panel.py: do not edit. Change make_panel.py and re-run it.\n',
+        '// Panel coordinates: origin at the top-left corner of the front face, x right,\n',
+        '// y down, millimetres.\n\n',
+        'W = %.3f;\nH = %.3f;\nTHK = %.3f;\n' % (W, H, THK),
+        'MTG_D = %.3f;\nCSINK_D = %.3f;\n' % (HOLE_D, CSINK_D),
+        'MTG = [%s];\n' % ', '.join('[%.3f, %.3f]' % (CL, y) for y in HOLE_Y),
+        'FRONT_BOARD = [%s];  // x0, y0, x1, y1\n\n' % ', '.join('%.3f' % v for v in FRONT_BOARD),
+        rows('POTS', [(r, x, y, hd, kd) for r, l, p, x, y, kd, hd in SINGLES] +
+                     [(o, x, y, BUSH_CONC, KNOB_OUT) for ol, o, il, i, x, y in CONCENTRIC]),
+        rows('SWITCHES', [(r, x, y, d) for r, l, x, y, d in TOGGLES + BUTTONS]),
+        rows('LEDS', [(r, x, y, LED_HOLE) for r, l, x, y, k, i in meter_leds()]),
+        rows('LEGENDS', legends()),
+    ])
+
+
 STYLES = {'anodised': mockup_anodised, 'bone': mockup_bone}
 
 
@@ -734,7 +775,8 @@ if __name__ == '__main__':
 
     files = [('faceplate-mockup.svg', STYLES[args.style]()),
              ('faceplate-drawing.svg', drawing()),
-             ('faceplate.dxf', dxf())]
+             ('faceplate.dxf', dxf()),
+             ('print/panel_data.scad', scad())]
     # keep the other finish on disk too, so switching back never means rebuilding it
     for name, fn in STYLES.items():
         if name != args.style:
