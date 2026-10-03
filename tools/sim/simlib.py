@@ -32,20 +32,22 @@ def netlist():
     return base
 
 
-def deck(base, params, analysis, extra=''):
+def deck(base, params, analysis, extra='', vecs=()):
     lines = ['* compressor run', '.include "%s"' % base]
     lines += ['E_%s P_%s 0 %s 0 1' % (k, k, v) for k, v in PROBES.items()]
     lines += ['R_%s P_%s 0 1G' % (k, k) for k in PROBES]
     lines += [extra, '.control', 'set filetype=ascii']
     lines += ['alterparam %s = %s' % (k, v) for k, v in params.items()]
-    vecs = ' '.join('v(P_%s)' % k for k in PROBES) + ' i(VPOS) i(VNEG)'
+    vecs = ' '.join('v(P_%s)' % k for k in PROBES) + ' i(VPOS) i(VNEG)' + ''.join(' ' + v for v in vecs)
     lines += ['reset', 'save ' + vecs, analysis, 'wrdata {out} ' + vecs, '.endc', '.end']
     return '\n'.join(lines)
 
 
-def run(base, params, analysis, extra=''):
-    """Run one analysis; returns {probe: array} plus 't' (or frequency) and supply currents."""
-    d = deck(base, params, analysis, extra)
+def run(base, params, analysis, extra='', vecs=()):
+    """Run one analysis; returns {probe: array} plus 't' (or frequency) and supply currents.
+    vecs are extra ngspice vectors to save, such as '@d20[id]'; they come back under their
+    own names."""
+    d = deck(base, params, analysis, extra, vecs)
     models = open(os.path.join(ROOT, 'kicad', 'sim', 'compressor_models.lib')).read()
     h = hashlib.md5((d + open(base).read() + models).encode()).hexdigest()[:12]
     out = os.path.join(BUILD, h + '.txt')
@@ -57,7 +59,7 @@ def run(base, params, analysis, extra=''):
             raise RuntimeError('ngspice failed:\n' + r.stdout[-2000:] + r.stderr[-2000:])
         os.rename(out + '.tmp', out)
     a = np.loadtxt(out)
-    names = list(PROBES) + ['ipos', 'ineg']
+    names = list(PROBES) + ['ipos', 'ineg'] + list(vecs)
     cols = {k: a[:, 2 * i + 1] for i, k in enumerate(names)}
     cols['t'] = a[:, 0]
     return cols

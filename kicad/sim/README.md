@@ -55,8 +55,11 @@ All in `compressor_models.lib`, which says where each one comes from:
   first, but ngspice aborts on its output current limiter when the meter's peak detector
   swings. The behavioural one has the real part's gain, bandwidth, slew rate, input bias,
   swing and current limit, but no noise and no distortion of its own until it clips.
-- **LM3914N** (both meter drivers): a stand-in for the reference and input only. The LEDs
-  never light in simulation.
+- **LM3914N** (both meter drivers): a behavioural model written for this design. It has the
+  1.25 V reference, the ten-step divider, ten comparators, dot or bar mode from pin 9, and LED
+  outputs that sink 10 times the current drawn from REFOUT. That current includes the
+  internal divider's, which may read a little high against a real part. No hysteresis or
+  comparator offsets.
 - **Pots and switches**: ideal, set by the parameters above. A pot whose value ends in A
   (RV3, 100kA) has an audio taper: 10% of its resistance at half travel.
 
@@ -71,6 +74,7 @@ line on the bench matters: without it ngspice stalls once the compressor is work
 
 ```
 python3 tools/sim/run_all.py      # needs kicad-cli, ngspice, numpy, matplotlib
+python3 tools/sim/meters.py       # the two LED meters, about 10 minutes
 ```
 
 ## Results
@@ -130,6 +134,39 @@ Distortion stays low while it compresses, which is the whole point of the steeri
 The op amp model has no distortion of its own below clipping, so these figures are the gain
 cell's. Real NE5532s add a little.
 
+### The meters
+
+Run on 3 October 2026 by `tools/sim/meters.py`, with the LM3914 model above and ten LEDs per
+meter. `results/meters.json` has the numbers.
+
+- **Level (U10).** RV8 set so the top LED lights at +18 dBu out: that needs RV8 at 0.22 of its
+  travel (R92 is 4k7, so the reference is 3.43 V). Steps are even in volts, so they close up
+  towards the top.
+- **Gain reduction (U9).** RV7 at 0.556 puts the top LED at about 30 dB. The R93 offset and
+  the gain cell's curve spread the steps out from 2 dB to 30 dB.
+- **Each lit LED draws 9.6 mA** on the level meter. The GR meter's reference also feeds R93,
+  so by the same rule its LEDs run a little brighter, about 12 mA.
+
+| LED | Level meter | lights at | GR meter | lights at |
+|---|---|---|---|---|
+| 1 | D30 | -1.8 dBu | D20 | 1.8 dB |
+| 2 | D31 | +4.1 dBu | D21 | 3.1 dB |
+| 3 | D32 | +7.5 dBu | D22 | 4.7 dB |
+| 4 | D33 | +10.1 dBu | D23 | 6.8 dB |
+| 5 | D34 | +12.0 dBu | D24 | 9.6 dB |
+| 6 | D35 | +13.6 dBu | D25 | 12.9 dB |
+| 7 | D36 | +14.8 dBu | D26 | 16.7 dB |
+| 8 | D37 | +16.0 dBu | D27 | 21.1 dB |
+| 9 | D38 | +17.1 dBu | D28 | 25.7 dB |
+| 10 | D39 | +18.0 dBu | D29 | 30.4 dB |
+
+On a +20 dBu burst with the threshold at half travel, the level meter hits its top LED for
+the first 15 ms or so, until the attack catches up, then drops to LED 2 as the output settles
+near +5 dBu. The GR meter climbs
+to LED 7 (about 17 to 21 dB) and falls back over the release.
+
+![The meters](results/meters.png)
+
 ### What still misses
 
 1. **Most gain reduction is 36 dB, not 40 dB.** The input stage clips at about +23 dBu on
@@ -144,7 +181,8 @@ cell's. Real NE5532s add a little.
 5. **CTRL-B reaches −8.0 V at the most reduction, not −10 V.** Set the gain-reduction meter's
    RV7 against a measured CTRL-B.
 6. **Supply current is about 72 / 62 mA at rest** (README says about 60 mA). That includes
-   6 mA for each LM3914 but not the lit meter LEDs, which add several mA each.
+   6 mA for each LM3914. A lit meter LED adds about 10 to 12 mA on +16 V (see the meters
+   below), so with one LED lit in each meter +16 V is about 94 mA, inside the rack's 130 mA.
 7. **C22 (fixed).** C22 filters the reference for STA only. When CTRL-B pulled the shared
    reference node down, STA lagged STB by about 60 ms, so the gain kept falling after the
    control voltage had settled: up to 20 dB of overshoot on a fast attack. At 4u7 it is about

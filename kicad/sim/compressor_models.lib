@@ -9,10 +9,11 @@
 *   1N4148      onsemi model.  1N4004: generic rectifier model.
 *   BZX79C5V1   Behavioural zener: 5.1 V at 5 mA, ~10 ohm dynamic resistance. Not a vendor model.
 *   LED_GREEN   Vishay TLSV5100 green, used for every LED.
-*   LM3914N     Behavioural stand-in, written for this design, not a vendor model: the 1.25 V
-*               reference between REFOUT and REFADJ, a high-impedance signal input and the
-*               10 k internal divider. The comparators and LED current sinks are not modelled,
-*               so the meter LEDs never light in simulation.
+*   LM3914N     Behavioural model written for this design, not a vendor model: the 1.25 V
+*               reference between REFOUT and REFADJ, the 10 x 1k divider from RLO to RHI, ten
+*               comparators on a high-impedance signal input, dot or bar mode from pin 9, and
+*               current-regulated LED outputs at 10 times the current drawn from REFOUT, as in
+*               the datasheet. Comparator hysteresis and offsets are not modelled.
 *   POT, SW_*   Ideal potentiometer and switches, set by parameters (see bench.cir).
 
 .subckt NE5532_DUAL 1 2 3 4 5 6 7 8
@@ -63,24 +64,62 @@ CINN inn 0 3p
 .model LED_GREEN D(Is=1.7e-20 N=1.8 Rs=8 Ikf=2m Eg=2.4 Cjo=50p Bv=6 Ibv=10u)
 
 .subckt LM3914N 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
-* 1,10-18 LED outputs; 2 V-; 3 V+; 4 RLO; 5 SIG; 6 RHI; 7 REFOUT; 8 REFADJ; 9 MODE
-* REFOUT sits 1.25 V above REFADJ, its current drawn from the supply (not from REFADJ)
-EREF 7 71 8 2 1
+* 1,10-18 LED outputs (output 1 is pin 1, output 2 pin 18 ... output 10 pin 10); 2 V-; 3 V+;
+* 4 RLO; 5 SIG; 6 RHI; 7 REFOUT; 8 REFADJ; 9 MODE (open = dot, to V+ = bar)
+* REFOUT sits 1.25 V above REFADJ; VSNS measures the current drawn from it
+EREF 7s 71 8 2 1
 VREF 71 2 DC 1.25
+VSNS 7s 7 DC 0
+* the divider: ten equal steps from RLO to RHI
 RDIV 6 4 10k
 RSIG 5 2 1G
 IQ 3 2 DC 6m
-RL1 1 2 100Meg
-RL10 10 2 100Meg
-RL11 11 2 100Meg
-RL12 12 2 100Meg
-RL13 13 2 100Meg
-RL14 14 2 100Meg
-RL15 15 2 100Meg
-RL16 16 2 100Meg
-RL17 17 2 100Meg
-RL18 18 2 100Meg
 RMODE 9 2 100Meg
+* comparator k is 1 when SIG is above k/10 of the way from RLO to RHI
+BC1 c1 0 V = 0.5 * (1 + tanh((V(5) - V(4) - 0.1 * (V(6) - V(4))) / 2m))
+RC1 c1 0 1G
+BC2 c2 0 V = 0.5 * (1 + tanh((V(5) - V(4) - 0.2 * (V(6) - V(4))) / 2m))
+RC2 c2 0 1G
+BC3 c3 0 V = 0.5 * (1 + tanh((V(5) - V(4) - 0.3 * (V(6) - V(4))) / 2m))
+RC3 c3 0 1G
+BC4 c4 0 V = 0.5 * (1 + tanh((V(5) - V(4) - 0.4 * (V(6) - V(4))) / 2m))
+RC4 c4 0 1G
+BC5 c5 0 V = 0.5 * (1 + tanh((V(5) - V(4) - 0.5 * (V(6) - V(4))) / 2m))
+RC5 c5 0 1G
+BC6 c6 0 V = 0.5 * (1 + tanh((V(5) - V(4) - 0.6 * (V(6) - V(4))) / 2m))
+RC6 c6 0 1G
+BC7 c7 0 V = 0.5 * (1 + tanh((V(5) - V(4) - 0.7 * (V(6) - V(4))) / 2m))
+RC7 c7 0 1G
+BC8 c8 0 V = 0.5 * (1 + tanh((V(5) - V(4) - 0.8 * (V(6) - V(4))) / 2m))
+RC8 c8 0 1G
+BC9 c9 0 V = 0.5 * (1 + tanh((V(5) - V(4) - 0.9 * (V(6) - V(4))) / 2m))
+RC9 c9 0 1G
+BC10 c10 0 V = 0.5 * (1 + tanh((V(5) - V(4) - 1 * (V(6) - V(4))) / 2m))
+RC10 c10 0 1G
+* bar mode when MODE is within 1 V of V+
+BBAR bar 0 V = V(9) > V(3) - 1 ? 1 : 0
+RBAR bar 0 1G
+* LED outputs sink 10 x the REFOUT current while they have more than ~0.3 V across them
+BL1 1 2 I = 10 * max(i(VSNS), 0) * (V(bar) > 0.5 ? V(c1) : V(c1) - V(c2)) * tanh(max(V(1) - V(2), 0) / 0.15)
+RL1 1 2 100Meg
+BL2 18 2 I = 10 * max(i(VSNS), 0) * (V(bar) > 0.5 ? V(c2) : V(c2) - V(c3)) * tanh(max(V(18) - V(2), 0) / 0.15)
+RL2 18 2 100Meg
+BL3 17 2 I = 10 * max(i(VSNS), 0) * (V(bar) > 0.5 ? V(c3) : V(c3) - V(c4)) * tanh(max(V(17) - V(2), 0) / 0.15)
+RL3 17 2 100Meg
+BL4 16 2 I = 10 * max(i(VSNS), 0) * (V(bar) > 0.5 ? V(c4) : V(c4) - V(c5)) * tanh(max(V(16) - V(2), 0) / 0.15)
+RL4 16 2 100Meg
+BL5 15 2 I = 10 * max(i(VSNS), 0) * (V(bar) > 0.5 ? V(c5) : V(c5) - V(c6)) * tanh(max(V(15) - V(2), 0) / 0.15)
+RL5 15 2 100Meg
+BL6 14 2 I = 10 * max(i(VSNS), 0) * (V(bar) > 0.5 ? V(c6) : V(c6) - V(c7)) * tanh(max(V(14) - V(2), 0) / 0.15)
+RL6 14 2 100Meg
+BL7 13 2 I = 10 * max(i(VSNS), 0) * (V(bar) > 0.5 ? V(c7) : V(c7) - V(c8)) * tanh(max(V(13) - V(2), 0) / 0.15)
+RL7 13 2 100Meg
+BL8 12 2 I = 10 * max(i(VSNS), 0) * (V(bar) > 0.5 ? V(c8) : V(c8) - V(c9)) * tanh(max(V(12) - V(2), 0) / 0.15)
+RL8 12 2 100Meg
+BL9 11 2 I = 10 * max(i(VSNS), 0) * (V(bar) > 0.5 ? V(c9) : V(c9) - V(c10)) * tanh(max(V(11) - V(2), 0) / 0.15)
+RL9 11 2 100Meg
+BL10 10 2 I = 10 * max(i(VSNS), 0) * V(c10) * tanh(max(V(10) - V(2), 0) / 0.15)
+RL10 10 2 100Meg
 .ends LM3914N
 
 .subckt POT 1 2 3 params: R=10k POS=0.5 TAPER=0

@@ -1,7 +1,7 @@
 # Compressor front board
 
 A 35 × 110 mm board that sits flat behind the faceplate and carries everything on the
-panel: the five pots, the four toggles, and both LED meters with their LM3914 / LM3915
+panel: the five pots, the four toggles, and both LED meters with their two LM3914
 drivers. It joins the main board with a 30-way ribbon from J1 here to J2 on the main board,
 pin for pin, with the same net names in both schematics.
 
@@ -20,7 +20,10 @@ that board and its BOM) so the circuit still reads as one piece.
 - Alps RK09K pots, if you use them instead, are shorter: make up the difference with a nut
   behind the panel, which may need the longer bushing version.
 - The LEDs need spacers to reach the panel: about 7.8 mm for the 2 mm flat-tops drawn here
-  (10.6 mm gap less the 2.8 mm LED), or about 5.3 mm for 3 mm flangeless LEDs.
+  (10.6 mm gap less the 2.8 mm LED).
+- Each meter is a column of ten LEDs on a 3.0 mm pitch, so the LED bodies are 0.2 mm apart.
+  The LED footprints' courtyards and silkscreen are trimmed to suit (DRC lists them as
+  differing from the library). 3 mm LEDs no longer fit.
 - The pots' 5 mm bushing leaves under 2 mm of thread through a 3.18 mm panel: see
   `panel/README.md` on panel thickness. The toggles' 8.9 mm bushing is plenty.
 - The pins of all four toggles come through the back by about 0.8 mm.

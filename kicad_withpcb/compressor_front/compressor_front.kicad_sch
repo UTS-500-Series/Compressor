@@ -5979,18 +5979,6 @@
 		(at 109.22 182.88)
 		(uuid "6cb35feb-8cf6-469f-8b02-d7d8e928956e")
 	)
-	(no_connect
-		(at 129.54 182.88)
-		(uuid "e0405e8f-b3e7-49d4-a573-9c33c5fc8841")
-	)
-	(no_connect
-		(at 129.54 180.34)
-		(uuid "78a5ce3f-9e66-4e0a-adf8-c67cfbab164f")
-	)
-	(no_connect
-		(at 129.54 177.8)
-		(uuid "dab14953-f435-4510-a1e8-def1568023ee")
-	)
 	(global_label "GR7"
 		(shape bidirectional)
 		(at 129.54 175.26 0)
@@ -6168,7 +6156,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 69.85 195.58 0)
 			(hide yes)
 			(show_name no)
@@ -6541,7 +6529,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "8k2"
+		(property "Value" "4k7"
 			(at 220.98 202.184 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6552,7 +6540,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
 			(at 219.71 195.58 0)
 			(hide yes)
 			(show_name no)
@@ -8757,7 +8745,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LM3915"
+		(property "Value" "LM3914"
 			(at 271.526 155.956 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8862,10 +8850,6 @@
 				)
 			)
 		)
-	)
-	(no_connect
-		(at 280.67 160.02)
-		(uuid "716a3dc1-9b1b-461e-bd17-6edc7ff0be75")
 	)
 	(global_label "AGND"
 		(shape bidirectional)
@@ -9039,7 +9023,7 @@
 		(at 260.35 182.88)
 		(uuid "da8ad6dc-3bc0-4ab7-84ad-7521328c1a18")
 	)
-	(global_label "LVL7"
+	(global_label "LVL10"
 		(shape bidirectional)
 		(at 280.67 182.88 0)
 		(fields_autoplaced yes)
@@ -9063,7 +9047,7 @@
 			)
 		)
 	)
-	(global_label "LVL6"
+	(global_label "LVL9"
 		(shape bidirectional)
 		(at 280.67 180.34 0)
 		(fields_autoplaced yes)
@@ -9087,7 +9071,7 @@
 			)
 		)
 	)
-	(global_label "LVL5"
+	(global_label "LVL8"
 		(shape bidirectional)
 		(at 280.67 177.8 0)
 		(fields_autoplaced yes)
@@ -9111,7 +9095,7 @@
 			)
 		)
 	)
-	(global_label "LVL4"
+	(global_label "LVL7"
 		(shape bidirectional)
 		(at 280.67 175.26 0)
 		(fields_autoplaced yes)
@@ -9135,7 +9119,7 @@
 			)
 		)
 	)
-	(global_label "LVL3"
+	(global_label "LVL6"
 		(shape bidirectional)
 		(at 280.67 172.72 0)
 		(fields_autoplaced yes)
@@ -9159,7 +9143,7 @@
 			)
 		)
 	)
-	(global_label "LVL2"
+	(global_label "LVL5"
 		(shape bidirectional)
 		(at 280.67 170.18 0)
 		(fields_autoplaced yes)
@@ -9183,7 +9167,7 @@
 			)
 		)
 	)
-	(global_label "LVL1"
+	(global_label "LVL4"
 		(shape bidirectional)
 		(at 280.67 167.64 0)
 		(fields_autoplaced yes)
@@ -9206,14 +9190,6 @@
 				(justify left)
 			)
 		)
-	)
-	(no_connect
-		(at 280.67 165.1)
-		(uuid "4acb8dff-ce7b-4ef9-89e5-b7e4beac4761")
-	)
-	(no_connect
-		(at 280.67 162.56)
-		(uuid "390cc300-49bc-43ee-b299-2469fdd8e933")
 	)
 		(symbol
 		(lib_id "Device:C_Polarized")
@@ -11551,6 +11527,918 @@
 			(justify left bottom)
 		)
 		(uuid "e3b8849a-4313-4859-8956-660fef3190a3")
+	)
+	(global_label "LVL3"
+		(shape bidirectional)
+		(at 280.67 165.1 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8e5a77d6-fc3f-40dc-ba0c-9ffb0d21cf71")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 280.67 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "LVL2"
+		(shape bidirectional)
+		(at 280.67 162.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "82547e7c-2b8a-4a19-8c25-0683ed77ed83")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 280.67 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "LVL1"
+		(shape bidirectional)
+		(at 280.67 160.02 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ef2501b9-604d-43df-a329-0d5c3b79bc2d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 280.67 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+		(symbol
+		(lib_id "Device:LED")
+		(at 175.26 219.71 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "02c68cf6-3634-4fa1-9fbe-9b77ce121eb3")
+		(property "Reference" "D27"
+			(at 179.07 218.44 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 179.07 221.61 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 175.26 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.26 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 175.26 219.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "1d9ffd18-7389-4fac-8463-4961758c34a9")
+		)
+		(pin "1"
+			(uuid "6e2e8575-8d5a-4d3a-b220-2a773fadfb4e")
+		)
+		(instances
+			(project "compressor_front"
+				(path "/5b69aa2a-51a3-488b-94d5-5cdb474a24d9"
+					(reference "D27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "GR8"
+		(shape bidirectional)
+		(at 171.45 219.71 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "61d56e75-75aa-47cc-a28c-3c8bc97812fd")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 171.45 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "+16V"
+		(shape bidirectional)
+		(at 179.07 219.71 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f564e5a0-5554-4c0e-b37c-2d59308a0283")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 179.07 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+		(symbol
+		(lib_id "Device:LED")
+		(at 175.26 232.41 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "49b7adb1-8564-4698-a93f-5ce4ddcd192c")
+		(property "Reference" "D28"
+			(at 179.07 231.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 179.07 234.31 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 175.26 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.26 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 175.26 232.41 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "af621157-f179-4b73-8002-fd5bc95789d2")
+		)
+		(pin "1"
+			(uuid "1447bc78-d6f0-4b9b-9428-ebf4de3c6c08")
+		)
+		(instances
+			(project "compressor_front"
+				(path "/5b69aa2a-51a3-488b-94d5-5cdb474a24d9"
+					(reference "D28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "GR9"
+		(shape bidirectional)
+		(at 171.45 232.41 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "866762a1-9bc5-4a58-a2f1-c0ca5f289ade")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 171.45 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "+16V"
+		(shape bidirectional)
+		(at 179.07 232.41 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "365c319a-59a6-4e3d-82a4-a7f93a692673")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 179.07 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+		(symbol
+		(lib_id "Device:LED")
+		(at 175.26 245.11 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "31c0737d-30d1-4cc7-b767-378b8934b5d5")
+		(property "Reference" "D29"
+			(at 179.07 243.84 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 179.07 247.01 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 175.26 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 175.26 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 175.26 245.11 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "73807439-4e20-4092-9279-5e603401e920")
+		)
+		(pin "1"
+			(uuid "60dd1860-06cf-41c8-9a0a-bbf49e027222")
+		)
+		(instances
+			(project "compressor_front"
+				(path "/5b69aa2a-51a3-488b-94d5-5cdb474a24d9"
+					(reference "D29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "GR10"
+		(shape bidirectional)
+		(at 171.45 245.11 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3bc8be60-02d4-45e3-97a9-c849d56e81ea")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 171.45 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "+16V"
+		(shape bidirectional)
+		(at 179.07 245.11 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e96a7e8e-7f8d-4092-9686-95d9ae47f364")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 179.07 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "GR8"
+		(shape bidirectional)
+		(at 129.54 177.8 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "53b02157-3f0d-42ba-b590-9896a24659df")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 129.54 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "GR9"
+		(shape bidirectional)
+		(at 129.54 180.34 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "36b305f3-a47b-4c2b-a30a-f4927f1a2b56")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 129.54 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "GR10"
+		(shape bidirectional)
+		(at 129.54 182.88 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "99456f4a-6192-4663-b315-1600a16bf684")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 129.54 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+		(symbol
+		(lib_id "Device:LED")
+		(at 325.12 219.71 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "771c2c2c-2d51-4e26-8c83-694a98bca521")
+		(property "Reference" "D37"
+			(at 328.93 218.44 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 328.93 221.61 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 325.12 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 325.12 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 325.12 219.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "28b1d2d3-0873-403a-a879-1329cefd7c1f")
+		)
+		(pin "1"
+			(uuid "a8267820-562d-4841-9d8b-cfe8437292ce")
+		)
+		(instances
+			(project "compressor_front"
+				(path "/5b69aa2a-51a3-488b-94d5-5cdb474a24d9"
+					(reference "D37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "LVL8"
+		(shape bidirectional)
+		(at 321.31 219.71 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0f442445-68aa-4467-b1c0-00fc4ef2a643")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "+16V"
+		(shape bidirectional)
+		(at 328.93 219.71 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "734f9c09-cec3-4a3e-89eb-3b6097c9c6f2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 328.93 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+		(symbol
+		(lib_id "Device:LED")
+		(at 325.12 232.41 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ea3ab725-00b4-4ca1-b62c-498ce7172051")
+		(property "Reference" "D38"
+			(at 328.93 231.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 328.93 234.31 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 325.12 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 325.12 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 325.12 232.41 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "cc94f478-0197-4129-8a08-d28e4d43fd59")
+		)
+		(pin "1"
+			(uuid "cc0896b2-0f53-4369-b502-d1e33b623b46")
+		)
+		(instances
+			(project "compressor_front"
+				(path "/5b69aa2a-51a3-488b-94d5-5cdb474a24d9"
+					(reference "D38")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "LVL9"
+		(shape bidirectional)
+		(at 321.31 232.41 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b123f6d9-7bbf-4c74-9feb-23ad99499a93")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "+16V"
+		(shape bidirectional)
+		(at 328.93 232.41 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2987c562-8544-42bc-a72b-b74d5fe0fd55")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 328.93 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+		(symbol
+		(lib_id "Device:LED")
+		(at 325.12 245.11 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cc6eb61c-a1d0-4079-8e9b-02af9aea2e8b")
+		(property "Reference" "D39"
+			(at 328.93 243.84 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "meter"
+			(at 328.93 247.01 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop"
+			(at 325.12 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 325.12 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 325.12 245.11 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "702f831c-f490-4e43-9586-348ce7ae4105")
+		)
+		(pin "1"
+			(uuid "7bc322aa-2707-4667-a072-a2d776b0a185")
+		)
+		(instances
+			(project "compressor_front"
+				(path "/5b69aa2a-51a3-488b-94d5-5cdb474a24d9"
+					(reference "D39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "LVL10"
+		(shape bidirectional)
+		(at 321.31 245.11 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "16d65b69-25f2-42e1-acf8-8cab2593f8e6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 321.31 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "+16V"
+		(shape bidirectional)
+		(at 328.93 245.11 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ade225c5-099c-41fd-b92d-dc4526109a76")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 328.93 245.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 	)
 	(sheet_instances
 		(path "/"

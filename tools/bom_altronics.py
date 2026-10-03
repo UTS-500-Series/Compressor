@@ -126,10 +126,6 @@ SPECIAL = {
  'R62':  (None, '23k2 0.1%, see R61. No Altronics equivalent.',
           'element14 / DigiKey: 23k2 0.1% 25 ppm axial metal film (not checked)'),
  'C15':  (None, 'Timing capacitor, must be film (low leakage). ' + FILM, FILM_ALT['10u']),
- 'U10':  (None, 'LM3915 (log). Not at Altronics, Jaycar or element14 (searched %s); '
-               'DigiKey lists it obsolete. The LM3914 is linear, not a drop-in.' % CHECKED,
-          'Rochester Electronics (authorised for obsolete TI parts) or a trusted '
-          'surplus seller'),
 }
 # Value-level rules for lines with no straight catalogue match
 FILM_REFS = {'C5', 'C8', 'C9', 'C10', 'C14', 'C35'}
@@ -196,14 +192,15 @@ def choose(ref, val, fp):
             return ('R4748', 'C22, electrolytic in the design.', '')
     if ref.startswith('D') and ref[1:].isdigit():
         n = int(ref[1:])
-        if 20 <= n <= 36:
-            # GR column all amber; LVL green, green, green, green, amber, amber, red upward
-            colour = 'Z0733' if n < 30 else ('Z0730' if n == 36 else
-                                             'Z0733' if n in (34, 35) else 'Z0731')
-            return (colour, 'Meter LED. Altronics has no 2 mm round LEDs; 3 mm flangeless '
-                            'fit the footprint at 3.5 mm pitch but need the panel holes '
-                            'opened from 2.2 to 3.1 mm. No amber: yellow stands in.',
-                    'Keep 2 mm: 2 mm round flat-top LEDs from element14 / DigiKey')
+        if 20 <= n <= 39:
+            colour = ('amber' if n < 30 else 'green' if n < 35 else 'amber' if n < 38 else 'red')
+            return (None, 'Meter LED, 2 mm round flat-top, %s. The ten-LED meters sit on a '
+                          '3.0 mm pitch, too tight for Altronics\' 3 mm flangeless LEDs (they '
+                          'fitted the old seven-LED meters at 3.5 mm), and Altronics has no '
+                          '2 mm LEDs.' % colour,
+                    '2 mm round flat-top LEDs (4.0 x 2.8 mm base, 2.54 mm leads) from element14 '
+                    '/ DigiKey: GR D20-D29 amber; LVL D30-D34 green, D35-D37 amber, D38-D39 red '
+                    '(not checked)')
         if val == '1N4148':
             return ('Z0101', '', '')
         if val == '1N4004':
@@ -224,7 +221,8 @@ def choose(ref, val, fp):
         if val == 'TL072':
             return ('Z2872', 'U4, socketed (P0550).', '')
         if val == 'LM3914':
-            return ('Z2670', 'Low stock: order early or call the store.', '')
+            return ('Z2670', 'Both meters (U10 was an LM3915, which nobody stocks). Low stock: '
+                    'order early or call the store.', '')
     if ref.startswith('RV'):
         code = {'2k': 'R2378A', '20k': 'R2384A', '10k': 'R1946', '100kA': 'R1960',
                 '100k': 'R1948', '1M': 'R1950'}.get(val)
