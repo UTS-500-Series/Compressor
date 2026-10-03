@@ -182,6 +182,24 @@ One recommended deviation: fit a **TL072 or OPA2134 for U4** instead of an NE553
 sit on the timing capacitor, and the NE5532's ~200 nA bias current can leave the compressor
 holding about a decibel of gain reduction at idle. Pin compatible, nothing else changes.
 
+## Ordering the boards
+
+Each board's fab files are in its `Gerbs/` folder, zipped ready to upload:
+`kicad_withpcb/compressor_with_pcb/Gerbs/compressor_with_pcb-gerbers.zip` (main board,
+128.4 × 105.05 mm including the edge-connector tab) and
+`kicad_withpcb/compressor_front/Gerbs/compressor_front-gerbers.zip` (front board, 35 × 110 mm).
+Both are 2-layer, 1.6 mm FR-4, 1 oz copper, through-hole only (no paste layers). Smallest
+track 0.2 mm, clearance 0.2 mm, drill 0.4 mm, so any standard fab process takes them.
+
+The main board's edge fingers plug into the rack, so ask for gold fingers with a 30–45° bevel
+if the fab offers it. Plain HASL works for a prototype but wears with repeated insertion.
+
+**Re-plot after every board change**, so the zips never lag the board:
+
+```bash
+sh tools/plot_fab.sh                 # both boards, needs KiCad 10's kicad-cli
+```
+
 ## Documentation site
 
 The site is a **separate repository**, checked out beside this one as `../UTS-500-Series.github.io`. It covers
@@ -203,6 +221,7 @@ library only, no packages to install. KiCad's paths are found automatically; ove
 
 ```bash
 python3 tools/verify_netlist.py      # check the schematic against design.py
+sh tools/plot_fab.sh                 # plot Gerbers + drill files for both boards
 ```
 
 `tools/gen_project.py` and `tools/route_sch.py` **regenerate the schematic from scratch and

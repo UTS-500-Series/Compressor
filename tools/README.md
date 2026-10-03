@@ -21,6 +21,7 @@ export KICAD_SYMBOL_DIR=/path/to/kicad/symbols
 | `bom_altronics.py` | Writes `bom/altronics.csv`, the Altronics order list for both boards, from the `kicad_withpcb` schematics. Prices and stock are what the site showed on the date in the script. |
 | `bom_order.py` | The older DigiKey order list, from `design.py`. |
 | `make_toggle_models.py` | Writes the STEP models for the Salecom toggles on the front board. |
+| `plot_fab.sh` | Plots Gerbers and drill files for both boards into each board's `Gerbs/` folder and zips them for the fab. Set `KICAD_CLI` if `kicad-cli` isn't on your PATH (on a Mac it's inside KiCad.app). |
 
 ```bash
 python3 tools/verify_netlist.py
