@@ -5874,9 +5874,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/3051f2ac-c512-5408-83c0-6c5aae81b7fc")
 		(sheetname "/")
 		(sheetfile "compressor_with_pcb.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -5979,6 +5986,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "Net-(C8-Pad1)")
+			(pintype "passive")
 			(uuid "a0fddbbb-82b1-40df-b1a5-f17a2fc0a5f7")
 		)
 		(pad "2" thru_hole circle
@@ -5988,6 +5996,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "AGND")
+			(pintype "passive")
 			(uuid "6699bb2c-59cd-4f0b-b11d-e8c0436c7d56")
 		)
 		(embedded_fonts no)
@@ -7874,9 +7883,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/dc407247-3d3e-5466-9d3c-b560d321840b")
 		(sheetname "/")
 		(sheetfile "compressor_with_pcb.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -7959,6 +7975,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "HPF_A")
+			(pintype "passive")
 			(uuid "df5ccff7-957e-4ce6-920e-3e93d2df19ff")
 		)
 		(pad "2" thru_hole circle
@@ -7968,6 +7985,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "HPF_B")
+			(pintype "passive")
 			(uuid "7a303144-eec6-4b90-82a1-c10796299c64")
 		)
 		(embedded_fonts no)
@@ -13437,9 +13455,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/77f9951f-32ba-5830-a281-a931f69627bc")
 		(sheetname "/")
 		(sheetfile "compressor_with_pcb.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -13542,6 +13567,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "PAD")
+			(pintype "passive")
 			(uuid "6a6a044d-64fe-4e6d-892d-5e032632ac57")
 		)
 		(pad "2" thru_hole circle
@@ -13551,6 +13577,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "Net-(Q1-B)")
+			(pintype "passive")
 			(uuid "2cddbf93-36a3-43f4-a061-bb0e2e81a0c6")
 		)
 		(embedded_fonts no)
@@ -13629,7 +13656,7 @@
 			)
 		)
 		(property ki_fp_filters "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* TO*99* OnSemi*Micro8* TSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm* MSOP*3x3mm*P0.65mm* SSOP*3.9x4.9mm*P0.635mm* LFCSP*2x2mm*P0.5mm* *SIP* SOIC*5.3x6.2mm*P1.27mm*")
-		(path "/f499e81d-0b65-55ae-87e3-3c5af71420ec")
+		(path "/ebcf82ee-25ed-58c0-b918-1c3a70f5ba80")
 		(sheetname "/")
 		(sheetfile "compressor_with_pcb.kicad_sch")
 		(units
@@ -25811,9 +25838,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/8d15e6a3-fbe7-4fe6-b1eb-647c3341123e")
 		(sheetname "/")
 		(sheetfile "compressor_with_pcb.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -25896,6 +25930,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "LVL_METER")
+			(pintype "passive")
 			(uuid "0029ac12-1d97-4270-82c3-f8d8efc2a6f1")
 		)
 		(pad "2" thru_hole circle
@@ -25905,6 +25940,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "AGND")
+			(pintype "passive")
 			(uuid "b9945986-7edf-43c6-8000-3b87f636cf86")
 		)
 		(embedded_fonts no)
@@ -25982,9 +26018,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/7e44ffbd-a3fa-559b-aaec-e93b2f02ab08")
 		(sheetname "/")
 		(sheetfile "compressor_with_pcb.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -26087,6 +26130,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "Net-(C10-Pad1)")
+			(pintype "passive")
 			(uuid "c03ded33-4465-4b13-965b-7e116f1d7a09")
 		)
 		(pad "2" thru_hole circle
@@ -26096,6 +26140,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "Net-(Q5-E)")
+			(pintype "passive")
 			(uuid "75c087e3-48ee-442e-bdb0-240f13d0f1d1")
 		)
 		(embedded_fonts no)
@@ -31602,9 +31647,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/93fe50a0-97cc-5c6d-8b53-37a7d7f4de40")
 		(sheetname "/")
 		(sheetfile "compressor_with_pcb.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -31707,6 +31759,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "TIMING")
+			(pintype "passive")
 			(uuid "4e201a7e-02b9-44db-9296-d84f4a2889e6")
 		)
 		(pad "2" thru_hole circle
@@ -31716,6 +31769,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "AGND")
+			(pintype "passive")
 			(uuid "b187d15c-07bc-4638-818a-aac2944df573")
 		)
 		(embedded_fonts no)
@@ -34652,9 +34706,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/530f51cd-bc21-5fa8-a7e5-7d2d314e2617")
 		(sheetname "/")
 		(sheetfile "compressor_with_pcb.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -34757,6 +34818,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "Net-(Q4-E)")
+			(pintype "passive")
 			(uuid "58ed8fe7-6a7f-4d9c-afb9-2f7081376c3c")
 		)
 		(pad "2" thru_hole circle
@@ -34766,6 +34828,7 @@
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net "Net-(C9-Pad2)")
+			(pintype "passive")
 			(uuid "7389dcb9-cd73-47e5-b290-b81018a8fe3f")
 		)
 		(embedded_fonts no)
