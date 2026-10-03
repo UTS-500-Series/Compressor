@@ -8757,7 +8757,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LM3915"
+		(property "Value" "LM3914"
 			(at 271.526 155.956 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8862,10 +8862,6 @@
 				)
 			)
 		)
-	)
-	(no_connect
-		(at 280.67 160.02)
-		(uuid "716a3dc1-9b1b-461e-bd17-6edc7ff0be75")
 	)
 	(global_label "AGND"
 		(shape bidirectional)
@@ -9063,7 +9059,7 @@
 			)
 		)
 	)
-	(global_label "LVL6"
+	(global_label "LVL7"
 		(shape bidirectional)
 		(at 280.67 180.34 0)
 		(fields_autoplaced yes)
@@ -9087,7 +9083,7 @@
 			)
 		)
 	)
-	(global_label "LVL5"
+	(global_label "LVL7"
 		(shape bidirectional)
 		(at 280.67 177.8 0)
 		(fields_autoplaced yes)
@@ -9111,7 +9107,7 @@
 			)
 		)
 	)
-	(global_label "LVL4"
+	(global_label "LVL7"
 		(shape bidirectional)
 		(at 280.67 175.26 0)
 		(fields_autoplaced yes)
@@ -9135,7 +9131,7 @@
 			)
 		)
 	)
-	(global_label "LVL3"
+	(global_label "LVL6"
 		(shape bidirectional)
 		(at 280.67 172.72 0)
 		(fields_autoplaced yes)
@@ -9159,7 +9155,7 @@
 			)
 		)
 	)
-	(global_label "LVL2"
+	(global_label "LVL5"
 		(shape bidirectional)
 		(at 280.67 170.18 0)
 		(fields_autoplaced yes)
@@ -9183,7 +9179,7 @@
 			)
 		)
 	)
-	(global_label "LVL1"
+	(global_label "LVL4"
 		(shape bidirectional)
 		(at 280.67 167.64 0)
 		(fields_autoplaced yes)
@@ -9206,14 +9202,6 @@
 				(justify left)
 			)
 		)
-	)
-	(no_connect
-		(at 280.67 165.1)
-		(uuid "4acb8dff-ce7b-4ef9-89e5-b7e4beac4761")
-	)
-	(no_connect
-		(at 280.67 162.56)
-		(uuid "390cc300-49bc-43ee-b299-2469fdd8e933")
 	)
 		(symbol
 		(lib_id "Device:C_Polarized")
@@ -11551,6 +11539,78 @@
 			(justify left bottom)
 		)
 		(uuid "e3b8849a-4313-4859-8956-660fef3190a3")
+	)
+	(global_label "LVL3"
+		(shape bidirectional)
+		(at 280.67 165.1 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8e5a77d6-fc3f-40dc-ba0c-9ffb0d21cf71")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 280.67 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "LVL2"
+		(shape bidirectional)
+		(at 280.67 162.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "82547e7c-2b8a-4a19-8c25-0683ed77ed83")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 280.67 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "LVL1"
+		(shape bidirectional)
+		(at 280.67 160.02 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ef2501b9-604d-43df-a329-0d5c3b79bc2d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 280.67 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 	)
 	(sheet_instances
 		(path "/"

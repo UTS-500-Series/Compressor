@@ -114,7 +114,7 @@ least 0.5 mm from its neighbours. The tightest pair is BYPASS and RATIO, 1.3 mm 
 
 ATTACK and RELEASE sit 1.5 mm left of symmetric so the ribbon header on the back of the
 front board clears the RELEASE pot. The meter columns are 9.9 mm apart rather than 10.9 so
-the LM3914 and LM3915 fit either side of them.
+the two LM3914 meter drivers fit either side of them.
 
 ## Layout notes
 

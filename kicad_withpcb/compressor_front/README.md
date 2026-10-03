@@ -1,7 +1,7 @@
 # Compressor front board
 
 A 35 × 110 mm board that sits flat behind the faceplate and carries everything on the
-panel: the five pots, the four toggles, and both LED meters with their LM3914 / LM3915
+panel: the five pots, the four toggles, and both LED meters with their two LM3914
 drivers. It joins the main board with a 30-way ribbon from J1 here to J2 on the main board,
 pin for pin, with the same net names in both schematics.
 

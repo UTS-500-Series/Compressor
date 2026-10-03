@@ -126,10 +126,6 @@ SPECIAL = {
  'R62':  (None, '23k2 0.1%, see R61. No Altronics equivalent.',
           'element14 / DigiKey: 23k2 0.1% 25 ppm axial metal film (not checked)'),
  'C15':  (None, 'Timing capacitor, must be film (low leakage). ' + FILM, FILM_ALT['10u']),
- 'U10':  (None, 'LM3915 (log). Not at Altronics, Jaycar or element14 (searched %s); '
-               'DigiKey lists it obsolete. The LM3914 is linear, not a drop-in.' % CHECKED,
-          'Rochester Electronics (authorised for obsolete TI parts) or a trusted '
-          'surplus seller'),
 }
 # Value-level rules for lines with no straight catalogue match
 FILM_REFS = {'C5', 'C8', 'C9', 'C10', 'C14', 'C35'}
@@ -224,7 +220,8 @@ def choose(ref, val, fp):
         if val == 'TL072':
             return ('Z2872', 'U4, socketed (P0550).', '')
         if val == 'LM3914':
-            return ('Z2670', 'Low stock: order early or call the store.', '')
+            return ('Z2670', 'Both meters (U10 was an LM3915, which nobody stocks). Low stock: '
+                    'order early or call the store.', '')
     if ref.startswith('RV'):
         code = {'2k': 'R2378A', '20k': 'R2384A', '10k': 'R1946', '100kA': 'R1960',
                 '100k': 'R1948', '1M': 'R1950'}.get(val)

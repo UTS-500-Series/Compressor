@@ -140,8 +140,9 @@ A(R('R48','0R','PGND','AGND',B5))
 # seven more NE5532s, ~56 mA - which the 130 mA rack budget cannot carry, so this is the
 # one place the NE5532/BC549 palette is broken. Both drivers run in DOT mode (MODE pin
 # open): exactly one LED is lit per meter, which is what keeps the current affordable.
-# U8 is linear (LM3914) because gain reduction is read off a control voltage; U9 is the
-# 3 dB/step log part (LM3915) because a level meter is read in dB. They are pin-identical.
+# Both are LM3914s (linear). The level meter was an LM3915 (3 dB steps) until October 2026,
+# when it could not be bought; U9's LEDs moved to outputs 1-7, which reads 17 dB in finer
+# steps near the top (see U9 below).
 B7='SH6 LED METERS'
 FP_LM  = 'Package_DIP:DIP-18_W7.62mm'
 FP_LED2= 'LED_THT:LED_D2.0mm_W4.0mm_H2.8mm_FlatTop'
@@ -178,13 +179,15 @@ A(LM('U8','LM3914',{'3':'+16V','2':'AGND','5':'GRIN','6':'GRREF','7':'GRREF',
                     '12':'GR-NC8','11':'GR-NC9','10':'GR-NC10'}))
 A(R('R89','2k7','GRREF','GRADJ',B7));   A(R('R90','8k2','GRADJ','AGND',B7))
 
-# -- U9 output level, LM3915 log, LEDs on outputs 4-10 so the scale reads -18 dB to 0 dB
-#    in 3 dB steps. Outputs 1-3 are unused.
-A(LM('U9','LM3915',{'3':'+16V','2':'AGND','5':'PKDET','6':'LVLREF','7':'LVLREF',
+# -- U9 output level, LM3914 linear, LEDs on outputs 1-7. With RLO at ground the thresholds
+#    are 1/7, 2/7 ... 7/7 of the top one: -17, -11, -7.4, -4.9, -2.9, -1.3 and 0 dB, so the
+#    meter still spans 17 dB and reads finest near clipping. Outputs 8-10 join the top LED:
+#    in dot mode only the highest lit output sinks, and without them the meter would go dark
+#    on an over.
+A(LM('U9','LM3914',{'3':'+16V','2':'AGND','5':'PKDET','6':'LVLREF','7':'LVLREF',
                     '4':'AGND','8':'LVLADJ','9':'LVL-MODE-NC',
-                    '16':'LVLL1','15':'LVLL2','14':'LVLL3','13':'LVLL4','12':'LVLL5',
-                    '11':'LVLL6','10':'LVLL7',
-                    '1':'LVL-NC1','18':'LVL-NC2','17':'LVL-NC3'}))
+                    '1':'LVLL1','18':'LVLL2','17':'LVLL3','16':'LVLL4','15':'LVLL5',
+                    '14':'LVLL6','13':'LVLL7','12':'LVLL7','11':'LVLL7','10':'LVLL7'}))
 A(R('R91','2k7','LVLREF','LVLADJ',B7)); A(R('R92','8k2','LVLADJ','AGND',B7))
 
 # -- the two LED columns. D20 and D30 are the first segment of each to light; refdes match
@@ -212,5 +215,4 @@ for i,(net) in enumerate(['+16V','-16V','AGND','-5V1']):
     A(('#FLG%d'%i,'power','PWR_FLAG','PWR_FLAG','',B6,{'1':net}))
 
 NO_CONNECT = (['P48-NC', 'GR-MODE-NC', 'LVL-MODE-NC']       # MODE open = dot mode
-              + ['GR-NC8', 'GR-NC9', 'GR-NC10']             # LM3914 outputs 8-10 unused
-              + ['LVL-NC1', 'LVL-NC2', 'LVL-NC3'])          # LM3915 outputs 1-3 unused
+              + ['GR-NC8', 'GR-NC9', 'GR-NC10'])            # LM3914 outputs 8-10 unused

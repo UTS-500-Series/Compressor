@@ -142,16 +142,24 @@ checked. `python3 tools/bom_altronics.py` rebuilds it from the two `kicad_withpc
 schematics, so it follows the boards rather than `design.py`; a part drawn on both sheets
 is counted once, on the front board. It includes the hardware the schematics don't: DIP-8
 sockets for U1–U7, knobs, the board-to-board ribbon and M3 screws for the bracket. The
-LM3914/LM3915 meter drivers are soldered straight in, because sockets would overlap the
+two LM3914 meter drivers are soldered straight in, because sockets would overlap the
 meter LEDs.
 
 Altronics doesn't stock everything. The script lists those lines with another supplier:
-the 2.2–10 µF film capacitors, R61/R62 at 0.1%, the LM3915, and 2 mm LEDs (3 mm flangeless
+the 2.2–10 µF film capacitors, R61/R62 at 0.1%, and 2 mm LEDs (3 mm flangeless
 ones are stocked but need bigger panel holes). The film capacitors come from element14, and
 the main board is drawn for those exact parts: TDK B32562H1106K000 (10 µF, C5, C8, C15) and
 B32562H1475K000 (4.7 µF, C9, C10), both 15 mm pitch, and KEMET MMK5225K63J06L4BULK
 (2.2 µF, C14, C35) on 5 mm. RV5 (ATTACK) is 10k and RV6 (RELEASE) 1M, Altronics' nearest
 9 mm values.
+
+The output-level meter was an LM3915, whose ten steps are 3 dB apart. Nobody stocks it any
+more, so U10 is now an LM3914 like the gain-reduction meter, with its LEDs moved from
+outputs 4–10 to outputs 1–7 and outputs 8–10 joined to the top LED. No parts were added.
+The LM3914's steps are even in volts, so with the top LED set at +18 dBu (RV8) the seven
+LEDs light at about +1, +7, +10.6, +13, +15, +16.7 and +18 dBu: still a 17 dB span, with the
+finest steps near clipping. Joining outputs 8–10 keeps the top LED lit on an over; in dot
+mode the meter would otherwise go dark.
 `tools/bom_order.py` is the older DigiKey list, built from `design.py`.
 
 The circuit itself is 166 components across 58 distinct line items: 73 resistors, 39 capacitors, 15 LEDs,
