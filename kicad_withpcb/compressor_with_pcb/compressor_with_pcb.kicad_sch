@@ -26044,6 +26044,7 @@
 	(symbol
 		(lib_id "Device:R_Potentiometer")
 		(at 63.5 185.42 0)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
