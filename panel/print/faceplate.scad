@@ -141,8 +141,12 @@ module holes() {
         // 82 degree countersink on the front face
         csk_h = (CSINK_D - d) / 2 / tan(41);
         through(m[0], m[1], d, 0);
-        translate(concat(P(m[0], m[1]), [thk - csk_h]))
-            cylinder(d1 = d, d2 = CSINK_D + 2 * eps * tan(41), h = csk_h + eps);
+        // the cone starts just inside the hole, so its edge never lands on the
+        // hole's own edge (which leaves a non-manifold seam in the mesh)
+        sink = 0.05;
+        translate(concat(P(m[0], m[1]), [thk - csk_h - sink]))
+            cylinder(d1 = d - 2 * sink * tan(41), d2 = CSINK_D + 2 * eps * tan(41),
+                     h = csk_h + sink + eps);
     }
 }
 

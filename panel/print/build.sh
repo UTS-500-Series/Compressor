@@ -40,3 +40,4 @@ with open(path, 'wb') as f:
         f.write(struct.pack('<12fH', *(x / m for x in n), *a, *b, *c, 0))
 EOF
 done
+python3 make_3mf.py
