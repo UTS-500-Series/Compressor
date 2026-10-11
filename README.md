@@ -141,8 +141,8 @@ legend that can print in a second colour, and a fit-test strip to print first.
 ## Bill of materials
 
 **[`bom/altronics.csv`](bom/altronics.csv)** is the order list for both boards from Altronics,
-with catalogue codes, pack sizes, prices and the stock their site showed on the day it was
-checked. `python3 tools/bom_altronics.py` rebuilds it from the two `kicad_withpcb`
+with catalogue codes, a link to each product page, pack sizes, prices and the stock their
+site showed on the day it was checked. `python3 tools/bom_altronics.py` rebuilds it from the two `kicad_withpcb`
 schematics, so it follows the boards rather than `design.py`; a part drawn on both sheets
 is counted once, on the front board. It includes the hardware the schematics don't: DIP-8
 sockets for U1–U7, knobs, the board-to-board ribbon and M3 screws for the bracket. The
@@ -156,6 +156,10 @@ the main board is drawn for those exact parts: TDK B32562H1106K000 (10 µF, C5, 
 B32562H1475K000 (4.7 µF, C9, C10), both 15 mm pitch, and KEMET MMK5225K63J06L4BULK
 (2.2 µF, C14, C35) on 5 mm. RV5 (ATTACK) is 10k and RV6 (RELEASE) 1M, Altronics' nearest
 9 mm values.
+
+Altronics lists the LM3914 (Z2670), but on 2026-10-12 it was out of stock for delivery and
+at Auburn, with stock only at Cannington WA. Call a store or buy both from element14 or
+DigiKey.
 
 The output-level meter was an LM3915, whose ten steps are 3 dB apart. Nobody stocks it any
 more, so U10 is now an LM3914 like the gain-reduction meter, and both meters have ten LEDs on
