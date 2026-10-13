@@ -1,0 +1,78 @@
+Board,References,Value,Footprint,Qty fitted,Supplier,Order code,Part,Qty ordered,Link,Notes
+main,R1 R2 R3 R4 R23 R24 R80 R81 R82 R83,22k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,10,element14,9341544,"Multicomp Pro MF25 22K, 0.25W 1% metal film",30,https://au.element14.com/search?st=9341544,Match to 0.1% as a ratio: sort with a meter.
+main,R5 R6 R28 R32 R33 R34 R52,100R,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,7,element14,934109901,"Multicomp Pro MF25 100R, 0.25W 1% metal film",10,https://au.element14.com/search?st=934109901,
+main,R7,8k2,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,934227301,"Multicomp Pro MF25 8K2, 0.25W 1% metal film",10,https://au.element14.com/search?st=934227301,
+main,R8,75R,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,9342257,"Multicomp Pro MF25 75R, 0.25W 1% metal film",10,https://au.element14.com/search?st=9342257,
+main,R9,68k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,9342176,"Multicomp Pro MF25 68K, 0.25W 1% metal film",10,https://au.element14.com/search?st=9342176,
+main,R10,11k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,9341188,"Multicomp Pro MF25 11K, 0.25W 1% metal film",10,https://au.element14.com/search?st=9341188,
+main,R11 R12 R19 R20 R29 R30 R39 R40 R41 R43 R84 R85 R86 R94,10k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,14,element14,934111001,"Multicomp Pro MF25 10K, 0.25W 1% metal film",20,https://au.element14.com/search?st=934111001,
+main,R13 R14 R15 R45,220R,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,4,element14,934152801,"Multicomp Pro MF25 220R, 0.25W 1% metal film",10,https://au.element14.com/search?st=934152801,
+main,R16 R17,4k7,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,2,element14,934195101,"Multicomp Pro MF25 4K7, 0.25W 1% metal film",10,https://au.element14.com/search?st=934195101,
+main,R18,1k5,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,934132301,"Multicomp Pro MF25 1K5, 0.25W 1% metal film",10,https://au.element14.com/search?st=934132301,
+main,R21 R22,6k8,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,2,element14,934216801,"Multicomp Pro MF25 6K8, 0.25W 1% metal film",10,https://au.element14.com/search?st=934216801,Match to 0.1% as a ratio: sort with a meter.
+main,R26 R35 R38 R68 R87,1k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,5,element14,934110201,"Multicomp Pro MF25 1K, 0.25W 1% metal film",10,https://au.element14.com/search?st=934110201,
+main,R31 R49,5k1,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,2,element14,934201001,"Multicomp Pro MF25 5K1, 0.25W 1% metal film",10,https://au.element14.com/search?st=934201001,
+main,R36,82k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,9342281,"Multicomp Pro MF25 82K, 0.25W 1% metal film",10,https://au.element14.com/search?st=9342281,
+main,R37,47k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,Altronics,R7598,"47k 0.25W 1% metal film resistor, pk 10",1 pk of 10,https://www.altronics.com.au/product/r7598-47k-025w-metal-film-resistor-pk-10,element14 was out of stock.
+main,R42 R44,20k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,2,Altronics,R7589,"20k 0.25W 1% metal film resistor, pk 10",1 pk of 10,https://www.altronics.com.au/product/r7589-20k-025w-metal-film-resistor-pk-10,element14 was out of stock.
+main,R46,47R,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,9341986,"Multicomp Pro MF25 47R, 0.25W 1% metal film",10,https://au.element14.com/search?st=9341986,
+main,R47,15k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,934133101,"Multicomp Pro MF25 15K, 0.25W 1% metal film",10,https://au.element14.com/search?st=934133101,
+main,R48,0R,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,none,,,,,Wire link (PGND to AGND star). Nothing to order.
+main,R50 R51,10R,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,2,element14,934114501,"Multicomp Pro MF25 10R, 0.25W 1% metal film",10,https://au.element14.com/search?st=934114501,
+main,R53,1k8,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,934143901,"Multicomp Pro MF25 1K8, 0.25W 1% metal film",10,https://au.element14.com/search?st=934143901,
+main,R60,24k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,934160901,"Multicomp Pro MF25 24K, 0.25W 1% metal film",10,https://au.element14.com/search?st=934160901,
+main,R61,1k33,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,9500855,"Welwyn RC55Y-1K33BI, 1k33 0.1% 15 ppm",1,https://au.element14.com/search?st=9500855,
+main,R62,23k2,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,9501240,"Welwyn RC55Y-23K2BI, 23k2 0.1% 15 ppm",1,https://au.element14.com/search?st=9501240,
+main,R69,36k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,934181101,"Multicomp Pro MF25 36K, 0.25W 1% metal film",10,https://au.element14.com/search?st=934181101,
+main,R74,220k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,9341552,"Multicomp Pro MF25 220K, 0.25W 1% metal film",10,https://au.element14.com/search?st=9341552,
+main,R77,3k9,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,934185401,"Multicomp Pro MF25 3K9, 0.25W 1% metal film",10,https://au.element14.com/search?st=934185401,
+main,R88,100k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,934112901,"Multicomp Pro MF25 100K, 0.25W 1% metal film",10,https://au.element14.com/search?st=934112901,
+main,R93,18k,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,1,element14,9341447,"Multicomp Pro MF25 18K, 0.25W 1% metal film",10,https://au.element14.com/search?st=9341447,
+main,D5 D6 D7 D11 D12,1N4148,D_DO-35_SOD27_P7.62mm_Horizontal,5,Altronics,Z0101,1N914/1N4148 small signal diode,7,https://www.altronics.com.au/product/z0101-1n914-1n4148-small-signal-diode,
+main,D8 D9,1N4004,D_DO-41_SOD81_P7.62mm_Horizontal,2,Altronics,Z0109,1N4004 400V 1A diode,4,https://www.altronics.com.au/product/z0109-1n4004-400v-1a-silicon-diode,
+main,D10,BZX79-C5V1,D_DO-35_SOD27_P7.62mm_Horizontal,1,element14,109723601,"Nexperia BZX79-C5V1,133, 5V1 500 mW zener, DO-35",5,https://au.element14.com/search?st=109723601,
+main,LED1,GR,LED_D3.0mm,1,Altronics,Z0733,Yellow 50mcd 3mm flangeless LED,3,https://www.altronics.com.au/product/z0733-yellow-50mcd-3mm-flangeless-led,Yellow standing in for amber.
+main,C1 C2,22u,CP_Radial_D6.3mm_P2.50mm,2,element14,232603501,"Panasonic ECE-A1VN220U, 22uF 35V bipolar, 6.3 x 11.2 mm, 2.5 mm pitch",4,https://au.element14.com/search?st=232603501,
+main,C3 C4,1n,C_Disc_D5.0mm_W2.5mm_P5.00mm,2,Altronics,R2900A,0.001uF 50V X7R 5mm monolithic ceramic,4,https://www.altronics.com.au/product/r2900a-0001uf-50v-x7r-5mm-monolithic-capacitor,
+main,C5 C8,10u,C_Rect_L16.5mm_W11.8mm_P15.00mm_MKT,2,element14,3518951,"TDK B32562H1106K000, 10uF 63V PET film, 15 mm pitch",3,https://au.element14.com/search?st=3518951,
+main,C6 C16 C17,100u,CP_Radial_D6.3mm_P2.50mm,3,Altronics,R5124,100uF 25V electrolytic,5,https://www.altronics.com.au/product/r5124-lelon-100uf-25v-pcb-electrolytic-capacitor,
+main,C7 C20 C23 C24 C25 C26 C27 C28 C29 C30 C31 C32 C33 C34 C41 C42,100n,C_Disc_D5.0mm_W2.5mm_P5.00mm,16,element14,114177701,"Vishay K104K15X7RF53H5, 100nF 50V X7R, 5 mm pitch",20,https://au.element14.com/search?st=114177701,
+main,C9 C10,4u7,C_Rect_L16.5mm_W7.3mm_P15.00mm_MKT,2,element14,4457285,"TDK B32562H1475K000, 4.7uF 100V PET film, 15 mm pitch",5,https://au.element14.com/search?st=4457285,
+main,C11 C13,100p,C_Disc_D5.0mm_W2.5mm_P5.00mm,2,Altronics,R2822,100pF 50V SL 5mm ceramic,4,https://www.altronics.com.au/product/r2822-100pf-50v-sl-5mm-ceramic-capacitor,
+main,C14 C35,2u2,C_Rect_L7.2mm_W7.2mm_P5.00mm_FKS2_FKP2_MKS2_MKP2,2,element14,2429330,"KEMET MMK5225K63J06L4BULK, 2.2uF 63V PET film, 5 mm pitch",10,https://au.element14.com/search?st=2429330,
+main,C15,10u,C_Rect_L16.5mm_W11.8mm_P15.00mm_MKT,1,element14,3518951,"TDK B32562H1106K000, 10uF 63V PET film, 15 mm pitch",see C5,https://au.element14.com/search?st=3518951,Timing cap on C15 must be film.
+main,C18,10n,C_Disc_D5.0mm_W2.5mm_P5.00mm,1,Altronics,R2910A,0.01uF 50V X7R 5mm monolithic ceramic,3,https://www.altronics.com.au/product/r2910a-001uf-50v-x7r-5mm-monolithic-capacitor,
+main,C19 C21,47u,CP_Radial_D6.3mm_P2.50mm,2,Altronics,R5104,47uF 25V electrolytic,5,https://www.altronics.com.au/product/r5104-lelon-47uf-25v-pcb-electrolytic-capacitor,5 mm can with 2.0 mm leads on the 6.3 mm outline: spread the leads slightly.
+main,C22,4u7,CP_Radial_D6.3mm_P2.50mm,1,Altronics,R4748,4.7uF 63V 105C electrolytic,3,https://www.altronics.com.au/product/r4748-lelon-47uf-63v-high-temp-pcb-electrolytic-capacitor,5 mm can with 2.0 mm leads on the 6.3 mm outline: spread the leads slightly.
+main,Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8 Q9,BC549C,TO-92_Inline,9,element14,157438201,"Multicomp Pro BC549C, NPN TO-92",50,https://au.element14.com/search?st=157438201,"Q1/Q2 a matched pair, Q6-Q9 a matched quad: sort the fifty by Vbe."
+main,RV1,2k,Potentiometer_Bourns_3296W_Vertical,1,Altronics,R2378A,2k 3296W top adjust 25 turn trimpot,3,https://www.altronics.com.au/product/r2378a-radytronic-2k-top-adjust-3296w-style-25-turn-trimpot,
+main,RV7 RV8,20k,Potentiometer_Bourns_3296W_Vertical,2,Altronics,R2384A,20k 3296W top adjust 25 turn trimpot,4,https://www.altronics.com.au/product/r2384a-radytronic-20k-top-adjust-3296w-style-25-turn-trimpot,
+main,U1 U2 U3 U5 U6 U7,NE5532,DIP-8_W7.62mm_Socket,6,element14,311731001,"TI NE5532AP, dual op amp, DIP-8",7,https://au.element14.com/search?st=311731001,Socketed (P0550).
+main,U4,TL072,DIP-8_W7.62mm_Socket,1,element14,311778801,"TI TL072CP, dual JFET op amp, DIP-8",2,https://au.element14.com/search?st=311778801,Socketed (P0550).
+main,J1,EDA 306,EDA_306,1,none,,,,,Card-edge fingers on the main board.
+main,J2,FRONT BOARD,IDC-Header_2x15_P2.54mm_Vertical,1,Altronics,P5410,40 way x 2 header pin strip (cut to 2 x 15),1,https://www.altronics.com.au/product/p5410-oupiin-40-way-x-2-header-pin,"One 2 x 40 strip, cut to 2 x 15 for each board."
+front,R89 R91,2k7,R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal,2,element14,934164101,"Multicomp Pro MF25 2K7, 0.25W 1% metal film",10,https://au.element14.com/search?st=934164101,
+front,R90,8k2,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,1,element14,934227301,"Multicomp Pro MF25 8K2, 0.25W 1% metal film",see R7,https://au.element14.com/search?st=934227301,
+front,R92,4k7,R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,1,element14,934195101,"Multicomp Pro MF25 4K7, 0.25W 1% metal film",see R16,https://au.element14.com/search?st=934195101,
+front,D20 D21 D22 D23 D24 D25 D26 D27 D28 D29 D35 D36 D37,meter,LED_D2.0mm_W4.0mm_H2.8mm_FlatTop,13,element14,1142486,"Kingbright L-13YD, 2 mm flat-top LED, yellow",15,https://au.element14.com/search?st=1142486,Yellow stands in for amber.
+front,D30 D31 D32 D33 D34,meter,LED_D2.0mm_W4.0mm_H2.8mm_FlatTop,5,element14,1142480,"Kingbright L-13GD, 2 mm flat-top LED, green",5,https://au.element14.com/search?st=1142480,
+front,D38 D39,meter,LED_D2.0mm_W4.0mm_H2.8mm_FlatTop,2,element14,2314266,"Kingbright L-13ID, 2 mm flat-top LED, red",5,https://au.element14.com/search?st=2314266,
+front,C36 C37,100n,C_Disc_D5.0mm_W2.5mm_P5.00mm,2,element14,114177701,"Vishay K104K15X7RF53H5, 100nF 50V X7R, 5 mm pitch",see C7,https://au.element14.com/search?st=114177701,
+front,C38,47u,CP_Radial_D6.3mm_P2.50mm,1,Altronics,R5104,47uF 25V electrolytic,see C19,https://www.altronics.com.au/product/r5104-lelon-47uf-25v-pcb-electrolytic-capacitor,5 mm can with 2.0 mm leads on the 6.3 mm outline: spread the leads slightly.
+front,RV2 RV5,10k,Potentiometer_Alps_RK09K_Single_Vertical,2,Altronics,R1946,10k lin 18T spline 9mm single vertical PCB pot,2,https://www.altronics.com.au/product/r1946-10k-lin-18t-spline-9mm-single-vertical-pcb-pot,
+front,RV3,100kA,Potentiometer_Alps_RK09K_Single_Vertical,1,Altronics,R1960,100k log 18T spline 9mm single vertical PCB pot,1,https://www.altronics.com.au/product/r1960-100k-log-18t-spline-9mm-single-vertical-pcb-pot,
+front,RV4,100k,Potentiometer_Alps_RK09K_Single_Vertical,1,Altronics,R1948,100k lin 18T spline 9mm single vertical PCB pot,1,https://www.altronics.com.au/product/r1948-100k-lin-18t-spline-9mm-single-vertical-pcb-pot,
+front,RV6,1M,Potentiometer_Alps_RK09K_Single_Vertical,1,Altronics,R1950,1M lin 18T spline 9mm single vertical PCB pot,1,https://www.altronics.com.au/product/r1950-1m-lin-18t-spline-9mm-single-vertical-pcb-pot,
+front,SW1,BYPASS,SW_Toggle_Mini_DPDT_Salecom_S1350,1,Altronics,S1350,Salecom DPDT PCB mount mini toggle,1,https://www.altronics.com.au/product/s1350-salecom-dpdt-pcb-mount-mini-toggle-switch,
+front,SW2,INT/EXT,SW_Toggle_Mini_SPDT_Salecom_S1315,1,Altronics,S1315,Salecom SPDT PCB mount mini toggle,3,https://www.altronics.com.au/product/s1315-salecom-spdt-pcb-mount-mini-toggle-switch,
+front,SW3,HPF DEFEAT,SW_Toggle_Mini_SPDT_Salecom_S1315,1,Altronics,S1315,Salecom SPDT PCB mount mini toggle,see SW2,https://www.altronics.com.au/product/s1315-salecom-spdt-pcb-mount-mini-toggle-switch,
+front,SW4,LINK,SW_Toggle_Mini_SPDT_Salecom_S1315,1,Altronics,S1315,Salecom SPDT PCB mount mini toggle,see SW2,https://www.altronics.com.au/product/s1315-salecom-spdt-pcb-mount-mini-toggle-switch,
+front,U9 U10,LM3914,DIP-18_W7.62mm,2,NOT ORDERED,,,,,"LM3914, DIP-18, soldered direct. Not in either order: Jaycar ZL3914 or Altronics Z2670."
+front,J1,MAIN BOARD,PinHeader_2x15_P2.54mm_Vertical,1,Altronics,P5410,40 way x 2 header pin strip (cut to 2 x 15),see J2,https://www.altronics.com.au/product/p5410-oupiin-40-way-x-2-header-pin,"One 2 x 40 strip, cut to 2 x 15 for each board."
+hardware,U1-U7,,,7,Altronics,P0550,8 pin 0.3in DIL tinned IC socket,10,https://www.altronics.com.au/product/p0550-oupiin-8-pin-03-inch-dil-tinned-ic-socket,DIP-8 sockets for the op amps. The LM3914s go in direct.
+hardware,RV2-RV6,,,5,Altronics,H6520,11mm white aluminium 18T spline knob,5,https://www.altronics.com.au/product/h6520-11mm-white-aluminium-18t-spline-knob,Knobs.
+hardware,J1-J2,,,1,Altronics,P1023,"Socket to socket 30 way prototyping ribbon strip, 150mm",1,https://www.altronics.com.au/product/p1023-socket-to-socket-30-way-prototyping-ribbon-strips,Board-to-board ribbon. Keep wire 1 on pin 1 at both ends.
+hardware,bracket,,,1,NOT ORDERED,H3110A,"M3 x 6mm pan pozi nickel bolt, pk 25",,https://www.altronics.com.au/product/h3110a-m3-x-6mm-pan-pozi-nickel-bolt-pk-25,M3 screws for the L-bracket. Taken out of the Altronics order.
+hardware,bracket,,,1,NOT ORDERED,H3175,"M3 hex nut, pk 25",,https://www.altronics.com.au/product/h3175-m3-hex-nut-pk-25,M3 nuts. Taken out of the Altronics order.
+hardware,bracket,,,1,NOT ORDERED,,"25 x 25 mm aluminium angle, ~40 mm long",,,Hardware store.
+hardware,panel,,,1,NOT ORDERED,,"Faceplate, from panel/faceplate.dxf or panel/print",,,Panel shop or 3D print.

@@ -141,8 +141,8 @@ legend that can print in a second colour, and a fit-test strip to print first.
 ## Bill of materials
 
 **[`bom/altronics.csv`](bom/altronics.csv)** is the order list for both boards from Altronics,
-with catalogue codes, pack sizes, prices and the stock their site showed on the day it was
-checked. `python3 tools/bom_altronics.py` rebuilds it from the two `kicad_withpcb`
+with catalogue codes, a link to each product page, pack sizes, prices and the stock their
+site showed on the day it was checked. `python3 tools/bom_altronics.py` rebuilds it from the two `kicad_withpcb`
 schematics, so it follows the boards rather than `design.py`; a part drawn on both sheets
 is counted once, on the front board. It includes the hardware the schematics don't: DIP-8
 sockets for U1–U7, knobs, the board-to-board ribbon and M3 screws for the bracket. The
@@ -156,6 +156,19 @@ the main board is drawn for those exact parts: TDK B32562H1106K000 (10 µF, C5, 
 B32562H1475K000 (4.7 µF, C9, C10), both 15 mm pitch, and KEMET MMK5225K63J06L4BULK
 (2.2 µF, C14, C35) on 5 mm. RV5 (ATTACK) is 10k and RV6 (RELEASE) 1M, Altronics' nearest
 9 mm values.
+
+**[`bom/ordered.csv`](bom/ordered.csv)** is what was actually bought for the first build,
+split between Altronics and element14, with the supplier, order code, part, quantity and link
+for every reference on both boards. element14 supplied the film capacitors, R61/R62, the meter
+LEDs, the op amps, the BC549Cs, the BZX79 zener, the 100 nF ceramics, the 22 µF bipolars and
+most resistors; Altronics the rest. Two substitutions differ from the drawing: the meter LEDs
+are Kingbright L-13 (4.8 × 2.5 mm base, yellow in the amber positions), and C1/C2 are
+Panasonic ECE-A1VN220U (35 V, the 50 V parts don't fit the 6.3 mm outline). The LM3914s and the
+bracket hardware weren't in either order.
+
+Altronics lists the LM3914 (Z2670), but on 2026-10-12 it was out of stock for delivery and
+at Auburn, with stock only at Cannington WA. Call a store or buy both from element14 or
+DigiKey.
 
 The output-level meter was an LM3915, whose ten steps are 3 dB apart. Nobody stocks it any
 more, so U10 is now an LM3914 like the gain-reduction meter, and both meters have ten LEDs on

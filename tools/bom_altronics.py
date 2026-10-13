@@ -12,7 +12,13 @@ board and is counted once.
 
 The catalogue table below is what Altronics' website showed on CHECKED: code, pack size,
 price breaks (inc GST) and stock. Stock is the delivery warehouse and the Auburn NSW store,
-the nearest to UTS. Re-check before ordering; prices and stock move.
+the nearest to UTS. Re-check before ordering; prices and stock move. Every line with a code
+carries a link to its product page.
+
+Reading stock off the site: the store list on a product page shows a coloured dot per
+location, and the legend under it is the key. Green is In Stock, amber is "Low - Call" and
+red is Out of Stock. The page's own class names don't match (the red dot is
+"icon-low-stock", the amber one "icon-backorder"), so go by the legend, not the markup.
 
 Where Altronics has nothing that fits, the line says so and names another supplier.
 Those lines have no Altronics price and are totalled separately.
@@ -26,17 +32,17 @@ MAIN = os.path.join(ROOT, 'kicad_withpcb/compressor_with_pcb/compressor_with_pcb
 FRONT = os.path.join(ROOT, 'kicad_withpcb/compressor_front/compressor_front.kicad_sch')
 OUT = os.path.join(ROOT, 'bom/altronics.csv')
 
-CHECKED = '2026-10-03'
+CHECKED = '2026-10-12'
 
 # code: (description, pack size, [(min qty, unit price inc GST)], stock as seen)
-# Stock: "delivery / Auburn NSW"; IN = in stock, LOW = "Low - call", BO = back order.
+# Stock: "delivery / Auburn NSW"; IN = In Stock, LOW = "Low - Call", OUT = Out of Stock.
 CAT = {
  # 0.25 W 1% metal film, sold in tens
  'R7510': ('10R 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7526': ('47R 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7531': ('75R 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7534': ('100R 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
- 'R7542': ('220R 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / BO'),
+ 'R7542': ('220R 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7558': ('1k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7562': ('1k5 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7564': ('1k8 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
@@ -47,16 +53,16 @@ CAT = {
  'R7578': ('6k8 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7580': ('8k2 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7582': ('10k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
- 'R7583': ('11k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'LOW / IN'),
+ 'R7583': ('11k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'OUT / IN'),
  'R7586': ('15k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7588': ('18k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7589': ('20k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7590': ('22k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
- 'R7591': ('24k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'LOW / IN'),
+ 'R7591': ('24k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'OUT / IN'),
  'R7595': ('36k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7598': ('47k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7602': ('68k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
- 'R7604': ('82k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'LOW / IN'),
+ 'R7604': ('82k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'OUT / IN'),
  'R7606': ('100k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  'R7614': ('220k 0.25W 1% metal film resistor, pk 10', 10, [(1, 1.30), (10, 1.20)], 'IN / IN'),
  # capacitors
@@ -64,7 +70,7 @@ CAT = {
  'R2910A': ('0.01uF 50V X7R 5mm monolithic ceramic', 1, [(1, .40), (10, .30), (100, .25)], 'IN / IN'),
  'R2900A': ('0.001uF 50V X7R 5mm monolithic ceramic', 1, [(1, .40), (10, .30), (100, .25)], 'IN / IN'),
  'R2822': ('100pF 50V SL 5mm ceramic', 1, [(1, .20), (10, .15), (100, .10)], 'IN / IN'),
- 'R6570B': ('22uF 50V bipolar electrolytic', 1, [(1, 1.10), (10, .75), (50, .65)], 'IN / LOW'),
+ 'R6570B': ('22uF 50V bipolar electrolytic', 1, [(1, 1.10), (10, .75), (50, .65)], 'IN / OUT'),
  'R5124': ('100uF 25V electrolytic', 1, [(1, .55), (10, .40), (100, .30)], 'IN / IN'),
  'R5104': ('47uF 25V electrolytic', 1, [(1, .50), (10, .35), (100, .25)], 'IN / IN'),
  'R4748': ('4.7uF 63V 105C electrolytic', 1, [(1, .30), (10, .25), (100, .15)], 'IN / IN'),
@@ -76,7 +82,7 @@ CAT = {
  'Z2785': ('NE5532AP dual op amp', 1, [(1, 3.50), (10, 3.25), (25, 2.75)], 'IN / IN'),
  'Z2872': ('TL072 dual JFET op amp', 1, [(1, 2.20), (10, 2.00), (25, 1.55)], 'IN / IN'),
  'Z2670': ('LM3914 LED bar/dot driver (linear)', 1, [(1, 9.10), (10, 8.00), (25, 6.35)],
-           'LOW / LOW (in stock only at Cannington WA)'),
+           'OUT / OUT (in stock only at Cannington WA; Balcatta WA low)'),
  'Z0733': ('Yellow 50mcd 3mm flangeless LED', 1, [(1, .40), (10, .35), (100, .30)], 'IN / IN'),
  'Z0731': ('Green 70mcd 3mm flangeless LED', 1, [(1, .40), (10, .35), (100, .30)], 'IN / IN'),
  'Z0730': ('Red 12mcd 3mm flangeless LED', 1, [(1, .30), (10, .25), (100, .20)], 'IN / IN'),
@@ -93,9 +99,73 @@ CAT = {
  'P0550': ('8 pin 0.3in DIL tinned IC socket', 1, [(1, .40), (10, .35), (25, .30)], 'IN / IN'),
  'P5410': ('40 way x 2 header pin strip (cut to 2 x 15)', 1, [(1, 1.20), (10, 1.10), (40, 1.00)], 'IN / IN'),
  'P1023': ('Socket to socket 30 way prototyping ribbon strip, 150mm', 1, [(1, 5.20), (4, 4.65), (10, 4.15)], 'IN / IN'),
- 'H6545': ('11 x 14mm aluminium black 18T spline knob', 1, [(1, 3.95)], 'IN'),
+ 'H6545': ('11 x 14mm aluminium black 18T spline knob', 1, [(1, 3.95), (10, 3.60), (50, 3.25)], 'IN / IN'),
  'H3110A': ('M3 x 6mm pan pozi nickel bolt, pk 25', 25, [(1, 2.55), (5, 2.25)], 'IN / IN'),
  'H3175': ('M3 hex nut, pk 25', 25, [(1, 2.65), (5, 2.40)], 'IN / IN'),
+}
+
+# Product page for each code: https://www.altronics.com.au/product/<slug>
+URL = 'https://www.altronics.com.au/product/'
+SLUG = {
+ 'R7510': 'r7510-10r-025w-metal-film-resistor-pk-10',
+ 'R7526': 'r7526-47r-025w-metal-film-resistor-pk-10',
+ 'R7531': 'r7531-75r-025w-metal-film-resistor-pk-10',
+ 'R7534': 'r7534-100r-025w-metal-film-resistor-pk-10',
+ 'R7542': 'r7542-220r-025w-metal-film-resistor-pk-10',
+ 'R7558': 'r7558-1k-025w-metal-film-resistor-pk-10',
+ 'R7562': 'r7562-1k5-025w-metal-film-resistor-pk-10',
+ 'R7564': 'r7564-1k8-025w-metal-film-resistor-pk-10',
+ 'R7568': 'r7568-2k7-025w-metal-film-resistor-pk-10',
+ 'R7572': 'r7572-3k9-025w-metal-film-resistor-pk-10',
+ 'R7574': 'r7574-4k7-025w-metal-film-resistor-pk-10',
+ 'R7575': 'r7575-5k1-025w-metal-film-resistor-pk-10',
+ 'R7578': 'r7578-6k8-025w-metal-film-resistor-pk-10',
+ 'R7580': 'r7580-8k2-025w-metal-film-resistor-pk-10',
+ 'R7582': 'r7582-10k-025w-metal-film-resistor-pk-10',
+ 'R7583': 'r7583-11k-025w-metal-film-resistor-pk-10',
+ 'R7586': 'r7586-15k-025w-metal-film-resistor-pk-10',
+ 'R7588': 'r7588-18k-025w-metal-film-resistor-pk-10',
+ 'R7589': 'r7589-20k-025w-metal-film-resistor-pk-10',
+ 'R7590': 'r7590-22k-025w-metal-film-resistor-pk-10',
+ 'R7591': 'r7591-24k-025w-metal-film-resistor-pk-10',
+ 'R7595': 'r7595-36k-025w-metal-film-resistor-pk-10',
+ 'R7598': 'r7598-47k-025w-metal-film-resistor-pk-10',
+ 'R7602': 'r7602-68k-025w-metal-film-resistor-pk-10',
+ 'R7604': 'r7604-82k-025w-metal-film-resistor-pk-10',
+ 'R7606': 'r7606-100k-025w-metal-film-resistor-pk-10',
+ 'R7614': 'r7614-220k-025w-metal-film-resistor-pk-10',
+ 'R2931': 'r2931-01uf-50v-x7r-5mm-monolithic-capacitor',
+ 'R2910A': 'r2910a-001uf-50v-x7r-5mm-monolithic-capacitor',
+ 'R2900A': 'r2900a-0001uf-50v-x7r-5mm-monolithic-capacitor',
+ 'R2822': 'r2822-100pf-50v-sl-5mm-ceramic-capacitor',
+ 'R6570B': 'r6570b-22uf-50v-pcb-bipolar-capacitor',
+ 'R5124': 'r5124-lelon-100uf-25v-pcb-electrolytic-capacitor',
+ 'R5104': 'r5104-lelon-47uf-25v-pcb-electrolytic-capacitor',
+ 'R4748': 'r4748-lelon-47uf-63v-high-temp-pcb-electrolytic-capacitor',
+ 'Z0101': 'z0101-1n914-1n4148-small-signal-diode',
+ 'Z0109': 'z0109-1n4004-400v-1a-silicon-diode',
+ 'Z0614': 'z0614-5v1-1n4733-1w-zener-diode',
+ 'Z1044': 'z1044-npn-bc549-t092h-general-purpose-transistor',
+ 'Z2785': 'z2785-ne5532ap-op-amplifier',
+ 'Z2872': 'z2872-tl072-lo-noise-2xjfet-op-amplifier',
+ 'Z2670': 'z2670-lm3914-led-bar-dot-driver-linear',
+ 'Z0733': 'z0733-yellow-50mcd-3mm-flangeless-led',
+ 'Z0731': 'z0731-green-70mcd-3mm-flangeless-led',
+ 'Z0730': 'z0730-red-12mcd-3mm-flangeless-led',
+ 'R1946': 'r1946-10k-lin-18t-spline-9mm-single-vertical-pcb-pot',
+ 'R1948': 'r1948-100k-lin-18t-spline-9mm-single-vertical-pcb-pot',
+ 'R1960': 'r1960-100k-log-18t-spline-9mm-single-vertical-pcb-pot',
+ 'R1950': 'r1950-1m-lin-18t-spline-9mm-single-vertical-pcb-pot',
+ 'R2378A': 'r2378a-radytronic-2k-top-adjust-3296w-style-25-turn-trimpot',
+ 'R2384A': 'r2384a-radytronic-20k-top-adjust-3296w-style-25-turn-trimpot',
+ 'S1350': 's1350-salecom-dpdt-pcb-mount-mini-toggle-switch',
+ 'S1315': 's1315-salecom-spdt-pcb-mount-mini-toggle-switch',
+ 'P0550': 'p0550-oupiin-8-pin-03-inch-dil-tinned-ic-socket',
+ 'P5410': 'p5410-oupiin-40-way-x-2-header-pin',
+ 'P1023': 'p1023-socket-to-socket-30-way-prototyping-ribbon-strips',
+ 'H6545': 'h6545-11mm-aluminium-black-18t-spline-knob',
+ 'H3110A': 'h3110a-m3-x-6mm-pan-pozi-nickel-bolt-pk-25',
+ 'H3175': 'h3175-m3-hex-nut-pk-25',
 }
 
 RES = {'10R': 'R7510', '47R': 'R7526', '75R': 'R7531', '100R': 'R7534', '220R': 'R7542',
@@ -197,7 +267,10 @@ def choose(ref, val, fp):
             return (None, 'Meter LED, 2 mm round flat-top, %s. The ten-LED meters sit on a '
                           '3.0 mm pitch, too tight for Altronics\' 3 mm flangeless LEDs (they '
                           'fitted the old seven-LED meters at 3.5 mm), and Altronics has no '
-                          '2 mm LEDs.' % colour,
+                          '2 mm LEDs. Its 5 x 2 mm rectangular LEDs (Z0780 red, Z0782 green, '
+                          'Z0784 yellow; 2.54 mm leads along the long side) would fit the '
+                          'pitch with the 2 mm side along the bar, but the panel would need '
+                          '5 x 2 mm slots instead of 2 mm holes.' % colour,
                     '2 mm round flat-top LEDs (4.0 x 2.8 mm base, 2.54 mm leads) from element14 '
                     '/ DigiKey: GR D20-D29 amber; LVL D30-D34 green, D35-D37 amber, D38-D39 red '
                     '(not checked)')
@@ -221,8 +294,10 @@ def choose(ref, val, fp):
         if val == 'TL072':
             return ('Z2872', 'U4, socketed (P0550).', '')
         if val == 'LM3914':
-            return ('Z2670', 'Both meters (U10 was an LM3915, which nobody stocks). Low stock: '
-                    'order early or call the store.', '')
+            return ('Z2670', 'Both meters (U10 was an LM3915, which nobody stocks). Out of '
+                    'stock for delivery and at Auburn: only Cannington WA showed stock. Call '
+                    'a store or buy elsewhere.',
+                    'LM3914N-1 (DIP-18) from element14 / DigiKey (not checked)')
     if ref.startswith('RV'):
         code = {'2k': 'R2378A', '20k': 'R2384A', '10k': 'R1946', '100kA': 'R1960',
                 '100k': 'R1948', '1M': 'R1950'}.get(val)
@@ -342,22 +417,23 @@ def main():
     with open(OUT, 'w', newline='') as f:
         w = csv.writer(f)
         w.writerow(['Board', 'References', 'Value', 'Qty fitted', 'Altronics code',
-                    'Altronics description', 'Pack size', 'Order (packs)',
+                    'Altronics link', 'Altronics description', 'Pack size', 'Order (packs)',
                     'Unit price inc GST', 'Line total inc GST',
                     'Stock (delivery / Auburn NSW) on ' + CHECKED, 'Notes',
                     'If not at Altronics'])
         for r in rows:
             w.writerow([r['board'], ' '.join(r['refs']), r['value'], r['qty'],
-                        r['code'] or 'NOT STOCKED', r['desc'], r['pack'], r['order'],
+                        r['code'] or 'NOT STOCKED', URL + SLUG[r['code']] if r['code'] else '',
+                        r['desc'], r['pack'], r['order'],
                         '%.2f' % r['unit'] if r['unit'] else '',
                         '%.2f' % r['total'] if r['total'] else '', r['stock'], r['note'],
                         r['alt']])
         for what, desc, where in ELSEWHERE:
-            w.writerow(['hardware', what, '', 1, 'NOT STOCKED', desc, '', '', '', '', '', '',
-                        where])
+            w.writerow(['hardware', what, '', 1, 'NOT STOCKED', '', desc, '', '', '', '', '',
+                        '', where])
         total = sum(r['total'] for r in rows)
         w.writerow([])
-        w.writerow(['', '', '', '', '', 'Altronics total, inc GST, excluding postage', '',
+        w.writerow(['', '', '', '', '', '', 'Altronics total, inc GST, excluding postage', '',
                     '', '', '%.2f' % total, 'checked ' + CHECKED, '', ''])
 
     missing = [r for r in rows if not r['code'] and 'Nothing to order' not in r['note']]
