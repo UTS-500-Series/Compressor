@@ -137,7 +137,8 @@ alongside the default dark anodised one. The boards are only drawn for `toggle`.
 No laser cutter or CNC? [`panel/print/`](panel/print/README.md) has a 3D-printable faceplate
 (STL and OpenSCAD) with the same holes, pot wells for the short pot bushings, an engraved
 legend that can print in a second colour, and a fit-test strip to print first. It also comes
-as a STEP file (`faceplate.step`) for Fusion or any other CAD program.
+as a STEP file (`faceplate.step`) for Fusion or any other CAD program, plus a STEP with no
+legend and the legend as a DXF, for laying out your own.
 
 ## Bill of materials
 

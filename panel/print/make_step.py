@@ -4,14 +4,19 @@
 OpenSCAD only writes meshes, so this rebuilds the same faceplate as a real solid with
 CadQuery: true cylinders, cones and fillets, and the legend from the font's own curves.
 Every dimension comes from faceplate.scad and panel_data.scad, so it follows any change
-to hole_comp, legend_scale and the rest.
+to hole_comp, legend_scale and the rest. It writes three files:
 
-The model is front face up, in faceplate.scad's model coordinates: x right, y up from the
-bottom of the nominal 38.10 x 133.35 outline, back face at z = 0, front at z = thk. It has
-two bodies: "panel" (with the legend engraved) and "legend" (the inlay that fills it).
+    faceplate.step         "panel" with the legend engraved, and "legend", the inlay
+                           that fills it
+    faceplate-blank.step   the panel with every hole and pot well but no legend
+    faceplate-legend.dxf   the legend as outlines, one layer per label, plus the outline
+                           and holes for lining it up
+
+All three are front face up, in faceplate.scad's model coordinates: x right, y up from
+the bottom of the nominal 38.10 x 133.35 outline, back face at z = 0, front at z = thk.
 
 Needs: pip install cadquery uharfbuzz, and the Liberation Sans Bold font.
-Run:   python3 make_step.py            (writes faceplate.step)
+Run:   python3 make_step.py
 """
 import json, math, os, re, sys
 
@@ -19,6 +24,7 @@ import cadquery as cq
 import uharfbuzz as hb
 from fontTools.pens.basePen import BasePen
 from fontTools.ttLib import TTFont
+from cadquery.occ_impl.exporters.dxf import DxfDocument
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT_PATHS = ['/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf',
@@ -256,21 +262,29 @@ def text_faces(txt, size, halign, k):
     return faces
 
 
-legend_2d = []
+# (name, faces) for each label and each pot's ticks, so the DXF can keep them apart
+labels = []
 for txt, x, y, size, anchor in d['LEGENDS']:
     a = {'start': 'left', 'end': 'right'}.get(anchor, 'center')
-    for f in text_faces(txt, size * 0.8 * p['legend_scale'], a, p['legend_condense']):
-        legend_2d.append(f.translate(cq.Vector(*P(x, y), 0)))
+    labels.append((txt, [f.translate(cq.Vector(*P(x, y), 0)) for f in
+                         text_faces(txt, size * 0.8 * p['legend_scale'], a,
+                                    p['legend_condense'])]))
 if p['ticks']:
     tw, tl = p['tick_w'], p['tick_len']
-    for _, x, y, _bush, knob in d['POTS']:
+    for ref, x, y, _bush, knob in d['POTS']:
         r0 = knob / 2 + p['tick_gap']
         cx, cy = P(x, y)
+        faces = []
         for a in (135, 270, 405):
             c, s = math.cos(math.radians(-a)), math.sin(math.radians(-a))
             pts = [(r0, -tw / 2), (r0 + tl, -tw / 2), (r0 + tl, tw / 2), (r0, tw / 2)]
             pts = [cq.Vector(cx + u * c - v * s, cy + u * s + v * c, 0) for u, v in pts]
-            legend_2d.append(cq.Face.makeFromWires(cq.Wire.makePolygon(pts, close=True)))
+            faces.append(cq.Face.makeFromWires(cq.Wire.makePolygon(pts, close=True)))
+        # named after the pot's label: the nearest one below it on the same centreline
+        below = [lg for lg in d['LEGENDS'] if abs(lg[1] - x) < 0.01 and lg[2] > y]
+        name = min(below, key=lambda lg: lg[2])[0] if below else ref
+        labels.append(('TICKS-' + name, faces))
+legend_2d = [f for _, faces in labels for f in faces]
 
 
 def extrude(z0, h):
@@ -282,22 +296,56 @@ def extrude(z0, h):
 depth = p['legend_depth']
 engraving = extrude(thk - depth, depth + 1)
 panel = blank.cut(*cutters, engraving).clean()
+plain = blank.cut(*cutters).clean()
 legend = extrude(thk - depth, depth).intersect(blank).cut(*cutters).clean()
-if not (panel.isValid() and legend.isValid()):
+if not (panel.isValid() and legend.isValid() and plain.isValid()):
     sys.exit('the model came out invalid; check the legend settings')
 
 
 # ------------------------------------------------------------------ write
-if __name__ == '__main__':
-    out = os.path.join(HERE, 'faceplate.step')
-    assy = cq.Assembly(name='faceplate')
-    assy.add(panel, name='panel', color=cq.Color(0.165, 0.184, 0.2))
-    assy.add(legend, name='legend', color=cq.Color(0.949, 0.937, 0.906))
+def write_step(path, parts):
+    assy = cq.Assembly(name=os.path.splitext(os.path.basename(path))[0])
+    for name, shape, colour in parts:
+        assy.add(shape, name=name, color=cq.Color(*colour))
     # CAD programs work out the parametric curves themselves; leaving them out halves
     # the file
-    cq.exporters.assembly.exportAssembly(assy, out, write_pcurves=False)
-    for name, s in (('panel', panel), ('legend', legend)):
+    cq.exporters.assembly.exportAssembly(assy, path, write_pcurves=False)
+    print('wrote', os.path.relpath(path))
+
+
+def write_dxf(path):
+    """The legend for a sketch: each label and each pot's ticks on its own layer, and the
+    printed outline, through holes and pot wells on reference layers."""
+    dxf = DxfDocument()
+    # via a Workplane: CadQuery's DXF writer only handles Bezier edges that way
+    add = lambda shape, layer: dxf.add_shape(cq.Workplane().add(shape), layer)
+    dxf.add_layer('OUTLINE', color=8).add_layer('HOLES', color=8)
+    dxf.add_layer('POT-WELLS', color=9, linetype='DASHED')
+    back = [f for f in blank.Faces() if f.Center().z < 1e-6][0]
+    add(back.outerWire(), 'OUTLINE')
+    circles = [(x, y, bush + comp) for _, x, y, bush, _ in d['POTS']]
+    circles += [(x, y, bush + comp) for _, x, y, bush in d['SWITCHES']]
+    circles += [(x, y, p['led_d']) for _, x, y, _ in d['LEDS']]
+    circles += [(x, y, d['MTG_D'] + comp) for x, y in d['MTG']]
+    for x, y, dia in circles:
+        add(cq.Edge.makeCircle(dia / 2, cq.Vector(*P(x, y), 0)), 'HOLES')
+    for _, x, y, _, _ in d['POTS']:
+        add(cq.Edge.makeCircle(p['pot_well_d'] / 2, cq.Vector(*P(x, y), 0)), 'POT-WELLS')
+    for name, faces in labels:
+        dxf.add_layer(name, color=2 if name.startswith('TICKS') else 7)
+        for f in faces:
+            add(f, name)
+    dxf.document.saveas(path)
+    print('wrote', os.path.relpath(path))
+
+
+if __name__ == '__main__':
+    dark, light = (0.165, 0.184, 0.2), (0.949, 0.937, 0.906)
+    write_step(os.path.join(HERE, 'faceplate.step'),
+               [('panel', panel, dark), ('legend', legend, light)])
+    write_step(os.path.join(HERE, 'faceplate-blank.step'), [('panel', plain, dark)])
+    write_dxf(os.path.join(HERE, 'faceplate-legend.dxf'))
+    for name, s in (('panel', panel), ('legend', legend), ('blank', plain)):
         bb = s.BoundingBox()
         print('%-6s  %8.2f mm3  %4d faces  %.2f x %.2f x %.2f mm'
               % (name, s.Volume(), len(s.Faces()), bb.xlen, bb.ylen, bb.zlen))
-    print('wrote', os.path.relpath(out))
