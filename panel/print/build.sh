@@ -1,6 +1,7 @@
 #!/bin/sh
 # Rebuild the printable faceplate: hole data from make_panel.py, then the STLs.
 # Needs OpenSCAD (2021.01 or later) and python3. Takes a few minutes.
+# The STEP also needs CadQuery and uharfbuzz (pip install cadquery uharfbuzz).
 set -e
 cd "$(dirname "$0")"
 python3 ../make_panel.py > /dev/null
@@ -41,3 +42,8 @@ with open(path, 'wb') as f:
 EOF
 done
 python3 make_3mf.py
+if python3 -c 'import cadquery, uharfbuzz' 2>/dev/null; then
+    python3 make_step.py
+else
+    echo "skipping faceplate.step: pip install cadquery uharfbuzz"
+fi

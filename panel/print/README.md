@@ -11,14 +11,16 @@ so it fits the front board as drawn.
 | `faceplate-multicolor.3mf` | Panel and legend as one object with two parts, for a two-colour print in Bambu Studio or OrcaSlicer. |
 | `faceplate-multicolor-prusaslicer.3mf` | The same for PrusaSlicer, which keeps its part table in a different file. |
 | `faceplate-fit-test-multicolor.3mf`, `-prusaslicer.3mf` | The same pair for the fit test. |
+| `faceplate.step` | The faceplate as a solid for CAD (Fusion, FreeCAD, SolidWorks, Onshape), with the legend as a second body. See [In CAD](#in-cad). |
 | `faceplate.stl` | The faceplate, already flipped face down for printing. |
 | `faceplate-legend.stl` | The engraved legend and pot ticks as their own body, for a second colour. |
 | `faceplate-fit-test.stl` | A 27 mm strip across THRESHOLD, HPF, KEY and the bottom of both meters. |
 | `faceplate-fit-legend.stl` | The fit test's legend. |
 | `faceplate.scad` | The model. Every print setting is a parameter at the top. |
 | `panel_data.scad` | Hole positions and legend text, written by `make_panel.py`. Don't edit it. |
-| `build.sh` | Re-runs `make_panel.py`, exports all four STLs (a few minutes) and builds the 3MFs. |
+| `build.sh` | Re-runs `make_panel.py`, exports all four STLs (a few minutes), builds the 3MFs and, if CadQuery is installed, the STEP. |
 | `make_3mf.py` | Combines each panel and legend STL into the two 3MFs. |
+| `make_step.py` | Builds `faceplate.step` from the same two `.scad` files. |
 
 ## What's different from the metal panel
 
@@ -59,6 +61,29 @@ so it fits the front board as drawn.
    unit (AMS, MMU) or a second nozzle, but it only swaps on those two layers.
    With one colour, print `faceplate.stl` and fill the engraving afterwards with paint or a
    white wax crayon rubbed in and wiped off.
+
+## In CAD
+
+`faceplate.step` is the same faceplate as a real solid model: true cylinders, cones and
+fillets rather than a mesh, so you can measure it, add features, or line it up with the
+boards' STEP exports. It is in millimetres, front face up, with x to the right and y up. The
+origin is the bottom-left corner of the nominal 38.10 × 133.35 mm panel, so the printed
+outline starts at (0.15, 0.375); the back face is at z = 0 and the front at z = 3.2.
+
+It holds two components, coloured as the two-colour print:
+
+- **panel**, dark grey, with the legend and ticks engraved 0.4 mm into the front.
+- **legend**, off-white, the inlay that fills the engraving, one small body per letter and
+  tick. Hide or delete it if you only want the panel.
+
+In Fusion, use File, Open, Open from my computer and pick `faceplate.step`.
+
+`make_step.py` builds it with CadQuery from `faceplate.scad` and `panel_data.scad`, so it
+follows any change to `hole_comp`, the legend settings or the hole positions:
+`pip install cadquery uharfbuzz`, then `python3 make_step.py` (about ten seconds). It lays out
+the legend the way OpenSCAD 2021 does, using the font's own curves; checked against the
+STLs, 99% of their vertices sit within 0.007 mm of the STEP's edges and all of them within
+0.11 mm.
 
 ## Fitting it
 
