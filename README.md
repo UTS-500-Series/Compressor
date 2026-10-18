@@ -151,24 +151,28 @@ meter LEDs.
 
 Altronics doesn't stock everything. The script lists those lines with another supplier:
 the 2.2–10 µF film capacitors, R61/R62 at 0.1%, and the twenty 2 mm meter LEDs (Altronics'
-3 mm flangeless LEDs don't fit the meters' 3.0 mm pitch). The film capacitors come from element14, and
-the main board is drawn for those exact parts: TDK B32562H1106K000 (10 µF, C5, C8, C15) and
+3 mm flangeless LEDs don't fit the meters' 3.0 mm pitch). The main board is drawn for these
+film capacitors: TDK B32562H1106K000 (10 µF, C5, C8, C15) and
 B32562H1475K000 (4.7 µF, C9, C10), both 15 mm pitch, and KEMET MMK5225K63J06L4BULK
 (2.2 µF, C14, C35) on 5 mm. RV5 (ATTACK) is 10k and RV6 (RELEASE) 1M, Altronics' nearest
 9 mm values.
 
 **[`bom/ordered.csv`](bom/ordered.csv)** is what was actually bought for the first build,
-split between Altronics and element14, with the supplier, order code, part, quantity and link
-for every reference on both boards. element14 supplied the film capacitors, R61/R62, the meter
-LEDs, the op amps, the BC549Cs, the BZX79 zener, the 100 nF ceramics, the 22 µF bipolars and
-most resistors; Altronics the rest. Two substitutions differ from the drawing: the meter LEDs
-are Kingbright L-13 (4.8 × 2.5 mm base, yellow in the amber positions), and C1/C2 are
-Panasonic ECE-A1VN220U (35 V, the 50 V parts don't fit the 6.3 mm outline). The LM3914s and the
-bracket hardware weren't in either order.
+split between Altronics, DigiKey and Jaycar, with the supplier, order code, part, quantity and
+link for every reference on both boards.
 
-Altronics lists the LM3914 (Z2670), but on 2026-10-12 it was out of stock for delivery and
-at Auburn, with stock only at Cannington WA. Call a store or buy both from element14 or
-DigiKey.
+- **Altronics:** the pots, toggles, knobs, trimpots, sockets, headers, ribbon, small ceramics,
+  electrolytics, 1N4148/1N4004 diodes, the GR LED and R37, R42 and R44.
+- **DigiKey:** the 10 µF and 4.7 µF film capacitors (C5, C8, C15, C9, C10), R61/R62 at 0.1%,
+  the NE5532s, the BC549Cs, the BZX79 zener, the 100 nF ceramics and the 22 µF bipolars (C1, C2).
+- **Jaycar:** every other resistor (0.5 W mini metal film, which fits the 0.25 W outline), the
+  TL072, both LM3914s, the twenty meter LEDs and C14/C35.
+
+Three substitutions differ from the drawing. The meter LEDs are Jaycar 2 mm tower LEDs, orange
+in the amber positions. C14 and C35 are 2.2 µF bipolar electrolytics (Jaycar RY6804), because
+the 2.2 µF film part was out of stock everywhere we looked; neither is in the audio path. C1/C2 are
+Panasonic ECE-A1VN220U (35 V, the 50 V parts don't fit the 6.3 mm outline). The bracket
+hardware wasn't in any order.
 
 The output-level meter was an LM3915, whose ten steps are 3 dB apart. Nobody stocks it any
 more, so U10 is now an LM3914 like the gain-reduction meter, and both meters have ten LEDs on
