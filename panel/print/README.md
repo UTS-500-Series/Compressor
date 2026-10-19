@@ -126,10 +126,9 @@ outline from the drawing) are there to line things up and aren't meant to be cut
 
 In Fusion: open the blank, then Insert, Insert DXF, and pick the front face as the plane. If
 the dialog offers a single-sketch option, turn it off so each layer comes in as its own
-sketch, which makes a label easy to select and move. Move or delete labels
-(for example, take `GR` and `LVL` above the meters), then Extrude the outlines into the
-face by -0.4 mm with Cut for an engraved legend. For a second colour, extrude the same
-profiles again as a New Body, which gives you the inlay.
+sketch, which makes a label easy to select and move. Move or delete labels, then Extrude
+the outlines into the face by -0.4 mm with Cut for an engraved legend. For a second colour,
+extrude the same profiles again as a New Body, which gives you the inlay.
 
 `make_step.py` builds all three with CadQuery from `faceplate.scad` and `panel_data.scad`, so it
 follows any change to `hole_comp`, the LED sizes, the legend settings or the hole positions:

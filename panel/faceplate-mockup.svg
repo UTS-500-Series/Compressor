@@ -208,8 +208,8 @@
 <rect x="22.20" y="40.15" width="3.6" height="1.7" rx="0.5" fill="#07090a"/>
 <rect x="22.50" y="40.42" width="3.0" height="1.15" rx="0.35" fill="#6FCF97" fill-opacity="1.00"/>
 <rect x="21.50" y="39.50" width="5.0" height="3.0" rx="1.1" fill="#6FCF97" fill-opacity="0.17"/>
-<text x="14.10" y="44.50" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.00" font-weight="normal" letter-spacing="0.30" fill="#F2EFE7" fill-opacity="0.80">GR</text>
-<text x="24.00" y="44.50" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.00" font-weight="normal" letter-spacing="0.30" fill="#F2EFE7" fill-opacity="0.80">LVL</text>
+<text x="14.10" y="11.60" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.00" font-weight="normal" letter-spacing="0.30" fill="#F2EFE7" fill-opacity="0.80">GR</text>
+<text x="24.00" y="11.60" text-anchor="middle" font-family="Helvetica,Arial" font-size="2.00" font-weight="normal" letter-spacing="0.30" fill="#F2EFE7" fill-opacity="0.80">LVL</text>
 <line x1="14.17" y1="56.88" x2="13.46" y2="57.59" stroke="#F2EFE7" stroke-width="0.32" stroke-opacity="0.85"/>
 <line x1="12.49" y1="54.13" x2="11.54" y2="54.44" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>
 <line x1="12.23" y1="50.92" x2="11.25" y2="50.76" stroke="#F2EFE7" stroke-width="0.20" stroke-opacity="0.48"/>

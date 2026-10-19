@@ -131,6 +131,7 @@ METER_BOTTOM = METER_TOP + (METER_N - 1) * METER_PITCH
 METER_WEB = 0.8     # metal left between two meter holes; every other pair keeps 1.0 mm
 # as on the front board: GR has output 1 (D20) at the top, LVL has output 10 (D39) at the top
 METERS = [('GR', 20, +1, 14.1, 'gr'), ('LVL', 39, -1, 24.0, 'lvl')]
+METER_LABEL_Y = METER_TOP - 2.4    # GR and LVL baselines, above the meters
 
 def meter_leds():
     out = []
@@ -499,7 +500,7 @@ def mockup_anodised():
             o.append('<rect x="%.2f" y="%.2f" width="5.0" height="3.0" rx="1.1" fill="%s" '
                      'fill-opacity="0.17"/>' % (x - 2.5, y - 1.5, base))
     for label, first, step, x, kind in METERS:
-        o.append(_atxt(x, METER_BOTTOM + 3.5, label, 2.0,
+        o.append(_atxt(x, METER_LABEL_Y, label, 2.0,
                        C['INK'], 0.3, 'middle', 0.8))
 
     def rule(y, text):
@@ -714,7 +715,7 @@ def legends():
     """(text, x, y, size, anchor) of the printed panel's engraved legend: the anodised
     mockup's wording and positions. y is the baseline, size the SVG font size."""
     t = [('OPN-500', 3.2, 7.9, 2.15, 'start'), ('CMP-01', W - 3.2, 7.9, 2.15, 'end')]
-    t += [(label, x, METER_BOTTOM + 3.5, 2.0, 'middle') for label, f, s, x, k in METERS]
+    t += [(label, x, METER_LABEL_Y, 2.0, 'middle') for label, f, s, x, k in METERS]
     for ol, orf, il, irf, x, y in CONCENTRIC:
         t.append((ol, x, y + KNOB_OUT / 2 + 4.3, 2.45, 'middle'))
         t.append((il, x, y + KNOB_OUT / 2 + 6.9, 1.85, 'middle'))
