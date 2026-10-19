@@ -9,10 +9,12 @@ to hole_comp, legend_scale and the rest. It writes three files:
     faceplate.step         "panel" with the legend engraved, and "legend", the inlay
                            that fills it
     faceplate-blank.step   the panel with every hole and LED slot but no legend
+    faceplate-led-retainer.step
+                           the plate that holds the meter LEDs in from the back
     faceplate-legend.dxf   the legend as outlines, one layer per label, plus the outline
                            and holes for lining it up
 
-All three are front face up, in faceplate.scad's model coordinates: x right, y up from
+All of them are front face up, in faceplate.scad's model coordinates: x right, y up from
 the bottom of the nominal 38.10 x 133.35 outline, back face at z = 0, front at z = thk.
 
 Needs: pip install cadquery uharfbuzz, and the Liberation Sans Bold font.
@@ -110,6 +112,34 @@ if slot_h > 0:
         _, bot = P(x, max(ys))
         cutters.append(cq.Solid.makeBox(slot_w, max(ys) - min(ys) + slot_l, 1 + slot_h,
                                         cq.Vector(x - slot_w / 2, bot - slot_l / 2, -1)))
+
+# the LED retainer: a plate on the back face, a rib into each slot pressing on the LED
+# bases, two pins between the meters into blind holes, and a hole for every lead
+cols = sorted({l[1] for l in d['LEDS']})
+col_ys = [l[2] for l in d['LEDS'] if l[1] == cols[0]]
+pins = [((cols[0] + cols[-1]) / 2, y) for y in (min(col_ys), max(col_ys))]
+for x, y in pins:
+    cutters.append(cyl(x, y, p['retainer_pin_d'] + p['retainer_pin_fit'], -1,
+                       1 + p['retainer_pin_h'] + 0.2))
+rt, rm, rc = p['retainer_t'], p['retainer_margin'], p['retainer_rib_clear']
+rib_h = slot_h - p['led_base_h'] + p['retainer_press']
+if rib_h <= 0:
+    sys.exit('the LED bases stand out of their slots; deepen them or thin the plate')
+rx0, rx1 = cols[0] - slot_w / 2 - rm, cols[-1] + slot_w / 2 + rm
+_, ry0 = P(0, max(col_ys) + slot_l / 2 + rm)
+_, ry1 = P(0, min(col_ys) - slot_l / 2 - rm)
+retainer = (cq.Workplane().box(rx1 - rx0, ry1 - ry0, rt, centered=False)
+            .translate((rx0, ry0, -rt)).edges('|Z').fillet(1.0)).val()
+for x in cols:
+    _, bot = P(x, max(col_ys))
+    retainer = retainer.fuse(cq.Solid.makeBox(
+        slot_w - 2 * rc, max(col_ys) - min(col_ys) + slot_l - 2 * rc, rib_h,
+        cq.Vector(x - slot_w / 2 + rc, bot - slot_l / 2 + rc, 0)))
+for x, y in pins:
+    retainer = retainer.fuse(cyl(x, y, p['retainer_pin_d'], 0, p['retainer_pin_h']))
+retainer = retainer.cut(*[cyl(l[1] + s * p['lead_pitch'] / 2, l[2], p['lead_hole_d'],
+                              -rt - 1, rt + rib_h + 2)
+                          for l in d['LEDS'] for s in (-1, 1)]).clean()
 
 
 # ------------------------------------------------------------------ legend
@@ -300,7 +330,7 @@ engraving = extrude(thk - depth, depth + 1)
 panel = blank.cut(*cutters, engraving).clean()
 plain = blank.cut(*cutters).clean()
 legend = extrude(thk - depth, depth).intersect(blank).cut(*cutters).clean()
-if not (panel.isValid() and legend.isValid() and plain.isValid()):
+if not (panel.isValid() and legend.isValid() and plain.isValid() and retainer.isValid()):
     sys.exit('the model came out invalid; check the legend settings')
 
 
@@ -346,8 +376,11 @@ if __name__ == '__main__':
     write_step(os.path.join(HERE, 'faceplate.step'),
                [('panel', panel, dark), ('legend', legend, light)])
     write_step(os.path.join(HERE, 'faceplate-blank.step'), [('panel', plain, dark)])
+    write_step(os.path.join(HERE, 'faceplate-led-retainer.step'),
+               [('retainer', retainer, dark)])
     write_dxf(os.path.join(HERE, 'faceplate-legend.dxf'))
-    for name, s in (('panel', panel), ('legend', legend), ('blank', plain)):
+    for name, s in (('panel', panel), ('legend', legend), ('blank', plain),
+                    ('retainer', retainer)):
         bb = s.BoundingBox()
         print('%-6s  %8.2f mm3  %4d faces  %.2f x %.2f x %.2f mm'
               % (name, s.Volume(), len(s.Faces()), bb.xlen, bb.ylen, bb.zlen))

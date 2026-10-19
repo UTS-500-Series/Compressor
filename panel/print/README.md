@@ -18,17 +18,19 @@ so it fits the front board as drawn.
 | `faceplate-legend.stl` | The engraved legend and pot ticks as their own body, for a second colour. |
 | `faceplate-fit-test.stl` | A 27 mm strip across THRESHOLD, HPF, KEY and the bottom of both meters. |
 | `faceplate-fit-legend.stl` | The fit test's legend. |
+| `faceplate-led-retainer.stl` | A thin plate that holds the meter LEDs in from the back. See [The LED retainer](#the-led-retainer). |
+| `faceplate-led-retainer.step` | The retainer as a solid, placed where it sits on the back of `faceplate.step`. |
 | `faceplate.scad` | The model. Every print setting is a parameter at the top. |
 | `panel_data.scad` | Hole positions and legend text, written by `make_panel.py`. Don't edit it. |
-| `build.sh` | Re-runs `make_panel.py`, exports all four STLs (a few minutes), builds the 3MFs and, if CadQuery is installed, the STEP. |
+| `build.sh` | Re-runs `make_panel.py`, exports all five STLs (a few minutes), builds the 3MFs and, if CadQuery is installed, the STEPs. |
 | `make_3mf.py` | Combines each panel and legend STL into the two 3MFs. |
-| `make_step.py` | Builds the two STEPs and the legend DXF from the same two `.scad` files. |
+| `make_step.py` | Builds the three STEPs and the legend DXF from the same two `.scad` files. |
 
 ## What's different from the metal panel
 
 - **Thickness:** 3.2 mm, the same as the 1/8″ metal panel, so the rack screws and everything
   behind the panel sit exactly where the front board expects. The back is flat apart from
-  the two meter slots.
+  the two meter slots and the two pin holes for the LED retainer.
 - **Pots:** the front is flat round the pots, so the knobs sit down close to the panel. The
   Altronics 9 mm pots have no threaded bushing or nut; they're held by the front board,
   and the board by the toggle nuts, so the pot holes are just clearance for the shafts.
@@ -72,6 +74,31 @@ so it fits the front board as drawn.
    unit (AMS, MMU) or a second nozzle, but it only swaps on those two layers.
    With one colour, print `faceplate.stl` and fill the engraving afterwards with paint or a
    white wax crayon rubbed in and wiped off.
+
+## The LED retainer
+
+`faceplate-led-retainer.stl` is a 16.5 × 32.8 mm plate, 1.2 mm thick, that covers the back of
+both meters. A rib on it goes into each LED slot and presses on the backs of the LED bases,
+which holds every LED firmly in the panel. Two 2 mm pins between the meters press into blind
+holes in the back of the panel. Each LED's two leads pass through their own pair of holes
+on the 2.54 mm pitch of the front board's pads.
+
+Print it flat as exported, with the ribs and pins facing up, in the same PETG at 0.2 mm
+layers. The ribs are one layer (0.2 mm) taller than the slots need, which is the squeeze
+on the LEDs.
+
+To fit it:
+
+1. Push all twenty LEDs into the panel from the back, with the flat (cathode) side the way
+   the front board's silkscreen shows. Watch which way round each column goes: the two
+   columns face opposite ways.
+2. Thread each LED's leads through the retainer's holes and press the retainer on until
+   its pins are home. A drop of glue on each pin makes it permanent, if the pins come out
+   loose.
+3. Fit the front board over the leads, tighten the toggle nuts, and solder the LEDs.
+
+If the pins are loose or too tight to press home, change `retainer_pin_fit`. If the LEDs
+still rattle, raise `retainer_press` to 0.4. Both are at the top of `faceplate.scad`.
 
 ## In CAD
 

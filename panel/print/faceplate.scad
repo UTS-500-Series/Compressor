@@ -13,6 +13,8 @@
 //   part = "fit_test"     a 27 mm strip through THRESHOLD, HPF, KEY and the meter
 //                         bottoms, to check the fits before printing the whole panel
 //   part = "fit_legend"   the fit test's engraving
+//   part = "retainer"     a thin plate that clips over the back of both meters and holds
+//                         the LEDs in their slots; prints flat, ribs and pins up
 //   part = "preview"      both, front face up, in colour (for the picture in README.md)
 //
 // openscad -o faceplate.stl -D 'part="panel"' faceplate.scad   (or run build.sh)
@@ -78,6 +80,26 @@ tick_w = 0.5;
 tick_len = 1.2;
 // gap between the knob skirt and the inner end of a tick
 tick_gap = 0.9;
+
+/* [LED retainer] */
+// height of the LED base below the tower's shoulder
+led_base_h = 1.5;
+retainer_t = 1.2;
+// plate border round the two slots
+retainer_margin = 1.5;
+// a rib on the plate goes into each slot; it reaches this far past the backs of the
+// LED bases, so it presses them into the panel (0.2 = one layer)
+retainer_press = 0.2;
+// gap each side of the rib in its slot
+retainer_rib_clear = 0.15;
+// LED leads: two per LED, across the column, as the front board's pads
+lead_pitch = 2.54;
+lead_hole_d = 1.0;
+// two pins between the meters press into blind holes in the back of the panel
+retainer_pin_d = 2.0;
+retainer_pin_h = 1.2;
+// added to the pin holes; the 2.2 mm LED holes slide on a 2.0 mm tower, so 0.1 grips
+retainer_pin_fit = 0.1;
 
 /* [Fit test strip] */
 fit_y0 = 36;
@@ -167,6 +189,9 @@ module holes() {
     for (s = SWITCHES) through(s[1], s[2], s[3] + hole_comp);
     for (l = LEDS) through(l[1], l[2], led_tower_d + led_comp, 0);
     led_slots();
+    for (p = retainer_pins())
+        translate(concat(P(p[0], p[1]), [-1]))
+            cylinder(d = retainer_pin_d + retainer_pin_fit, h = 1 + retainer_pin_h + 0.2);
     for (m = MTG) {
         d = MTG_D + hole_comp;
         // 82 degree countersink on the front face
@@ -196,6 +221,47 @@ module legend() {
     }
 }
 
+// ------------------------------------------------------------------ LED retainer
+// the meter columns' x, and the first and last LED's y in each
+function led_cols() = [for (i = [0 : len(LEDS) - 1])
+                         if (i == 0 || LEDS[i][1] != LEDS[i - 1][1]) LEDS[i][1]];
+function led_ys(x) = [for (l = LEDS) if (l[1] == x) l[2]];
+// halfway between the columns, level with the top and bottom LEDs
+function retainer_pins() = let(c = led_cols(), ys = led_ys(c[0]))
+    [[(c[0] + c[len(c) - 1]) / 2, min(ys)], [(c[0] + c[len(c) - 1]) / 2, max(ys)]];
+
+// in model coordinates: the plate against the back face (z below 0), the ribs and pins
+// pointing up into the panel
+module retainer() {
+    sw = led_base_w + led_base_clear;
+    sl = led_base_l + led_base_clear;
+    rib_h = led_slot_h - led_base_h + retainer_press;
+    assert(rib_h > 0, "the LED bases stand out of their slots; deepen them or thin the plate");
+    c = led_cols();
+    ys = led_ys(c[0]);
+    x0 = min(c) - sw / 2 - retainer_margin;
+    x1 = max(c) + sw / 2 + retainer_margin;
+    y0 = min(ys) - sl / 2 - retainer_margin;
+    y1 = max(ys) + sl / 2 + retainer_margin;
+    difference() {
+        union() {
+            translate([x0, H - y1, -retainer_t])
+                linear_extrude(retainer_t) rounded_rect(x1 - x0, y1 - y0, 1);
+            for (x = c)
+                translate([x - sw / 2 + retainer_rib_clear,
+                           H - max(ys) - sl / 2 + retainer_rib_clear, -eps])
+                    cube([sw - 2 * retainer_rib_clear,
+                          max(ys) - min(ys) + sl - 2 * retainer_rib_clear, rib_h + eps]);
+            for (p = retainer_pins())
+                translate(concat(P(p[0], p[1]), [-eps]))
+                    cylinder(d = retainer_pin_d, h = retainer_pin_h + eps, $fn = 48);
+        }
+        for (l = LEDS, s = [-1, 1])
+            translate(concat(P(l[1] + s * lead_pitch / 2, l[2]), [-retainer_t - 1]))
+                cylinder(d = lead_hole_d, h = retainer_t + rib_h + 2, $fn = 24);
+    }
+}
+
 // ------------------------------------------------------------------ fit test
 module fit_window() {
     translate([-1, H - fit_y1, -1]) cube([W + 2, fit_y1 - fit_y0, thk + 2]);
@@ -210,6 +276,9 @@ module print_orient() {
 if (part == "preview") {
     color("#2a2f33") panel();
     color("#f2efe7") translate([0, 0, 0.02]) legend();  // lifted clear of the face
+} else if (part == "retainer") {
+    // flat on the bed, ribs and pins up
+    translate([0, 0, retainer_t]) retainer();
 } else print_orient()
     if (part == "panel") panel();
     else if (part == "legend") legend();

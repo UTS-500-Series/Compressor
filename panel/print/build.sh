@@ -6,11 +6,12 @@ set -e
 cd "$(dirname "$0")"
 python3 ../make_panel.py > /dev/null
 
-for part in panel legend fit_test fit_legend; do
+for part in panel legend fit_test fit_legend retainer; do
     name=$(echo "$part" | sed 's/_/-/')
     case $part in
         panel)  out=faceplate.stl ;;
         legend) out=faceplate-legend.stl ;;
+        retainer) out=faceplate-led-retainer.stl ;;
         *)      out=faceplate-$name.stl ;;
     esac
     echo "rendering $out"
