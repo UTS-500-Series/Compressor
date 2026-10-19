@@ -67,17 +67,21 @@ led_min_web = 1.0;
 hole_chamfer = 0.3;
 
 /* [Legend] */
-legend_depth = 0.4;
+// 0.6 = the 0.2 mm first layer plus five 0.08 mm layers
+legend_depth = 0.6;
 // 1.0 = the mockup's type sizes, which are too small for a 0.4 mm nozzle
 legend_scale = 1.3;
 // squeeze the type horizontally to keep the ATTACK / RELEASE row apart
 legend_condense = 0.85;
-// grows every stroke by this much on each side
-legend_bold = 0.05;
+// grows every stroke by this much on each side: 0.15 keeps the thin strokes at
+// 0.5 mm or more, wider than a 0.4 mm nozzle's line
+legend_bold = 0.15;
+// letter spacing (OpenSCAD's text() spacing), opened up to keep the bolder letters apart
+legend_spacing = 1.2;
 legend_font = "Liberation Sans:style=Bold";
 // tick marks at the start, middle and end of each pot's travel
 ticks = true;
-tick_w = 0.5;
+tick_w = 0.6;
 tick_len = 1.2;
 // gap between the knob skirt and the inner end of a tick
 tick_gap = 0.9;
@@ -163,7 +167,7 @@ module legend_2d() {
             scale([legend_condense, 1])
                 offset(delta = legend_bold)
                     text(t[0], size = t[3] * 0.8 * legend_scale, font = legend_font,
-                         halign = a, valign = "baseline");
+                         halign = a, valign = "baseline", spacing = legend_spacing);
     }
     if (ticks)
         for (p = POTS) {

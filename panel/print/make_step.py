@@ -17,7 +17,7 @@ to hole_comp, legend_scale and the rest. It writes three files:
 All of them are front face up, in faceplate.scad's model coordinates: x right, y up from
 the bottom of the nominal 38.10 x 133.35 outline, back face at z = 0, front at z = thk.
 
-Needs: pip install cadquery uharfbuzz, and the Liberation Sans Bold font.
+Needs: pip install cadquery uharfbuzz shapely, and the Liberation Sans Bold font.
 Run:   python3 make_step.py
 """
 import json, math, os, re, sys
@@ -264,11 +264,43 @@ def grown(contour, dist):
         segs.pop(min(bad, key=lambda i: math.hypot(*sub(segs[i][-1], segs[i][1]))))
 
 
+def _flat(contour, n=8):
+    """The contour as a polygon, each curve cut into n straight pieces."""
+    pts = []
+    for s in contour:
+        if s[0] == 'L':
+            pts.append(s[1])
+        else:
+            a, c, b = s[1:]
+            pts += [((1 - t) ** 2 * a[0] + 2 * (1 - t) * t * c[0] + t * t * b[0],
+                     (1 - t) ** 2 * a[1] + 2 * (1 - t) * t * c[1] + t * t * b[1])
+                    for t in (i / n for i in range(n))]
+    return pts
+
+
+def grown_flat(contours, dist, f):
+    """Fallback for a glyph whose grown outline runs into itself (a bold S closes its
+    own mouth): offset it as straight-sided polygons with Shapely, which merges the
+    overlaps the way OpenSCAD's offset() does, at the cost of the curves."""
+    from shapely.geometry import Polygon
+    from shapely.ops import unary_union
+    outers = [c for c in contours if signed_area(c) < 0]
+    inners = [c for c in contours if signed_area(c) > 0]
+    shape = unary_union([Polygon(_flat(o), [_flat(i) for i in inners if inside(i[0][1], o)])
+                         for o in outers]).buffer(dist, join_style=2, mitre_limit=10)
+    poly = lambda ring: cq.Wire.makePolygon(
+        [cq.Vector(*f(pt), 0) for pt in list(ring.coords)[:-1]], close=True)
+    return [cq.Face.makeFromWires(poly(g.exterior), [poly(r) for r in g.interiors])
+            for g in getattr(shape, 'geoms', [shape])]
+
+
 def text_faces(txt, size, halign, k):
     """Faces of one line of text, laid out exactly as OpenSCAD 2021's text() does:
-    outlines at size * 100/72 per em, advances 2.4% shorter (its 1000/1024 factor)."""
+    outlines at size * 100/72 per em, advances 2.4% shorter (its 1000/1024 factor)
+    and scaled by legend_spacing."""
     so = size * 100 / 72 / upem
-    sa = so / 1.024
+    # legend_spacing stretches every advance, and the width used to align the line
+    sa = so / 1.024 * p.get('legend_spacing', 1.0)
     buf = hb.Buffer()
     buf.add_str(txt)
     buf.guess_segment_properties()
@@ -285,11 +317,15 @@ def text_faces(txt, size, halign, k):
         # TrueType: outer contours run clockwise, holes anticlockwise
         outers = [c for c in pen.contours if signed_area(c) < 0]
         inners = [c for c in pen.contours if signed_area(c) > 0]
+        glyph = []
         for o in outers:
             mine = [i for i in inners if inside(i[0][1], o)]
             ow = wire(g(o), f)
             iw = [wire(g(i), f) for i in mine]
-            faces.append(cq.Face.makeFromWires(ow, iw))
+            glyph.append(cq.Face.makeFromWires(ow, iw))
+        if not all(gf.isValid() for gf in glyph):
+            glyph = grown_flat(pen.contours, p['legend_bold'] / so, f)
+        faces += glyph
         pen_x += gp.x_advance * sa
     return faces
 

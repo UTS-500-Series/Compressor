@@ -48,9 +48,11 @@ so it fits the front board as drawn.
 - **Width and height:** 37.8 × 132.6 mm rather than the nominal 38.10 × 133.35, so it slides in
   beside the next module. The front edge has a 0.4 mm chamfer so first-layer squish doesn't
   flare it.
-- **Legend:** engraved 0.4 mm into the front, 30% larger than on the mockup (the mockup's
-  1.4 to 1.7 mm capitals are too fine for a 0.4 mm nozzle). Each pot gets three ticks: start,
-  middle and end of travel.
+- **Legend:** engraved 0.6 mm into the front, 30% larger than on the mockup (the mockup's
+  1.4 to 1.7 mm capitals are too fine for a 0.4 mm nozzle). Every stroke is grown 0.15 mm
+  each side (`legend_bold`) so the thin strokes come out 0.5 mm or wider, more than one
+  nozzle line, and the letters are spaced 20% wider (`legend_spacing`) to keep them apart.
+  Each pot gets three 0.6 mm wide ticks: start, middle and end of travel.
 
 ## Printing it
 
@@ -72,8 +74,9 @@ so it fits the front board as drawn.
    It loads as one object with two parts already lined up: the panel on filament 1 and the
    legend on filament 2. Pick a dark filament for 1 and a light one for 2. The file carries no
    print settings, so opening it as a project in Bambu Studio says it is loading geometry
-   only; that's expected. Both colours share the first two layers, so it needs a multicolour
-   unit (AMS, MMU) or a second nozzle, but it only swaps on those two layers.
+   only; that's expected. Both colours share the first 0.6 mm (three 0.2 mm layers, or a
+   0.2 mm first layer and five 0.08 mm layers), so it needs a multicolour unit (AMS, MMU) or a
+   second nozzle, but it only swaps on those layers.
    With one colour, print `faceplate.stl` and fill the engraving afterwards with paint or a
    white wax crayon rubbed in and wiped off.
 
@@ -141,7 +144,7 @@ outline starts at (0.15, 0.375); the back face is at z = 0 and the front at z = 
 
 It holds two components, coloured as the two-colour print:
 
-- **panel**, dark grey, with the legend and ticks engraved 0.4 mm into the front.
+- **panel**, dark grey, with the legend and ticks engraved 0.6 mm into the front.
 - **legend**, off-white, the inlay that fills the engraving, one small body per letter and
   tick. Hide or delete it if you only want the panel.
 
@@ -158,12 +161,12 @@ outline from the drawing) are there to line things up and aren't meant to be cut
 In Fusion: open the blank, then Insert, Insert DXF, and pick the front face as the plane. If
 the dialog offers a single-sketch option, turn it off so each layer comes in as its own
 sketch, which makes a label easy to select and move. Move or delete labels, then Extrude
-the outlines into the face by -0.4 mm with Cut for an engraved legend. For a second colour,
+the outlines into the face by -0.6 mm with Cut for an engraved legend. For a second colour,
 extrude the same profiles again as a New Body, which gives you the inlay.
 
 `make_step.py` builds all three with CadQuery from `faceplate.scad` and `panel_data.scad`, so it
 follows any change to `hole_comp`, the LED sizes, the legend settings or the hole positions:
-`pip install cadquery uharfbuzz`, then `python3 make_step.py` (about ten seconds). It lays out
+`pip install cadquery uharfbuzz shapely`, then `python3 make_step.py` (about ten seconds). It lays out
 the legend the way OpenSCAD 2021 does, using the font's own curves; checked against the
 STLs, 99% of their vertices sit within 0.007 mm of the STEP's edges and all of them within
 0.11 mm.
