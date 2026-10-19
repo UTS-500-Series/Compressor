@@ -135,8 +135,9 @@ alongside the default dark anodised one. The boards are only drawn for `toggle`.
 [`panel/README.md`](panel/README.md).
 
 No laser cutter or CNC? [`panel/print/`](panel/print/README.md) has a 3D-printable faceplate
-(STL and OpenSCAD) with the same holes, pot wells for the short pot bushings, an engraved
-legend that can print in a second colour, and a fit-test strip to print first. It also comes
+(STL and OpenSCAD) with the same holes, a flat front at the pots, meter holes sized for the
+Jaycar 2 mm tower LEDs, an engraved legend that can print in a second colour, and a
+fit-test strip to print first. It also comes
 as a STEP file (`faceplate.step`) for Fusion or any other CAD program, plus a STEP with no
 legend and the legend as a DXF, for laying out your own.
 

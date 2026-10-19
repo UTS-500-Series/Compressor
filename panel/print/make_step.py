@@ -8,7 +8,7 @@ to hole_comp, legend_scale and the rest. It writes three files:
 
     faceplate.step         "panel" with the legend engraved, and "legend", the inlay
                            that fills it
-    faceplate-blank.step   the panel with every hole and pot well but no legend
+    faceplate-blank.step   the panel with every hole and LED slot but no legend
     faceplate-legend.dxf   the legend as outlines, one layer per label, plus the outline
                            and holes for lining it up
 
@@ -95,11 +95,22 @@ comp = p['hole_comp']
 cutters = []
 for _, x, y, bush, _knob in d['POTS']:
     cutters += through(x, y, bush + comp, p['hole_chamfer'])
-    cutters.append(cyl(x, y, p['pot_well_d'], p['pot_web'], thk))
 for _, x, y, bush in d['SWITCHES']:
     cutters += through(x, y, bush + comp, p['hole_chamfer'])
+led_hole = p['led_tower_d'] + p['led_comp']
 for _, x, y, _dia in d['LEDS']:
-    cutters += through(x, y, p['led_d'], 0)
+    cutters += through(x, y, led_hole, 0)
+# the slot along each meter column that the LED bases' shoulders stop against
+slot_h = min(max(thk - p['led_tower_h'] - p['led_proud'], 0), thk - p['led_min_web'])
+slot_w = p['led_base_d'] + p['led_base_clear']
+if slot_h > 0:
+    for x in sorted({l[1] for l in d['LEDS']}):
+        ys = [l[2] for l in d['LEDS'] if l[1] == x]
+        (_, top), (_, bot) = P(x, min(ys)), P(x, max(ys))
+        cutters += [cyl(x, min(ys), slot_w, -1, 1 + slot_h),
+                    cyl(x, max(ys), slot_w, -1, 1 + slot_h),
+                    cq.Solid.makeBox(slot_w, top - bot, 1 + slot_h,
+                                     cq.Vector(x - slot_w / 2, bot, -1))]
 for x, y in d['MTG']:
     dia = d['MTG_D'] + comp
     csk_h = (d['CSINK_D'] - dia) / 2 / math.tan(math.radians(41))
@@ -315,22 +326,22 @@ def write_step(path, parts):
 
 def write_dxf(path):
     """The legend for a sketch: each label and each pot's ticks on its own layer, and the
-    printed outline, through holes and pot wells on reference layers."""
+    printed outline, through holes and knobs on reference layers."""
     dxf = DxfDocument()
     # via a Workplane: CadQuery's DXF writer only handles Bezier edges that way
     add = lambda shape, layer: dxf.add_shape(cq.Workplane().add(shape), layer)
     dxf.add_layer('OUTLINE', color=8).add_layer('HOLES', color=8)
-    dxf.add_layer('POT-WELLS', color=9, linetype='DASHED')
+    dxf.add_layer('KNOBS', color=9, linetype='DASHED')
     back = [f for f in blank.Faces() if f.Center().z < 1e-6][0]
     add(back.outerWire(), 'OUTLINE')
     circles = [(x, y, bush + comp) for _, x, y, bush, _ in d['POTS']]
     circles += [(x, y, bush + comp) for _, x, y, bush in d['SWITCHES']]
-    circles += [(x, y, p['led_d']) for _, x, y, _ in d['LEDS']]
+    circles += [(x, y, led_hole) for _, x, y, _ in d['LEDS']]
     circles += [(x, y, d['MTG_D'] + comp) for x, y in d['MTG']]
     for x, y, dia in circles:
         add(cq.Edge.makeCircle(dia / 2, cq.Vector(*P(x, y), 0)), 'HOLES')
-    for _, x, y, _, _ in d['POTS']:
-        add(cq.Edge.makeCircle(p['pot_well_d'] / 2, cq.Vector(*P(x, y), 0)), 'POT-WELLS')
+    for _, x, y, _, knob in d['POTS']:
+        add(cq.Edge.makeCircle(knob / 2, cq.Vector(*P(x, y), 0)), 'KNOBS')
     for name, faces in labels:
         dxf.add_layer(name, color=2 if name.startswith('TICKS') else 7)
         for f in faces:

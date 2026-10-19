@@ -34,16 +34,29 @@ edge_chamfer = 0.4;
 // overall, as the 1/8 inch metal panel, so the rack screws and every part behind the
 // panel sit exactly as drawn
 thk = 3.2;
-// left under each pot nut: the 9 mm pots' 5 mm bushing needs the panel this thin
-pot_web = 2.0;
-// counterbore on the front round each pot, for the nut and washer; the knob covers it
-pot_well_d = 12.5;
+// the front is flat at the pots, so the knobs sit down close to it. The pots' 5 mm
+// bushing leaves 5 - thk = 1.8 mm of thread in front of the panel: enough for the nut
+// on its own, without the washer.
 
 /* [Fits] */
 // added to the pot, switch and screw holes; FDM holes print undersize
 hole_comp = 0.2;
-// meter windows; the LEDs sit behind the panel, so these only let the light out
-led_d = 2.2;
+// meter LEDs: Jaycar 2 mm tower LEDs (ZD0060 orange, ZD0070 green, ZD0040 red), a
+// 1.8 mm tower on a wider round base. The tower pushes through a snug hole from the back
+// and the base's shoulder stops against a slot along each meter column, so every LED
+// sits square and at the same height. Measure one and set these three if it differs.
+led_tower_d = 1.8;
+// tower length above the shoulder
+led_tower_h = 2.0;
+led_base_d = 3.0;
+// added to the tower hole; FDM holes print undersize, so this gives a push fit
+led_comp = 0.2;
+// added to the base slot's width
+led_base_clear = 0.3;
+// how far the tower tips stand proud of the front face (0 = flush, negative = recessed)
+led_proud = 0;
+// the slot never leaves less than this much plastic between it and the front
+led_min_web = 1.0;
 // chamfer on the bed side of pot, switch and screw holes
 hole_chamfer = 0.3;
 
@@ -129,13 +142,27 @@ module through(x, y, d, c = hole_chamfer) {
     }
 }
 
+// depth of the slot the LED bases sit in, from the back face
+led_slot_h = min(max(thk - led_tower_h - led_proud, 0), thk - led_min_web);
+
+// one slot along each meter column, as wide as an LED base: the bases are wider than the
+// 3.0 mm pitch leaves between towers, so round pockets would run together anyway
+module led_slots() {
+    if (led_slot_h > 0)
+        for (i = [0 : len(LEDS) - 1]) if (i == 0 || LEDS[i][1] != LEDS[i - 1][1]) {
+            x = LEDS[i][1];
+            ys = [for (l = LEDS) if (l[1] == x) l[2]];
+            hull() for (y = [min(ys), max(ys)])
+                translate(concat(P(x, y), [-1]))
+                    cylinder(d = led_base_d + led_base_clear, h = 1 + led_slot_h);
+        }
+}
+
 module holes() {
-    for (p = POTS) {
-        through(p[1], p[2], p[3] + hole_comp);
-        translate(concat(P(p[1], p[2]), [pot_web])) cylinder(d = pot_well_d, h = thk);
-    }
+    for (p = POTS) through(p[1], p[2], p[3] + hole_comp);
     for (s = SWITCHES) through(s[1], s[2], s[3] + hole_comp);
-    for (l = LEDS) through(l[1], l[2], led_d, 0);
+    for (l = LEDS) through(l[1], l[2], led_tower_d + led_comp, 0);
+    led_slots();
     for (m = MTG) {
         d = MTG_D + hole_comp;
         // 82 degree countersink on the front face

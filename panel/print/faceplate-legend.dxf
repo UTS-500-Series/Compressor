@@ -493,7 +493,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461327.4863310186
+2461333.1671180557
   9
 $TDUCREATE
  40
@@ -501,7 +501,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461327.4863425926
+2461333.1671180557
   9
 $TDUUPDATE
  40
@@ -933,11 +933,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{D6E4F476-BCB4-4FFD-BB05-463F719F0E2C}
+{6F63D8A0-F06A-4425-BF12-6E6AD36ED7E7}
   9
 $VERSIONGUID
   2
-{9E77347B-F1B6-4154-BBCC-72D0FEC496E0}
+{9B820E5B-82B3-4C2A-9E76-44101DFE94FD}
   9
 $EXTNAMES
 290
@@ -1327,9 +1327,9 @@ ISM
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -1343,9 +1343,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -1663,7 +1663,7 @@ AcDbSymbolTableRecord
 100
 AcDbLayerTableRecord
   2
-POT-WELLS
+KNOBS
  70
 0
  62
@@ -2929,7 +2929,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -2949,7 +2949,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -2969,7 +2969,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -2989,7 +2989,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3009,7 +3009,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3029,7 +3029,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3049,7 +3049,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3069,7 +3069,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3089,7 +3089,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3109,7 +3109,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3129,7 +3129,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3149,7 +3149,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3169,7 +3169,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3189,7 +3189,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3209,7 +3209,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3229,7 +3229,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3249,7 +3249,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3269,7 +3269,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3289,7 +3289,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3309,7 +3309,7 @@ AcDbCircle
  30
 0.0
  40
-1.1
+1.0
   0
 CIRCLE
   5
@@ -3359,7 +3359,7 @@ CIRCLE
 100
 AcDbEntity
   8
-POT-WELLS
+KNOBS
 100
 AcDbCircle
  10
@@ -3369,7 +3369,7 @@ AcDbCircle
  30
 0.0
  40
-6.25
+6.0
   0
 CIRCLE
   5
@@ -3379,7 +3379,7 @@ CIRCLE
 100
 AcDbEntity
   8
-POT-WELLS
+KNOBS
 100
 AcDbCircle
  10
@@ -3389,7 +3389,7 @@ AcDbCircle
  30
 0.0
  40
-6.25
+6.0
   0
 CIRCLE
   5
@@ -3399,7 +3399,7 @@ CIRCLE
 100
 AcDbEntity
   8
-POT-WELLS
+KNOBS
 100
 AcDbCircle
  10
@@ -3409,7 +3409,7 @@ AcDbCircle
  30
 0.0
  40
-6.25
+6.0
   0
 CIRCLE
   5
@@ -3419,7 +3419,7 @@ CIRCLE
 100
 AcDbEntity
   8
-POT-WELLS
+KNOBS
 100
 AcDbCircle
  10
@@ -3429,7 +3429,7 @@ AcDbCircle
  30
 0.0
  40
-6.25
+6.0
   0
 CIRCLE
   5
@@ -3439,7 +3439,7 @@ CIRCLE
 100
 AcDbEntity
   8
-POT-WELLS
+KNOBS
 100
 AcDbCircle
  10
@@ -3449,7 +3449,7 @@ AcDbCircle
  30
 0.0
  40
-6.25
+6.0
   0
 SPLINE
   5
@@ -39361,7 +39361,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-10-13T11:40:19.974310+00:00
+1.4.5 @ 2026-10-19T04:00:39.010685+00:00
   0
 DICTIONARYVAR
   5
@@ -39373,7 +39373,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-10-13T11:40:20.542255+00:00
+1.4.5 @ 2026-10-19T04:00:39.558352+00:00
   0
 ENDSEC
   0

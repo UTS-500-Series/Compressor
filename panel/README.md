@@ -96,8 +96,8 @@ Origin is the **top-left corner** of the panel, x right, y down. All in millimet
 | `SW2` | KEY | 30.95 | 52.00 | 6.5 | mini toggle, SPDT (Salecom S1315) |
 | `SW4` | LINK | 7.15 | 72.50 | 6.5 | mini toggle, SPDT (Salecom S1315) |
 | `SW1` | BYPASS | 30.95 | 72.50 | 6.5 | mini toggle, DPDT (Salecom S1350) |
-| `D20`–`D29` | GR meter, 10 seg (D20 at the top) | 14.10 | 14.0 to 41.0, 3.0 pitch | 2.2 | 2 mm flat-top LED |
-| `D30`–`D39` | LVL meter, 10 seg (D39 at the top) | 24.00 | 14.0 to 41.0, 3.0 pitch | 2.2 | 2 mm flat-top LED |
+| `D20`–`D29` | GR meter, 10 seg (D20 at the top) | 14.10 | 14.0 to 41.0, 3.0 pitch | 2.2 | 2 mm tower LED (Jaycar ZD0060 / ZD0070 / ZD0040) |
+| `D30`–`D39` | LVL meter, 10 seg (D39 at the top) | 24.00 | 14.0 to 41.0, 3.0 pitch | 2.2 | 2 mm tower LED (Jaycar ZD0060 / ZD0070 / ZD0040) |
 | — | mounting | 19.05 | 3.96 | 3.18 | c'sink 82° to Ø5.72 |
 | — | mounting | 19.05 | 129.39 | 3.18 | c'sink 82° to Ø5.72 |
 
