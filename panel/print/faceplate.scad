@@ -34,9 +34,8 @@ edge_chamfer = 0.4;
 // overall, as the 1/8 inch metal panel, so the rack screws and every part behind the
 // panel sit exactly as drawn
 thk = 3.2;
-// the front is flat at the pots, so the knobs sit down close to it. The pots' 5 mm
-// bushing leaves 5 - thk = 1.8 mm of thread in front of the panel: enough for the nut
-// on its own, without the washer.
+// the front is flat at the pots, so the knobs sit down close to it. The Altronics 9 mm
+// pots have no nut; the toggle nuts hold the front board.
 
 /* [Fits] */
 // added to the pot, switch and screw holes; FDM holes print undersize

@@ -27,12 +27,11 @@ so it fits the front board as drawn.
 ## What's different from the metal panel
 
 - **Thickness:** 3.2 mm, the same as the 1/8″ metal panel, so the rack screws and everything
-  behind the panel sit exactly where the front board expects. The back is flat.
-- **Pots:** the front is flat round the pots, so the knobs sit down close to the panel.
-  With the pot body against the back, the 9 mm pots' 5 mm bushing leaves 1.8 mm of thread
-  in front of the 3.2 mm panel. That is enough for the nut on its own (about two and a half
-  turns of the M7 × 0.75 thread) but not for the nut and washer, so leave the washer off and
-  tighten gently.
+  behind the panel sit exactly where the front board expects. The back is flat apart from
+  the two meter slots.
+- **Pots:** the front is flat round the pots, so the knobs sit down close to the panel. The
+  Altronics 9 mm pots have no threaded bushing or nut; they're held by the front board,
+  and the board by the toggle nuts, so the pot holes are just clearance for the shafts.
 - **Meter LEDs:** sized for Jaycar's 2 mm tower LEDs (ZD0060 orange, ZD0070 green, ZD0040
   red): a 1.8 mm tower on a wider round base. Each tower pushes through a 2.0 mm hole from
   the back, and the base's shoulder stops against a 3.3 mm slot, 1.2 mm deep, that runs
@@ -53,7 +52,7 @@ so it fits the front board as drawn.
 ## Printing it
 
 1. **Print the fit test first.** It's a short print. Check that a pot and a toggle drop
-   through their holes, the pot nut gets a full grip on the thread, and an LED tower pushes
+   through their holes, the knobs sit close to the front, and an LED tower pushes
    into its hole from the back with the base sitting in the slot and the tip flush with the
    front. If a hole is tight or loose, change `hole_comp` in `faceplate.scad` and run
    `./build.sh` (or open the file in OpenSCAD and use the Customizer).
@@ -115,7 +114,7 @@ STLs, 99% of their vertices sit within 0.007 mm of the STEP's edges and all of t
 
 - Snap the small anti-rotation tab off the front of each pot, as you would for a metal
   panel, or it holds the pot off the back of the panel.
-- Tighten the nuts gently. Plastic creeps, and the nuts only need to hold the board.
+- Tighten the toggle nuts gently. Plastic creeps, and the nuts only need to hold the board.
 - A plastic panel doesn't ground the pot and toggle bushings the way an anodised panel tied
   to CHASSIS does. If touching a knob adds hum, run a wire from a solder tag under one toggle's
   nut to the main board's CHASSIS (H2).
