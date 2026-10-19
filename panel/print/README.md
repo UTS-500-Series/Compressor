@@ -14,7 +14,7 @@ so it fits the front board as drawn.
 | `faceplate.step` | The faceplate as a solid for CAD (Fusion, FreeCAD, SolidWorks, Onshape), with the legend as a second body. See [In CAD](#in-cad). |
 | `faceplate-blank.step` | The same faceplate with no legend: every hole and LED slot, a plain front. |
 | `faceplate-legend.dxf` | The legend and ticks as outlines, one layer per label, for laying out your own legend on the blank. |
-| `faceplate.stl` | The faceplate, already flipped face down for printing. |
+| `faceplate.stl` | The faceplate, already flipped face down for printing, with the main-board bracket standing up off its back. |
 | `faceplate-legend.stl` | The engraved legend and pot ticks as their own body, for a second colour. |
 | `faceplate-fit-test.stl` | A 27 mm strip across THRESHOLD, HPF, KEY and the bottom of both meters. |
 | `faceplate-fit-legend.stl` | The fit test's legend. |
@@ -30,7 +30,7 @@ so it fits the front board as drawn.
 
 - **Thickness:** 3.2 mm, the same as the 1/8″ metal panel, so the rack screws and everything
   behind the panel sit exactly where the front board expects. The back is flat apart from
-  the two meter slots and the two pin holes for the LED retainer.
+  the two meter slots, the two pin holes for the LED retainer and the main-board bracket.
 - **Pots:** the front is flat round the pots, so the knobs sit down close to the panel. The
   Altronics 9 mm pots have no threaded bushing or nut; they're held by the front board,
   and the board by the toggle nuts, so the pot holes are just clearance for the shafts.
@@ -64,7 +64,9 @@ so it fits the front board as drawn.
    PLA slowly gives way under a tightened nut.
 3. **Settings:** 0.4 mm nozzle, 0.2 mm layers, 4 walls, 100% infill, no supports. Print it as
    exported, face down, so the legend and the front come out against the bed. The LED slots
-   end up on top, open, so they need no supports either. A textured PEI sheet gives the front a nice finish.
+   end up on top, open, and the bracket stands straight up with 45° undersides on its ears,
+   so none of it needs supports. The bracket's wall is only 1.1 mm thick, so slow the print
+   down for its upper layers if your printer wobbles tall thin walls. A textured PEI sheet gives the front a nice finish.
 4. **Two colours (optional):** in Bambu Studio or OrcaSlicer, import `faceplate-multicolor.3mf`
    (File, Import, or Cmd/Ctrl+I); in PrusaSlicer use `faceplate-multicolor-prusaslicer.3mf`.
    It loads as one object with two parts already lined up: the panel on filament 1 and the
@@ -74,6 +76,35 @@ so it fits the front board as drawn.
    unit (AMS, MMU) or a second nozzle, but it only swaps on those two layers.
    With one colour, print `faceplate.stl` and fill the engraving afterwards with paint or a
    white wax crayon rubbed in and wiped off.
+
+## The main-board bracket
+
+The faceplate carries its own bracket for the main board, printed in one piece with it. A
+1.1 mm wall stands 34 mm off the back along the panel's left edge (seen from the front),
+just outside the front board. Two ears on it reach in behind the front board to the main
+board's two M3 holes, H1 and H2, on the board's solder side. Each ear has a slot for an M3
+nut, open at the back end.
+
+To fit the main board, drop an M3 nut into each ear's slot. Put an M3 × 8 screw through
+H1 and H2 from the component side, and tighten it into the nut. The screw hole in each ear
+is a 3 mm slot along the depth, and the nut slides in its slot to suit, so the board can sit
+a little nearer the panel or further back. Trim the lead ends on the back of the front
+board flush where the ears pass behind it.
+
+It's drawn from the 500-series spec and the board files, and none of these numbers have been
+checked in a rack yet. They're all parameters at the top of `faceplate.scad`:
+
+- **Sideways:** the rack's edge connector, and so the main board, sits 11.12 mm left of the
+  panel's centreline (`board_offset`). The ears stop 0.3 mm short of the board's solder side
+  (`bracket_gap`), so use a washer as a shim if it sits further over in your rack.
+- **Depth:** the board's front edge is 24 mm behind the panel (`board_setback`), as the
+  boards were designed. The slots allow ±1.5 mm.
+- **Height:** the 105 mm card is centred on the 133.35 mm panel (`board_top`). The wall stays
+  inside the rack's 118.42 mm opening, clear of the rails behind the panel's top and bottom.
+
+The bracket is plastic, so it doesn't tie the panel to CHASSIS the way a metal bracket on
+H2 would. Set `bracket = false` for a plain panel to use with a metal angle instead. The
+fit-test strip leaves the bracket off.
 
 ## The LED retainer
 

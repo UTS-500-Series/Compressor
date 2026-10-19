@@ -13,6 +13,7 @@
 //   part = "fit_test"     a 27 mm strip through THRESHOLD, HPF, KEY and the meter
 //                         bottoms, to check the fits before printing the whole panel
 //   part = "fit_legend"   the fit test's engraving
+//   part = "panel" also carries the main-board bracket on its back (bracket = true)
 //   part = "retainer"     a thin plate that clips over the back of both meters and holds
 //                         the LEDs in their slots; prints flat, ribs and pins up
 //   part = "preview"      both, front face up, in colour (for the picture in README.md)
@@ -100,6 +101,46 @@ retainer_pin_d = 2.0;
 retainer_pin_h = 1.2;
 // added to the pin holes; the 2.2 mm LED holes slide on a 2.0 mm tower, so 0.1 grips
 retainer_pin_fit = 0.1;
+
+/* [Main board bracket] */
+// a wall down the back of the panel's left edge with two ears that the main board
+// screws to (M3 x 8 through H1 and H2, into nuts captive in the ears)
+bracket = true;
+// main board: centre plane left of the panel centreline (front view), as the 500 rack's
+// edge connector, 11.12 mm left of centre
+board_offset = 11.12;
+board_t = 1.6;
+// main board front edge, behind the back of the panel
+board_setback = 24.0;
+// main board top edge, down from the top of the panel: the 105 mm card centred on it
+board_top = (133.35 - 105) / 2;
+// H1 and H2 on the main board: [down from its top edge, back from its front edge]
+board_holes = [[11.0, 4.85], [96.0, 4.85]];
+// air between each ear and the board's solder side; shim with washers if the board
+// sits further over in your rack
+bracket_gap = 0.3;
+// the wall: up the panel's left edge, clear of the front board (x from 1.55)
+bracket_wall_x = 0.2;
+bracket_wall_t = 1.1;
+// the 500 rack's rails cover the panel back above and below the 118.42 mm opening
+rack_opening = 118.42;
+// the ears stay this far behind the panel, clear of the front board (12.2 mm to its back
+// face) and the lead ends on it: trim those flush near the ears
+ear_front = 15.0;
+// ear length along the board, each side of its hole
+ear_half = 6.0;
+// past each hole, away from the panel
+ear_back = 5.0;
+// screw clearance, as a slot along the depth so the board can sit a little nearer or
+// further: the captive nut slides in its slot to suit
+screw_d = 3.4;
+screw_slot = 3.0;
+// M3 nut: across flats and thickness, plus clearance
+nut_af = 5.5;
+nut_t = 2.4;
+nut_clear = 0.3;
+// plastic between the board face and the nut
+nut_wall = 1.5;
 
 /* [Fit test strip] */
 fit_y0 = 36;
@@ -206,12 +247,17 @@ module holes() {
     }
 }
 
-module panel() {
+module plate() {
     difference() {
         blank();
         holes();
         legend_body();
     }
+}
+
+module panel() {
+    plate();
+    if (bracket) main_board_bracket();
 }
 
 module legend() {
@@ -262,6 +308,44 @@ module retainer() {
     }
 }
 
+// ------------------------------------------------------------------ main board bracket
+// In model coordinates, behind the panel is z < 0. Printed face down, the wall and ears
+// stand up off the back; the ears' undersides slope at 45 degrees, so no supports.
+module main_board_bracket() {
+    face = W / 2 - board_offset - board_t / 2 - bracket_gap;  // the ears' board-side face
+    x0 = bracket_wall_x;
+    x1 = x0 + bracket_wall_t;
+    depth = board_setback + max([for (h = board_holes) h[1]]) + ear_back;
+    y_top = (H - rack_opening) / 2 + 0.3;
+    y_bot = H - y_top;
+    difference() {
+        union() {
+            translate([x0, H - y_bot, -depth]) cube([x1 - x0, y_bot - y_top, depth + eps]);
+            for (h = board_holes) {
+                y = board_top + h[0];
+                // the ear's cross-section in x and depth, swept along the board
+                translate([0, H - y + ear_half, 0]) rotate([90, 0, 0])
+                    linear_extrude(2 * ear_half)
+                        polygon([[x1 - eps, -ear_front], [face, -ear_front - (face - x1)],
+                                 [face, -depth], [x1 - eps, -depth]]);
+            }
+        }
+        for (h = board_holes) {
+            y = board_top + h[0];
+            z = -(board_setback + h[1]);
+            // screw slot, along the depth
+            translate([x0 - 1, H - y, z]) rotate([0, 90, 0])
+                hull() for (dz = [-screw_slot / 2, screw_slot / 2])
+                    translate([-dz, 0, 0]) cylinder(d = screw_d, h = face - x0 + 2, $fn = 32);
+            // nut slot, open at the back so the nut drops in and slides to suit
+            translate([face - nut_wall - nut_t - nut_clear, H - y - (nut_af + nut_clear) / 2,
+                       -depth - 1])
+                cube([nut_t + nut_clear, nut_af + nut_clear,
+                      depth + 1 + z + screw_slot / 2 + (nut_af + nut_clear) / 2]);
+        }
+    }
+}
+
 // ------------------------------------------------------------------ fit test
 module fit_window() {
     translate([-1, H - fit_y1, -1]) cube([W + 2, fit_y1 - fit_y0, thk + 2]);
@@ -282,5 +366,5 @@ if (part == "preview") {
 } else print_orient()
     if (part == "panel") panel();
     else if (part == "legend") legend();
-    else if (part == "fit_test") intersection() { panel(); fit_window(); }
+    else if (part == "fit_test") intersection() { plate(); fit_window(); }
     else if (part == "fit_legend") intersection() { legend(); fit_window(); }

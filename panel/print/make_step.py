@@ -329,6 +329,49 @@ depth = p['legend_depth']
 engraving = extrude(thk - depth, depth + 1)
 panel = blank.cut(*cutters, engraving).clean()
 plain = blank.cut(*cutters).clean()
+
+
+# ------------------------------------------------------------------ main board bracket
+def main_board_bracket():
+    """The wall down the panel's left edge and the two ears the main board screws to,
+    as faceplate.scad's main_board_bracket(): behind the panel is z < 0."""
+    board_top = (H - 105) / 2           # faceplate.scad's default, an expression there
+    face = W / 2 - p['board_offset'] - p['board_t'] / 2 - p['bracket_gap']
+    x0 = p['bracket_wall_x']
+    x1 = x0 + p['bracket_wall_t']
+    reach = p['board_setback'] + max(h[1] for h in p['board_holes']) + p['ear_back']
+    y_top = (H - p['rack_opening']) / 2 + 0.3
+    y_bot = H - y_top
+    body = cq.Solid.makeBox(x1 - x0, y_bot - y_top, reach + 0.01,
+                            cq.Vector(x0, H - y_bot, -reach))
+    ef, eh = p['ear_front'], p['ear_half']
+    for _, hy in [(h[0], board_top + h[0]) for h in p['board_holes']]:
+        y0 = H - hy - eh
+        pts = [(x1 - 0.01, -ef), (face, -ef - (face - x1)), (face, -reach), (x1 - 0.01, -reach)]
+        ear = cq.Face.makeFromWires(cq.Wire.makePolygon(
+            [cq.Vector(x, y0, z) for x, z in pts], close=True))
+        body = body.fuse(cq.Solid.extrudeLinear(ear, cq.Vector(0, 2 * eh, 0)))
+    cuts = []
+    nut_w = p['nut_af'] + p['nut_clear']
+    for h in p['board_holes']:
+        y, z = H - (board_top + h[0]), -(p['board_setback'] + h[1])
+        sd, sl = p['screw_d'], p['screw_slot']
+        for dz in (-sl / 2, sl / 2):
+            cuts.append(cq.Solid.makeCylinder(sd / 2, face - x0 + 2, cq.Vector(x0 - 1, y, z + dz),
+                                              cq.Vector(1, 0, 0)))
+        cuts.append(cq.Solid.makeBox(face - x0 + 2, sd, sl, cq.Vector(x0 - 1, y - sd / 2,
+                                                                       z - sl / 2)))
+        nx = face - p['nut_wall'] - p['nut_t'] - p['nut_clear']
+        cuts.append(cq.Solid.makeBox(p['nut_t'] + p['nut_clear'], nut_w,
+                                     reach + 1 + z + sl / 2 + nut_w / 2,
+                                     cq.Vector(nx, y - nut_w / 2, -reach - 1)))
+    return body.cut(*cuts)
+
+
+if p['bracket']:
+    brk = main_board_bracket()
+    panel = panel.fuse(brk).clean()
+    plain = plain.fuse(brk).clean()
 legend = extrude(thk - depth, depth).intersect(blank).cut(*cutters).clean()
 if not (panel.isValid() and legend.isValid() and plain.isValid() and retainer.isValid()):
     sys.exit('the model came out invalid; check the legend settings')
