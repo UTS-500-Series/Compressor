@@ -33,15 +33,16 @@ so it fits the front board as drawn.
   Altronics 9 mm pots have no threaded bushing or nut; they're held by the front board,
   and the board by the toggle nuts, so the pot holes are just clearance for the shafts.
 - **Meter LEDs:** sized for Jaycar's 2 mm tower LEDs (ZD0060 orange, ZD0070 green, ZD0040
-  red): a 1.8 mm tower on a wider round base. Each tower pushes through a 2.0 mm hole from
-  the back, and the base's shoulder stops against a 3.3 mm slot, 1.2 mm deep, that runs
-  down the back of each meter column. That puts the tower tips flush with the front and
-  lines all twenty up. The LED sizes are parameters at the top of `faceplate.scad`
-  (`led_tower_d`, `led_tower_h`, `led_base_d`, plus `led_proud` to stand the tips out or
-  sink them in), so if your LEDs measure differently, change them and rebuild.
+  red), as measured: a 2.0 mm round tower, 1.5 mm tall, on a 3.25 × 2.5 mm base. Each tower
+  pushes into a 2.2 mm hole from the back, and the base's shoulder stops in a 3.55 mm slot,
+  1.7 mm deep, that runs down the back of each meter column. That puts the tower tips flush
+  with the front and lines all twenty up. The LED sizes are parameters at the top of
+  `faceplate.scad` (`led_tower_d`, `led_tower_h`, `led_base_w`, `led_base_l`, plus
+  `led_proud` to stand the tips out or sink them in).
 - **Fit allowance:** pot, toggle and screw holes print 0.2 mm larger than drawn
   (`hole_comp`), and the LED holes 0.2 mm larger than the tower (`led_comp`), because FDM
-  holes come out undersize. That leaves 1.0 mm of plastic between neighbouring LED holes.
+  holes come out undersize. That leaves 0.8 mm of plastic between neighbouring LED holes, and
+  1.5 mm in front of the slots.
 - **Width and height:** 37.8 × 132.6 mm rather than the nominal 38.10 × 133.35, so it slides in
   beside the next module. The front edge has a 0.4 mm chamfer so first-layer squish doesn't
   flare it.

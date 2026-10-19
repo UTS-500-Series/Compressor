@@ -40,17 +40,21 @@ thk = 3.2;
 /* [Fits] */
 // added to the pot, switch and screw holes; FDM holes print undersize
 hole_comp = 0.2;
-// meter LEDs: Jaycar 2 mm tower LEDs (ZD0060 orange, ZD0070 green, ZD0040 red), a
-// 1.8 mm tower on a wider round base. The tower pushes through a snug hole from the back
-// and the base's shoulder stops against a slot along each meter column, so every LED
-// sits square and at the same height. Measure one and set these three if it differs.
-led_tower_d = 1.8;
+// meter LEDs: Jaycar 2 mm tower LEDs (ZD0060 orange, ZD0070 green, ZD0040 red), measured:
+// a 2.0 mm round tower, 1.5 mm tall, on a 3.25 x 2.5 mm base, 1.5 mm tall, its long side
+// across the column (the leads' direction). The tower pushes through a snug hole from the
+// back and the base's shoulder stops against a slot along each meter column, so every LED
+// sits square and at the same height.
+led_tower_d = 2.0;
 // tower length above the shoulder
-led_tower_h = 2.0;
-led_base_d = 3.0;
+led_tower_h = 1.5;
+// base across the meter column
+led_base_w = 3.25;
+// base along the meter column
+led_base_l = 2.5;
 // added to the tower hole; FDM holes print undersize, so this gives a push fit
 led_comp = 0.2;
-// added to the base slot's width
+// added to the base slot's width and length
 led_base_clear = 0.3;
 // how far the tower tips stand proud of the front face (0 = flush, negative = recessed)
 led_proud = 0;
@@ -144,16 +148,17 @@ module through(x, y, d, c = hole_chamfer) {
 // depth of the slot the LED bases sit in, from the back face
 led_slot_h = min(max(thk - led_tower_h - led_proud, 0), thk - led_min_web);
 
-// one slot along each meter column, as wide as an LED base: the bases are wider than the
-// 3.0 mm pitch leaves between towers, so round pockets would run together anyway
+// one slot along each meter column, as wide as an LED base: at a 3.0 mm pitch the bases
+// are only 0.5 mm apart, too little to leave plastic between separate pockets
 module led_slots() {
     if (led_slot_h > 0)
         for (i = [0 : len(LEDS) - 1]) if (i == 0 || LEDS[i][1] != LEDS[i - 1][1]) {
             x = LEDS[i][1];
             ys = [for (l = LEDS) if (l[1] == x) l[2]];
-            hull() for (y = [min(ys), max(ys)])
-                translate(concat(P(x, y), [-1]))
-                    cylinder(d = led_base_d + led_base_clear, h = 1 + led_slot_h);
+            w = led_base_w + led_base_clear;
+            slot_len = max(ys) - min(ys) + led_base_l + led_base_clear;
+            translate([x - w / 2, H - max(ys) - (led_base_l + led_base_clear) / 2, -1])
+                cube([w, slot_len, 1 + led_slot_h]);
         }
 }
 

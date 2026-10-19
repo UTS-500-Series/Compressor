@@ -102,23 +102,14 @@ for _, x, y, _dia in d['LEDS']:
     cutters += through(x, y, led_hole, 0)
 # the slot along each meter column that the LED bases' shoulders stop against
 slot_h = min(max(thk - p['led_tower_h'] - p['led_proud'], 0), thk - p['led_min_web'])
-slot_w = p['led_base_d'] + p['led_base_clear']
+slot_w = p['led_base_w'] + p['led_base_clear']
+slot_l = p['led_base_l'] + p['led_base_clear']
 if slot_h > 0:
     for x in sorted({l[1] for l in d['LEDS']}):
         ys = [l[2] for l in d['LEDS'] if l[1] == x]
-        (_, top), (_, bot) = P(x, min(ys)), P(x, max(ys))
-        cutters += [cyl(x, min(ys), slot_w, -1, 1 + slot_h),
-                    cyl(x, max(ys), slot_w, -1, 1 + slot_h),
-                    cq.Solid.makeBox(slot_w, top - bot, 1 + slot_h,
-                                     cq.Vector(x - slot_w / 2, bot, -1))]
-for x, y in d['MTG']:
-    dia = d['MTG_D'] + comp
-    csk_h = (d['CSINK_D'] - dia) / 2 / math.tan(math.radians(41))
-    cutters += through(x, y, dia, 0)
-    # 82 degree countersink, its cone carried a little into the hole and out past the face
-    sink = 0.05
-    cutters.append(cone(x, y, dia - 2 * sink * math.tan(math.radians(41)),
-                        thk - csk_h - sink, 41, csk_h + sink + 1))
+        _, bot = P(x, max(ys))
+        cutters.append(cq.Solid.makeBox(slot_w, max(ys) - min(ys) + slot_l, 1 + slot_h,
+                                        cq.Vector(x - slot_w / 2, bot - slot_l / 2, -1)))
 
 
 # ------------------------------------------------------------------ legend
