@@ -103,7 +103,8 @@ led_hole = p['led_tower_d'] + p['led_comp']
 for _, x, y, _dia in d['LEDS']:
     cutters += through(x, y, led_hole, 0)
 # the slot along each meter column that the LED bases' shoulders stop against
-slot_h = min(max(thk - p['led_tower_h'] - p['led_proud'], 0), thk - p['led_min_web'])
+slot_h = min(max(thk - p['led_tower_h'] - p['led_proud'] + p['led_slot_extra'], 0),
+             thk - p['led_min_web'])
 slot_w = p['led_base_w'] + p['led_base_clear']
 slot_l = p['led_base_l'] + p['led_base_clear']
 if slot_h > 0:
@@ -122,7 +123,7 @@ for x, y in pins:
     cutters.append(cyl(x, y, p['retainer_pin_d'] + p['retainer_pin_fit'], -1,
                        1 + p['retainer_pin_h'] + 0.2))
 rt, rm, rc = p['retainer_t'], p['retainer_margin'], p['retainer_rib_clear']
-rib_h = slot_h - p['led_base_h'] + p['retainer_press']
+rib_h = slot_h - p['led_slot_extra'] - p['led_base_h'] + p['retainer_press']
 if rib_h <= 0:
     sys.exit('the LED bases stand out of their slots; deepen them or thin the plate')
 rx0, rx1 = cols[0] - slot_w / 2 - rm, cols[-1] + slot_w / 2 + rm

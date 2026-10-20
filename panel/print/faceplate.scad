@@ -61,8 +61,11 @@ led_comp = 0.2;
 led_base_clear = 0.3;
 // how far the tower tips stand proud of the front face (0 = flush, negative = recessed)
 led_proud = 0;
+// extra slot depth behind the flush position, so an LED that sits a little high still
+// leaves the retainer room to close (the retainer's ribs don't grow with it)
+led_slot_extra = 0.6;
 // the slot never leaves less than this much plastic between it and the front
-led_min_web = 1.0;
+led_min_web = 0.8;
 // chamfer on the bed side of pot, switch and screw holes
 hole_chamfer = 0.3;
 
@@ -99,7 +102,7 @@ retainer_press = 0.2;
 retainer_rib_clear = 0.15;
 // LED leads: two per LED, across the column, as the front board's pads
 lead_pitch = 2.54;
-lead_hole_d = 1.0;
+lead_hole_d = 1.3;
 // two pins between the meters press into blind holes in the back of the panel
 retainer_pin_d = 2.0;
 retainer_pin_h = 1.2;
@@ -213,7 +216,7 @@ module through(x, y, d, c = hole_chamfer) {
 }
 
 // depth of the slot the LED bases sit in, from the back face
-led_slot_h = min(max(thk - led_tower_h - led_proud, 0), thk - led_min_web);
+led_slot_h = min(max(thk - led_tower_h - led_proud + led_slot_extra, 0), thk - led_min_web);
 
 // one slot along each meter column, as wide as an LED base: at a 3.0 mm pitch the bases
 // are only 0.5 mm apart, too little to leave plastic between separate pockets
@@ -285,7 +288,7 @@ function retainer_pins() = let(c = led_cols(), ys = led_ys(c[0]))
 module retainer() {
     sw = led_base_w + led_base_clear;
     sl = led_base_l + led_base_clear;
-    rib_h = led_slot_h - led_base_h + retainer_press;
+    rib_h = led_slot_h - led_slot_extra - led_base_h + retainer_press;
     assert(rib_h > 0, "the LED bases stand out of their slots; deepen them or thin the plate");
     c = led_cols();
     ys = led_ys(c[0]);

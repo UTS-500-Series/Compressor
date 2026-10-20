@@ -36,9 +36,10 @@ so it fits the front board as drawn.
   and the board by the toggle nuts, so the pot holes are just clearance for the shafts.
 - **Meter LEDs:** sized for Jaycar's 2 mm tower LEDs (ZD0060 orange, ZD0070 green, ZD0040
   red), as measured: a 2.0 mm round tower, 1.5 mm tall, on a 3.25 × 2.5 mm base. Each tower
-  pushes into a 2.2 mm hole from the back, and the base's shoulder stops in a 3.55 mm slot,
-  1.7 mm deep, that runs down the back of each meter column. That puts the tower tips flush
-  with the front and lines all twenty up. The LED sizes are parameters at the top of
+  pushes into a 2.2 mm hole from the back, and the base sits in a 3.55 mm slot, 2.3 mm
+  deep, that runs down the back of each meter column. 1.7 mm would put the tips exactly
+  flush; the extra 0.6 mm (`led_slot_extra`) is room for an LED that won't go all the way
+  in, so the retainer still closes. The LED sizes are parameters at the top of
   `faceplate.scad` (`led_tower_d`, `led_tower_h`, `led_base_w`, `led_base_l`, plus
   `led_proud` to stand the tips out or sink them in).
 - **Fit allowance:** pot, toggle and screw holes print 0.2 mm larger than drawn
@@ -118,8 +119,9 @@ holes in the back of the panel. Each LED's two leads pass through their own pair
 on the 2.54 mm pitch of the front board's pads.
 
 Print it flat as exported, with the ribs and pins facing up, in the same PETG at 0.2 mm
-layers. The ribs are one layer (0.2 mm) taller than the slots need, which is the squeeze
-on the LEDs.
+layers. The ribs are 0.4 mm tall: they push each LED until its tip stands about 0.2 mm
+proud of the front, and the slot's extra depth leaves the LED room to go a little further
+if it wants. The lead holes are 1.3 mm, so the leads thread through easily.
 
 To fit it:
 
