@@ -1,0 +1,427 @@
+#!/usr/bin/env python3
+"""Sets the two meter trimpots, RV8 (level) and RV7 (gain reduction), with an audio interface.
+
+    pip3 install numpy sounddevice
+    python3 tools/calibrate_meters.py --list                  # find your interface
+    python3 tools/calibrate_meters.py --device "Scarlett" --out 1 --in 1
+
+The script plays a sine from one interface output and measures one input, so it needs a
+balanced line out, a line input with its gain fixed for the whole session, a TRS-to-TRS
+loopback cable, and a multimeter with an AC volts range. It walks you through four steps:
+
+  1. Output level. It plays a tone and you read the AC volts across the output's hot and cold
+     (tip and ring) with the meter. That ties the interface's dBFS to dBu. If you already know
+     your interface's output level at 0 dBFS from its spec sheet, you can type that instead.
+  2. Input level. With the loopback cable from that output to that input, it learns the input's
+     dBu at 0 dBFS. Don't touch the input gain after this.
+  3. Level meter (RV8). Module in circuit, controls neutral. The script holds the module's output
+     at the level where one LED should just light and you turn RV8 until it does.
+  4. Gain-reduction meter (RV7). It holds the input steady, measures the output with no
+     compression, then shows the live gain reduction while you turn THRESHOLD down to the
+     target. Then you turn RV7 until the target LED just lights.
+
+Both meters run in dot mode, so "just lights" means the target LED takes over from the one
+below it. After each trim the script can sweep the meter so you can check every LED against
+the simulated scale.
+
+The targets are the simulated thresholds in kicad/sim/README.md ("The meters"). The level
+meter is linear in volts, so setting one LED sets them all. The gain-reduction scale follows
+the gain cell's curve, so checking the other LEDs afterwards is worth doing.
+
+The tone defaults to 1 kHz. Cheap multimeters often read AC accurately only up to a few
+hundred hertz, so if yours is one, run with --freq 400; the module is flat either way.
+
+Calibration values are saved to meter_cal.json next to this script, so a second run can skip
+steps 1 and 2 (as long as the input gain hasn't moved).
+"""
+import argparse, json, math, os, sys, threading, time
+
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+CAL_FILE = os.path.join(HERE, 'meter_cal.json')
+
+# Simulated thresholds, kicad/sim/README.md "The meters": (reference, LED colour, lights at).
+LEVEL_LEDS = [  # dBu at the module output. LED 1 is the bottom of the level column.
+    ('D30', 'green', -1.8), ('D31', 'green', 4.1), ('D32', 'green', 7.5),
+    ('D33', 'green', 10.1), ('D34', 'green', 12.0), ('D35', 'orange', 13.6),
+    ('D36', 'orange', 14.8), ('D37', 'orange', 16.0), ('D38', 'red', 17.1),
+    ('D39', 'red', 18.0),
+]
+GR_LEDS = [  # dB of gain reduction. LED 1 is the top of the gain-reduction column.
+    ('D20', 'orange', 1.8), ('D21', 'orange', 3.1), ('D22', 'orange', 4.7),
+    ('D23', 'orange', 6.8), ('D24', 'orange', 9.6), ('D25', 'orange', 12.9),
+    ('D26', 'orange', 16.7), ('D27', 'orange', 21.1), ('D28', 'orange', 25.7),
+    ('D29', 'orange', 30.4),
+]
+LEVEL_TRIM_LED = 5   # D34, the top green LED: +12.0 dBu, reachable by most interfaces
+GR_TRIM_LED = 7      # D26, 7th from the top: 16.7 dB, reachable from a +8 dBu input
+
+DBU_REF = 0.7746     # volts rms at 0 dBu
+MAX_DRIVE = -0.5     # never drive the interface output above this, in dBFS
+
+
+def dbu_to_v(dbu):
+    return DBU_REF * 10 ** (dbu / 20)
+
+
+def v_to_dbu(v):
+    return 20 * math.log10(v / DBU_REF)
+
+
+class Audio:
+    """One sine out, one channel in. Levels are dBFS of a sine's peak (0 dBFS = full scale)."""
+
+    def __init__(self, device, out_ch, in_ch, rate, freq, window=0.25):
+        import sounddevice as sd
+        self.freq, self.rate = freq, rate
+        self.out_ch, self.in_ch = out_ch - 1, in_ch - 1
+        self.n_window = int(round(round(window * freq) * rate / freq))  # about whole cycles
+        self.buf = np.zeros(self.n_window * 2, dtype=np.float32)
+        self.lock = threading.Lock()
+        self.amp, self.target_amp, self.phase = 0.0, 0.0, 0.0
+        info = sd.query_devices(device)
+        n_out = max(self.out_ch + 1, 1)
+        n_in = max(self.in_ch + 1, 1)
+        if n_out > info['max_output_channels'] or n_in > info['max_input_channels']:
+            sys.exit(f"{info['name']} has {info['max_output_channels']} outputs and "
+                     f"{info['max_input_channels']} inputs; pick channels within those.")
+        self.stream = sd.Stream(device=device, samplerate=rate, channels=(n_in, n_out),
+                                dtype='float32', callback=self._cb)
+        self.stream.start()
+
+    def _cb(self, indata, outdata, frames, t, status):
+        step = 2 * math.pi * self.freq / self.rate
+        ph = self.phase + step * np.arange(frames)
+        # Ramp the level over one block so changes don't click.
+        amp = np.linspace(self.amp, self.target_amp, frames, dtype=np.float32)
+        outdata[:] = 0
+        outdata[:, self.out_ch] = amp * np.sin(ph)
+        self.amp = self.target_amp
+        self.phase = (self.phase + step * frames) % (2 * math.pi)
+        with self.lock:
+            x = indata[:, self.in_ch]
+            n = len(x)
+            self.buf = np.concatenate([self.buf[n:], x]) if n < len(self.buf) else x[-len(self.buf):]
+
+    def set_dbfs(self, dbfs):
+        self.target_amp = 0.0 if dbfs is None else 10 ** (min(dbfs, MAX_DRIVE) / 20)
+
+    def read_dbfs(self):
+        """Level of the tone's fundamental at the input, so hum and hiss don't count."""
+        with self.lock:
+            x = self.buf[-self.n_window:].astype(np.float64)
+        t = np.arange(len(x)) / self.rate
+        a = 2 * abs(np.mean(x * np.exp(-2j * math.pi * self.freq * t)))
+        return 20 * math.log10(max(a, 1e-9))
+
+    def close(self):
+        self.set_dbfs(None)
+        time.sleep(0.1)
+        self.stream.stop()
+        self.stream.close()
+
+
+def settle(audio, seconds=0.6):
+    time.sleep(seconds)
+    return audio.read_dbfs()
+
+
+def average(audio, seconds=2.0):
+    vals = []
+    end = time.time() + seconds
+    while time.time() < end:
+        time.sleep(0.25)
+        vals.append(audio.read_dbfs())
+    return float(np.median(vals))
+
+
+def ask(prompt, default=None):
+    s = input(prompt).strip()
+    return s if s else default
+
+
+def ask_float(prompt):
+    while True:
+        s = input(prompt).strip().replace(',', '.')
+        try:
+            return float(s)
+        except ValueError:
+            print('  Please type a number.')
+
+
+def wait_enter(prompt='Press Enter to carry on. '):
+    input(prompt)
+
+
+class EnterCollector:
+    """Records measure() each time the user presses Enter, in the background. q stops it."""
+
+    def __init__(self, measure, n_max):
+        self.measure, self.n_max = measure, n_max
+        self.hits, self.stopped, self.ended = [], threading.Event(), threading.Event()
+        self.thread = threading.Thread(target=self._run, daemon=True)
+        self.thread.start()
+
+    def _run(self):
+        while True:
+            s = sys.stdin.readline()
+            if self.ended.is_set() or s == '' or s.strip().lower() == 'q':
+                self.stopped.set()
+                return
+            self.hits.append(self.measure())
+            if len(self.hits) >= self.n_max:
+                self.stopped.set()
+                return
+
+    def finish(self):
+        """Stop listening. If the thread is still waiting on the keyboard, let it go cleanly."""
+        self.ended.set()
+        if self.thread.is_alive():
+            print('\n  Press Enter to finish.')
+            self.thread.join()
+
+
+def live(audio, show, until):
+    """Print a live status line until the user presses Enter. show() returns the text."""
+    done = threading.Event()
+
+    def waiter():
+        input()
+        done.set()
+
+    threading.Thread(target=waiter, daemon=True).start()
+    while not done.is_set():
+        sys.stdout.write('\r  ' + show() + '      ')
+        sys.stdout.flush()
+        time.sleep(0.2)
+    print()
+    return until()
+
+
+# ---------------------------------------------------------------- steps
+
+def step_output(audio, cal):
+    print('\nSTEP 1: interface output level')
+    print('  Unplug everything from the output. Set the output (monitor) volume to where you\n'
+          '  will leave it for the whole session, ideally full.')
+    known = ask('  Do you know the output level at 0 dBFS from the spec sheet? '
+                'Type it in dBu, or press Enter to measure: ')
+    if known:
+        cal['out_dbu_at_0'] = float(known.replace(',', '.'))
+        print(f"  Using {cal['out_dbu_at_0']:+.1f} dBu at 0 dBFS.")
+        return
+    drive = -10.0
+    audio.set_dbfs(drive)
+    print(f'  Playing {audio.freq:g} Hz at {drive:g} dBFS.')
+    print('  Put the meter on AC volts across the output\'s tip and ring (hot and cold).')
+    v = ask_float('  What does it read, in volts? ')
+    audio.set_dbfs(None)
+    cal['out_dbu_at_0'] = v_to_dbu(v) - drive
+    print(f"  That's {v_to_dbu(v):+.1f} dBu, so the output is {cal['out_dbu_at_0']:+.1f} dBu "
+          'at 0 dBFS.')
+
+
+def step_input(audio, cal):
+    print('\nSTEP 2: interface input level')
+    print('  Patch the loopback cable from that output to that input. Line input, no phantom\n'
+          '  power, input gain at minimum or wherever you will leave it for the whole session.')
+    wait_enter()
+    drive = -20.0
+    audio.set_dbfs(drive)
+    got = average(audio)
+    audio.set_dbfs(None)
+    if got < -80:
+        sys.exit('  Nothing came back. Check the cable, the channel numbers and the input gain.')
+    out_dbu = cal['out_dbu_at_0'] + drive
+    cal['in_dbu_at_0'] = out_dbu - got
+    print(f'  Sent {out_dbu:+.1f} dBu, read {got:.1f} dBFS, so the input clips at about '
+          f"{cal['in_dbu_at_0']:+.1f} dBu.")
+
+
+def out_dbu(audio, cal):
+    return audio.read_dbfs() + cal['in_dbu_at_0']
+
+
+def hold_output(audio, cal, target, drive):
+    """Nudge the drive until the module's output sits at target dBu. Returns the drive."""
+    for _ in range(40):
+        err = target - out_dbu(audio, cal)
+        if abs(err) < 0.05:
+            break
+        new = drive + max(-6.0, min(6.0, err))
+        if new > MAX_DRIVE:
+            return None
+        drive = new
+        audio.set_dbfs(drive)
+        time.sleep(0.5)
+    return drive
+
+
+def connect_module():
+    print('  Patch the interface output to the module input and the module output to the\n'
+          '  interface input. Set BYPASS off, THRESHOLD fully clockwise (no compression),\n'
+          '  MAKEUP at minimum, HPF, KEY and LINK off.')
+    wait_enter()
+
+
+def sweep_level(audio, cal, gain, start, stop):
+    """Raise the output slowly; the user presses Enter each time the next LED takes over."""
+    print(f'  Sweeping the output from {start:+.0f} to {stop:+.0f} dBu. Press Enter each time a\n'
+          '  new LED takes over, starting from the bottom one. Type q and Enter to stop early.')
+    keys = EnterCollector(lambda: out_dbu(audio, cal), len(LEVEL_LEDS))
+    drive = start - cal['out_dbu_at_0'] - gain   # gain: module input to output, in dB
+    level = start
+    while level <= stop and not keys.stopped.is_set():
+        if drive > MAX_DRIVE:
+            print(f'\n  The interface output ran out at about {level:+.1f} dBu.')
+            break
+        audio.set_dbfs(drive)
+        time.sleep(0.35)
+        sys.stdout.write(f'\r  now {out_dbu(audio, cal):+6.2f} dBu   ')
+        sys.stdout.flush()
+        drive += 0.1
+        level += 0.1
+    keys.finish()
+    print()
+    return keys.hits
+
+
+def report(hits, leds, unit, signed=True):
+    f = '+' if signed else ''
+    print(f"\n  {'LED':<5}{'ref':<6}{'colour':<8}{'target':>9}{'measured':>10}{'diff':>7}")
+    for i, (ref, colour, target) in enumerate(leds):
+        got = hits[i] if i < len(hits) else None
+        if got is None:
+            print(f'  {i + 1:<5}{ref:<6}{colour:<8}{target:>{f}8.1f}{"":>10}')
+        else:
+            print(f'  {i + 1:<5}{ref:<6}{colour:<8}{target:>{f}8.1f}{got:>{f}9.1f}{got - target:>+7.1f}')
+    print(f'  ({unit})')
+
+
+def step_level_meter(audio, cal):
+    ref, colour, target = LEVEL_LEDS[LEVEL_TRIM_LED - 1]
+    print(f'\nSTEP 3: level meter (RV8)')
+    if cal['in_dbu_at_0'] < target + 1:
+        sys.exit(f"  The interface input clips at {cal['in_dbu_at_0']:+.1f} dBu, too close to "
+                 f'the {target:+.1f} dBu this needs. Lower the input gain and redo step 2.')
+    connect_module()
+    drive = target - cal['out_dbu_at_0'] - 3   # start a little low, then close in
+    audio.set_dbfs(drive)
+    time.sleep(0.8)
+    drive = hold_output(audio, cal, target, drive)
+    if drive is None:
+        audio.set_dbfs(None)
+        sys.exit(f'  The interface can\'t reach {target:+.1f} dBu through the module at unity.\n'
+                 '  Turn MAKEUP up a little and run this step again.')
+    print(f'  The module output is holding at {target:+.1f} dBu.')
+    print(f'  Turn RV8 until LED {LEVEL_TRIM_LED} from the bottom of the level column ({ref}, the\n'
+          f'  top {colour} one) just takes over from the one below it. Go past it, then come\n'
+          '  back slowly and stop the moment it lights. Press Enter when it does.')
+    live(audio, lambda: f'module out {out_dbu(audio, cal):+6.2f} dBu (holding {target:+.1f})',
+         lambda: None)
+    if (ask('  Sweep the whole meter to check it? [Y/n] ', 'y') or 'y').lower().startswith('y'):
+        top = min(LEVEL_LEDS[-1][2] + 1.0, cal['in_dbu_at_0'] - 1.0)
+        gain = target - (drive + cal['out_dbu_at_0'])
+        hits = sweep_level(audio, cal, gain, LEVEL_LEDS[0][2] - 3, top)
+        report(hits, LEVEL_LEDS, 'dBu at the module output')
+    audio.set_dbfs(None)
+
+
+def step_gr_meter(audio, cal, in_dbu):
+    ref, colour, target = GR_LEDS[GR_TRIM_LED - 1]
+    print(f'\nSTEP 4: gain-reduction meter (RV7)')
+    print('  Same patching as step 3. THRESHOLD fully clockwise, RATIO fully clockwise\n'
+          '  (hardest), ATTACK and RELEASE fast, MAKEUP where it is. Don\'t touch MAKEUP\n'
+          '  from here on.')
+    wait_enter()
+    drive = in_dbu - cal['out_dbu_at_0']
+    if drive > MAX_DRIVE:
+        drive = MAX_DRIVE
+        in_dbu = cal['out_dbu_at_0'] + drive
+        print(f'  The interface tops out at {in_dbu:+.1f} dBu, so using that as the input.')
+    audio.set_dbfs(drive)
+    time.sleep(1.0)
+    ref_out = cal['in_dbu_at_0'] + average(audio, 3.0)
+    print(f'  Input {in_dbu:+.1f} dBu, output with no compression {ref_out:+.1f} dBu.')
+
+    def gr():
+        return ref_out - out_dbu(audio, cal)
+
+    print(f'  Turn THRESHOLD down until the gain reduction reads {target:.1f} dB, then press Enter.')
+    live(audio, lambda: f'gain reduction {gr():5.1f} dB (want {target:.1f})', lambda: None)
+    print(f'  Now turn RV7 until LED {GR_TRIM_LED} from the top of the gain-reduction column\n'
+          f'  ({ref}) just takes over from the one above it. Go past it, then come back slowly\n'
+          '  and stop the moment it lights. Leave THRESHOLD alone. Press Enter when it does.')
+    live(audio, lambda: f'gain reduction {gr():5.1f} dB (want {target:.1f})', lambda: None)
+    if (ask('  Check the other LEDs? [Y/n] ', 'y') or 'y').lower().startswith('y'):
+        print('  Turn THRESHOLD back fully clockwise, then turn it down slowly. Press Enter each\n'
+              '  time a new LED takes over, starting from the top one. Type q and Enter to stop.')
+        keys = EnterCollector(gr, len(GR_LEDS))
+        while not keys.stopped.is_set():
+            sys.stdout.write(f'\r  gain reduction {gr():5.1f} dB   ')
+            sys.stdout.flush()
+            time.sleep(0.2)
+        keys.finish()
+        print()
+        hits = keys.hits
+        report(hits, GR_LEDS, 'dB of gain reduction', signed=False)
+        print('  The top LEDs may need more input than the interface can give; that\'s fine.')
+    audio.set_dbfs(None)
+
+
+def main():
+    p = argparse.ArgumentParser(description='Set the Compressor meter trims RV7 and RV8.')
+    p.add_argument('--list', action='store_true', help='list audio devices and exit')
+    p.add_argument('--device', help='interface name (part of it is enough) or number')
+    p.add_argument('--out', type=int, default=1, help='output channel, from 1 (default 1)')
+    p.add_argument('--in', dest='inp', type=int, default=1, help='input channel, from 1 (default 1)')
+    p.add_argument('--freq', type=float, default=1000.0, help='tone frequency in Hz (default 1000)')
+    p.add_argument('--rate', type=int, default=48000, help='sample rate (default 48000)')
+    p.add_argument('--gr-input', type=float, default=8.0,
+                   help='module input level for the gain-reduction step, dBu (default +8)')
+    p.add_argument('--only', choices=['level', 'gr'], help='run just one meter step')
+    a = p.parse_args()
+
+    try:
+        import sounddevice as sd
+    except ImportError:
+        sys.exit('This needs numpy and sounddevice: pip3 install numpy sounddevice')
+    if a.list or a.device is None:
+        print(sd.query_devices())
+        if a.device is None and not a.list:
+            print('\nRun again with --device "<name>" and, if needed, --out and --in.')
+        return
+    device = int(a.device) if a.device.isdigit() else a.device
+
+    cal = {}
+    if os.path.exists(CAL_FILE):
+        with open(CAL_FILE) as f:
+            saved = json.load(f)
+        same = saved.get('device') == a.device and saved.get('out') == a.out and saved.get('in') == a.inp
+        if same and (ask(f"Use the saved interface levels (out {saved['out_dbu_at_0']:+.1f}, in "
+                          f"{saved['in_dbu_at_0']:+.1f} dBu at 0 dBFS)? [Y/n] ", 'y') or 'y').lower().startswith('y'):
+            cal = saved
+
+    audio = Audio(device, a.out, a.inp, a.rate, a.freq)
+    try:
+        if 'in_dbu_at_0' not in cal:
+            step_output(audio, cal)
+            step_input(audio, cal)
+            cal.update(device=a.device, out=a.out, **{'in': a.inp})
+            with open(CAL_FILE, 'w') as f:
+                json.dump(cal, f, indent=1)
+            print(f'  Saved to {CAL_FILE}.')
+        if a.only in (None, 'level'):
+            step_level_meter(audio, cal)
+        if a.only in (None, 'gr'):
+            step_gr_meter(audio, cal, a.gr_input)
+        print('\nDone. Both meters are set.' if a.only is None else '\nDone.')
+    except KeyboardInterrupt:
+        print('\nStopped.')
+    finally:
+        audio.close()
+
+
+if __name__ == '__main__':
+    main()
