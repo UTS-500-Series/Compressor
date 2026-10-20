@@ -221,8 +221,20 @@ def step_output(audio, cal):
     drive = -10.0
     audio.set_dbfs(drive)
     print(f'  Playing {audio.freq:g} Hz at {drive:g} dBFS.')
-    print('  Put the meter on AC volts across the output\'s tip and ring (hot and cold).')
-    v = ask_float('  What does it read, in volts? ')
+    print('  Put the meter on AC volts across the output\'s tip and ring (hot and cold), or\n'
+          '  pins 2 and 3 at the XLR end of a cable.')
+    while True:
+        v = ask_float('  What does it read, in volts? ')
+        if v_to_dbu(v) - drive >= 0:
+            break
+        # Line outputs give +4 dBu or more at 0 dBFS; much less means the tone isn't really there.
+        print(f'  That\'s only {v_to_dbu(v) - drive:+.1f} dBu at 0 dBFS, far below any line output and too\n'
+              '  low to set the meters. Check the tone is reaching that output (the interface\'s\n'
+              '  mixer routing, monitor volume, mute or dim), the probes, and that the meter is on\n'
+              '  volts, not millivolts. Some cheap meters also read low at 1 kHz; --freq 400 helps.')
+        if (ask('  Measure again? [Y/n] ', 'y') or 'y').lower().startswith('y'):
+            continue
+        break
     audio.set_dbfs(None)
     cal['out_dbu_at_0'] = v_to_dbu(v) - drive
     print(f"  That's {v_to_dbu(v):+.1f} dBu, so the output is {cal['out_dbu_at_0']:+.1f} dBu "
