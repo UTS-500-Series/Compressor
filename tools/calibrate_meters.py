@@ -87,10 +87,11 @@ class Audio:
         self.amp, self.target_amp, self.phase = 0.0, 0.0, 0.0
         info = sd.query_devices(device)
         n_out = max(self.out_ch + 1, 1)
-        n_in = max(self.in_ch + 1, 1)
-        if n_out > info['max_output_channels'] or n_in > info['max_input_channels']:
+        n_in = info['max_input_channels']   # open every input so a wrong --in can be spotted
+        if n_out > info['max_output_channels'] or self.in_ch + 1 > n_in:
             sys.exit(f"{info['name']} has {info['max_output_channels']} outputs and "
                      f"{info['max_input_channels']} inputs; pick channels within those.")
+        self.peaks = np.zeros(n_in)
         self.stream = sd.Stream(device=device, samplerate=rate, channels=(n_in, n_out),
                                 dtype='float32', callback=self._cb)
         self.stream.start()
@@ -105,6 +106,7 @@ class Audio:
         self.amp = self.target_amp
         self.phase = (self.phase + step * frames) % (2 * math.pi)
         with self.lock:
+            self.peaks = np.maximum(self.peaks, np.abs(indata).max(axis=0))
             x = indata[:, self.in_ch]
             n = len(x)
             self.buf = np.concatenate([self.buf[n:], x]) if n < len(self.buf) else x[-len(self.buf):]
@@ -234,15 +236,34 @@ def step_input(audio, cal):
           '  leave the gain there for the whole session.')
     wait_enter()
     drive = -20.0
+    with audio.lock:
+        audio.peaks[:] = 0
     audio.set_dbfs(drive)
     got = average(audio)
     audio.set_dbfs(None)
     if got < -80:
-        sys.exit('  Nothing came back. Check the cable, the channel numbers and the input gain.')
+        no_signal(audio)
     out_dbu = cal['out_dbu_at_0'] + drive
     cal['in_dbu_at_0'] = out_dbu - got
     print(f'  Sent {out_dbu:+.1f} dBu, read {got:.1f} dBFS, so the input clips at about '
           f"{cal['in_dbu_at_0']:+.1f} dBu.")
+
+
+def no_signal(audio):
+    """Say why the loopback tone didn't arrive, from the peaks seen on every input."""
+    peaks = audio.peaks.copy()
+    print('  Nothing came back on input', audio.in_ch + 1)
+    print('  Peak seen on each input:', '  '.join(
+        f'{i + 1}: {20 * math.log10(p) if p > 0 else -math.inf:.0f} dBFS' for i, p in enumerate(peaks)))
+    best = int(np.argmax(peaks))
+    if not peaks.any():
+        sys.exit('  Every input is exact digital silence, which on a Mac means the terminal isn\'t\n'
+                 '  allowed to use the microphone. Open System Settings > Privacy & Security >\n'
+                 '  Microphone, turn on Terminal (or whichever app you run this from), then quit\n'
+                 '  that app completely and run the script again.')
+    if best != audio.in_ch and peaks[best] > 10 ** (-60 / 20):
+        sys.exit(f'  The tone is arriving on input {best + 1}. Run again with --in {best + 1}.')
+    sys.exit('  Check the cable, the channel numbers and the input gain.')
 
 
 def out_dbu(audio, cal):
