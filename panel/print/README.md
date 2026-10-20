@@ -68,8 +68,9 @@ so it fits the front board as drawn.
 3. **Settings:** 0.4 mm nozzle, 0.2 mm layers, 4 walls, 100% infill, no supports. Print it as
    exported, face down, so the legend and the front come out against the bed. The LED slots
    end up on top, open, and the bracket stands straight up with 45° undersides on its ears,
-   so none of it needs supports. The bracket's wall is only 1.1 mm thick, so slow the print
-   down for its upper layers if your printer wobbles tall thin walls. A textured PEI sheet gives the front a nice finish.
+   so none of it needs supports. The bracket's wall makes the print 146 mm tall and adds
+   about 40 cm³ of plastic. The flanges keep it steady as it grows; if the top of it wobbles,
+   slow the outer walls down for the upper layers. A textured PEI sheet gives the front a nice finish.
 4. **Two colours (optional):** in Bambu Studio or OrcaSlicer, import `faceplate-multicolor.3mf`
    (File, Import, or Cmd/Ctrl+I); in PrusaSlicer use `faceplate-multicolor-prusaslicer.3mf`.
    It loads as one object with two parts already lined up: the panel on filament 1 and the
@@ -84,13 +85,19 @@ so it fits the front board as drawn.
 ## The main-board bracket
 
 The faceplate carries its own bracket for the main board, printed in one piece with it. A
-1.1 mm wall stands 34 mm off the back along the panel's left edge (seen from the front),
-just outside the front board. Two ears on it reach in behind the front board to the main
-board's two M3 holes, H1 and H2, on the board's solder side. Each ear has a slot for an M3
-nut, open at the back end.
+wall stands off the back along the panel's left edge (seen from the front) and runs back
+the whole length of the main board, stopping 2 mm short of the shoulders beside the edge
+connector tab (142 mm behind the panel). It covers the board's solder side, so nothing on
+the next module can touch it. Beside the front board the wall is 0.8 mm thick, which
+leaves the board 0.55 mm to slot in; behind the front board (13.5 mm back) it steps out to
+2.0 mm. A 1.6 mm flange runs along its top and bottom edges, 3.8 mm wide, above and below
+both boards, which turns the wall into a channel and stiffens it. Two ears on the wall
+reach in behind the front board to the main board's two M3 holes, H1 and H2, on the
+board's solder side. Each ear has a slot for an M3 nut, open at the back end.
 
-To fit the main board, drop an M3 nut into each ear's slot. Put an M3 × 8 screw through
-H1 and H2 from the component side, and tighten it into the nut. The screw hole in each ear
+To fit the main board, drop an M3 nut into each ear's slot. Put an M3 × 6 screw (or × 8)
+through H1 and H2 from the component side, and tighten it into the nut. Skip washers
+under the head with × 6. An M3 × 10 pokes out of the side of the wall. The screw hole in each ear
 is a 3 mm slot along the depth, and the nut slides in its slot to suit, so the board can sit
 a little nearer the panel or further back. Trim the lead ends on the back of the front
 board flush where the ears pass behind it.
@@ -105,6 +112,8 @@ checked in a rack yet. They're all parameters at the top of `faceplate.scad`:
   boards were designed. The slots allow ±1.5 mm.
 - **Height:** the 105 mm card is centred on the 133.35 mm panel (`board_top`). The wall stays
   inside the rack's 118.42 mm opening, clear of the rails behind the panel's top and bottom.
+  Its flanges stop 4 mm from the panel's edge (`flange_x`), short of the board's plane, so
+  they should miss a rack's card guides; if your rack's guides are wider, reduce `flange_x`.
 
 The bracket is plastic, so it doesn't tie the panel to CHASSIS the way a metal bracket on
 H2 would. Set `bracket = false` for a plain panel to use with a metal angle instead. The

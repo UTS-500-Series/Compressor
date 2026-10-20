@@ -54,7 +54,8 @@ The boards are joined only by the ribbon; each one is fixed to the faceplate on 
   (J1 pin 1), so the bracket also grounds the panel as the faceplate guide asks. Mask
   the anodise where the bracket touches the panel.
   The 3D-printed faceplate in `panel/print/` has this bracket built in: two ears that
-  H1 and H2 screw to with M3 × 8 screws into captive nuts.
+  H1 and H2 screw to with M3 × 6 screws into captive nuts, and a wall that runs back
+  along the main board to cover its solder side.
 
 ## Coordinates
 

@@ -370,17 +370,28 @@ plain = blank.cut(*cutters).clean()
 
 # ------------------------------------------------------------------ main board bracket
 def main_board_bracket():
-    """The wall down the panel's left edge and the two ears the main board screws to,
-    as faceplate.scad's main_board_bracket(): behind the panel is z < 0."""
+    """The wall down the panel's left edge and back along the main board, its flanges,
+    and the two ears the main board screws to, as faceplate.scad's main_board_bracket():
+    behind the panel is z < 0."""
     board_top = (H - 105) / 2           # faceplate.scad's default, an expression there
     face = W / 2 - p['board_offset'] - p['board_t'] / 2 - p['bracket_gap']
     x0 = p['bracket_wall_x']
     x1 = x0 + p['bracket_wall_t']
+    xf = x0 + p['wall_front_t']
     reach = p['board_setback'] + max(h[1] for h in p['board_holes']) + p['ear_back']
+    wall_depth = p['board_setback'] + p['board_len'] - p['wall_back_gap']
     y_top = (H - p['rack_opening']) / 2 + 0.3
     y_bot = H - y_top
-    body = cq.Solid.makeBox(x1 - x0, y_bot - y_top, reach + 0.01,
-                            cq.Vector(x0, H - y_bot, -reach))
+    fd = p['wall_front_depth']
+    pts = [(x0, 0.01), (xf, 0.01), (xf, -fd), (x1, -fd - (x1 - xf)), (x1, -wall_depth),
+           (x0, -wall_depth)]
+    wall = cq.Face.makeFromWires(cq.Wire.makePolygon(
+        [cq.Vector(x, H - y_bot, z) for x, z in pts], close=True))
+    body = cq.Solid.extrudeLinear(wall, cq.Vector(0, y_bot - y_top, 0))
+    ft = p['flange_t']
+    for y in (y_top, y_bot - ft):
+        body = body.fuse(cq.Solid.makeBox(p['flange_x'] - x0, ft, wall_depth + 0.01,
+                                          cq.Vector(x0, H - y - ft, -wall_depth)))
     ef, eh = p['ear_front'], p['ear_half']
     for _, hy in [(h[0], board_top + h[0]) for h in p['board_holes']]:
         y0 = H - hy - eh

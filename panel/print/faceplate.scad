@@ -111,7 +111,7 @@ retainer_pin_fit = 0.1;
 
 /* [Main board bracket] */
 // a wall down the back of the panel's left edge with two ears that the main board
-// screws to (M3 x 8 through H1 and H2, into nuts captive in the ears)
+// screws to (M3 x 6 or x 8 through H1 and H2, into nuts captive in the ears)
 bracket = true;
 // main board: centre plane left of the panel centreline (front view), as the 500 rack's
 // edge connector, 11.12 mm left of centre
@@ -126,9 +126,22 @@ board_holes = [[11.0, 4.85], [96.0, 4.85]];
 // air between each ear and the board's solder side; shim with washers if the board
 // sits further over in your rack
 bracket_gap = 0.3;
-// the wall: up the panel's left edge, clear of the front board (x from 1.55)
+// main board length from its front edge to the shoulders beside the edge-connector tab
+board_len = 120.35;
+// the wall: up the panel's left edge and back along the main board's solder side, to
+// cover it from the next module. It stops this far short of the board's shoulders,
+// clear of the rack's edge connector
 bracket_wall_x = 0.2;
-bracket_wall_t = 1.1;
+wall_back_gap = 2.0;
+// beside the front board (x from 1.55) the wall is thin, to leave the board 0.55 mm
+// to slot in; it thickens with a 45 degree step behind the board's back and its leads
+bracket_wall_t = 2.0;
+wall_front_t = 0.8;
+wall_front_depth = 13.5;
+// stiffening flanges along the wall's top and bottom edges, above and below the boards
+// (and clear of any card guides, which sit nearer the board's plane)
+flange_x = 4.0;
+flange_t = 1.6;
 // the 500 rack's rails cover the panel back above and below the 118.42 mm opening
 rack_opening = 118.42;
 // the ears stay this far behind the panel, clear of the front board (12.2 mm to its back
@@ -322,12 +335,22 @@ module main_board_bracket() {
     face = W / 2 - board_offset - board_t / 2 - bracket_gap;  // the ears' board-side face
     x0 = bracket_wall_x;
     x1 = x0 + bracket_wall_t;
-    depth = board_setback + max([for (h = board_holes) h[1]]) + ear_back;
+    xf = x0 + wall_front_t;
+    depth = board_setback + max([for (h = board_holes) h[1]]) + ear_back;  // the ears'
+    wall_depth = board_setback + board_len - wall_back_gap;
     y_top = (H - rack_opening) / 2 + 0.3;
     y_bot = H - y_top;
     difference() {
         union() {
-            translate([x0, H - y_bot, -depth]) cube([x1 - x0, y_bot - y_top, depth + eps]);
+            // the wall's cross-section in x and depth, swept from top to bottom
+            translate([0, H - y_top, 0]) rotate([90, 0, 0])
+                linear_extrude(y_bot - y_top)
+                    polygon([[x0, eps], [xf, eps], [xf, -wall_front_depth],
+                             [x1, -wall_front_depth - (x1 - xf)], [x1, -wall_depth],
+                             [x0, -wall_depth]]);
+            for (y = [y_top, y_bot - flange_t])
+                translate([x0, H - y - flange_t, -wall_depth])
+                    cube([flange_x - x0, flange_t, wall_depth + eps]);
             for (h = board_holes) {
                 y = board_top + h[0];
                 // the ear's cross-section in x and depth, swept along the board
