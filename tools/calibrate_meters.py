@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Sets the two meter trimpots, RV8 (level) and RV7 (gain reduction), with an audio interface.
 
-    pip3 install numpy sounddevice
+    python3 -m venv ~/meter-venv && source ~/meter-venv/bin/activate
+    python3 -m pip install numpy sounddevice
     python3 tools/calibrate_meters.py --list                  # find your interface
     python3 tools/calibrate_meters.py --device "Scarlett" --out 1 --in 1
 
 The script plays a sine from one interface output and measures one input, so it needs a
-balanced line out, a line input with its gain fixed for the whole session, a TRS-to-TRS
-loopback cable, and a multimeter with an AC volts range. It walks you through four steps:
+balanced line out, an input with its gain fixed for the whole session, a loopback cable and
+a multimeter with an AC volts range. The loopback can be TRS to TRS into a line input, or TRS
+to XLR into the XLR side of a combo input (gain at minimum, phantom power off). A mic input
+clips sooner than a line input, so the script checks the headroom and, if it's short, sets
+the level meter at a lower LED instead. It walks you through four steps:
 
   1. Output level. It plays a tone and you read the AC volts across the output's hot and cold
      (tip and ring) with the meter. That ties the interface's dBFS to dBu. If you already know
@@ -54,8 +58,9 @@ GR_LEDS = [  # dB of gain reduction. LED 1 is the top of the gain-reduction colu
     ('D26', 'orange', 16.7), ('D27', 'orange', 21.1), ('D28', 'orange', 25.7),
     ('D29', 'orange', 30.4),
 ]
-LEVEL_TRIM_LED = 5   # D34, the top green LED: +12.0 dBu, reachable by most interfaces
+LEVEL_TRIM_LED = 5   # D34, the top green LED: +12.0 dBu. Lower if the input can't take it.
 GR_TRIM_LED = 7      # D26, 7th from the top: 16.7 dB, reachable from a +8 dBu input
+HEADROOM = 3.0       # dB kept below the interface input's clip point
 
 DBU_REF = 0.7746     # volts rms at 0 dBu
 MAX_DRIVE = -0.5     # never drive the interface output above this, in dBFS
@@ -224,8 +229,9 @@ def step_output(audio, cal):
 
 def step_input(audio, cal):
     print('\nSTEP 2: interface input level')
-    print('  Patch the loopback cable from that output to that input. Line input, no phantom\n'
-          '  power, input gain at minimum or wherever you will leave it for the whole session.')
+    print('  Patch the loopback cable from that output to that input. A line input is best; the\n'
+          '  XLR side of a combo input works too. Phantom power OFF, input gain at minimum, and\n'
+          '  leave the gain there for the whole session.')
     wait_enter()
     drive = -20.0
     audio.set_dbfs(drive)
@@ -299,12 +305,23 @@ def report(hits, leds, unit, signed=True):
     print(f'  ({unit})')
 
 
-def step_level_meter(audio, cal):
-    ref, colour, target = LEVEL_LEDS[LEVEL_TRIM_LED - 1]
+def step_level_meter(audio, cal, led=None):
     print(f'\nSTEP 3: level meter (RV8)')
-    if cal['in_dbu_at_0'] < target + 1:
+    room = cal['in_dbu_at_0'] - HEADROOM
+    if led is None:
+        fits = [i + 1 for i, l in enumerate(LEVEL_LEDS[:LEVEL_TRIM_LED]) if l[2] <= room]
+        if not fits:
+            sys.exit(f"  The interface input clips at {cal['in_dbu_at_0']:+.1f} dBu, too low to set "
+                     'this meter. Use a line input, or turn the input gain down and redo step 2.')
+        led = fits[-1]
+        if led != LEVEL_TRIM_LED:
+            print(f"  The input clips at {cal['in_dbu_at_0']:+.1f} dBu, so setting the meter at LED "
+                  f'{led} ({LEVEL_LEDS[led - 1][2]:+.1f} dBu) instead of LED {LEVEL_TRIM_LED}. The '
+                  'meter is\n  linear, so this sets the whole scale; it is just a little less precise.')
+    ref, colour, target = LEVEL_LEDS[led - 1]
+    if target > room:
         sys.exit(f"  The interface input clips at {cal['in_dbu_at_0']:+.1f} dBu, too close to "
-                 f'the {target:+.1f} dBu this needs. Lower the input gain and redo step 2.')
+                 f'the {target:+.1f} dBu LED {led} needs. Pick a lower --level-led.')
     connect_module()
     drive = target - cal['out_dbu_at_0'] - 3   # start a little low, then close in
     audio.set_dbfs(drive)
@@ -315,21 +332,23 @@ def step_level_meter(audio, cal):
         sys.exit(f'  The interface can\'t reach {target:+.1f} dBu through the module at unity.\n'
                  '  Turn MAKEUP up a little and run this step again.')
     print(f'  The module output is holding at {target:+.1f} dBu.')
-    print(f'  Turn RV8 until LED {LEVEL_TRIM_LED} from the bottom of the level column ({ref}, the\n'
-          f'  top {colour} one) just takes over from the one below it. Go past it, then come\n'
-          '  back slowly and stop the moment it lights. Press Enter when it does.')
+    print(f'  Turn RV8 until LED {led} from the bottom of the level column ({ref}, {colour}) just\n'
+          '  takes over from the one below it. Go past it, then come back slowly and stop the\n'
+          '  moment it lights. Press Enter when it does.')
     live(audio, lambda: f'module out {out_dbu(audio, cal):+6.2f} dBu (holding {target:+.1f})',
          lambda: None)
     if (ask('  Sweep the whole meter to check it? [Y/n] ', 'y') or 'y').lower().startswith('y'):
         top = min(LEVEL_LEDS[-1][2] + 1.0, cal['in_dbu_at_0'] - 1.0)
+        if top < LEVEL_LEDS[-1][2]:
+            print(f'  The sweep stops at {top:+.1f} dBu to keep the interface input from clipping.')
         gain = target - (drive + cal['out_dbu_at_0'])
         hits = sweep_level(audio, cal, gain, LEVEL_LEDS[0][2] - 3, top)
         report(hits, LEVEL_LEDS, 'dBu at the module output')
     audio.set_dbfs(None)
 
 
-def step_gr_meter(audio, cal, in_dbu):
-    ref, colour, target = GR_LEDS[GR_TRIM_LED - 1]
+def step_gr_meter(audio, cal, in_dbu, led=GR_TRIM_LED):
+    ref, colour, target = GR_LEDS[led - 1]
     print(f'\nSTEP 4: gain-reduction meter (RV7)')
     print('  Same patching as step 3. THRESHOLD fully clockwise, RATIO fully clockwise\n'
           '  (hardest), ATTACK and RELEASE fast, MAKEUP where it is. Don\'t touch MAKEUP\n'
@@ -340,6 +359,12 @@ def step_gr_meter(audio, cal, in_dbu):
         drive = MAX_DRIVE
         in_dbu = cal['out_dbu_at_0'] + drive
         print(f'  The interface tops out at {in_dbu:+.1f} dBu, so using that as the input.')
+    if in_dbu > cal['in_dbu_at_0'] - HEADROOM:
+        # The uncompressed output comes back at about the input level, so keep it below the clip.
+        in_dbu = cal['in_dbu_at_0'] - HEADROOM
+        drive = in_dbu - cal['out_dbu_at_0']
+        print(f'  Using {in_dbu:+.1f} dBu as the input so the uncompressed output doesn\'t clip the\n'
+              '  interface input.')
     audio.set_dbfs(drive)
     time.sleep(1.0)
     ref_out = cal['in_dbu_at_0'] + average(audio, 3.0)
@@ -348,9 +373,11 @@ def step_gr_meter(audio, cal, in_dbu):
     def gr():
         return ref_out - out_dbu(audio, cal)
 
-    print(f'  Turn THRESHOLD down until the gain reduction reads {target:.1f} dB, then press Enter.')
+    print(f'  Turn THRESHOLD down until the gain reduction reads {target:.1f} dB, then press Enter.\n'
+          '  If THRESHOLD fully down can\'t get there, press Ctrl-C and run again with\n'
+          f'  --only gr --gr-led {led - 1} (a lower LED).')
     live(audio, lambda: f'gain reduction {gr():5.1f} dB (want {target:.1f})', lambda: None)
-    print(f'  Now turn RV7 until LED {GR_TRIM_LED} from the top of the gain-reduction column\n'
+    print(f'  Now turn RV7 until LED {led} from the top of the gain-reduction column\n'
           f'  ({ref}) just takes over from the one above it. Go past it, then come back slowly\n'
           '  and stop the moment it lights. Leave THRESHOLD alone. Press Enter when it does.')
     live(audio, lambda: f'gain reduction {gr():5.1f} dB (want {target:.1f})', lambda: None)
@@ -381,12 +408,17 @@ def main():
     p.add_argument('--gr-input', type=float, default=8.0,
                    help='module input level for the gain-reduction step, dBu (default +8)')
     p.add_argument('--only', choices=['level', 'gr'], help='run just one meter step')
+    p.add_argument('--level-led', type=int, choices=range(1, 11), metavar='1-10',
+                   help=f'level LED to set RV8 at (default {LEVEL_TRIM_LED}, lower if the input is short)')
+    p.add_argument('--gr-led', type=int, choices=range(1, 11), metavar='1-10', default=GR_TRIM_LED,
+                   help=f'gain-reduction LED to set RV7 at (default {GR_TRIM_LED})')
     a = p.parse_args()
 
     try:
         import sounddevice as sd
     except ImportError:
-        sys.exit('This needs numpy and sounddevice: pip3 install numpy sounddevice')
+        sys.exit('This needs numpy and sounddevice. Make a venv first (see the top of this file),\n'
+                 'then: python3 -m pip install numpy sounddevice')
     if a.list or a.device is None:
         print(sd.query_devices())
         if a.device is None and not a.list:
@@ -413,9 +445,9 @@ def main():
                 json.dump(cal, f, indent=1)
             print(f'  Saved to {CAL_FILE}.')
         if a.only in (None, 'level'):
-            step_level_meter(audio, cal)
+            step_level_meter(audio, cal, a.level_led)
         if a.only in (None, 'gr'):
-            step_gr_meter(audio, cal, a.gr_input)
+            step_gr_meter(audio, cal, a.gr_input, a.gr_led)
         print('\nDone. Both meters are set.' if a.only is None else '\nDone.')
     except KeyboardInterrupt:
         print('\nStopped.')
