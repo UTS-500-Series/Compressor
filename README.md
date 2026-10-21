@@ -221,6 +221,27 @@ if the fab offers it. Plain HASL works for a prototype but wears with repeated i
 sh tools/plot_fab.sh                 # both boards, needs KiCad 10's kicad-cli
 ```
 
+## Calibrating the meters
+
+`tools/calibrate_meters.py` sets RV8 (level) and RV7 (gain reduction) with an audio interface,
+a loopback cable and a multimeter. It learns the interface's levels in dBu, then holds a tone
+at each meter's target while you turn the trimpot, and can sweep each meter afterwards to check
+every LED against the simulated scale in [kicad/sim/README.md](kicad/sim/README.md#the-meters).
+
+```bash
+python3 -m venv ~/meter-venv          # macOS/Homebrew Python refuses a system-wide pip install
+source ~/meter-venv/bin/activate      # again in each new terminal
+python3 -m pip install numpy sounddevice
+python3 tools/calibrate_meters.py --list
+python3 tools/calibrate_meters.py --device "<interface name>" --out 1 --in 1
+```
+
+The level meter is set at the top green LED (D34, +12.0 dBu out) and the gain-reduction meter
+at the seventh LED from the top (D26, 16.7 dB), both reachable with an ordinary line input.
+The loopback can also be a TRS-to-XLR cable into the XLR side of a combo input (gain at
+minimum, phantom power off). A mic input clips lower, so the script checks its headroom and
+sets the level meter at a lower LED if it has to (`--level-led` and `--gr-led` pick one by hand).
+
 ## Documentation site
 
 The site is a **separate repository**, checked out beside this one as `../UTS-500-Series.github.io`. It covers

@@ -60,3 +60,6 @@ __pycache__/
 
 # The Altronics order list is kept in git
 !bom/*.csv
+
+# Interface levels saved by tools/calibrate_meters.py
+tools/meter_cal.json
